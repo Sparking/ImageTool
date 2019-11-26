@@ -1,0 +1,10 @@
+prefix=E:/Software/vs_lib/vs2015/libjpeg-turbo
+exec_prefix=E:/Software/vs_lib/vs2015/libjpeg-turbo
+libdir=E:/Software/vs_lib/vs2015/libjpeg-turbo/lib
+includedir=E:/Software/vs_lib/vs2015/libjpeg-turbo/include
+
+Name: libturbojpeg
+Description: A SIMD-accelerated JPEG codec that provides the TurboJPEG API
+Version: 2.0.3
+Libs: -L${libdir} -lturbojpeg
+Cflags: -I${includedir}
