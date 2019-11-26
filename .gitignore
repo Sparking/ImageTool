@@ -1,0 +1,11 @@
+*.a
+*.o
+*.d
+*.dll
+*.so
+*.bmp
+*.jpg
+*.jpeg
+*.png
+*.exe
+run
