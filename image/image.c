@@ -85,7 +85,7 @@ void image_release(struct image *img)
 static unsigned char image_rgb2gray(const unsigned char red, const unsigned char green, const unsigned char blue)
 {
     //return (unsigned char)(0.114f * blue + 0.578f * green + 0.299f * red);
-    return (unsigned char)((38 * (unsigned short)red + 75 * (unsigned short)green + 15 * (unsigned short)blue) >> 7);
+    return (unsigned char)((38 * (unsigned int)red + 75 * (unsigned int)green + 15 * (unsigned int)blue) >> 7);
 }
 
 struct image *image_convert_format(const struct image *src_img, const unsigned int format)
