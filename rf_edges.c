@@ -1,4 +1,4 @@
-#include <stdlib.h>
+﻿#include <stdlib.h>
 #include <string.h>
 #include "maths.h"
 #include "rf_edges.h"
@@ -64,17 +64,21 @@ unsigned int image_find_raise_fall_edges(const unsigned char *imgdata, const uns
                 cur_edge->burr_base = imgdata[pos];
             }
         } else {
-                    ++cur_edge;
-                    ++cnt;
-                    cur_edge->len = 1;
-                    cur_edge->begin_pos = pos;
-                    cur_edge->type = IMAGE_RFEDGE_TYPE_NONE;
-                    cur_edge->min_gray = imgdata[pos];
-                    cur_edge->min_gray = imgdata[pos];
-                    cur_edge->burr_base = imgdata[pos];
-                    cur_edge->grad = 0;
+            ++cur_edge;
+            ++cnt;
+            cur_edge->len = 1;
+            cur_edge->begin_pos = pos;
+            cur_edge->type = IMAGE_RFEDGE_TYPE_NONE;
+            cur_edge->min_gray = imgdata[pos];
+            cur_edge->min_gray = imgdata[pos];
+            cur_edge->burr_base = imgdata[pos];
+            cur_edge->grad = 0;
         }
         last_gray = imgdata[pos];
+    }
+
+    for (pos = 0, cur_edge = pedge; pos < cnt; ++pos, ++pedge) {
+        if (pedge);
     }
 
     return cnt;
