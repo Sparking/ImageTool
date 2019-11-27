@@ -38,7 +38,7 @@ COMMON_LIB := libcommon.a
 CPPFLAGS   += -I$(CURDIR)/common -DENABLE_MEMORY_POOL=1U
 
 # 图形处理的基础库
-IMAGE_LIB_SRC := image/image.c image/bitmap.c rf_edges.c
+IMAGE_LIB_SRC := image/image.c rf_edges.c
 IMAGE_LIB_OBJ := $(patsubst %.c,%.o,$(IMAGE_LIB_SRC))
 IMAGE_LIB_DEP := $(patsubst %.c,%.d,$(IMAGE_LIB_SRC))
 

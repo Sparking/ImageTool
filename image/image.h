@@ -7,6 +7,10 @@ extern "C" {
 #include "maths.h"
 #include "bitmatrix.h"
 
+#define IMAGE_ENABLE_BITMAP
+#define IMAGE_ENABLE_JPEG
+#define IMAGE_ENABLE_PNG
+
 /* 图像的格式 */
 enum {
     IMAGE_FORMAT_GRAY = 0,  /* gray, 8 bits */
@@ -18,9 +22,17 @@ enum {
 
 /* 图像的文件格式 */
 enum {
-    IMAGE_FILE_BITMAP = 0,
+#ifdef IMAGE_ENABLE_BITMAP
+    IMAGE_FILE_BITMAP,
+#endif
+
+#ifdef IMAGE_ENABLE_JPEG
     IMAGE_FILE_JPEG,
+#endif
+
+#ifdef IMAGE_ENABLE_PNG
     IMAGE_FILE_PNG,
+#endif
 };
 
 /* 图像的原点为左上角 */
@@ -143,7 +155,7 @@ extern struct image *image_sharpening(const struct image *img,
 /**
  * @brief image_sobel_enhancing 灰度图锐化处理, sobel算子
  */
-extern struct image *image_sobel_enhancing(const struct image *img, const int method);
+extern struct image *image_sobel_enhancing(const struct image *img);
 
 /**
  * @brief image_laplace_enhancing 灰度图锐化处理, Laplace算子
@@ -238,4 +250,3 @@ extern struct image *image_rotation(const struct image *src_img, const struct po
 #ifdef __cplusplus
 }
 #endif
-

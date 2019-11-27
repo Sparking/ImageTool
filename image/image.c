@@ -4,12 +4,304 @@
 #include <string.h>
 #include "port_memory.h"
 #include "image.h"
-#include "bitmap.h"
-#include "png.h"
-#include "jpeglib.h"
 #include "maths.h"
 #include "stack.h"
 #include "queue.h"
+
+#ifdef IMAGE_ENABLE_PNG
+#include <png.h>
+#endif
+#ifdef IMAGE_ENABLE_JPEG
+#include <jpeglib.h>
+#endif
+
+#ifdef IMAGE_ENABLE_BITMAP
+#include <stdint.h>
+
+/* BMP头部两个字节, 小端格式 */
+#define BMP_FILE_TYPE   0x4D42  /* 'B' 'M' */
+
+/* 结构体1字节对齐 */
+#pragma  pack(push, 1)
+/* bitmap-file header */
+struct bitmap_header {
+    uint16_t bf_type;       /* BM */
+    uint32_t bf_size;
+    uint32_t bf_reserved;
+    uint32_t bf_data_offset;/* data offset */
+};
+
+/* bitmap-information header */
+struct bitmap_info_header {
+    uint32_t bi_size;
+    int32_t  bi_width;
+    int32_t  bi_height;     /* 可为正负数 */
+    uint16_t bi_planes;
+    uint16_t bi_bit_count;
+    uint32_t bi_compression;
+    uint32_t bi_size_image;
+    uint32_t bi_X_pels_meter;
+    uint32_t bi_Y_pels_meter;
+    uint32_t bi_color_used;
+    uint32_t bi_clr_important;
+};
+
+/* 调色板 */
+struct bitmap_color_table {
+    uint8_t blue;
+    uint8_t green;
+    uint8_t red;
+    uint8_t reserved;
+};
+
+struct bitmap_image {
+    struct bitmap_header bh;
+    struct bitmap_info_header bih;
+    struct bitmap_color_table *bct;
+    unsigned char *data;
+
+    int32_t actual_height;        /* 图像的实际高度 */
+    uint8_t dummy_line_bytes;   /* 图形每行数据的补齐字节数 */
+};
+#pragma pack(pop)
+
+static uint8_t bitmap_line_dummy_bytes(const uint32_t length, const uint32_t bit_count)
+{
+    return ((4 - (length * (bit_count >> 3))) & 3) & 3;
+}
+
+static void bitmap_init_256_color_table(struct bitmap_color_table pbct[256])
+{
+    for (uint16_t i = 0; i < 256; ++i) {
+        pbct[i].blue = pbct[i].green = pbct[i].red = (uint8_t)i;
+        pbct[i].reserved = 0;
+    }
+}
+
+/**
+ * @brief bitmap_file_count_size_image 计算位图数据+调色板的实际大小
+ * @param width 一行数据的长度
+ * @param height 数据的行数
+ * @param bit_count 每个数据的长度(bit)
+ */
+static uint32_t bitmap_file_count_size_image(const uint32_t width, const uint32_t height, const uint32_t bit_count)
+{
+    const uint32_t dummy_line_bytes = bitmap_line_dummy_bytes(width, bit_count);
+    uint32_t bitmap_size_image;
+
+    switch (bit_count) {
+    case 1:
+        bitmap_size_image = (sizeof(struct bitmap_color_table) << 1) + ((width >> 3) + dummy_line_bytes) * height;
+        break;
+    case 4:
+        bitmap_size_image = (sizeof(struct bitmap_color_table) << 4) + ((width >> 1) + dummy_line_bytes) * height;
+        break;
+    case 8:
+        bitmap_size_image = (sizeof(struct bitmap_color_table) << 8) + (width + dummy_line_bytes) * height;
+        break;
+    default:
+        bitmap_size_image = (width * (bit_count >> 3) + dummy_line_bytes) * height;
+        break;
+    }
+
+    return bitmap_size_image;
+}
+
+/**
+ * @brief bitmap_file_count_size 计算位图文件的实际大小
+ * @param width 一行数据的长度
+ * @param height 数据的行数
+ * @param bit_count 每个数据的长度(bit)
+ */
+static uint32_t bitmap_file_count_size(const uint32_t width, const uint32_t height, const uint32_t bit_count)
+{
+    uint32_t bitmap_file_size;
+
+    bitmap_file_size = sizeof(struct bitmap_header) + sizeof(struct bitmap_info_header)
+        + bitmap_file_count_size_image(width, height, bit_count);
+
+    return bitmap_file_size;
+}
+
+void bitmap_image_release(struct bitmap_image *img)
+{
+    if (img != NULL) {
+        if (img->bct != NULL) {
+            mem_free(img->bct);
+            img->bct = NULL;
+        }
+
+        if (img->data != NULL) {
+            mem_free(img->data);
+            img->data = NULL;
+        }
+        mem_free(img);
+    }
+}
+
+struct bitmap_image *bitmap_image_create(const int32_t height, const int32_t width, const uint32_t bit_counts, const uint8_t gray)
+{
+    struct bitmap_image *image;
+    const uint8_t data_size = bit_counts >> 3;
+
+    image = (struct bitmap_image *)mem_alloc(sizeof(struct bitmap_image));
+    if (image == NULL)
+        return NULL;
+
+    memset(image, 0, sizeof(struct bitmap_image));
+    image->bh.bf_type = BMP_FILE_TYPE;
+    image->bh.bf_size = bitmap_file_count_size(width, height, bit_counts);
+    image->bh.bf_data_offset = sizeof(struct bitmap_header) + sizeof(struct bitmap_info_header);
+    image->bih.bi_size = sizeof(struct bitmap_info_header);
+    image->bih.bi_height = height;
+    image->bih.bi_width = width;
+    image->bih.bi_planes = 1;
+    image->bih.bi_bit_count = bit_counts;
+    image->bih.bi_size_image = bitmap_file_count_size_image(width, height, bit_counts);
+    image->dummy_line_bytes = bitmap_line_dummy_bytes(width, bit_counts);
+    image->actual_height = height < 0 ? -height : height;
+    image->data = (unsigned char *)mem_alloc(image->actual_height * image->bih.bi_width * data_size);
+    if (image->data == NULL) {
+        mem_free(image);
+        return NULL;
+    }
+
+    image->bct = NULL;
+    if (image->bih.bi_bit_count == 8) {
+        image->bct = (struct bitmap_color_table *)mem_alloc(sizeof(struct bitmap_color_table) << 8);
+        if (image->bct == NULL) {
+            mem_free(image->data);
+            mem_free(image);
+            return NULL;
+        }
+
+        bitmap_init_256_color_table(image->bct);
+        image->bh.bf_data_offset += sizeof(struct bitmap_color_table) << 8;
+    }
+    memset(image->data, gray, image->actual_height * image->bih.bi_width * data_size);
+
+    return image;
+}
+
+struct bitmap_image *bitmap_image_open(const char *filename)
+{
+    int ret;
+    FILE *fp;
+    struct bitmap_image *image;
+    uint32_t line_size;
+    int32_t y;
+    uint8_t data_size;
+    unsigned char *pdata;
+
+    if (filename == NULL)
+        return NULL;
+
+    fp = fopen(filename, "rb");
+    if (fp == NULL)
+        return NULL;
+
+    ret = -1;
+    image = (struct bitmap_image *)mem_alloc(sizeof(struct bitmap_image));
+    if (image == NULL)
+        goto release_resource;
+
+    memset(image, 0, sizeof(struct bitmap_image));
+    if (fread(&image->bh, sizeof(image->bh), 1, fp) != 1)
+        goto release_resource;
+
+    if (image->bh.bf_type != BMP_FILE_TYPE)
+        goto release_resource;
+
+    if (fread(&image->bih, sizeof(image->bih), 1, fp) != 1)
+        goto release_resource;
+
+    data_size = image->bih.bi_bit_count >> 3;
+    line_size = image->bih.bi_width * data_size;
+    image->actual_height = image->bih.bi_height;
+    if (image->actual_height < 0)
+        image->actual_height = -image->actual_height;
+    image->dummy_line_bytes = bitmap_line_dummy_bytes(image->bih.bi_width, image->bih.bi_bit_count);
+    image->bct = NULL;
+    image->data = (unsigned char *)mem_alloc(image->actual_height * line_size);
+    if (image->data == NULL)
+        goto release_resource;
+
+    if (image->bih.bi_bit_count == 8) {
+        image->bct = (struct bitmap_color_table *)mem_alloc(sizeof(struct bitmap_color_table) << 8);
+        if (image->bct == NULL)
+            goto release_resource;
+
+        if (fread(image->bct, sizeof(struct bitmap_color_table) << 8, 1, fp) != 1)
+            goto release_resource;
+    }
+
+    for (y = 0, pdata = image->data; y < image->actual_height; ++y, pdata += line_size) {
+        if (fread(pdata, line_size, 1, fp) != 1)
+            goto release_resource;
+
+        if (data_size == 4) {
+            unsigned int x;
+
+            for (x = 3; x < line_size; x += data_size)
+                pdata[x] = 0xFF;
+        }
+
+        if (image->dummy_line_bytes)
+            fseek(fp, image->dummy_line_bytes, SEEK_CUR);
+    }
+
+    ret = 0;
+release_resource:
+    if (ret == -1 && image != NULL) {
+        if (image->data != NULL)
+            mem_free(image->data);
+
+        if (image->bct != NULL)
+            mem_free(image->bct);
+
+        mem_free(image);
+        image = NULL;
+    }
+    fclose(fp);
+
+    return image;
+}
+
+int bitmap_image_save(const char *filename, const struct bitmap_image *image)
+{
+    int32_t y;
+    FILE *fp;
+    uint32_t data_size;
+    uint32_t line_size;
+    unsigned char *pdata;
+    char dummy_bytes = 0;
+
+    if (filename == NULL || image == NULL)
+        return -1;
+
+    fp = fopen(filename, "wb");
+    if (fp == NULL)
+        return -1;
+
+    data_size = image->bih.bi_bit_count >> 3;
+    line_size = image->bih.bi_width * data_size;
+    fwrite((void *)&image->bh, sizeof(image->bh), 1, fp);
+    fwrite((void *)&image->bih, sizeof(image->bih), 1, fp);
+    if (image->bih.bi_bit_count == 8)
+        fwrite((void *)image->bct, sizeof(struct bitmap_color_table) << 8, 1, fp);
+
+    for (y = 0, pdata = image->data; y < image->actual_height; ++y, pdata += line_size) {
+        fwrite(pdata, line_size, 1, fp);
+        if (image->dummy_line_bytes)
+            fwrite(&dummy_bytes, 1, image->dummy_line_bytes, fp);
+    }
+    fflush(fp);
+    fclose(fp);
+
+    return 0;
+}
+
+#endif
 
 static unsigned char image_format_pixel_size(const unsigned int format)
 {
@@ -350,6 +642,8 @@ struct image *image_create_from_bitmatrix(const struct bitmatrix *matrix)
     return img;
 }
 
+#ifdef IMAGE_ENABLE_JPEG
+
 struct image *image_open_jpeg(const char *jpeg_file)
 {
     FILE *src_fp;
@@ -495,6 +789,10 @@ release_resource:
 
     return ret;
 }
+
+#endif
+
+#ifdef IMAGE_ENABLE_PNG
 
 unsigned int image_get_row4tbytes(const unsigned int width)
 {
@@ -689,61 +987,9 @@ int image_saveas_png(const char *file, const struct image *img)
     return ret;
 }
 
-int image_saveas_bitmap(const char *file, const struct image *img)
-{
-    int ret;
-    unsigned int j, i;
-    unsigned char *dst_ptr[2];
-    const unsigned char *src_ptr;
-    struct bitmap_image *bmp_img;
+#endif
 
-    if (file == NULL || img == NULL)
-        return -1;
-
-    bmp_img = bitmap_image_create(img->height, img->width, img->pixel_size << 3, 0);
-    if (bmp_img == NULL)
-        return -1;
-
-    for (src_ptr = img->data, dst_ptr[0] = bmp_img->data + img->size - img->row_size, j = 0; j < img->height; ++j) {
-        dst_ptr[1] = dst_ptr[0];
-        for (i = 0; i < img->width; ++i) {
-            memcpy(dst_ptr[1], src_ptr, img->pixel_size);
-            if (img->format == IMAGE_FORMAT_RGB || img->format == IMAGE_FORMAT_RGBA) {
-                dst_ptr[1][0] = src_ptr[2];
-                dst_ptr[1][2] = src_ptr[0];
-            }
-            src_ptr += img->pixel_size;
-            dst_ptr[1] += img->pixel_size;
-        }
-        dst_ptr[0] -= img->row_size;
-    }
-    ret = bitmap_image_save(file, bmp_img);
-    bitmap_image_release(bmp_img);
-
-    return ret;
-}
-
-int image_save(const char *file, const struct image *img, const int flag)
-{
-    int ret;
-
-    switch (flag) {
-    case IMAGE_FILE_BITMAP:
-        ret = image_saveas_bitmap(file, img);
-        break;
-    case IMAGE_FILE_JPEG:
-        ret = image_saveas_jpeg(file, img);
-        break;
-    case IMAGE_FILE_PNG:
-        ret = image_saveas_png(file, img);
-        break;
-    default:
-        ret = -1;
-        break;
-    }
-
-    return ret;
-}
+#ifdef IMAGE_ENABLE_BITMAP
 
 struct image *image_open_bmp(const char *file)
 {
@@ -793,6 +1039,70 @@ release_resource:
     return img;
 }
 
+int image_saveas_bitmap(const char *file, const struct image *img)
+{
+    int ret;
+    unsigned int j, i;
+    unsigned char *dst_ptr[2];
+    const unsigned char *src_ptr;
+    struct bitmap_image *bmp_img;
+
+    if (file == NULL || img == NULL)
+        return -1;
+
+    bmp_img = bitmap_image_create(img->height, img->width, img->pixel_size << 3, 0);
+    if (bmp_img == NULL)
+        return -1;
+
+    for (src_ptr = img->data, dst_ptr[0] = bmp_img->data + img->size - img->row_size, j = 0; j < img->height; ++j) {
+        dst_ptr[1] = dst_ptr[0];
+        for (i = 0; i < img->width; ++i) {
+            memcpy(dst_ptr[1], src_ptr, img->pixel_size);
+            if (img->format == IMAGE_FORMAT_RGB || img->format == IMAGE_FORMAT_RGBA) {
+                dst_ptr[1][0] = src_ptr[2];
+                dst_ptr[1][2] = src_ptr[0];
+            }
+            src_ptr += img->pixel_size;
+            dst_ptr[1] += img->pixel_size;
+        }
+        dst_ptr[0] -= img->row_size;
+    }
+    ret = bitmap_image_save(file, bmp_img);
+    bitmap_image_release(bmp_img);
+
+    return ret;
+}
+
+#endif
+
+int image_save(const char *file, const struct image *img, const int flag)
+{
+    int ret;
+
+    switch (flag) {
+#ifdef IMAGE_ENABLE_BITMAP
+    case IMAGE_FILE_BITMAP:
+        ret = image_saveas_bitmap(file, img);
+        break;
+#endif
+#ifdef IMAGE_ENABLE_JPEG
+    case IMAGE_FILE_JPEG:
+        ret = image_saveas_jpeg(file, img);
+        break;
+#endif
+#ifdef IMAGE_ENABLE_PNG
+    case IMAGE_FILE_PNG:
+        ret = image_saveas_png(file, img);
+        break;
+#endif
+    default:
+        ret = -1;
+        break;
+    }
+
+    return ret;
+}
+
 struct image *image_open(const char *file)
 {
     FILE *fp;
@@ -809,13 +1119,22 @@ struct image *image_open(const char *file)
     }
     fclose(fp);
 
+#ifdef IMAGE_ENABLE_PNG
     if (png_sig_cmp(checkheader, 0, 8) == 0) {
         img = image_open_png(file);
-    } else if (checkheader[0] == 'B' && checkheader[1] == 'M') {
+    } else 
+#endif
+#ifdef IMAGE_ENABLE_BITMAP
+    if (checkheader[0] == 'B' && checkheader[1] == 'M') {
         img = image_open_bmp(file);
-    } else if (checkheader[0] == 0xFF && checkheader[1] == 0xD8) {
+    } else 
+#endif
+#ifdef IMAGE_ENABLE_JPEG
+    if (checkheader[0] == 0xFF && checkheader[1] == 0xD8) {
         img = image_open_jpeg(file);
-    } else {
+    } else
+#endif
+    {
         img = NULL;
     }
 
@@ -898,28 +1217,9 @@ const static int sobel_fact[2][3][3] = {
     {{-1, -2, -1}, { 0, 0, 0}, { 1, 2, 1}},     /* 求Gy */
     {{-1,  0,  1}, {-2, 0, 2}, {-1, 0, 1}}};    /* 求Gx */
 
-struct image *image_sobel_enhancing(const struct image *img, const int method)
+struct image *image_sobel_enhancing(const struct image *img)
 {
-    const int *hori, *vert;
-
-    switch (method) {
-    case 0:
-        hori = sobel_fact[1][0];
-        vert = sobel_fact[0][0];
-        break;
-    case 1:
-        hori = sobel_fact[1][0];
-        vert = NULL;
-        break;
-    case 2:
-        hori = NULL;
-        vert = sobel_fact[0][0];
-        break;
-    default:
-        return NULL;
-    }
-
-    return image_sharpening(img, hori, vert, 3);
+    return image_sharpening(img, sobel_fact[0][0], sobel_fact[1][0], 3);
 }
 
 struct image *image_laplace_enhancing(const struct image *img, const unsigned int flag)
