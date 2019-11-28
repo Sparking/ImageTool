@@ -28,27 +28,6 @@ char *qr_decode_info(const struct image *img)
     return nullptr;
 }
 
-struct low_pass_filter {
-    int coeff_1024x;
-    int last_value;
-};
-
-void low_pass_filter_init(struct low_pass_filter *plpf, const float a, const int last_value)
-{
-    plpf->coeff_1024x = (int)(a * 1024.0f + 0.5f);
-    plpf->last_value = last_value;
-}
-
-int low_pass_filter_output(struct low_pass_filter *plpf, const int current_value)
-{
-    int last_value;
-
-    last_value = (plpf->coeff_1024x * current_value + (1024 - plpf->coeff_1024x) * plpf->last_value + 512) >> 10;
-    plpf->last_value = last_value;
-
-    return last_value;
-}
-
 int config_get(const char *filename)
 {
     const char *value;
@@ -340,6 +319,12 @@ int main(const int argc, char *argv[])
     image_release(img);
     if (gray == nullptr)
         return -1;
+
+    img = image_sobel_enhancing(gray);
+    if (img != nullptr) {
+        image_save("sobel.bmp", img, IMAGE_FILE_BITMAP);
+        image_release(img);
+    }
 
     img = gray;
     image_scale_line(img);

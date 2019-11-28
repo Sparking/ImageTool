@@ -4,10 +4,25 @@
 extern "C" {
 #endif
 
+#define FAST_MATH
+
+#if !defined (FAST_MATH)
+#endif
 #include <math.h>
 #include <stdbool.h>
-/* 定义Π的值 */
+
+
+#if defined (FAST_MATH)
+#define SQRTF               fast_sqrtf
+/* 快速开平方 */
+extern float fast_sqrtf(const float value);
+
+#define M_PIf               3.14159f
+#else
+#define SQRTF               sqrtf
 #define M_PIf               acosf(-1.0f)
+#endif
+
 
 #define DEGREE2RAD(degree)	((degree) * (M_PIf / 180.0f))
 #define RAD2DEGREE(rad)		((rad) * (180.0f / M_PIf))
@@ -122,9 +137,9 @@ static inline unsigned int unsigned_diff(const unsigned int a, const unsigned in
 extern unsigned char bits_count(unsigned int i);
 
 /**
- * @brief gcd 求解最大公约数
+ * @brief great_common_divisor 求解最大公约数
  */
-extern int gcd(const int a, const int b);
+extern int great_common_divisor(const int a, const int b);
 
 /**
  * @brief gaussian_elimination 高斯消元法求解

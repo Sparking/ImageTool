@@ -14,10 +14,45 @@ unsigned char bits_count(unsigned int i)
     return (i & 0x3f);
 }
 
-int gcd(const int a, const int b)
+int great_common_divisor(const int a, const int b)
 {
-    return (a % b == 0) ? b : gcd(b, a % b);
+    return (a % b == 0) ? b : great_common_divisor(b, a % b);
 }
+
+#if defined (FAST_MATH)
+
+float fast_inv_sqrtf(float number)
+{
+    long i;
+    float x2, y;
+    const float threehalfs = 1.5f;
+
+    x2 = number * 0.5f;
+    y = number;
+    i = *(long *)&y;  // evil floating point bit level hacking
+    i = 0x5F3759DF - ( i >> 1 ); // what the fuck?
+    y = * (float *)&i;
+    y = y * (threehalfs - (x2 * y * y)); // 1st iteration
+    // y = y * (threehalfs - ( x2 * y * y)); // 2nd iteration, this can be removed
+
+#ifdef __linux__
+    assert( !isnan(y) ); // bk010122 - FPE?
+#endif
+
+  return y;
+}
+
+/* 快速开平方 */
+float fast_sqrtf(const float value)
+{
+    if (value <= 1e-8 && value >= -1e-8) {
+        return 0.0f;
+    }
+
+    return 1.0f / fast_inv_sqrtf(value);
+}
+
+#endif
 
 unsigned int find_max_common_divisor(const unsigned int a, const unsigned int b)
 {
@@ -53,7 +88,7 @@ float vector_length(const struct vector *vec)
     if (vec->i == 0 || vec->j == 0)
         return (float)fabs(vec->i + vec->j);
 
-    return sqrtf((float)vector_dot(vec, vec));
+    return SQRTF((float)vector_dot(vec, vec));
 }
 
 float points_distance(const struct point *p1, const struct point *p2)

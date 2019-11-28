@@ -1173,40 +1173,48 @@ int image_gray_blance(struct image *img, const unsigned char grad)
     return 0;
 }
 
-struct image *image_sharpening(const struct image *img, const int *template1, const int *template2, const unsigned int dimension)
+struct image *image_sharpening(const struct image *img, const int *template1, const int *template2,
+        const unsigned int dimension)
 {
-    unsigned int n = dimension >> 1;
     struct image *dump_img;
+    struct vector g;
+    unsigned int x, y, s, t;
+    unsigned int row_offset[4];
+    unsigned int n = dimension >> 1;
 
-    if (img == NULL || img->format != IMAGE_FORMAT_GRAY || (template1 == NULL && template2 == NULL))
+    if (img == NULL || img->format != IMAGE_FORMAT_GRAY ||
+            (template1 == NULL && template2 == NULL)) {
         return NULL;
+    }
 
     dump_img = image_create(img->height, img->width, IMAGE_FORMAT_GRAY);
     if (dump_img == NULL)
         return NULL;
 
-    for (unsigned int x, y = n; y < img->height - n; ++y) {
-        unsigned int _row_offset = y * img->row_size;
+    row_offset[2] = n * img->row_size;
+    for (y = n; y < img->height - n; ++y, row_offset[2] += img->row_size) {
+        row_offset[3] = (y - n) * img->row_size - n;
         for (x = n; x < img->width - n; ++x) {
-            unsigned int s, t;
-            unsigned int row_offset[2];
-            int g[2] = {0, 0};
-
+            g.i = 0;
+            g.j = 0;
             row_offset[0] = 0;
-            row_offset[1] = (y - n) * img->row_size + x - n;
-            for (t = 0; t < dimension; ++t, row_offset[0] += dimension, row_offset[1] += img->row_size) {
+            row_offset[1] = row_offset[3] + x;
+            for (t = 0; t < dimension;
+                    ++t, row_offset[0] += dimension, row_offset[1] += img->row_size) {
                 for (s = 0; s < dimension; ++s) {
                     if (template1) {
-                        g[0] = g[0] + template1[row_offset[0] + s] * img->data[row_offset[1] + s];
+                        g.i += template1[row_offset[0] + s] * img->data[row_offset[1] + s];
                     }
 
                     if (template2) {
-                        g[1] = g[1] + template2[row_offset[0] + s] * img->data[row_offset[1] + s];
+                        g.j += template2[row_offset[0] + s] * img->data[row_offset[1] + s];
                     }
                 }
             }
-            g[0] = ((unsigned int)(fabs(g[0]) + fabs(g[1]))) >> 1;  /* 线性融合, 参考opencv addWeighted */
-            dump_img->data[_row_offset + x] = g[0] > 255.0f ? 255 : (unsigned char)g[0];
+            //g[0] = ((int)(fabs(g[0]) + fabs(g[1]))) >> 1;
+            g.i = vector_length(&g);
+            dump_img->data[row_offset[2] + x] =
+                    (((unsigned int)g.i) > 255.0f) ? 255 : (unsigned char)g.i;
         }
     }
 
@@ -1216,18 +1224,16 @@ struct image *image_sharpening(const struct image *img, const int *template1, co
 const static int sobel_fact[2][3][3] = {
     {{-1, -2, -1}, { 0, 0, 0}, { 1, 2, 1}},     /* 求Gy */
     {{-1,  0,  1}, {-2, 0, 2}, {-1, 0, 1}}};    /* 求Gx */
-
 struct image *image_sobel_enhancing(const struct image *img)
 {
     return image_sharpening(img, sobel_fact[0][0], sobel_fact[1][0], 3);
 }
 
+const static int laplace_fact[2][3][3] = {
+    {{ 0, -1,  0}, {-1, 5, -1}, { 0, -1,  0}},
+    {{-1, -1, -1}, {-1, 9, -1}, {-1, -1, -1}}};
 struct image *image_laplace_enhancing(const struct image *img, const unsigned int flag)
 {
-    const int laplace_fact[2][3][3] = {
-        {{ 0, -1,  0}, {-1, 5, -1}, { 0, -1,  0}},
-        {{-1, -1, -1}, {-1, 9, -1}, {-1, -1, -1}}};
-
     return image_sharpening(img, flag ? laplace_fact[1][0] : laplace_fact[0][0], NULL, 3);
 }
 
