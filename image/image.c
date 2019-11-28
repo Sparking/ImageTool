@@ -470,8 +470,8 @@ struct image *image_convert_format(const struct image *src_img, const unsigned i
         case IMAGE_FORMAT_GRAY:
             for (j = 0, offset[0] = 0, offset[1] = 0; j < img->height; ++j) {
                 for (i = 0; i < img->width; ++i, offset[0] += 3, ++offset[1]) {
-                    img->data[offset[1]] = image_rgb2gray(src_img->data[offset[0]],
-                            src_img->data[offset[0] + 1], src_img->data[offset[0] + 2]);
+                    img->data[offset[1]] = image_rgb2gray(src_img->data[offset[0] + 2],
+                            src_img->data[offset[0] + 1], src_img->data[offset[0]]);
                 }
             }
             break;
@@ -501,8 +501,8 @@ struct image *image_convert_format(const struct image *src_img, const unsigned i
         case IMAGE_FORMAT_GRAY:
             for (j = 0, offset[0] = 0, offset[1] = 0; j < img->height; ++j) {
                 for (i = 0; i < img->width; ++i, offset[0] += 4, ++offset[1]) {
-                    img->data[offset[1]] = image_rgb2gray(src_img->data[offset[0]] + 2,
-                            src_img->data[offset[0]] + 1, src_img->data[offset[0]]);
+                    img->data[offset[1]] = image_rgb2gray(src_img->data[offset[0] + 2],
+                            src_img->data[offset[0] + 1], src_img->data[offset[0]]);
                 }
             }
             break;
