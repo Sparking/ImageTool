@@ -1152,8 +1152,7 @@ int image_gray_blance(struct image *img, const unsigned char grad)
     if (img == NULL || img->format != IMAGE_FORMAT_GRAY)
         return -1;
 
-    for (y = 0; y < img->height; ++y) {
-        off = y * img->width;
+    for (y = 0, off = 0; y < img->height; ++y, off += img->width) {
         for (x = 0; x < img->width; ++x) {
             ++hd[img->data[off + x]];
         }
@@ -1165,7 +1164,7 @@ int image_gray_blance(struct image *img, const unsigned char grad)
         q[x] = q[x - 1] + p;
     }
 
-    for (y = 0, off = 0; y < img->height; ++y, off += img->row_size) {
+    for (y = 0, off = 0; y < img->height; ++y, off += img->width) {
         for (x = 0; x < img->width; ++x) {
             img->data[off + x] = (unsigned char)(q[img->data[off + x]] * grad);
         }
@@ -1193,7 +1192,7 @@ struct image *image_sharpening(const struct image *img, const int *template1, co
         return NULL;
 
     off[2] = n * img->row_size;
-    for (y = n; y < img->height - n; ++y, off[2] += img->row_size) {
+    for (y = n; y < img->height - n; ++y, off[2] += img->width) {
         off[3] = (y - n) * img->row_size - n;
         for (x = n; x < img->width - n; ++x) {
             g.i = 0;
@@ -1201,7 +1200,7 @@ struct image *image_sharpening(const struct image *img, const int *template1, co
             off[0] = 0;
             off[1] = off[3] + x;
             for (t = 0; t < dimension;
-                    ++t, off[0] += dimension, off[1] += img->row_size) {
+                    ++t, off[0] += dimension, off[1] += img->width) {
                 for (s = 0; s < dimension; ++s) {
                     if (template1) {
                         g.i += template1[off[0] + s] * img->data[off[1] + s];
