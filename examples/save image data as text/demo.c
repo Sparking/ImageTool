@@ -43,7 +43,7 @@ int main(int argc, char *argv[])
 				fprintf(fp, "%u ", img->data[off + x]);
 			}
 			if (y == img->height - 1) {
-				fprintf(fp, "]]\n");
+				fprintf(fp, "]];\n");
 			} else {
 				fprintf(fp, "],\n");
 			}
