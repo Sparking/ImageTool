@@ -187,11 +187,12 @@ struct bitmap_image *bitmap_image_open(const char *filename)
 {
     int ret;
     FILE *fp;
-    struct bitmap_image *image;
-    uint32_t line_size;
     int32_t y;
+    uint32_t x;
+    uint32_t line_size;
     uint8_t data_size;
     unsigned char *pdata;
+    struct bitmap_image *image;
 
     if (filename == NULL)
         return NULL;
@@ -240,8 +241,6 @@ struct bitmap_image *bitmap_image_open(const char *filename)
             goto release_resource;
 
         if (data_size == 4) {
-            unsigned int x;
-
             for (x = 3; x < line_size; x += data_size)
                 pdata[x] = 0xFF;
         }
@@ -326,7 +325,8 @@ static unsigned char image_format_pixel_size(const unsigned int format)
     return size;
 }
 
-struct image *image_create(const unsigned int height, const unsigned int width, const unsigned int format)
+struct image *image_create(const unsigned int height, const unsigned int width,
+        const unsigned int format)
 {
     struct image *img;
     const unsigned int pixel_size = image_format_pixel_size(format);
@@ -376,7 +376,6 @@ void image_release(struct image *img)
 
 static unsigned char image_rgb2gray(const unsigned char red, const unsigned char green, const unsigned char blue)
 {
-    //return (unsigned char)(0.114f * blue + 0.578f * green + 0.299f * red);
     return (unsigned char)((38 * (unsigned int)red + 75 * (unsigned int)green + 15 * (unsigned int)blue) >> 7);
 }
 
@@ -538,11 +537,11 @@ struct image *image_convert_gray(const struct image *img)
 
 unsigned char image_find_binariztion_global_threshold(const struct image *img)
 {
+    unsigned char i;
     unsigned int x, y;
     unsigned int row_offset;
     float m1, m2, n1, n2, sum, t, t0;
     const unsigned char *color;
-    unsigned char i;
 
     if (img == NULL || img->format != IMAGE_FORMAT_GRAY)
         return 0;
@@ -582,7 +581,8 @@ unsigned char image_find_binariztion_global_threshold(const struct image *img)
     return (unsigned char)(t + 0.5f);
 }
 
-int image_gray_binarize(struct image *img, const unsigned char threshold, const unsigned char gray, const unsigned bg_gray)
+int image_gray_binarize(struct image *img, const unsigned char threshold,
+        const unsigned char gray, const unsigned bg_gray)
 {
     unsigned int x, y;
     unsigned char *color;
@@ -601,7 +601,7 @@ int image_gray_binarize(struct image *img, const unsigned char threshold, const 
 
 struct bitmatrix *image_create_bitmatrix(const struct image *img)
 {
-    unsigned int i, j, row_offset;
+    unsigned int i, j, off;
     struct bitmatrix *matrix;
 
     if (img == NULL || img->format != IMAGE_FORMAT_GRAY)
@@ -611,9 +611,9 @@ struct bitmatrix *image_create_bitmatrix(const struct image *img)
     if (matrix == NULL)
         return NULL;
 
-    for (j = 0, row_offset = 0; j < img->height; ++j, row_offset += img->row_size)
+    for (j = 0, off = 0; j < img->height; ++j, off += img->row_size)
         for (i = 0; i < img->width; ++i)
-            bitmatrix_set(matrix, j, i, img->data[row_offset + i]);
+            bitmatrix_set(matrix, j, i, img->data[off + i]);
 
     return matrix;
 }
@@ -621,6 +621,7 @@ struct bitmatrix *image_create_bitmatrix(const struct image *img)
 struct image *image_create_from_bitmatrix(const struct bitmatrix *matrix)
 {
     struct image *img;
+    unsigned int i, j, off;
 
     if (matrix == NULL)
         return NULL;
@@ -629,12 +630,12 @@ struct image *image_create_from_bitmatrix(const struct bitmatrix *matrix)
     if (img == NULL)
         return NULL;
 
-    for (unsigned int i, j = 0, row_offset = 0; j < img->height; ++j, row_offset += img->row_size) {
+    for (j = 0, off = 0; j < img->height; ++j, off += img->row_size) {
         for (i = 0; i < img->width; ++i) {
             if (bitmatrix_get(matrix, j, i)) {
-                img->data[row_offset + i] = 0xFF;
+                img->data[off + i] = 0xFF;
             } else {
-                img->data[row_offset + i] = 0;
+                img->data[off + i] = 0;
             }
         }
     }
@@ -1044,8 +1045,8 @@ int image_saveas_bitmap(const char *file, const struct image *img)
     int ret;
     unsigned int j, i;
     unsigned char *dst_ptr[2];
-    const unsigned char *src_ptr;
     struct bitmap_image *bmp_img;
+    const unsigned char *src_ptr;
 
     if (file == NULL || img == NULL)
         return -1;
@@ -1144,6 +1145,7 @@ struct image *image_open(const char *file)
 int image_gray_blance(struct image *img, const unsigned char grad)
 {
     unsigned int x, y;
+    unsigned int off;
     unsigned int hd[256] = {0};
     float p, q[256];
 
@@ -1151,9 +1153,9 @@ int image_gray_blance(struct image *img, const unsigned char grad)
         return -1;
 
     for (y = 0; y < img->height; ++y) {
-        unsigned int row_offset = y * img->width;
+        off = y * img->width;
         for (x = 0; x < img->width; ++x) {
-            ++hd[img->data[row_offset + x]];
+            ++hd[img->data[off + x]];
         }
     }
 
@@ -1163,10 +1165,9 @@ int image_gray_blance(struct image *img, const unsigned char grad)
         q[x] = q[x - 1] + p;
     }
 
-    for (y = 0; y < img->height; ++y) {
-        unsigned int row_offset = y * img->width;
+    for (y = 0, off = 0; y < img->height; ++y, off += img->row_size) {
         for (x = 0; x < img->width; ++x) {
-            img->data[row_offset + x] = (unsigned char)(q[img->data[row_offset + x]] * grad);
+            img->data[off + x] = (unsigned char)(q[img->data[off + x]] * grad);
         }
     }
 
@@ -1176,11 +1177,11 @@ int image_gray_blance(struct image *img, const unsigned char grad)
 struct image *image_sharpening(const struct image *img, const int *template1, const int *template2,
         const unsigned int dimension)
 {
-    struct image *dump_img;
     struct vector g;
+    unsigned int off[4];
     unsigned int x, y, s, t;
-    unsigned int row_offset[4];
     unsigned int n = dimension >> 1;
+    struct image *dump_img;
 
     if (img == NULL || img->format != IMAGE_FORMAT_GRAY ||
             (template1 == NULL && template2 == NULL)) {
@@ -1191,29 +1192,29 @@ struct image *image_sharpening(const struct image *img, const int *template1, co
     if (dump_img == NULL)
         return NULL;
 
-    row_offset[2] = n * img->row_size;
-    for (y = n; y < img->height - n; ++y, row_offset[2] += img->row_size) {
-        row_offset[3] = (y - n) * img->row_size - n;
+    off[2] = n * img->row_size;
+    for (y = n; y < img->height - n; ++y, off[2] += img->row_size) {
+        off[3] = (y - n) * img->row_size - n;
         for (x = n; x < img->width - n; ++x) {
             g.i = 0;
             g.j = 0;
-            row_offset[0] = 0;
-            row_offset[1] = row_offset[3] + x;
+            off[0] = 0;
+            off[1] = off[3] + x;
             for (t = 0; t < dimension;
-                    ++t, row_offset[0] += dimension, row_offset[1] += img->row_size) {
+                    ++t, off[0] += dimension, off[1] += img->row_size) {
                 for (s = 0; s < dimension; ++s) {
                     if (template1) {
-                        g.i += template1[row_offset[0] + s] * img->data[row_offset[1] + s];
+                        g.i += template1[off[0] + s] * img->data[off[1] + s];
                     }
 
                     if (template2) {
-                        g.j += template2[row_offset[0] + s] * img->data[row_offset[1] + s];
+                        g.j += template2[off[0] + s] * img->data[off[1] + s];
                     }
                 }
             }
             //g[0] = ((int)(fabs(g[0]) + fabs(g[1]))) >> 1;
             g.i = vector_length(&g);
-            dump_img->data[row_offset[2] + x] =
+            dump_img->data[off[2] + x] =
                     (((unsigned int)g.i) > 255.0f) ? 255 : (unsigned char)g.i;
         }
     }
