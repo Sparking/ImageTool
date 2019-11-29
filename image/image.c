@@ -1212,8 +1212,14 @@ struct image *image_sharpening(const struct image *img, const int *template1, co
                     }
                 }
             }
-            //g[0] = ((int)(fabs(g[0]) + fabs(g[1]))) >> 1;
-            g.i = vector_length(&g);
+			if (g.i < 0) {
+				g.i = -g.i;
+			}
+
+			if (g.j < 0) {
+				g.j = -g.j;
+			}
+			g.i = (g.i + g.j) >> 1;
             dump_img->data[off[2] + x] =
                     (((unsigned int)g.i) > 255.0f) ? 255 : (unsigned char)g.i;
         }

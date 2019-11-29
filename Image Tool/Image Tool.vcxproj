@@ -216,7 +216,6 @@
     <ClCompile Include="..\common\queue.c" />
     <ClCompile Include="..\common\rbtree.c" />
     <ClCompile Include="..\common\stack.c" />
-    <ClCompile Include="..\image\bitmap.c" />
     <ClCompile Include="..\image\image.c" />
     <ClCompile Include="ChildFrm.cpp" />
     <ClCompile Include="DialogTransToolRotation.cpp" />

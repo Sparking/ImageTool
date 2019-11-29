@@ -74,9 +74,6 @@
     <ClCompile Include="Image ToolView.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\image\bitmap.c">
-      <Filter>Sources\Image</Filter>
-    </ClCompile>
     <ClCompile Include="..\image\image.c">
       <Filter>Sources\Image</Filter>
     </ClCompile>
