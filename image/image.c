@@ -123,7 +123,7 @@ static uint32_t bitmap_file_count_size(const uint32_t width, const uint32_t heig
     return bitmap_file_size;
 }
 
-void bitmap_image_release(struct bitmap_image *img)
+static void bitmap_image_release(struct bitmap_image *img)
 {
     if (img != NULL) {
         if (img->bct != NULL) {
@@ -139,7 +139,8 @@ void bitmap_image_release(struct bitmap_image *img)
     }
 }
 
-struct bitmap_image *bitmap_image_create(const int32_t height, const int32_t width, const uint32_t bit_counts, const uint8_t gray)
+static struct bitmap_image *bitmap_image_create(const int32_t height, const int32_t width,
+        const uint32_t bit_counts, const uint8_t gray)
 {
     struct bitmap_image *image;
     const uint8_t data_size = bit_counts >> 3;
@@ -151,7 +152,8 @@ struct bitmap_image *bitmap_image_create(const int32_t height, const int32_t wid
     memset(image, 0, sizeof(struct bitmap_image));
     image->bh.bf_type = BMP_FILE_TYPE;
     image->bh.bf_size = bitmap_file_count_size(width, height, bit_counts);
-    image->bh.bf_data_offset = sizeof(struct bitmap_header) + sizeof(struct bitmap_info_header);
+    image->bh.bf_data_offset = sizeof(struct bitmap_header)
+            + sizeof(struct bitmap_info_header);
     image->bih.bi_size = sizeof(struct bitmap_info_header);
     image->bih.bi_height = height;
     image->bih.bi_width = width;
@@ -183,7 +185,7 @@ struct bitmap_image *bitmap_image_create(const int32_t height, const int32_t wid
     return image;
 }
 
-struct bitmap_image *bitmap_image_open(const char *filename)
+static struct bitmap_image *bitmap_image_open(const char *filename)
 {
     int ret;
     FILE *fp;
@@ -266,7 +268,7 @@ release_resource:
     return image;
 }
 
-int bitmap_image_save(const char *filename, const struct bitmap_image *image)
+static int bitmap_image_save(const char *filename, const struct bitmap_image *image)
 {
     int32_t y;
     FILE *fp;
@@ -289,7 +291,8 @@ int bitmap_image_save(const char *filename, const struct bitmap_image *image)
     if (image->bih.bi_bit_count == 8)
         fwrite((void *)image->bct, sizeof(struct bitmap_color_table) << 8, 1, fp);
 
-    for (y = 0, pdata = image->data; y < image->actual_height; ++y, pdata += line_size) {
+    for (y = 0, pdata = image->data; y < image->actual_height;
+            ++y, pdata += line_size) {
         fwrite(pdata, line_size, 1, fp);
         if (image->dummy_line_bytes)
             fwrite(&dummy_bytes, 1, image->dummy_line_bytes, fp);
@@ -645,7 +648,7 @@ struct image *image_create_from_bitmatrix(const struct bitmatrix *matrix)
 
 #ifdef IMAGE_ENABLE_JPEG
 
-struct image *image_open_jpeg(const char *jpeg_file)
+static struct image *image_open_jpeg(const char *jpeg_file)
 {
     FILE *src_fp;
     unsigned char *jpeg_data;
@@ -700,7 +703,7 @@ release_resource:
     return img;
 }
 
-int image_saveas_jpeg(const char *jpeg_file, const struct image *img)
+static int image_saveas_jpeg(const char *jpeg_file, const struct image *img)
 {
     JSAMPROW row_jpeg_data;
     struct jpeg_error_mgr jerr;
@@ -795,14 +798,7 @@ release_resource:
 
 #ifdef IMAGE_ENABLE_PNG
 
-unsigned int image_get_row4tbytes(const unsigned int width)
-{
-    if ((width & 0x03) == 0)
-        return width;
-    return ((width >> 2) + 1) << 2;
-}
-
-struct image *image_open_png(const char *png_file)
+static struct image *image_open_png(const char *png_file)
 {
     png_uint_32 width, height;
     png_structp png_ptr;
@@ -868,7 +864,7 @@ release_resource:
     return img;
 }
 
-int image_saveas_png(const char *file, const struct image *img)
+static int image_saveas_png(const char *file, const struct image *img)
 {
     int ret;
     FILE *fp;
@@ -992,7 +988,7 @@ int image_saveas_png(const char *file, const struct image *img)
 
 #ifdef IMAGE_ENABLE_BITMAP
 
-struct image *image_open_bmp(const char *file)
+static struct image *image_open_bmp(const char *file)
 {
     struct image *img;
     struct bitmap_image *bmp_img;
@@ -1040,7 +1036,7 @@ release_resource:
     return img;
 }
 
-int image_saveas_bitmap(const char *file, const struct image *img)
+static int image_saveas_bitmap(const char *file, const struct image *img)
 {
     int ret;
     unsigned int j, i;
@@ -1211,14 +1207,14 @@ struct image *image_sharpening(const struct image *img, const int *template1, co
                     }
                 }
             }
-			if (g.i < 0) {
-				g.i = -g.i;
-			}
+            if (g.i < 0) {
+                g.i = -g.i;
+            }
 
-			if (g.j < 0) {
-				g.j = -g.j;
-			}
-			g.i = (g.i + g.j) >> 1;
+            if (g.j < 0) {
+                g.j = -g.j;
+            }
+            g.i = (g.i + g.j) >> 1;
             dump_img->data[off[2] + x] =
                     (((unsigned int)g.i) > 255.0f) ? 255 : (unsigned char)g.i;
         }
@@ -1593,7 +1589,8 @@ int image_filter_median(struct image *img, const unsigned int m, const unsigned 
 /**
  * gray->进行hough变换的像素点的值
  */
-struct image *image_hough_transform(const struct image *img, const unsigned int threshold, const unsigned int gray)
+struct image *image_hough_transform(const struct image *img,
+        const unsigned int threshold, const unsigned int gray)
 {
     int xy;
     struct image *hough_img;
@@ -1612,7 +1609,8 @@ struct image *image_hough_transform(const struct image *img, const unsigned int 
 
     theta_n = 360;
     delta_theta = M_PIf / (float)theta_n;
-    rho_max = (int)(sqrtf((float)(img->height * img->height + img->width * img->width)) + 0.5f);
+    rho_max = (int)(sqrtf((float)(img->height * img->height + img->width * img->width))
+            + 0.5f);
     hough_param = (unsigned int *)mem_alloc(sizeof(unsigned int) * (rho_max * theta_n));
     if (hough_param == NULL) {
         image_release(hough_img);
@@ -1623,9 +1621,11 @@ struct image *image_hough_transform(const struct image *img, const unsigned int 
     for (j = 0, offset = 0; j < img->height; ++j) {
         for (i = 0; i < img->width; ++i, ++offset) {
             if (img->data[offset] == gray) {
-                for (theta_i = 0, current_theta = 0.0f; theta_i < theta_n; ++theta_i, current_theta += delta_theta) {
+                for (theta_i = 0, current_theta = 0.0f; theta_i < theta_n;
+                        ++theta_i, current_theta += delta_theta) {
                     /* rho = x * cos(a) + y * sin(a) */
-                    rho = (int)((float)j * sinf(current_theta) + (float)i * cosf(current_theta) + 0.5f);
+                    rho = (int)((float)j * sinf(current_theta)
+                            + (float)i * cosf(current_theta) + 0.5f);
                     if (rho >= 0 && rho < rho_max)
                         ++hough_param[rho * theta_n + theta_i];
                 }
@@ -1634,7 +1634,8 @@ struct image *image_hough_transform(const struct image *img, const unsigned int 
     }
 
     for (offset = 0, rho = 0; rho < rho_max; ++rho) {
-        for (current_theta = 0.0f, theta_i = 0; theta_i < theta_n; ++offset, ++theta_i, current_theta += delta_theta) {
+        for (current_theta = 0.0f, theta_i = 0; theta_i < theta_n;
+                ++offset, ++theta_i, current_theta += delta_theta) {
             sinf_theta = sinf(current_theta);
             cosf_theta = cosf(current_theta);
             if (hough_param[offset] >= threshold) {
@@ -1662,14 +1663,16 @@ struct image *image_hough_transform(const struct image *img, const unsigned int 
     return hough_img;
 }
 
-int image_nearest_interp(const struct image *src_img, unsigned char *new_pixel, const float x, const float y)
+int image_nearest_interp(const struct image *src_img,
+        unsigned char *new_pixel, const float x, const float y)
 {
     int row, column;
 
     row = (int)(y + 0.5f);
     column = (int)(x + 0.5f);
 
-    if (src_img == NULL || new_pixel == NULL || row < 0 || (unsigned int)row >= src_img->height
+    if (src_img == NULL || new_pixel == NULL
+            || row < 0 || (unsigned int)row >= src_img->height
             || column < 0 || (unsigned int)column >= src_img->width)
         return -1;
 
@@ -1679,7 +1682,8 @@ int image_nearest_interp(const struct image *src_img, unsigned char *new_pixel, 
     return 0;
 }
 
-int image_bilinear_interp(const struct image *src_img, unsigned char *new_pixel, const float x, const float y)
+int image_bilinear_interp(const struct image *src_img,
+        unsigned char *new_pixel, const float x, const float y)
 {
     unsigned int x_scale, y_scale, pixel_off;
     const unsigned char *pixel[4];
@@ -1687,7 +1691,8 @@ int image_bilinear_interp(const struct image *src_img, unsigned char *new_pixel,
     if (src_img == NULL || new_pixel == NULL)
         return -1;
 
-    if (x < 0 || ((unsigned int)x + 1) >= src_img->width || y < 0 || ((unsigned int)y + 1) >= src_img->height)
+    if (x < 0 || ((unsigned int)x + 1) >= src_img->width
+            || y < 0 || ((unsigned int)y + 1) >= src_img->height)
         return -1;
 
     pixel[0] = &src_img->data[((int)y) * src_img->row_size + ((int)x) * src_img->pixel_size];
@@ -1705,7 +1710,8 @@ int image_bilinear_interp(const struct image *src_img, unsigned char *new_pixel,
     return 0;
 }
 
-int image_bicubic_interp(const struct image *src_img, unsigned char *new_pixel, const float x, const float y)
+int image_bicubic_interp(const struct image *src_img,
+        unsigned char *new_pixel, const float x, const float y)
 {
     int wu[4], wv[4], g[4];
     unsigned int i, offset;
@@ -1764,69 +1770,8 @@ int image_bicubic_interp(const struct image *src_img, unsigned char *new_pixel, 
     return 0;
 }
 
-int image_lanczos_interp(const struct image *src_img, unsigned char *new_pixel, const float x, const float y)
-{
-    float coeff[64];
-    float coeff_x[8],coeff_y[8];
-    int i,j, offset;
-    float u, v;
-    float g;
-    const int a = 3;
-    const float PI = acosf(-1.0);
-    const unsigned char *pixel[65];
-    memset(coeff,0,sizeof(coeff));
-    memset(coeff_x,0,sizeof(coeff_x));
-    memset(coeff_y,0,sizeof(coeff_y));
-    if (src_img == NULL || new_pixel == NULL)
-        return -1;
-
-    if ((int)x < a-1 || (unsigned int)x >= src_img->width - a || (int)y < a-1 || (unsigned int)y >= src_img->height - a)
-        return -1;
-
-    pixel[64] = src_img->data + (((int)y) - a+1) * src_img->row_size + (((int)x) -a+1) * src_img->pixel_size;
-    for(offset=0;offset<4*a*a;){
-        pixel[offset++]=pixel[64];
-        pixel[64]+=src_img->row_size;
-        for(i=1;i<2*a;++i,++offset){
-            pixel[offset]=pixel[offset-1]+src_img->pixel_size;
-        }
-    }
-    u=x-(int)x;
-    v=y-(int)y;
-    for(i=0;i<2*a;++i){
-        if(u+a-i-1==0)
-            coeff_x[i]=1;
-        else
-            coeff_x[i]=(a*sinf(PI*(u+a-i-1))*sinf(PI*(u+a-i-1)/a))/(PI*PI*(u+a-i-1)*(u+a-i-1));
-        
-        if(v+a-i-1==0)
-            coeff_y[i]=1;
-        else
-            coeff_y[i]=(a*sinf(PI*(v+a-i-1))*sinf(PI*(v+a-i-1)/a))/(PI*PI*(v+a-i-1)*(v+a-i-1));
-    }
-    offset=0;
-    for(j=0;j<2*a;++j){
-        for(i=0;i<2*a;++i)
-            coeff[offset++]=coeff_x[i]*coeff_y[j];
-    }
-
-     for (offset = 0; offset < (int)src_img->pixel_size; ++offset) {
-        g=0;
-        for (i = 0; i < 4*a*a; ++i) {
-            g += coeff[i]*pixel[i][offset];
-        }
-         if (g >= 255) {
-            g = 255;
-        } else if (g <= 0) {
-            g = 0;
-        }
-        new_pixel[offset] = (unsigned char)g;
-    }
-
-    return 0;
-}
-
-struct image *image_perspective_transform(const struct image *img, const unsigned int nh, const unsigned int nw,
+struct image *image_perspective_transform(const struct image *img,
+        const unsigned int nh, const unsigned int nw,
         const struct point src_point[4], const struct point dst_point[4])
 {
     float a[8], z;
@@ -1874,7 +1819,9 @@ struct image *image_perspective_transform(const struct image *img, const unsigne
             if (z == 0.0f)
                 continue;
 
-            if (image_bilinear_interp(img, pixel, (a[0] * i + a[1] * j + a[2]) / z, (a[3] * i + a[4] * j + a[5]) / z) == -1)
+            if (image_bilinear_interp(img, pixel,
+                    (a[0] * i + a[1] * j + a[2]) / z,
+                    (a[3] * i + a[4] * j + a[5]) / z) == -1)
                 continue;
 
             memcpy(&rect_img->data[offset + i * rect_img->pixel_size],
@@ -1885,9 +1832,9 @@ struct image *image_perspective_transform(const struct image *img, const unsigne
     return rect_img;
 }
 
-struct image *image_rotation(const struct image *src_img, const struct point *rotation_center,
-		const struct point *offset, const float theta,
-		int (*interp)(const struct image *, unsigned char *, const float, const float))
+struct image *image_rotation(const struct image *src_img,
+        const struct point *rotation_center, const struct point *offset, const float theta,
+        int (*interp)(const struct image *, unsigned char *, const float, const float))
 {
     int i, j;
     struct image *img;

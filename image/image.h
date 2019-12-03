@@ -49,16 +49,6 @@ struct image {
 };
 
 /**
- * @brief image_open_jpeg 打开jpeg图像文件
- */
-extern struct image *image_open_jpeg(const char *jpeg_file);
-
-/**
- * @brief image_open_png 打开png图像文件
- */
-extern struct image *image_open_png(const char *png_file);
-
-/**
  * @brief image 打开图像文件
  */
 extern struct image *image_open(const char *file);
@@ -79,21 +69,6 @@ extern struct image *image_create_from_bitmatrix(const struct bitmatrix *matrix)
  * @note 在bitmatrix中, 黑色设置为0, 白色设置为1
  */
 extern struct bitmatrix *image_create_bitmatrix(const struct image *img);
-
-/**
- * @brief image_saveas_jpeg 将图像保存为jpeg文件
- */
-extern int image_saveas_jpeg(const char *jpeg_file, const struct image *img);
-
-/**
- * @brief image_saveas_bitmap 将图像保存为bmp图形文件
- */
-extern int image_saveas_bitmap(const char *file, const struct image *img);
-
-/**
- * @brief image_saveas_png 将图像保存为png文件
- */
-extern int image_saveas_png(const char *file, const struct image *img);
 
 /**
  * @brief image_save 保存图像到文件
@@ -198,26 +173,22 @@ extern struct image *image_hough_transform(const struct image *img, const unsign
 /**********************************************************
 * 函数: 插值函数系列
 * 参数:
-*	src_img: 插值使用的原图
+*   src_img: 插值使用的原图
 *  new_pixel: 插值后的像素点的值，一般设置为大小为4的数组
-*	x: 对应原图中的亚像素点的x坐标，列
+*   x: 对应原图中的亚像素点的x坐标，列
 *   y: 对应原图中的亚像素点的y坐标，行
 **********************************************************/
 /* 邻近插值 */
 extern int image_nearest_interp(const struct image *src_img,
-		unsigned char *new_pixel, const float x, const float y);
+        unsigned char *new_pixel, const float x, const float y);
 
 /* 双线性插值 */
 extern int image_bilinear_interp(const struct image *src_img,
-		unsigned char *new_pixel, const float x, const float y);
+        unsigned char *new_pixel, const float x, const float y);
 
 /* 双立方插值 */
 extern int image_bicubic_interp(const struct image *src_img,
-		unsigned char *new_pixel, const float x, const float y);
-
-/* lanzcos插值 */
-extern int image_lanczos_interp(const struct image *src_img,
-	unsigned char *new_pixel, const float x, const float y);
+        unsigned char *new_pixel, const float x, const float y);
 
 /**
  * @brief image_perspective_transform 透视变换
@@ -245,7 +216,7 @@ extern struct image *image_perspective_transform(const struct image *img,
  **********************************************************/
 extern struct image *image_rotation(const struct image *src_img, const struct point *rotation_center,
         const struct point *offset, const float theta,
-		int (*interp)(const struct image *, unsigned char *, const float, const float));
+        int (*interp)(const struct image *, unsigned char *, const float, const float));
 
 #ifdef __cplusplus
 }
