@@ -179,7 +179,7 @@ struct image *image_sobel_enhancing1(const struct image *img, const unsigned int
 	i_end = img->width - 1;
 	for (off = 0; off < img->size; off += img->row_size) {
 		for (i = 1; i < i_end; ++i) {
-			j = (unsigned_diff(img->data[off + i - 1], img->data[off + i]) + unsigned_diff(img->data[off + i - 1], img->data[off + i])) * 2;
+			j = unsigned_diff(img->data[off + i + 1], img->data[off + i]) + unsigned_diff(img->data[off + i - 1], img->data[off + i]);
 			if (j >= 255) {
 				dimg->data[off + i] = 255;
 			} else {
