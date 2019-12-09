@@ -11,8 +11,7 @@ unsigned int image_find_raise_fall_edges(const unsigned char *imgdata, const uns
     unsigned int cnt;
     unsigned int pos;
     unsigned char cur_grad;
-    unsigned char max_grad;
-    unsigned char min_grad;
+    unsigned char ref_grad;
     unsigned char last_gray;
     struct image_raise_fall_edge *cur_edge;
     struct image_raise_fall_edge *max_edge;
@@ -31,8 +30,6 @@ unsigned int image_find_raise_fall_edges(const unsigned char *imgdata, const uns
     memset(buff, 0, cnt);
     memset(pedge, 0, cnt);
     cnt = 0;
-    max_grad = 0;
-    min_grad = 255;
     cur_edge = pedge;
     cur_edge->len = 1;
     cur_edge->max_grad = 0;
@@ -43,11 +40,6 @@ unsigned int image_find_raise_fall_edges(const unsigned char *imgdata, const uns
     last_gray = *imgdata;
     for (pos = 1; (pos < len) && (cnt < num); ++pos) {
         cur_grad = unsigned_diff(last_gray, imgdata[pos]);
-        if (max_grad < cur_grad)
-            max_grad = cur_grad;
-        if (min_grad > cur_grad)
-            min_grad = cur_grad;
-
         if (imgdata[pos] == last_gray) {
             continue;
         } else if (imgdata[pos] < last_gray) {
@@ -86,26 +78,27 @@ unsigned int image_find_raise_fall_edges(const unsigned char *imgdata, const uns
     memcpy(buff_ptr[0], max_edge, sizeof(struct image_raise_fall_edge));
     buff_ptr[1] = max_edge;
     buff_end = pedge + cnt;
+    ref_grad = (buff_ptr[0]->max_grad + buff_ptr[0]->min_grad + 1) >> 1;
     while (++buff_ptr[1] < buff_end) {
-        if (buff_ptr[1]->type == buff_ptr[0]->type
-            ||  (buff_ptr[1]->len < 3 && buff_ptr[1]->max_grad < (buff_ptr[0]->max_grad +  buff_ptr[0]->min_grad + 1) >> 2)) {
-            buff_ptr[0]->len = buff_ptr[1]->begin_pos - buff_ptr[0]->begin_pos + buff_ptr[1]->len;
+        if (buff_ptr[1]->max_grad < ref_grad) {
+        	continue;
         } else {
             ++buff_ptr[0];
             memcpy(buff_ptr[0], buff_ptr[1], sizeof(struct image_raise_fall_edge));
+            ref_grad = (buff_ptr[0]->max_grad + buff_ptr[0]->min_grad + 1) >> 1;
         }
     }
     buff_end = buff_ptr[0];
     buff_ptr[0] = buff_prev;
     buff_ptr[1] = max_edge;
+    ref_grad = (buff_ptr[0]->max_grad + buff_ptr[0]->min_grad + 1) >> 1;
     while (--buff_ptr[1] >= pedge) {
-        if (buff_ptr[1]->type == buff_ptr[0]->type
-            ||  (buff_ptr[1]->len < 3 && buff_ptr[1]->max_grad < (buff_ptr[0]->max_grad +  buff_ptr[0]->min_grad + 1) >> 2)) {
-            buff_ptr[0]->begin_pos = buff_ptr[1]->begin_pos;
-            buff_ptr[0]->len = buff_ptr[0]->begin_pos - buff_ptr[1]->begin_pos + buff_ptr[0]->len;
+        if (buff_ptr[1]->max_grad < ref_grad) {
+        	continue;
         } else {
             --buff_ptr[0];
             memcpy(buff_ptr[0], buff_ptr[1], sizeof(struct image_raise_fall_edge));
+            ref_grad = (buff_ptr[0]->max_grad + buff_ptr[0]->min_grad + 1) >> 1;
         }
     }
     cnt = buff_end - buff_ptr[0];
