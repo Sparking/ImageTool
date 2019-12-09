@@ -231,6 +231,8 @@ int image_scale_line(const struct image *img)
             break;
         case IMAGE_RFEDGE_TYPE_FALL:
             memset(simg->data + j + rfe[i].begin_pos, 0x00, rfe[i].len);
+            for (unsigned int off = img->size; off < simg->size; off += simg->row_size)
+                memset(simg->data + off + rfe[i].begin_pos, 0x00, 1);
             break;
         case IMAGE_RFEDGE_TYPE_NONE:
             break;
