@@ -79,7 +79,7 @@ unsigned int image_find_raise_fall_edges(const unsigned char *imgdata, const uns
     buff_ptr[1] = max_edge;
     buff_end = pedge + cnt;
     ref_grad = (buff_ptr[0]->max_grad + buff_ptr[0]->min_grad + 1) >> 1;
-    while (++buff_ptr[1] < buff_end) {
+    while (++buff_ptr[1] < buff_end) { /* 加上幅度值的判断 */
         if (buff_ptr[1]->max_grad < ref_grad) {
         	continue;
         } else {
