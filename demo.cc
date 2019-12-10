@@ -229,15 +229,16 @@ int image_scale_line(const struct image *img)
     j = img->size + (55 + 256) * simg->row_size;
     for (i = 0; i < cnt; ++i) {
         switch (rfe[i].type) {
-        case IMAGE_RFEDGE_TYPE_RAISE:
         case IMAGE_RFEDGE_TYPE_FALL:
-            memset(simg->data + j + rfe[i].begin_pos, 0x00, rfe[i].len);
+            //break;
+        case IMAGE_RFEDGE_TYPE_RAISE:
+            memset(simg->data + j + rfe[i].begin, 0x00, rfe[i].end - rfe[i].begin + 1);
 #if 1
             for (unsigned int off = img->size; off < simg->size; off += simg->row_size)
                 memset(simg->data + off + rfe[i].dpos, 0x00, 1);
 #else
             for (unsigned int off = img->size; off < simg->size; off += simg->row_size)
-                memset(simg->data + off + rfe[i].begin_pos, 0x00, 1);
+                memset(simg->data + off + rfe[i].begin, 0x00, 1);
 #endif
             break;
         case IMAGE_RFEDGE_TYPE_NONE:
@@ -328,6 +329,13 @@ int main(const int argc, char *argv[])
     image_release(img);
     if (gray == nullptr)
         return -1;
+
+    img = image_dump(gray);
+    if (img != nullptr) {
+        image_gray_binarize(img, image_find_binariztion_global_threshold(gray), 0, 0xFF);
+        image_save("bin.bmp", img, IMAGE_FILE_BITMAP);
+        image_release(img);
+    }
 
     img = image_sobel_enhancing(gray);
     if (img != nullptr) {

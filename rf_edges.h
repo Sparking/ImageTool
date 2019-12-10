@@ -11,17 +11,17 @@ enum {
 };
 
 struct image_raise_fall_edge {
-	unsigned int dpos;
-	unsigned int begin_pos;
-	unsigned short len;
-	unsigned char type;
-	unsigned char max_grad;
-	unsigned char min_grad;
-	unsigned char amplitude;
+    unsigned int dpos;
+    unsigned int begin;
+    unsigned int end;
+    unsigned char type;
+    unsigned char max_grad;
+    unsigned char min_grad;
+    unsigned char amplitude;
 };
 
 extern unsigned int image_find_raise_fall_edges(const unsigned char *imgdata,
-		const unsigned int len, struct image_raise_fall_edge *pedge, const unsigned int num);
+        const unsigned int len, struct image_raise_fall_edge *pedge, const unsigned int num);
 
 #ifdef __cplusplus
 }
