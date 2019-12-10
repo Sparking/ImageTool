@@ -4,17 +4,19 @@
 extern "C" {
 #endif
 
-typedef enum {
+enum {
     IMAGE_RFEDGE_TYPE_NONE = 0,   /* 平坦区域 */
     IMAGE_RFEDGE_TYPE_RAISE = 1,  /* 上升边界 */
     IMAGE_RFEDGE_TYPE_FALL = 2,   /* 下降边界 */
-} image_raise_fall_edge_type;
+};
 
 struct image_raise_fall_edge {
-	int len;
-	int begin_pos;
-	image_raise_fall_edge_type type;
-	unsigned char max_grad, min_grad;
+	unsigned int dpos;
+	unsigned int begin_pos;
+	unsigned short len;
+	unsigned char type;
+	unsigned char max_grad;
+	unsigned char min_grad;
 	unsigned char amplitude;
 };
 

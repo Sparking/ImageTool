@@ -473,7 +473,7 @@ int ini_config_saveas(INI_CONFIG *config, const char *file)
     int ret;
     FILE *fp;
 
-    fp = fopen(file, "w");
+    fp = fopen(file, "wb");
     if (fp == NULL)
         return -1;
 
