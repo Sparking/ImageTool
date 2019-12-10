@@ -5,9 +5,9 @@ extern "C" {
 #endif
 
 typedef enum {
-    IMAGE_RFEDGE_TYPE_NONE = 0,   // 平坦区域
-    IMAGE_RFEDGE_TYPE_RAISE = 1,   // 上升边界
-    IMAGE_RFEDGE_TYPE_FALL = 2,   // 下降边界
+    IMAGE_RFEDGE_TYPE_NONE = 0,   /* 平坦区域 */
+    IMAGE_RFEDGE_TYPE_RAISE = 1,  /* 上升边界 */
+    IMAGE_RFEDGE_TYPE_FALL = 2,   /* 下降边界 */
 } image_raise_fall_edge_type;
 
 struct image_raise_fall_edge {
