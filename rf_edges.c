@@ -5,6 +5,9 @@
 #include "port_memory.h"
 #include <stdio.h>
 
+#define REF_GRAD(edge, n)  (((edge)->max_grad + (edge)->min_grad + 1) >> (n))
+#define REF_AMP(edge)   (((edge)->amplitude << 1) / 5)
+
 unsigned int image_find_raise_fall_edges(const unsigned char *imgdata, const unsigned int len,
         struct image_raise_fall_edge *pedge, const unsigned int num)
 {
@@ -13,13 +16,14 @@ unsigned int image_find_raise_fall_edges(const unsigned char *imgdata, const uns
     unsigned char cur_grad;
     unsigned char ref_grad;
     unsigned char last_gray;
+    unsigned char ref_amplitude;
     struct image_raise_fall_edge *cur_edge;
     struct image_raise_fall_edge *max_edge;
     struct image_raise_fall_edge *buff, *buff_ptr[2];
     struct image_raise_fall_edge *buff_prev, *buff_end;
     image_raise_fall_edge_type new_edge_type;
 
-    if (imgdata == NULL || pedge == NULL || len == 0 || num == 0)
+    if (imgdata == NULL || len <= 1 || pedge == NULL || num == 0)
         return 0;
 
     cnt = sizeof(struct image_raise_fall_edge) * num;
@@ -29,15 +33,16 @@ unsigned int image_find_raise_fall_edges(const unsigned char *imgdata, const uns
 
     memset(buff, 0, cnt);
     memset(pedge, 0, cnt);
-    cnt = 0;
+    cnt = 1;
     cur_edge = pedge;
     cur_edge->len = 1;
-    cur_edge->max_grad = 0;
-    cur_edge->min_grad = 0;
     cur_edge->begin_pos = 0;
     cur_edge->type = IMAGE_RFEDGE_TYPE_NONE;
+    cur_edge->max_grad = 0;
+    cur_edge->min_grad = 0;
+    cur_edge->amplitude = 0;
     max_edge = cur_edge;
-    last_gray = *imgdata;
+    last_gray = imgdata[0];
     for (pos = 1; (pos < len) && (cnt < num); ++pos) {
         cur_grad = unsigned_diff(last_gray, imgdata[pos]);
         if (imgdata[pos] == last_gray) {
@@ -54,6 +59,7 @@ unsigned int image_find_raise_fall_edges(const unsigned char *imgdata, const uns
             if (cur_edge->max_grad < cur_grad)
                 cur_edge->max_grad = cur_grad;
             ++cur_edge->len;
+            cur_edge->amplitude += cur_grad;
         } else {
             ++cnt;
             ++cur_edge;
@@ -65,6 +71,7 @@ unsigned int image_find_raise_fall_edges(const unsigned char *imgdata, const uns
             cur_edge->begin_pos = pos;
             cur_edge->max_grad = cur_grad;
             cur_edge->min_grad = cur_grad;
+            cur_edge->amplitude = cur_grad;
         }
 
         if (cur_grad != 0 &&cur_edge->max_grad > max_edge->max_grad)
@@ -75,36 +82,40 @@ unsigned int image_find_raise_fall_edges(const unsigned char *imgdata, const uns
 
     buff_prev = buff + (max_edge - pedge);
     buff_ptr[0] = buff_prev;
-    memcpy(buff_ptr[0], max_edge, sizeof(struct image_raise_fall_edge));
     buff_ptr[1] = max_edge;
     buff_end = pedge + cnt;
-    ref_grad = (buff_ptr[0]->max_grad + buff_ptr[0]->min_grad + 1) >> 1;
+    ref_amplitude = REF_AMP(max_edge);
+    ref_grad = REF_GRAD(max_edge, 1);
+    memcpy(buff_ptr[0], max_edge, sizeof(struct image_raise_fall_edge));
     while (++buff_ptr[1] < buff_end) { /* 可以考虑加上幅度值的判断 */
-        if (buff_ptr[1]->max_grad < ref_grad) {
+        if (buff_ptr[1]->max_grad < ref_grad && buff_ptr[1]->amplitude < ref_amplitude) {
         	continue;
         } else {
             ++buff_ptr[0];
             memcpy(buff_ptr[0], buff_ptr[1], sizeof(struct image_raise_fall_edge));
-            ref_grad = (buff_ptr[0]->max_grad + buff_ptr[0]->min_grad + 1) >> 1;
+            ref_grad = REF_GRAD(buff_ptr[0], 1);
+            ref_amplitude = REF_AMP(max_edge);
         }
     }
     buff_end = buff_ptr[0] + 1;
     buff_ptr[0] = buff_prev;
     buff_ptr[1] = max_edge;
-    ref_grad = (buff_ptr[0]->max_grad + buff_ptr[0]->min_grad + 1) >> 1;
+    ref_amplitude = REF_AMP(max_edge);
+    ref_grad = REF_GRAD(max_edge, 1);
     while (--buff_ptr[1] >= pedge) {
-        if (buff_ptr[1]->max_grad < ref_grad) {
+        if (buff_ptr[1]->max_grad < ref_grad && buff_ptr[1]->amplitude < ref_amplitude) {
         	continue;
         } else {
             --buff_ptr[0];
             memcpy(buff_ptr[0], buff_ptr[1], sizeof(struct image_raise_fall_edge));
-            ref_grad = (buff_ptr[0]->max_grad + buff_ptr[0]->min_grad + 1) >> 1;
+            ref_grad = REF_GRAD(buff_ptr[0], 1);
+            ref_amplitude = REF_AMP(max_edge);
         }
     }
     cnt = buff_end - buff_ptr[0];
     memset(pedge + cnt, 0, sizeof(struct image_raise_fall_edge) * (num - cnt));
     memcpy(pedge, buff_ptr[0], sizeof(struct image_raise_fall_edge) * cnt);
     mem_free(buff);
-
+(void)ref_amplitude;
     return cnt;
 }

@@ -196,7 +196,7 @@ int image_scale_line(const struct image *img)
     struct image *simg;
     unsigned int i, j, soff;
     FILE *fp;
-    struct image_raise_fall_edge rfe[500];
+    struct image_raise_fall_edge *rfe;
     unsigned int cnt;
 
     if (img == nullptr)
@@ -206,6 +206,7 @@ int image_scale_line(const struct image *img)
     if (simg == nullptr)
         return -1;
 
+    rfe = (struct image_raise_fall_edge *)mem_alloc(sizeof(struct image_raise_fall_edge) * 500);
     memset(simg->data, 0xFF, simg->size);
     soff = img->row_size * g_config.pm_line;
     for (j = 0; j < img->size; j += img->row_size) {
@@ -215,10 +216,12 @@ int image_scale_line(const struct image *img)
             memcpy(simg->data + j, img->data + soff, img->row_size);
         }
     }
+
     {
         cnt = image_find_raise_fall_edges(img->data + soff, simg->width, rfe, 500);
         printf("cnt = %d", cnt);
     }
+
     j = img->size + 55 * simg->row_size;
     for (i = 0; i < simg->row_size; ++i) {
         simg->data[j + (255 - img->data[soff + i]) * simg->row_size + i] = 0;
@@ -229,14 +232,17 @@ int image_scale_line(const struct image *img)
         case IMAGE_RFEDGE_TYPE_RAISE:
         case IMAGE_RFEDGE_TYPE_FALL:
             memset(simg->data + j + rfe[i].begin_pos, 0x00, rfe[i].len);
+#if 1
             for (unsigned int off = img->size; off < simg->size; off += simg->row_size)
                 memset(simg->data + off + rfe[i].begin_pos, 0x00, 1);
+#endif
             break;
         case IMAGE_RFEDGE_TYPE_NONE:
             break;
         }
     }
 
+    mem_free(rfe);
     fp = fopen("data.txt", "w");
     if (fp != nullptr) {
         fprintf(fp, "orgin gray:{\n");

@@ -15,11 +15,11 @@ struct image_raise_fall_edge {
 	int begin_pos;
 	image_raise_fall_edge_type type;
 	unsigned char max_grad, min_grad;
+	unsigned char amplitude;
 };
 
-
-extern unsigned int image_find_raise_fall_edges(const unsigned char *imgdata, const unsigned int len,
-        struct image_raise_fall_edge *pedge, const unsigned int num);
+extern unsigned int image_find_raise_fall_edges(const unsigned char *imgdata,
+		const unsigned int len, struct image_raise_fall_edge *pedge, const unsigned int num);
 
 #ifdef __cplusplus
 }
