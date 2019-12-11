@@ -8,6 +8,7 @@
 
 #define REF_GRAD(edge, n)   (((edge)->max_grad + (edge)->min_grad + 1) >> (n))
 #define REF_AMP(edge)       (((edge)->amplitude << 1) / 5)
+#define REF_MIN_LIMIT       16
 
 unsigned int image_find_raise_fall_edges(const unsigned char *imgdata, const unsigned int len,
         struct image_raise_fall_edge *pedge, const unsigned int num)
@@ -97,8 +98,8 @@ unsigned int image_find_raise_fall_edges(const unsigned char *imgdata, const uns
     ref_amplitude = REF_AMP(max_edge);
     ref_grad = REF_GRAD(max_edge, 1);
     min_grad_limit = (max_edge->max_grad << 1) / 10;
-    if (min_grad_limit < 3)
-        min_grad_limit = 3;
+    if (min_grad_limit < REF_MIN_LIMIT)
+        min_grad_limit = REF_MIN_LIMIT;
     memcpy(buff_ptr[0], max_edge, sizeof(struct image_raise_fall_edge));
     while (++buff_ptr[1] < buff_end) {
         if (buff_ptr[1]->type == IMAGE_RFEDGE_TYPE_NONE)

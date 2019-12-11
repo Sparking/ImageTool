@@ -306,6 +306,36 @@ int image_scale_line(const struct image *img)
     return 0;
 }
 
+int image_draw_rfedges(const struct image *simg)
+{
+    struct image *img;
+    unsigned int i, j, off[2], cnt;
+    struct image_raise_fall_edge rfe[500];
+    const unsigned char re[4] = {0x81, 0x10, 0xFF, 0xFF};
+    const unsigned char fe[4] = {0x13, 0xF5, 0x87, 0xFF};
+
+    img = image_convert_format(simg, IMAGE_FORMAT_BGR);
+    if (img == nullptr)
+        return -1;
+
+    for (j = 0, off[0] = off[1] = 0; j < img->height;
+            ++j, off[0] += simg->row_size, off[1] += img->row_size) {
+        cnt = image_find_raise_fall_edges(simg->data + off[0], simg->row_size, rfe, 500);
+        for (i = 0; i < cnt; ++i) {
+            if (rfe[i].type == IMAGE_RFEDGE_TYPE_RAISE) {
+                memcpy(img->data + off[1] + rfe[i].dpos * 3, re, 3);
+            } else {
+                memcpy(img->data + off[1] + rfe[i].dpos * 3, fe, 3);
+            }
+        }
+    }
+
+    image_save("rfe.bmp", img, IMAGE_FILE_BITMAP);
+    image_release(img);
+
+    return 0;
+}
+
 int main(const int argc, char *argv[])
 {
     image *img, *gray;
@@ -329,7 +359,7 @@ int main(const int argc, char *argv[])
     image_release(img);
     if (gray == nullptr)
         return -1;
-
+    image_draw_rfedges(gray);
     img = image_dump(gray);
     if (img != nullptr) {
         image_gray_binarize(img, image_find_binariztion_global_threshold(gray), 0, 0xFF);
