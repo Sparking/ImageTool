@@ -1,4 +1,4 @@
-#include <stdlib.h>
+﻿#include <stdlib.h>
 #include "qr_decode.h"
 #include "qr_position.h"
 

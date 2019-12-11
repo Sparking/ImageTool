@@ -1,7 +1,8 @@
-#pragma once
+﻿#pragma once
 
 #include "maths.h"
 #include "image.h"
+#include "rf_edges.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -10,6 +11,7 @@ extern "C" {
 struct qr_position_makrings_info {
     struct point center;
     struct point conner_points[4];
+    float module_size;
 };
 
 extern int qr_position_makrings_find(const struct image *img,

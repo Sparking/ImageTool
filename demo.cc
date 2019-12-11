@@ -10,6 +10,7 @@
 #include "image.h"
 #include "qr_decode.h"
 #include "rf_edges.h"
+#include "qr_position.h"
 
 struct graph_config {
     char *file_path;
@@ -139,30 +140,6 @@ void wave_image(const char *name, const struct image *srcimg,
     image_release(img);
 }
 
-void find_11311(const char *name, const struct image *srcimg,
-        const unsigned int height, const unsigned int width)
-{
-    unsigned int i, j, off;
-    unsigned char color[4] = {0x00, 0x00, 0x00, 0xFF};
-    const unsigned int w = 4;
-    const unsigned char *gray = srcimg->data + height * srcimg->width;
-
-    struct image *img = image_create(256, width * w, IMAGE_FORMAT_BGR);
-    if (img == nullptr)
-        return;
-
-    memset(img->data, 0xFF, img->size);
-    for (i = 0; i < width; ++i) {
-        off = (255 - gray[i]) * img->row_size + i * w * img->pixel_size;
-        for (j = 0; j < w; ++j) {
-            memcpy(img->data + off + j * img->pixel_size, color, img->pixel_size);
-        }
-    }
-
-    image_save(name, img, IMAGE_FILE_BITMAP);
-    image_release(img);
-}
-
 struct image *image_sobel_enhancing1(const struct image *img, const unsigned int t)
 {
 	struct image *dimg;
@@ -193,11 +170,11 @@ struct image *image_sobel_enhancing1(const struct image *img, const unsigned int
 
 int image_scale_line(const struct image *img)
 {
+    FILE *fp;
+    unsigned int cnt;
     struct image *simg;
     unsigned int i, j, soff;
-    FILE *fp;
     struct image_raise_fall_edge *rfe;
-    unsigned int cnt;
 
     if (img == nullptr)
         return -1;
@@ -219,7 +196,7 @@ int image_scale_line(const struct image *img)
 
     {
         cnt = image_find_raise_fall_edges(img->data + soff, simg->width, rfe, 500);
-        printf("cnt = %d", cnt);
+        printf("cnt = %d\n", cnt);
     }
 
     j = img->size + 55 * simg->row_size;

@@ -8,7 +8,7 @@
 
 #define REF_GRAD(edge, n)   (((edge)->max_grad + (edge)->min_grad + 1) >> (n))
 #define REF_AMP(edge)       (((edge)->amplitude << 1) / 5)
-#define REF_MIN_LIMIT       16
+#define REF_MIN_LIMIT       5
 
 unsigned int image_find_raise_fall_edges(const unsigned char *imgdata, const unsigned int len,
         struct image_raise_fall_edge *pedge, const unsigned int num)
