@@ -12,11 +12,15 @@ enum {
 
 struct image_raise_fall_edge {
     unsigned int dpos;
+    unsigned int dpos_256x;
     unsigned int begin;
     unsigned int end;
     unsigned char type;
     unsigned char max_grad;
     unsigned char min_grad;
+    unsigned char max_gray;
+    unsigned char min_gray;
+    unsigned char ref_gray;
     unsigned char amplitude;
 };
 
