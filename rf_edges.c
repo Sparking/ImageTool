@@ -241,7 +241,7 @@ unsigned int image_find_raise_fall_edges(const unsigned char *imgdata, const uns
         last_grad = cur_grad;
     }
 
-    if (cur_edge >= pedge && cnt < num) {
+    if (cur_edge >= pedge && cnt < num && last_type != edge_type) {
         cur_edge->end = i - 1;
         if (cur_edge->type == IMAGE_RFEDGE_TYPE_RAISE) {
             cur_edge->max_gray = imgdata[cur_edge->end];
@@ -264,23 +264,26 @@ unsigned int image_find_raise_fall_edges(const unsigned char *imgdata, const uns
         }
     }
 
-    //cnt = cur_edge - pedge + 1;
-    (void)j;
-    /*
+
     cur_edge = pedge;
     for (j = 0; j < cnt; ++j, ++cur_edge) {
         cur_edge->dpos_256x = 0;
         for (i = cur_edge->begin; i <= cur_edge->end; ++i) {
+            if ((imgdata[i] < imgdata[i + 1] && cur_edge->type == IMAGE_RFEDGE_TYPE_FALL)
+                || (imgdata[i] > imgdata[i + 1] && cur_edge->type == IMAGE_RFEDGE_TYPE_RAISE)) {
+                printf("boom\n");
+            }
+
             cur_grad = unsigned_diff(imgdata[i], imgdata[i + 1]);
             if (cur_grad == 0) {
                 cur_edge->end = i;
-                break;
+                continue;
             }
             cur_edge->dpos_256x += cur_grad * i;
         }
         cur_edge->dpos_256x = (cur_edge->dpos_256x << 8) / cur_edge->amplitude;
         cur_edge->dpos = (cur_edge->dpos_256x + (1 << 7)) >> 8;
-    }*/
+    }
 
     return cnt;
 }
