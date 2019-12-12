@@ -161,7 +161,7 @@ unsigned int image_find_raise_fall_edges1(const unsigned char *imgdata, const un
 unsigned int image_find_raise_fall_edges(const unsigned char *imgdata, const unsigned int len,
         struct image_raise_fall_edge *pedge, const unsigned int num)
 {
-    unsigned int cnt, i, j;
+    unsigned int cnt, i;
     unsigned char cur_grad;
     unsigned char last_gray;
     unsigned char cur_type;
@@ -202,8 +202,9 @@ unsigned int image_find_raise_fall_edges(const unsigned char *imgdata, const uns
             cur_edge->min_gray = imgdata[cur_edge->begin];
             cur_edge->max_grad = cur_grad;
             cur_edge->min_grad = cur_grad;
-
-            cur_edge->dpos = cur_edge->begin;
+            cur_edge->dpos = 0;
+            cur_edge->dpos_256x = cur_grad * i;
+            cur_edge->amplitude = cur_grad;
             last_type = cur_type;
         } else {
             cur_edge->end = i;
@@ -212,22 +213,15 @@ unsigned int image_find_raise_fall_edges(const unsigned char *imgdata, const uns
             } else if (cur_grad < cur_edge->min_grad) {
                 cur_edge->min_grad = cur_grad;
             }
+            cur_edge->dpos_256x += cur_grad * i;
+            cur_edge->amplitude += cur_grad;
         }
         last_gray = imgdata[i];
     }
 
     cur_edge = pedge;
-    for (j = 0; j < cnt; ++j, ++cur_edge) {
-        cur_edge->dpos_256x = 0;
-        cur_edge->amplitude = 0;
-        for (i = cur_edge->begin; i < cur_edge->end; ++i) {
-            assert(!(imgdata[i] < imgdata[i + 1] && cur_edge->type == IMAGE_RFEDGE_TYPE_FALL)
-                && !(imgdata[i] > imgdata[i + 1] && cur_edge->type == IMAGE_RFEDGE_TYPE_RAISE));
-
-            cur_grad = unsigned_diff(imgdata[i], imgdata[i + 1]);
-            cur_edge->amplitude += cur_grad;
-            cur_edge->dpos_256x += cur_grad * i;
-        }
+    for (i = 0; i < cnt; ++i, ++cur_edge) {
+        assert(cur_edge->min_grad != 0);
         cur_edge->dpos_256x = (cur_edge->dpos_256x << 8) / cur_edge->amplitude;
         cur_edge->dpos = (cur_edge->dpos_256x + (1 << 7)) >> 8;
     }
