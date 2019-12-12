@@ -288,8 +288,8 @@ int image_draw_rfedges(const struct image *simg)
     struct image *img;
     unsigned int i, j, off[2], cnt;
     struct image_raise_fall_edge rfe[500];
-    const unsigned char re[4] = {0x81, 0x10, 0xFF, 0xFF};
-    const unsigned char fe[4] = {0x13, 0xF5, 0x87, 0xFF};
+    const unsigned char re[4] = {0x98, 0x35, 0x95, 0xFF};
+    const unsigned char fe[4] = {0x11, 0xbf, 0xF7, 0xFF};
 
     img = image_convert_format(simg, IMAGE_FORMAT_BGR);
     if (img == nullptr)
@@ -300,9 +300,9 @@ int image_draw_rfedges(const struct image *simg)
         cnt = image_find_raise_fall_edges(simg->data + off[0], simg->row_size, rfe, 500);
         for (i = 0; i < cnt; ++i) {
             if (rfe[i].type == IMAGE_RFEDGE_TYPE_RAISE) {
-                memcpy(img->data + off[1] + rfe[i].dpos * 3, re, 3);
+                memcpy(img->data + off[1] + rfe[i].dpos * 3, re, img->pixel_size);
             } else {
-                memcpy(img->data + off[1] + rfe[i].dpos * 3, fe, 3);
+                memcpy(img->data + off[1] + rfe[i].dpos * 3, fe, img->pixel_size);
             }
         }
     }
