@@ -15,6 +15,7 @@
 
 struct graph_config {
     char *file_path;
+    unsigned int file_column;
     char *qr_image_file;
     char *qr_info;
     unsigned int pm_line;
@@ -44,8 +45,11 @@ int config_get(const char *filename)
     }
 
     value = ini_config_get(config, nullptr, "path", nullptr);
-    if (value != nullptr)
+    if (value != nullptr) {
         g_config.file_path = strdup(value);
+        value = ini_config_get(config, nullptr, "column", "0");
+        g_config.file_column = atoi(value);
+    }
 
     if ((section = ini_config_get_section(config, "QR Code")) != nullptr) {
         value = ini_config_get_key(section, "path", nullptr);
@@ -286,6 +290,32 @@ int image_scale_line(const struct image *img)
 
     if (fp != nullptr)
         fclose(fp);
+
+    return 0;
+}
+
+int image_scan_column(void)
+{
+    struct image *simg, *img;
+
+    if ((simg = image_open(g_config.file_path)) == nullptr)
+        return -1;
+
+    if ((img = image_convert_gray(simg)) == nullptr) {
+        image_release(simg);
+        return -1;
+    }
+
+    image_release(simg);
+    simg = image_create(img->height, img->width + 55 + 256, IMAGE_FORMAT_BGR);
+    if (simg == nullptr) {
+        image_release(img);
+        return -1;
+    }
+
+
+    image_release(simg);
+    image_release(img);
 
     return 0;
 }
