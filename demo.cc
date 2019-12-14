@@ -47,11 +47,12 @@ int config_get(const char *filename)
     value = ini_config_get(config, nullptr, "path", nullptr);
     if (value != nullptr) {
         g_config.file_path = strdup(value);
-        value = ini_config_get(config, nullptr, "column", "0");
-        g_config.file_column = atoi(value);
     }
 
     if ((section = ini_config_get_section(config, "QR Code")) != nullptr) {
+        value = ini_config_get_key(section, "column", "0");
+        g_config.file_column = atoi(value);
+
         value = ini_config_get_key(section, "path", nullptr);
         if (value != nullptr)
             g_config.qr_image_file = strdup(value);
@@ -208,9 +209,10 @@ int image_scale_line(const struct image *img)
 
 int image_scan_column(void)
 {
-    struct image *simg, *img;
+    unsigned int i, j, copy_size, off;
+    struct image *simg, *img, *tmpimg;
 
-    if ((simg = image_open(g_config.file_path)) == nullptr)
+    if ((simg = image_open(g_config.qr_image_file)) == nullptr)
         return -1;
 
     if ((img = image_convert_gray(simg)) == nullptr) {
@@ -219,13 +221,33 @@ int image_scan_column(void)
     }
 
     image_release(simg);
+    tmpimg = image_convert_format(img, IMAGE_FORMAT_BGR);
+    if (tmpimg == nullptr)
+        return -1;
+
     simg = image_create(img->height, img->width + 55 + 256, IMAGE_FORMAT_BGR);
     if (simg == nullptr) {
+        image_release(tmpimg);
         image_release(img);
         return -1;
     }
+    memset(simg->data, 0xFF, simg->size);
 
+    if (g_config.file_column >= simg->width || g_config.file_column <= 0)
+        g_config.file_column = simg->width;
 
+    copy_size = g_config.file_column * simg->pixel_size;
+    for (i = 0, off = 0; i < tmpimg->height; ++i, off += simg->row_size) {
+        memcpy(simg->data + off,
+            tmpimg->data + i * tmpimg->row_size, copy_size);
+        for (j = g_config.file_column; j < tmpimg->width; ++j) {
+            memcpy(simg->data + off + j * simg->pixel_size,
+                simg->data + off + (j - 1) * simg->pixel_size, simg->pixel_size);
+        }
+    }
+    image_release(tmpimg);
+
+    image_save("column.bmp", simg, IMAGE_FILE_BITMAP);
     image_release(simg);
     image_release(img);
 
@@ -291,6 +313,7 @@ int main(const int argc, char *argv[])
         return -1;
     }
 
+    image_scan_column();
     img = image_open(g_config.qr_image_file);
     if (img == nullptr) {
         std::cerr << "failed to open image file: " << g_config.qr_image_file << std::endl;
