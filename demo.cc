@@ -11,6 +11,7 @@
 #include "qr_decode.h"
 #include "rf_edges.h"
 #include "qr_position.h"
+#include "dotcode_detect_point.h"
 
 struct graph_config {
     char *file_path;
@@ -376,6 +377,14 @@ int main(const int argc, char *argv[])
     img = gray;
     image_scale_line(img);
     decode_info = qr_decode_info(img);
+    struct dotcode_point w[1000], b[1000];
+    
+    unsigned int nxx = dotcode_detect_point(img, b, 1000, w, 1000);
+    printf("%d\n", nxx);
+    for (unsigned int x = 0; x < nxx; ++x) {
+        *(img->data + w[x].center.y * img->width + w[x].center.x) = 0;
+    }
+    image_save("white-dots.bmp", img, IMAGE_FILE_BITMAP);
     image_release(img);
     if (decode_info != nullptr) {
         printf("%s\n", decode_info);

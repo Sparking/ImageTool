@@ -53,7 +53,7 @@ unsigned int image_find_raise_fall_edges(const unsigned char *imgdata, const uns
 
             ++cur_edge;
             ++cnt;
-            if (cnt >= num)
+            if (cnt > num)
                 break;
 
             cur_edge->begin = i - 1;
@@ -142,17 +142,11 @@ unsigned int image_find_raise_fall_edges(const unsigned char *imgdata, const uns
     cur_edge = pedge;
     last_edge = pedge + cnt;
     while (cur_edge < last_edge) {
-        assert(cur_edge->min_grad != 0 && cur_edge->min_grad <= cur_edge->max_grad);
-        assert(unsigned_diff(imgdata[cur_edge->begin], imgdata[cur_edge->end]) == cur_edge->amplitude);
-
         if (cur_edge->type == IMAGE_RFEDGE_TYPE_RAISE) {
             gray = cur_edge->max_gray;
             cur_edge->max_gray = cur_edge->min_gray;
             cur_edge->min_gray = gray;
         }
-//        cur_edge->dpos_256x = 0;
-//        for (i = cur_edge->begin + 1; i < cur_edge->end; ++i)
-//            cur_edge->dpos_256x += unsigned_diff(imgdata[i], imgdata[i - 1]) * i;
         cur_edge->dpos_256x = (cur_edge->dpos_256x << 8) / cur_edge->amplitude;
         cur_edge->dpos = (cur_edge->dpos_256x + (1 << 7)) >> 8;
         ++cur_edge;
@@ -217,7 +211,7 @@ unsigned int image_find_raise_fall_edges_by_offset(
 
             ++cur_edge;
             ++cnt;
-            if (cnt >= num)
+            if (cnt > num)
                 break;
 
             cur_edge->begin = i - 1;
