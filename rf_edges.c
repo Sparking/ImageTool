@@ -6,7 +6,7 @@
 #include "rf_edges.h"
 #include "port_memory.h"
 
-#define IMAGE_RFEDGE_AMP_LIMIT_MIN      12
+#define IMAGE_RFEDGE_AMP_LIMIT_MIN      15
 
 unsigned int image_find_raise_fall_edges(const unsigned char *imgdata, const unsigned int len,
         struct image_raise_fall_edge *pedge, const unsigned int num)
