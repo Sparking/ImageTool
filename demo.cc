@@ -225,7 +225,7 @@ int image_scan_column(void)
     if (tmpimg == nullptr)
         return -1;
 
-    simg = image_create(img->height, img->width + 55 + 256, IMAGE_FORMAT_BGR);
+    simg = image_create(img->height, img->width + 55 + 256 + 2, IMAGE_FORMAT_BGR);
     if (simg == nullptr) {
         image_release(tmpimg);
         image_release(img);
@@ -244,6 +244,11 @@ int image_scan_column(void)
             memcpy(simg->data + off + j * simg->pixel_size,
                 simg->data + off + (j - 1) * simg->pixel_size, simg->pixel_size);
         }
+
+        /**波形图**/
+        j = tmpimg->width + 55 + 256 - img->data[i * img->width + g_config.file_column];
+        j *= simg->pixel_size;
+        memset(simg->data + off + j, 0, simg->pixel_size);
     }
     image_release(tmpimg);
 
