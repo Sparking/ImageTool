@@ -16,7 +16,7 @@ struct graph_config {
     unsigned int file_column;
     char *qr_image_file;
     char *qr_info;
-    unsigned int pm_line;
+    unsigned int qr_line;
 
     bool sobel_run;
     unsigned char sobel_method;
@@ -60,9 +60,9 @@ int config_get(const char *filename)
         if (value != nullptr)
             g_config.qr_info = strdup(value);
 
-        value = ini_config_get_key(section, "pm_line", nullptr);
+        value = ini_config_get_key(section, "line", nullptr);
         if (value != nullptr)
-            g_config.pm_line = (unsigned int)atoi(value);
+            g_config.qr_line = (unsigned int)atoi(value);
     }
     ini_config_release(config);
 
@@ -120,7 +120,7 @@ int image_scale_line(const struct image *img)
 
     rfe = (struct image_raise_fall_edge *)mem_alloc(sizeof(struct image_raise_fall_edge) * 500);
     memset(simg->data, 0xFF, simg->size);
-    soff = img->row_size * g_config.pm_line;
+    soff = img->row_size * g_config.qr_line;
     for (j = 0; j < img->size; j += img->row_size) {
         if (j < soff) {
             memcpy(simg->data + j, img->data + j, img->row_size);
@@ -133,7 +133,7 @@ int image_scale_line(const struct image *img)
 #if 0
         cnt = image_find_raise_fall_edges(img->data + soff, simg->width, rfe, 500);
 #else
-        point s = {0, (int)g_config.pm_line};
+        point s = {0, (int)g_config.qr_line};
         point off = {1, 0};
         cnt = image_find_raise_fall_edges_by_offset(img, s, off, 1000, rfe, 500);
 #endif
@@ -158,7 +158,7 @@ int image_scale_line(const struct image *img)
     }
 
     mem_free(rfe);
-    wave_image("test-wave.bmp", simg, g_config.pm_line, simg->width);
+    wave_image("test-wave.bmp", simg, g_config.qr_line, simg->width);
     image_save("test.bmp", simg, IMAGE_FILE_BITMAP);
     image_release(simg);
 
@@ -172,7 +172,7 @@ int image_scan_column(void)
     struct image *simg, *img, *tmpimg;
     struct image_raise_fall_edge *rfe;
     const struct point setup = {0, 1};
-    const struct point start_pt = {(int)g_config.pm_line, 0};
+    const struct point start_pt = {(int)g_config.file_column, 0};
 
     if ((simg = image_open(g_config.qr_image_file)) == nullptr)
         return -1;
@@ -221,7 +221,7 @@ int image_scan_column(void)
         case IMAGE_RFEDGE_TYPE_FALL:
         case IMAGE_RFEDGE_TYPE_RAISE:
             memset(simg->data + rfe[i].dpos * simg->row_size + img->width * simg->pixel_size,
-                0x00, simg->row_size - img->row_size);
+                0x00, (simg->width - img->width) * simg->pixel_size);
             for (j = rfe[i].begin + 1; j < rfe[i].end; ++j)
                 memset(simg->data - simg->pixel_size + j * simg->row_size, 0x00, simg->pixel_size);
             break;
