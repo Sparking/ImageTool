@@ -3,13 +3,11 @@
 #include <cstdlib>
 #include <cstring>
 #include <iostream>
-#include <vector>
-#include <set>
-#include "iniparser.h"
-#include "port_memory.h"
 #include "image.h"
-#include "qr_decode.h"
 #include "rf_edges.h"
+#include "iniparser.h"
+#include "qr_decode.h"
+#include "port_memory.h"
 #include "qr_position.h"
 #include "dotcode_detect_point.h"
 
@@ -44,15 +42,16 @@ int config_get(const char *filename)
         return -1;
     }
 
-    value = ini_config_get(config, nullptr, "path", nullptr);
-    if (value != nullptr) {
+    if ((section = ini_config_get_section(config, nullptr)) != nullptr
+            && (value = ini_config_get_key(section, "column", nullptr)) != nullptr) {
         g_config.file_path = strdup(value);
+        g_config.file_column = atoi(ini_config_get_key(section, "column", "0"));
+    } else {
+        g_config.file_path = nullptr;
+        g_config.file_column = 0;
     }
 
     if ((section = ini_config_get_section(config, "QR Code")) != nullptr) {
-        value = ini_config_get_key(section, "column", "0");
-        g_config.file_column = atoi(value);
-
         value = ini_config_get_key(section, "path", nullptr);
         if (value != nullptr)
             g_config.qr_image_file = strdup(value);
@@ -65,47 +64,6 @@ int config_get(const char *filename)
         if (value != nullptr)
             g_config.pm_line = (unsigned int)atoi(value);
     }
-
-    if ((section = ini_config_get_section(config, "Sobel")) != nullptr) {
-        value = ini_config_get_key(section, "run", nullptr);
-        if (value != nullptr && strcasecmp(value, "enable") == 0) {
-            g_config.sobel_run = true;
-        } else {
-            g_config.sobel_run = false;
-        }
-
-        value = ini_config_get_key(section, "method", nullptr);
-        if (value != nullptr) {
-            if (strcasecmp(value, "hori") == 0) {
-                g_config.sobel_method = 1;
-            } else if (strcasecmp(value, "vert") == 0) {
-                g_config.sobel_method = 2;
-            } else if (strcasecmp(value, "all") == 0) {
-                g_config.sobel_method = 0;
-            } else {
-                g_config.sobel_method = 0xFF;
-            }
-        } else {
-            g_config.sobel_method = 0;
-        }
-    }
-
-    ini_config_release(config);
-    return 0;
-}
-
-int config_set(const char *filename)
-{
-    INI_CONFIG *config;
-
-    config = ini_config_create(filename);
-    if (config == nullptr) {
-        std::cerr << "failed to open config file: " << filename << std::endl;
-        return -1;
-    }
-
-    ini_config_set(config, "QR Code", "info", g_config.qr_info);
-    ini_config_save(config);
     ini_config_release(config);
 
     return 0;
@@ -209,8 +167,12 @@ int image_scale_line(const struct image *img)
 
 int image_scan_column(void)
 {
+    unsigned int cnt;
     unsigned int i, j, copy_size, off;
     struct image *simg, *img, *tmpimg;
+    struct image_raise_fall_edge *rfe;
+    const struct point setup = {0, 1};
+    const struct point start_pt = {(int)g_config.pm_line, 0};
 
     if ((simg = image_open(g_config.qr_image_file)) == nullptr)
         return -1;
@@ -251,6 +213,23 @@ int image_scan_column(void)
         memset(simg->data + off + j, 0, simg->pixel_size);
     }
     image_release(tmpimg);
+
+    rfe = (struct image_raise_fall_edge *)malloc(sizeof(struct image_raise_fall_edge) * 500);
+    cnt = image_find_raise_fall_edges_by_offset(img, start_pt, setup, 1000, rfe, 500);
+    for (i = 0; i < cnt; ++i) {
+        switch (rfe[i].type) {
+        case IMAGE_RFEDGE_TYPE_FALL:
+        case IMAGE_RFEDGE_TYPE_RAISE:
+            memset(simg->data + rfe[i].dpos * simg->row_size + img->width * simg->pixel_size,
+                0x00, simg->row_size - img->row_size);
+            for (j = rfe[i].begin + 1; j < rfe[i].end; ++j)
+                memset(simg->data - simg->pixel_size + j * simg->row_size, 0x00, simg->pixel_size);
+            break;
+        case IMAGE_RFEDGE_TYPE_NONE:
+            break;
+        }
+    }
+    free(rfe);
 
     image_save("column.bmp", simg, IMAGE_FILE_BITMAP);
     image_release(simg);
@@ -329,7 +308,7 @@ int main(const int argc, char *argv[])
     image_release(img);
     if (gray == nullptr)
         return -1;
-    image_draw_rfedges(gray);
+    /*image_draw_rfedges(gray);*/
 
     image_scale_line(gray);
 #if 0
