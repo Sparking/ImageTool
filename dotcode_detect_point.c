@@ -2,63 +2,102 @@
 #include "dotcode_detect_point.h"
 
 unsigned int dotcode_detect_point(const struct image *img,
-        struct dotcode_point *bpdtp, const unsigned int nbdtp,
-        struct dotcode_point *wpdtp, const unsigned int wbdtp)
+        struct dotcode_point *pdtp, const unsigned int ndtp)
 {
-    unsigned int cnt[2];
-    unsigned int nedges, noedges;
-    unsigned int i, j, off[3];
-    unsigned int imgdata_nmax;
-    unsigned char *imgdata;
-    struct point edge_start, edge_off;
-    struct image_raise_fall_edge edges[500], *last_edge, *cur_edge;
-    struct image_raise_fall_edge oedges[2];
+    unsigned int i, j;
+    unsigned int dtp_size;
+    unsigned int rfe_tmp_cnt;
+    unsigned int rfe_hori_cnt;
+    struct point edge_off;
+    struct point edge_start;
+    struct point hori_edge_off;
+    struct point hori_edge_start;
+    struct image_raise_fall_edge rfe_buff[4];
+    struct image_raise_fall_edge rfe_hori[500];
+    struct image_raise_fall_edge rfe_tmp;
 
-#if defined(CHECK_ENTRY_PARAM)
-    if (img == NULL)
-        return 0;
-#endif
-
-    imgdata_nmax = ((img->width > img->height ? img->width : img->height) * 3) >> 1;
-    imgdata = (unsigned char *)mem_alloc(sizeof(unsigned char) * imgdata_nmax);
-    if (imgdata == NULL)
+    if (img == NULL || pdtp == NULL || ndtp == 0)
         return 0;
 
-    (void)off;
-    cnt[0] = cnt[1] = 0;
-    for (j = 0, off[0] = 0; j < img->height; j += 4, off[0] += 4 * img->width) {
-        nedges = image_find_raise_fall_edges(img->data + off[0], img->width, edges, 500);
-        if (nedges < 2)
+    dtp_size = 0;
+    hori_edge_start.x = 0;
+    hori_edge_off.x = 1;
+    hori_edge_off.y = 0;
+    for (j = 0; j < img->height; j += 4) {
+        hori_edge_start.y = j;
+        rfe_hori_cnt = image_find_raise_fall_edges_by_offset(img,
+                hori_edge_start, hori_edge_off, img->width, rfe_hori, 500);
+        if (rfe_hori_cnt <= 1)
             continue;
 
-        last_edge = edges;
-        cur_edge = edges + 1;
-        for (i = 1; i < nedges; ++i, ++last_edge, ++cur_edge) {
-            if (last_edge->type == IMAGE_RFEDGE_TYPE_RAISE) {
-                wpdtp[cnt[0]].nw = ((cur_edge->dpos_256x - last_edge->dpos_256x) + 128) >> 8;
-                wpdtp[cnt[0]].center.x = ((cur_edge->dpos_256x - last_edge->dpos_256x) + 256) >> 9;
-                edge_start.x = wpdtp[cnt[0]].center.x;
-                edge_start.y = j;
-                edge_off.x = 0;
-                edge_off.y = 1;
-                noedges = image_find_raise_fall_edges_by_offset(img, edge_start, edge_off, wpdtp[cnt[0]].nw, oedges, 1);
-                if (noedges != 1 || oedges[0].type != IMAGE_RFEDGE_TYPE_RAISE)
-                    continue;
-                edge_off.y = -1;
-                noedges = image_find_raise_fall_edges_by_offset(img, edge_start, edge_off, wpdtp[cnt[0]].nw, oedges + 1, 1);
-                if (noedges != 1 || oedges[0].type != IMAGE_RFEDGE_TYPE_RAISE)
-                    continue;
-                wpdtp[cnt[0]].nh = ((cur_edge->dpos_256x + last_edge->dpos_256x) + 128) >> 8;
-                if (unsigned_diff(wpdtp[cnt[0]].nh, wpdtp[cnt[0]].nw) > ((wpdtp[cnt[0]].nh + wpdtp[cnt[0]].nw) >> 1))
-                    continue;
-                wpdtp[cnt[0]].center.y = (oedges[0].dpos + j) - (wpdtp[cnt[0]].nh >> 1);
-                ++cnt[0];
-            } else {
-                bpdtp[cnt[1]].nw = cur_edge->dpos_256x - last_edge->dpos_256x;
-            }
+        for (i = 1; i < rfe_hori_cnt; ++i) {
+            pdtp[dtp_size].nw = (rfe_hori[i].dpos_256x - rfe_hori[i - 1].dpos_256x + 128) >> 8;
+            pdtp[dtp_size].center.x = rfe_hori[i].dpos - ((pdtp[dtp_size].nw + 1) >> 1);
+            edge_start.x = pdtp[dtp_size].center.x;
+            edge_start.y = j;
+            edge_off.x = 0;
+            edge_off.y = 1;
+            rfe_tmp_cnt = image_find_raise_fall_edges_by_offset(img,
+                edge_start, edge_off, 1000, rfe_buff, 1);
+            if (rfe_tmp_cnt != 1 || rfe_buff[0].type == rfe_hori[i].type)
+                continue;
+            rfe_tmp = rfe_buff[0];
+
+            edge_off.y = -1;
+            rfe_tmp_cnt = image_find_raise_fall_edges_by_offset(img,
+                edge_start, edge_off, 1000, rfe_buff, 1);
+            if (rfe_tmp_cnt != 1 || rfe_buff[0].type == rfe_hori[i].type)
+                continue;
+
+            pdtp[dtp_size].nh = (rfe_tmp.dpos_256x + rfe_buff[0].dpos_256x + 128) >> 8;
+            if (pdtp[dtp_size].nh >= (pdtp[dtp_size].nw << 1) || pdtp[dtp_size].nw >= (pdtp[dtp_size].nh << 1))
+                continue;
+            pdtp[dtp_size].center.y = j - ((pdtp[dtp_size].nh + 1) >> 1) + rfe_tmp.dpos;
+
+            edge_start.x = pdtp[dtp_size].center.x;
+            edge_start.y = pdtp[dtp_size].center.y;
+            edge_off.x = 1;
+            edge_off.y = 1;
+            rfe_tmp_cnt = image_find_raise_fall_edges_by_offset(img,
+                edge_start, edge_off, 1000, rfe_buff, 1);
+            if (rfe_tmp_cnt != 1 || rfe_buff[0].type == rfe_hori[i].type)
+                continue;
+            rfe_tmp = rfe_buff[0];
+
+            edge_off.x = -1;
+            edge_off.y = -1;
+            rfe_tmp_cnt = image_find_raise_fall_edges_by_offset(img,
+                edge_start, edge_off, 1000, rfe_buff, 1);
+            if (rfe_tmp_cnt != 1 || rfe_buff[0].type == rfe_hori[i].type)
+                continue;
+            pdtp[dtp_size].n45 = (rfe_tmp.dpos_256x + rfe_buff[0].dpos_256x + 128) >> 8;
+            if (pdtp[dtp_size].n45 >= (pdtp[dtp_size].nw << 1) || pdtp[dtp_size].nw >= (pdtp[dtp_size].n45 << 1))
+                continue;
+
+            edge_start.x = pdtp[dtp_size].center.x;
+            edge_start.y = pdtp[dtp_size].center.y;
+            edge_off.x = -1;
+            edge_off.y = 1;
+            rfe_tmp_cnt = image_find_raise_fall_edges_by_offset(img,
+                edge_start, edge_off, 1000, rfe_buff, 1);
+            if (rfe_tmp_cnt != 1 || rfe_buff[0].type == rfe_hori[i].type)
+                continue;
+            rfe_tmp = rfe_buff[0];
+
+            edge_off.x = 1;
+            edge_off.y = -1;
+            rfe_tmp_cnt = image_find_raise_fall_edges_by_offset(img,
+                edge_start, edge_off, 1000, rfe_buff, 1);
+            if (rfe_tmp_cnt != 1 || rfe_buff[0].type == rfe_hori[i].type)
+                continue;
+            pdtp[dtp_size].n135 = (rfe_tmp.dpos_256x + rfe_buff[0].dpos_256x + 128) >> 8;
+            if (pdtp[dtp_size].n135 >= (pdtp[dtp_size].nw << 1) || pdtp[dtp_size].nw >= (pdtp[dtp_size].n135 << 1))
+                continue;
+            pdtp[dtp_size].isblack = (rfe_hori[i].type == IMAGE_RFEDGE_TYPE_FALL);
+            ++dtp_size;
         }
     }
 
-    return cnt[0];
+    return dtp_size;
 }
 

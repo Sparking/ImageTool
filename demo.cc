@@ -106,10 +106,13 @@ void wave_image(const char *name, const struct image *srcimg,
 
 int image_scale_line(const struct image *img)
 {
+
     unsigned int cnt;
     struct image *simg;
     unsigned int i, j, soff;
     struct image_raise_fall_edge *rfe;
+    const struct point s_off = {1, 0};
+    const struct point s_start = {0, (int)g_config.qr_line};
 
     if (img == nullptr)
         return -1;
@@ -129,16 +132,7 @@ int image_scale_line(const struct image *img)
         }
     }
 
-    {
-#if 0
-        cnt = image_find_raise_fall_edges(img->data + soff, simg->width, rfe, 500);
-#else
-        point s = {0, (int)g_config.qr_line};
-        point off = {1, 0};
-        cnt = image_find_raise_fall_edges_by_offset(img, s, off, 1000, rfe, 500);
-#endif
-    }
-
+    cnt = image_find_raise_fall_edges_by_offset(img, s_start, s_off, 1000, rfe, 500);
     j = img->size + 55 * simg->row_size;
     for (i = 0; i < simg->row_size; ++i) {
         simg->data[j + (255 - img->data[soff + i]) * simg->row_size + i] = 0;
@@ -214,7 +208,7 @@ int image_scan_column(void)
     }
     image_release(tmpimg);
 
-    rfe = (struct image_raise_fall_edge *)malloc(sizeof(struct image_raise_fall_edge) * 500);
+    rfe = (struct image_raise_fall_edge *)mem_alloc(sizeof(struct image_raise_fall_edge) * 500);
     cnt = image_find_raise_fall_edges_by_offset(img, start_pt, setup, 1000, rfe, 500);
     for (i = 0; i < cnt; ++i) {
         switch (rfe[i].type) {
@@ -229,7 +223,7 @@ int image_scan_column(void)
             break;
         }
     }
-    free(rfe);
+    mem_free(rfe);
 
     image_save("column.bmp", simg, IMAGE_FILE_BITMAP);
     image_release(simg);
@@ -308,12 +302,11 @@ int main(const int argc, char *argv[])
     image_release(img);
     if (gray == nullptr)
         return -1;
-    /*image_draw_rfedges(gray);*/
 
     image_scale_line(gray);
-#if 0
-    struct dotcode_point w[1000], b[1000];
-    unsigned int nxx = dotcode_detect_point(img, b, 1000, w, 1000);
+#if 1
+    struct dotcode_point w[1000];
+    unsigned int nxx = dotcode_detect_point(gray, w, 1000);
     printf("%d\n", nxx);
     for (unsigned int x = 0; x < nxx; ++x) {
         *(gray->data + w[x].center.y * gray->width + w[x].center.x) = 0;

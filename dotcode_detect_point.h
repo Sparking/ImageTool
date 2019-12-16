@@ -21,8 +21,7 @@ struct dotcode_point {
 
  ******************************************************************************/
 extern unsigned int dotcode_detect_point(const struct image *img,
-		struct dotcode_point *bpdtp, const unsigned int nbdtp,
-		struct dotcode_point *wpdtp, const unsigned int wbdtp);
+        struct dotcode_point *pdtp, const unsigned int ndtp);
 
 #ifdef __cplusplus
 }

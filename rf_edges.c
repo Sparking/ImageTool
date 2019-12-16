@@ -53,7 +53,7 @@ unsigned int image_find_raise_fall_edges(const unsigned char *imgdata, const uns
 
             ++cur_edge;
             ++cnt;
-            if (cnt > num)
+            if (cnt >= num)
                 break;
 
             cur_edge->begin = i - 1;
