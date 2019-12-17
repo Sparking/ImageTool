@@ -309,7 +309,11 @@ int main(const int argc, char *argv[])
     unsigned int nxx = dotcode_detect_point(gray, w, 1000);
     printf("%d\n", nxx);
     for (unsigned int x = 0; x < nxx; ++x) {
-        *(gray->data + w[x].center.y * gray->width + w[x].center.x) = 0;
+        printf("%d, %d\n", w[x].center.x, w[x].center.y);
+        if (w[x].isblack)
+            *(gray->data + w[x].center.y * gray->width + w[x].center.x) = 0xFF;
+        else
+            *(gray->data + w[x].center.y * gray->width + w[x].center.x) = 0;
     }
     image_save("white-dots.bmp", gray, IMAGE_FILE_BITMAP);
 #endif
