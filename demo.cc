@@ -303,13 +303,14 @@ int main(const int argc, char *argv[])
     if (gray == nullptr)
         return -1;
 
+    qr_decode_info(gray);
     image_scale_line(gray);
 #if 1
     struct dotcode_point w[10000];
     unsigned int nxx = dotcode_detect_point(gray, w, 10000);
-    printf("%d\n", nxx);
+    //printf("%d\n", nxx);
     for (unsigned int x = 0; x < nxx; ++x) {
-        printf("%d, %d (%d)\n", w[x].center.x, w[x].center.y, w[x].weight);
+        //printf("%d, %d (%d)\n", w[x].center.x, w[x].center.y, w[x].weight);
         if (w[x].isblack)
             *(gray->data + w[x].center.y * gray->width + w[x].center.x) = 0xFF;
         else
