@@ -168,6 +168,10 @@ unsigned int dotcode_detect_point(const struct image *img,
                 pt.center.x = edge_start.x;
             }
 
+            nw = unsigned_diff(pt.nw, pt.nh) << 1;
+            if (pt.nh <= nw || pt.nw <= nw)
+                continue;
+
             edge_off.x = -1;
             edge_off.y = -1;
             rfe_tmp_cnt = image_find_raise_fall_edges_by_offset(img,
@@ -175,7 +179,9 @@ unsigned int dotcode_detect_point(const struct image *img,
             if (rfe_tmp_cnt == 0 || rfe_buff[0].type != rfe_hori[i].type)
                 continue;
             pt.n45 = (rfe_tmp.dpos_256x + rfe_buff[0].dpos_256x + 128) >> 8;
-            if (pt.n45 >= (pt.nw << 1) || pt.nw >= (pt.n45 << 1))
+            nw = unsigned_diff(pt.n45, pt.nw);
+            nw = ((nw >> 1) + nw) << 1;
+            if (pt.n45 <= nw || pt.nw <= nw)
                 continue;
 
             edge_start.x = pt.center.x;
@@ -195,7 +201,9 @@ unsigned int dotcode_detect_point(const struct image *img,
             if (rfe_tmp_cnt == 0 || rfe_buff[0].type != rfe_hori[i].type)
                 continue;
             pt.n135 = (rfe_tmp.dpos_256x + rfe_buff[0].dpos_256x + 128) >> 8;
-            if (pt.n135 >= (pt.nw << 1) || pt.nw >= (pt.n135 << 1))
+            nw = unsigned_diff(pt.n135, pt.n45);
+            nw = nw >> 1;
+            if (pt.n135 <= nw || pt.n45 <= nw)
                 continue;
             pt.isblack = (rfe_hori[i].type != IMAGE_RFEDGE_TYPE_FALL);
 
