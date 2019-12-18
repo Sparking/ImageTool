@@ -211,7 +211,7 @@ unsigned int image_find_raise_fall_edges_by_offset(
 
             ++cur_edge;
             ++cnt;
-            if (cnt > num)
+            if (cnt >= num)
                 break;
 
             cur_edge->begin = i - 1;
@@ -293,7 +293,7 @@ unsigned int image_find_raise_fall_edges_by_offset(
                 gray = IMAGE_RFEDGE_AMP_LIMIT_MIN;
         }
     }
-    cnt = buff_end - cur_edge;
+    cnt = buff_end - cur_edge + 1;
     memcpy(pedge, cur_edge, sizeof(struct image_raise_fall_edge) * cnt);
     mem_free(buff);
 

@@ -218,4 +218,3 @@ unsigned int dotcode_detect_point(const struct image *img,
 
     return dtp_size;
 }
-
