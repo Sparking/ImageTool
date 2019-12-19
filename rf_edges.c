@@ -210,8 +210,7 @@ unsigned int image_find_raise_fall_edges_by_offset(
             }
 
             ++cur_edge;
-            ++cnt;
-            if (cnt >= num)
+            if ((cur_edge - pedge) >= num)
                 break;
 
             cur_edge->begin = i - 1;
@@ -238,9 +237,10 @@ unsigned int image_find_raise_fall_edges_by_offset(
         gray = *imgdata;
     }
 
-    if (cnt == 0)
+    if (cur_edge < pedge)
         return 0;
 
+    cnt = cur_edge - pedge;
     buff = (struct image_raise_fall_edge *)mem_alloc(sizeof(struct image_raise_fall_edge) * cnt);
     if (buff == NULL)
         return 0;
