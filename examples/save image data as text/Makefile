@@ -4,13 +4,15 @@ CXX      := g++
 RANLIB   := ranlib
 ARFLAGS  := rc
 CFLAGS   := -g -O0 -ffunction-sections -fdata-sections -fno-strict-aliasing
-CPPFLAGS := -Wall -Werror -ansi -MMD -I"$(CURDIR)/../.." -DCHECK_ENTRY_PARAM
+CPPFLAGS := -Wall -Werror -ansi -MMD -DCHECK_ENTRY_PARAM \
+		-I"$(CURDIR)/../.." \
+		-I"$(CURDIR)/../../image" \
+		-I"$(CURDIR)/../../common" 
 LDFLAGS  := -Wl,--as-needed -Wl,-gc-section -L"$(CURDIR)/../.."
 LIBS     := -limage
 
 ifeq ($(OS),Windows_NT)
-CPPFLAGS += -I"$(CURDIR)/../.."/lib/gcc/include -I"$(CURDIR)/../.."/lib/gcc/opencv/include \
-	-I"$(CURDIR)/../.."/image -I"$(CURDIR)/../.."/common
+CPPFLAGS += -I"$(CURDIR)/../.."/lib/gcc/include -I"$(CURDIR)/../.."/lib/gcc/opencv/include
 LDFLAGS  += -L"$(CURDIR)/../.."/lib/gcc/lib
 else
 CPPFLAGS += -D_GNU_SOURCE
@@ -66,3 +68,7 @@ $(OUT): ../../libimage.a $(OBJ)
 $(OBJ): $(SRC)
 	$(call compile_c,$@,$<)
 
+.PHONY: clean
+clean:
+	$(RM) $(OUT)
+	$(RM) $(OBJ)
