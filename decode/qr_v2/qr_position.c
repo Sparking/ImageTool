@@ -15,6 +15,7 @@ static void qr_edges_dist_left_shift_one(unsigned int w[5])
     w[3] = w[4];
 }
 
+#if 0
 static bool qr_check_finder_mode(const unsigned int w[5])
 {
     bool ret;
@@ -42,6 +43,26 @@ static bool qr_check_finder_mode(const unsigned int w[5])
 
     return ret;
 }
+#else
+static bool qr_check_finder_mode(const unsigned int w[5])
+{
+    unsigned int total_msize, msize, max_variance;
+
+    total_msize = w[0] + w[1] + w[2] + w[3] + w[4];
+    if (total_msize < 7)
+        return false;
+
+    total_msize *= 14;
+    msize = total_msize / 7;
+    max_variance = msize >> 1;
+
+    return unsigned_diff(w[0] * 14, msize) < max_variance
+        && unsigned_diff(w[1] * 14, msize) < max_variance
+        && unsigned_diff(w[2] * 14, msize * 3) < 3 * max_variance
+        && unsigned_diff(w[3] * 14, msize) < max_variance
+        && unsigned_diff(w[4] * 14, msize) < max_variance;
+}
+#endif
 
 int qr_position_makrings_find(const struct image *img,
         struct qr_position_makrings_info *pqpmi, const unsigned int sz)

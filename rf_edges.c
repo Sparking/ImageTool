@@ -26,7 +26,7 @@ unsigned int image_find_raise_fall_edges(const unsigned char *imgdata, const uns
     if (imgdata == NULL || len <= 1 || pedge == NULL || num == 0)
         return 0;
 
-    cnt = 0;
+    cnt = 1;
     max_edge = NULL;
     cur_edge = pedge - 1;
     gray = imgdata[0];
@@ -51,11 +51,11 @@ unsigned int image_find_raise_fall_edges(const unsigned char *imgdata, const uns
                 max_edge = cur_edge;
             }
 
-            ++cur_edge;
-            ++cnt;
             if (cnt >= num)
                 break;
 
+            ++cur_edge;
+            ++cnt;
             cur_edge->begin = i - 1;
             cur_edge->end = i;
             cur_edge->type = cur_type;
@@ -188,6 +188,7 @@ unsigned int image_find_raise_fall_edges_by_offset(
     gray = *imgdata;
     imgdata += imgdata_off;
     last_type = IMAGE_RFEDGE_TYPE_NONE;
+    buff_end = pedge + num - 1;
     for (i = 1; i < len && off_end.x >= 0 && off_end.x < img->width && off_end.y >= 0 && off_end.y < img->height;
             ++i, imgdata += imgdata_off, off_end.x += setup_off.x, off_end.y += setup_off.y) {
         if (gray == *imgdata) {
@@ -209,10 +210,10 @@ unsigned int image_find_raise_fall_edges_by_offset(
                 max_edge = cur_edge;
             }
 
-            ++cur_edge;
-            if ((cur_edge - pedge) >= num)
+            if (cur_edge >= buff_end)
                 break;
 
+            ++cur_edge;
             cur_edge->begin = i - 1;
             cur_edge->end = i;
             cur_edge->type = cur_type;
@@ -240,7 +241,7 @@ unsigned int image_find_raise_fall_edges_by_offset(
     if (cur_edge < pedge)
         return 0;
 
-    cnt = cur_edge - pedge;
+    cnt = cur_edge - pedge + 1;
     buff = (struct image_raise_fall_edge *)mem_alloc(sizeof(struct image_raise_fall_edge) * cnt);
     if (buff == NULL)
         return 0;

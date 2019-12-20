@@ -8,7 +8,7 @@ struct rb_dotcode_point {
     struct rb_node node;
 };
 
-static struct rb_dotcode_point *dotcode_rb_point_insert(
+static __attribute__((unused)) struct rb_dotcode_point *dotcode_rb_point_insert(
         struct rb_root *root, struct dotcode_point *pt)
 {
     int cmp_ret;
@@ -46,7 +46,7 @@ static struct rb_dotcode_point *dotcode_rb_point_insert(
     return rb_pt;
 }
 
-static void dotcode_rb_point_clean(struct rb_root *root)
+static __attribute__((unused)) void dotcode_rb_point_clean(struct rb_root *root)
 {
     struct rb_node *node;
 
@@ -144,7 +144,7 @@ unsigned int dotcode_detect_point(const struct image *img,
 
             /* 切换到中间位置, 并重新水平扫描 */
             if (j !=  pt.center.y) {
-                edge_start.y =pt.center.y;
+                edge_start.y = pt.center.y;
                 edge_off.x = 1;
                 edge_off.y = 0;
 
