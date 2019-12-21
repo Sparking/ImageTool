@@ -64,19 +64,57 @@ int image_draw_line(struct image *img, struct point *start, struct point *end)
     return 0;
 }
 
+
+int image_draw_line2(struct image *img, struct point *start, struct point *end)
+{
+    int i, j, step;
+    struct point delta;
+    struct point delta_abs;
+
+    delta.x = end->x - start->x;
+    delta.y = end->y - start->y;
+    delta_abs.x = fabs(delta.x);
+    delta_abs.y = fabs(delta.y);
+    if (delta_abs.x >= delta_abs.y) {
+        step = 1;
+        if (delta.x < 0)
+            step = -1;
+
+        for (i = 0; i != delta.x; i += step) {
+            j = (i * delta.y * 1.0 / delta.x + 0.5) + start->y;
+            img->data[img->width * j + start->x + i] = 255;
+        }
+    } else {
+        step = 1;
+        if (delta.y < 0)
+            step = -1;
+
+        for (j = 0; j != delta.y; j += step) {
+            i = (j * delta.x * 1.0 / delta.y + 0.5) + start->x;
+            img->data[img->width * (j + start->y) + i] = 255;
+        }
+    }
+
+    return 0;
+}
+
 int main(void)
 {
     struct point a, b;
-    struct image *img;
+    struct image *img, *ximg;
 
     printf("enter data:");
     scanf("%d %d %d %d", &a.x, &a.y, &b.x, &b.y);
-    img = image_create(a.y > b.y ? a.y: b.y, a.x > b.x ? a.x : b.x, IMAGE_FORMAT_GRAY);
+    img = image_create((a.y > b.y ? a.y : b.y) + 1, (a.x > b.x ? a.x : b.x) + 1, IMAGE_FORMAT_GRAY);
+    ximg = image_dump(img);
 
     image_draw_line(img, &a, &b);
+    image_draw_line2(ximg, &a, &b);
 
     image_save("xxx.bmp", img, IMAGE_FILE_BITMAP);
+    image_save("yyy.bmp", ximg, IMAGE_FILE_BITMAP);
     image_release(img);
+    image_release(ximg);
 
     return 0;
 }
