@@ -11,6 +11,10 @@ extern "C" {
 struct qr_position_makrings_info {
     struct point center;
     struct point conner_points[4];
+    unsigned int wx;
+    unsigned int wy;
+    unsigned int w45;
+    unsigned int w135;
     float module_size;
 };
 

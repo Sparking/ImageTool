@@ -1869,3 +1869,42 @@ struct image *image_rotation(const struct image *src_img,
 
     return img;
 }
+
+void img_print_point(struct image *img, const unsigned int x, const unsigned int y, const unsigned char *color, const unsigned int size)
+{
+    unsigned int i, j;
+    unsigned int off_i[2], off_j[2];
+
+    if (img == NULL || x < 0 || y < 0 || x >= img->width || y >= img->width || size == 0 || color == NULL)
+        return;
+
+    if (x <= size) {
+        off_i[0] = 0;
+    } else {
+        off_i[0] = x - size;
+    }
+
+    if (x + size > img->width) {
+        off_i[1] = img->width;
+    } else {
+        off_i[1] = x + size;
+    }
+
+    if (y <= size) {
+        off_j[0] = 0;
+    } else {
+        off_j[0] = y - size;
+    }
+
+    if (y + size > img->height) {
+        off_j[1] = img->height;
+    } else {
+        off_j[1] = y + size;
+    }
+
+    for (j = off_j[0]; j < off_j[1]; ++j) {
+        for (i = off_i[0]; i < off_i[1]; ++i) {
+            memcpy(img->data + j * img->row_size + i * img->pixel_size, color, img->pixel_size);
+        }
+    }
+}

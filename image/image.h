@@ -218,6 +218,10 @@ extern struct image *image_rotation(const struct image *src_img, const struct po
         const struct point *offset, const float theta,
         int (*interp)(const struct image *, unsigned char *, const float, const float));
 
+
+extern void img_print_point(struct image *img, const unsigned int x, const unsigned int y,
+    const unsigned char *color, const unsigned int size);
+
 #ifdef __cplusplus
 }
 #endif

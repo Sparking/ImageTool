@@ -26,9 +26,6 @@ struct image_raise_fall_edge {
     unsigned char amplitude;
 };
 
-extern unsigned int image_find_raise_fall_edges(const unsigned char *imgdata,
-        const unsigned int len, struct image_raise_fall_edge *pedge, const unsigned int num);
-
 extern unsigned int image_find_raise_fall_edges_by_offset(
         const struct image *img, const struct point pstart,
         const struct point setup_off, const unsigned int len,

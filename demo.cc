@@ -142,7 +142,7 @@ int image_scale_line(const struct image *img)
         switch (rfe[i].type) {
         case IMAGE_RFEDGE_TYPE_FALL:
         case IMAGE_RFEDGE_TYPE_RAISE:
-            memset(simg->data + j + rfe[i].begin, 0x00, rfe[i].end - rfe[i].begin + 1);
+            memset(simg->data + j + rfe[i].dpos, 0x00, rfe[i].end - rfe[i].dpos + 1);
             for (unsigned int off = img->size; off < simg->size; off += simg->row_size)
                 memset(simg->data + off + rfe[i].dpos, 0x00, 1);
             break;
@@ -216,7 +216,7 @@ int image_scan_column(void)
         case IMAGE_RFEDGE_TYPE_RAISE:
             memset(simg->data + rfe[i].dpos * simg->row_size + img->width * simg->pixel_size,
                 0x00, (simg->width - img->width) * simg->pixel_size);
-            for (j = rfe[i].begin + 1; j < rfe[i].end; ++j)
+            for (j = rfe[i].dpos + 1; j < rfe[i].end; ++j)
                 memset(simg->data - simg->pixel_size + j * simg->row_size, 0x00, simg->pixel_size);
             break;
         case IMAGE_RFEDGE_TYPE_NONE:
@@ -236,6 +236,8 @@ int image_draw_rfedges(const struct image *simg)
 {
     struct image *img;
     struct image *dbg_img;
+    struct point start;
+    struct point xoff = {1, 0};
     unsigned int i, j, off[2], cnt, cnt1;
     struct image_raise_fall_edge rfe[2][500];
     const unsigned char re[4] = {0x98, 0x35, 0x95, 0xFF};
@@ -251,7 +253,9 @@ int image_draw_rfedges(const struct image *simg)
 
     for (j = 0, off[0] = off[1] = 0; j < img->height;
             ++j, off[0] += simg->row_size, off[1] += img->row_size) {
-       cnt = image_find_raise_fall_edges(simg->data + off[0], simg->row_size, rfe[0], 500);
+        start.x = 0;
+        start.y = j;
+        cnt = image_find_raise_fall_edges_by_offset(simg, start, xoff, 1000, rfe[0], 500);
         for (i = 0; i < cnt; ++i) {
             if (rfe[0][i].type == IMAGE_RFEDGE_TYPE_RAISE) {
                 memcpy(img->data + off[1] + rfe[0][i].dpos * 3, re, img->pixel_size);
@@ -299,13 +303,14 @@ int main(const int argc, char *argv[])
     }
 
     gray = image_convert_gray(img);
+    image_draw_rfedges(gray);
     image_release(img);
     if (gray == nullptr)
         return -1;
 
     qr_decode_info(gray);
     image_scale_line(gray);
-#if 1
+#if 0
     struct dotcode_point w[10000];
     unsigned int nxx = dotcode_detect_point(gray, w, 10000);
     //printf("%d\n", nxx);
