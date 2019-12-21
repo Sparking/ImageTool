@@ -131,11 +131,12 @@ int qr_position_makrings_find(const struct image *img,
         struct qr_position_makrings_info *pqpmi, const unsigned int sz)
 {
     unsigned int cnt;
+    unsigned int diff;
+    struct rb_node *rb;
+    struct rb_root pm_root;
+    struct rb_qpm_info *rb_pm;
     unsigned int i, j, ne, n, netmp;
     struct point edge_start, edge_off;
-    struct rb_root pm_root;
-    struct rb_node *rb;
-    struct rb_qpm_info *rb_pm;
     struct image_raise_fall_edge edges[500];
     struct image_raise_fall_edge edges_tmp[2][50];
     unsigned int edges_dist[5], edges_dist_temp[5];
@@ -178,8 +179,11 @@ int qr_position_makrings_find(const struct image *img,
                 edges_dist_temp[2] = edges_tmp[1][0].dpos_256x + edges_tmp[0][0].dpos_256x;
                 edges_dist_temp[3] = edges_tmp[1][1].dpos_256x - edges_tmp[1][0].dpos_256x;
                 edges_dist_temp[4] = edges_tmp[1][2].dpos_256x - edges_tmp[1][1].dpos_256x;
-                (void)(edges_dist_temp);
                 if (!qr_check_finder_mode(edges_dist_temp, &pqpmi[0].wy))
+                    continue;
+
+                diff = unsigned_diff(pqpmi[0].wy, pqpmi[0].wx);
+                if (diff > ((pqpmi[0].wy + pqpmi[0].wx + 2) >> 2))
                     continue;
 
                 /* 2.同时坐标移动到竖直中心位置, 重新验证验证x方向是否满足1:1:3:1:1 */
@@ -201,8 +205,11 @@ int qr_position_makrings_find(const struct image *img,
                 edges_dist_temp[2] = edges_tmp[1][0].dpos_256x + edges_tmp[0][0].dpos_256x;
                 edges_dist_temp[3] = edges_tmp[1][1].dpos_256x - edges_tmp[1][0].dpos_256x;
                 edges_dist_temp[4] = edges_tmp[1][2].dpos_256x - edges_tmp[1][1].dpos_256x;
-                (void)(edges_dist_temp);
                 if (!qr_check_finder_mode(edges_dist_temp, &pqpmi[0].wx))
+                    continue;
+
+                diff = unsigned_diff(pqpmi[0].wy, pqpmi[0].wx);
+                if (diff > ((pqpmi[0].wy + pqpmi[0].wx + 2) >> 2))
                     continue;
 
                 /* 3.中心坐标保持不变, 扫描45方向上的模块比例 */
@@ -223,8 +230,11 @@ int qr_position_makrings_find(const struct image *img,
                 edges_dist_temp[2] = edges_tmp[1][0].dpos_256x + edges_tmp[0][0].dpos_256x;
                 edges_dist_temp[3] = edges_tmp[1][1].dpos_256x - edges_tmp[1][0].dpos_256x;
                 edges_dist_temp[4] = edges_tmp[1][2].dpos_256x - edges_tmp[1][1].dpos_256x;
-                (void)(edges_dist_temp);
                 if (!qr_check_finder_mode(edges_dist_temp, &pqpmi[0].w45))
+                    continue;
+
+                diff = unsigned_diff(pqpmi[0].w45, pqpmi[0].wx);
+                if (diff > ((pqpmi[0].w45 + pqpmi[0].wx + 2) >> 2))
                     continue;
 
                 /* 4.中心坐标保持不变, 扫描135方向上的模块比例 */
@@ -234,8 +244,8 @@ int qr_position_makrings_find(const struct image *img,
                 if (netmp < 3 || edges_tmp[0][0].type == edges[i].type)
                     continue;
 
-                edge_off.y = 1;
-                edge_off.x = -1;
+                edge_off.y = -1;
+                edge_off.x = 1;
                 edges_dist_temp[0] = edges_tmp[0][2].dpos_256x - edges_tmp[0][1].dpos_256x;
                 edges_dist_temp[1] = edges_tmp[0][1].dpos_256x - edges_tmp[0][0].dpos_256x;
                 netmp = image_find_raise_fall_edges_by_offset(img, edge_start, edge_off, 1000, edges_tmp[1], 50);
@@ -245,8 +255,11 @@ int qr_position_makrings_find(const struct image *img,
                 edges_dist_temp[2] = edges_tmp[1][0].dpos_256x + edges_tmp[0][0].dpos_256x;
                 edges_dist_temp[3] = edges_tmp[1][1].dpos_256x - edges_tmp[1][0].dpos_256x;
                 edges_dist_temp[4] = edges_tmp[1][2].dpos_256x - edges_tmp[1][1].dpos_256x;
-                (void)(edges_dist_temp);
                 if (!qr_check_finder_mode(edges_dist_temp, &pqpmi[0].w135))
+                    continue;
+
+                diff = unsigned_diff(pqpmi[0].w45, pqpmi[0].w135);
+                if (diff > ((pqpmi[0].w45 + pqpmi[0].w135 + 2) >> 2))
                     continue;
 
                 pqpmi[0].center = edge_start;
