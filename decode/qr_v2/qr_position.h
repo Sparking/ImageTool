@@ -2,7 +2,6 @@
 
 #include "maths.h"
 #include "image.h"
-#include "rf_edges.h"
 
 #ifdef __cplusplus
 extern "C" {

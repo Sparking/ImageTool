@@ -222,6 +222,31 @@ extern struct image *image_rotation(const struct image *src_img, const struct po
 extern void img_print_point(struct image *img, const unsigned int x, const unsigned int y,
     const unsigned char *color, const unsigned int size);
 
+enum {
+    IMAGE_RFEDGE_TYPE_NONE = 0,   /* 平坦区域 */
+    IMAGE_RFEDGE_TYPE_RAISE = 1,  /* 上升边界 */
+    IMAGE_RFEDGE_TYPE_FALL = 2,   /* 下降边界 */
+};
+
+struct image_raise_fall_edge {
+    unsigned int dpos;
+    unsigned int dpos_256x;
+    unsigned int begin;
+    unsigned int end;
+    unsigned char type;
+    unsigned char max_grad;
+    unsigned char min_grad;
+    unsigned char max_gray;
+    unsigned char min_gray;
+    unsigned char ref_gray;
+    unsigned char amplitude;
+};
+
+extern unsigned int image_find_raise_fall_edges_by_offset(
+        const struct image *img, const struct point pstart,
+        const struct point setup_off, const unsigned int len,
+        struct image_raise_fall_edge *pedge, const unsigned int num);
+
 #ifdef __cplusplus
 }
 #endif

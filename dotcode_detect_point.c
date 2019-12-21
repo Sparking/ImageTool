@@ -1,6 +1,5 @@
 ﻿#include <string.h>
 #include "rbtree.h"
-#include "rf_edges.h"
 #include "dotcode_detect_point.h"
 
 struct rb_dotcode_point {

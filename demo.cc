@@ -4,7 +4,6 @@
 #include <cstring>
 #include <iostream>
 #include "image.h"
-#include "rf_edges.h"
 #include "iniparser.h"
 #include "qr_decode.h"
 #include "port_memory.h"
