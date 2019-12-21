@@ -14,7 +14,7 @@ struct rb_qpm_info {
     struct rb_node node;
 };
 
-static __attribute__((unused)) struct rb_qpm_info *rb_qpm_info_insert(
+static struct rb_qpm_info *rb_qpm_info_insert(
         struct rb_root *root, struct qr_position_makrings_info *pm)
 {
     int cmp_ret;
@@ -50,7 +50,7 @@ static __attribute__((unused)) struct rb_qpm_info *rb_qpm_info_insert(
     return rb_pm;
 }
 
-static __attribute__((unused)) void rb_qpm_info_clean(struct rb_root *root)
+static void rb_qpm_info_clean(struct rb_root *root)
 {
     struct rb_node *node;
 
@@ -91,6 +91,42 @@ static bool qr_check_finder_mode(const unsigned int w[5], unsigned int *sz)
         && unsigned_diff(w[4] * 14, msize) < max_variance;
 }
 
+static int qr_position_makrings_filter(struct qr_position_makrings_info *pqpmi,
+        const unsigned int sz)
+{
+    unsigned int i, j, cnt, r;
+    unsigned int left, right, top, bottom;
+
+    if (pqpmi == NULL)
+        return 0;
+
+    i = 0;
+    cnt = sz;
+    for (i = 0; i < cnt; ++i) {
+        right = (pqpmi[i].wx + 256) >> 9;
+        left = pqpmi[i].center.x - right;
+        right += pqpmi[i].center.x;
+        bottom = (pqpmi[i].wy + 256) >> 9;
+        top = pqpmi[i].center.y - bottom;
+        bottom += pqpmi[i].center.y;
+        for (j = i + 1; j < cnt;) {
+            if (pqpmi[j].center.y < bottom && pqpmi[j].center.y > top
+                && pqpmi[j].center.x > left && pqpmi[j].center.x < right) {
+                pqpmi[i].center.x = (pqpmi[i].center.x + pqpmi[j].center.x + 1) >> 1;
+                pqpmi[i].center.y = (pqpmi[i].center.y + pqpmi[j].center.y + 1) >> 1;
+                for (r = j + 1; r < cnt; ++r)
+                    memcpy(pqpmi + r - 1, pqpmi + r, sizeof(*pqpmi));
+                --cnt;
+            } else {
+                ++j;
+            }
+        }
+    }
+
+    return cnt;
+}
+
+
 int qr_position_makrings_find(const struct image *img,
         struct qr_position_makrings_info *pqpmi, const unsigned int sz)
 {
@@ -103,15 +139,6 @@ int qr_position_makrings_find(const struct image *img,
     struct image_raise_fall_edge edges[500];
     struct image_raise_fall_edge edges_tmp[2][20];
     unsigned int edges_dist[5], edges_dist_temp[5];
-
-#ifdef debug_xx
-    int xx;
-    struct image *newimg = image_convert_format(img, IMAGE_FORMAT_BGR);
-    const unsigned char rec[3] = {0x98, 0x35, 0x95};
-    const unsigned char fec[3] = {0x11, 0xbf, 0xF7};
-    const unsigned char xxc[3] = {0x22, 0x62, 0x87};
-    const unsigned char *ecptr;
-#endif
 
     pm_root = RB_ROOT;
     for (j = 0; j < img->height; j += 2) {
@@ -174,10 +201,6 @@ int qr_position_makrings_find(const struct image *img,
                 edges_dist_temp[2] = edges_tmp[1][0].dpos_256x + edges_tmp[0][0].dpos_256x;
                 edges_dist_temp[3] = edges_tmp[1][1].dpos_256x - edges_tmp[1][0].dpos_256x;
                 edges_dist_temp[4] = edges_tmp[1][2].dpos_256x - edges_tmp[1][1].dpos_256x;
-#ifdef debug_xx
-                memcpy(newimg->data + edge_start.y * newimg->row_size + edge_start.x * newimg->pixel_size,
-                            xxc, 3);
-#endif
                 (void)(edges_dist_temp);
                 if (!qr_check_finder_mode(edges_dist_temp, &pqpmi[0].wx))
                     continue;
@@ -226,33 +249,15 @@ int qr_position_makrings_find(const struct image *img,
                 if (!qr_check_finder_mode(edges_dist_temp, &pqpmi[0].w135))
                     continue;
 
-#ifdef debug_xx
-                for (xx = 0; xx < 6; ++xx) {
-                    if (edges[i + xx].type == IMAGE_RFEDGE_TYPE_RAISE)
-                        ecptr = rec;
-                    else
-                        ecptr = fec;
-                    memcpy(newimg->data + j * newimg->row_size + edges[xx + i].dpos * newimg->pixel_size,
-                            ecptr, 3);
-                }
-#endif
                 pqpmi[0].center = edge_start;
                 if (rb_qpm_info_insert(&pm_root, &pqpmi[0]) == NULL) {
                     rb_qpm_info_clean(&pm_root);
-#ifdef debug_xx
-                    goto outof_xx;
-#endif
                     return 0;
                 }
             }
         }
     }
 
-#ifdef debug_xx
-outof_xx:
-    image_save("ruerue.bmp", newimg, IMAGE_FILE_BITMAP);
-    image_release(newimg);
-#endif
     cnt = 0;
     for (rb = rb_first(&pm_root); rb != NULL; rb = rb_next(rb)) {
         rb_pm = rb_entry(rb, struct rb_qpm_info, node);
@@ -264,6 +269,7 @@ outof_xx:
         }
     }
     rb_qpm_info_clean(&pm_root);
+    cnt = qr_position_makrings_filter(pqpmi, cnt);
 
     return cnt;
 }
