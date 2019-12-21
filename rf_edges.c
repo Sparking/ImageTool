@@ -20,6 +20,8 @@ unsigned int image_find_raise_fall_edges_by_offset(
     unsigned char gray;
     unsigned char cur_type;
     unsigned char last_type;
+    unsigned char max_grad;
+    unsigned char max_amplitude;
     const unsigned char *imgdata;
     struct image_raise_fall_edge *cur_edge;
     struct image_raise_fall_edge *max_edge;
@@ -32,7 +34,9 @@ unsigned int image_find_raise_fall_edges_by_offset(
         return 0;
 
     cnt = 0;
+    max_grad = 0;
     max_edge = NULL;
+    max_amplitude = 0;
     cur_edge = pedge - 1;
     off_end.x = pstart.x + setup_off.x;
     off_end.y = pstart.y + setup_off.y;
@@ -55,6 +59,9 @@ unsigned int image_find_raise_fall_edges_by_offset(
             grad = gray - *imgdata;
             cur_type = IMAGE_RFEDGE_TYPE_FALL;
         }
+
+        if (grad > max_grad)
+            max_grad = grad;
 
         if (last_type != cur_type) {
             if (max_edge == NULL) {
@@ -88,6 +95,8 @@ unsigned int image_find_raise_fall_edges_by_offset(
             cur_edge->min_gray = *imgdata;
             cur_edge->amplitude += grad;
             cur_edge->dpos_256x += grad * i;
+            if (cur_edge->amplitude > max_amplitude)
+                max_amplitude = cur_edge->amplitude;
         }
         gray = *imgdata;
     }
@@ -100,6 +109,15 @@ unsigned int image_find_raise_fall_edges_by_offset(
     if (buff == NULL)
         return 0;
 
+    if (pstart.x == 0 && pstart.y == 81 && setup_off.x == 1 && setup_off.y == 0) {
+        printf("edges: %d, %d\n", max_edge->max_grad, max_edge->amplitude);
+        printf("max: %d, %d\n", max_grad, max_amplitude);
+    }
+
+    if (max_edge->amplitude <= 8)
+        return 0;
+
+
     buff_end = pedge + cnt;
     buff_prev = buff + (max_edge - pedge);
     cur_edge = buff_prev;
@@ -110,6 +128,9 @@ unsigned int image_find_raise_fall_edges_by_offset(
         gray = IMAGE_RFEDGE_AMP_LIMIT_MIN;
     memcpy(cur_edge, last_edge, sizeof(struct image_raise_fall_edge));
     while (++last_edge < buff_end) {
+        if (last_edge->amplitude < 5 && last_edge->end - last_edge->begin < 3)
+            continue;
+
         if (last_edge->type == cur_edge->type) {
             if (last_edge->amplitude >= cur_edge->amplitude) {
                 if (last_edge->max_grad >= cur_edge->max_grad) {
@@ -135,6 +156,9 @@ unsigned int image_find_raise_fall_edges_by_offset(
     if (gray < IMAGE_RFEDGE_AMP_LIMIT_MIN)
         gray = IMAGE_RFEDGE_AMP_LIMIT_MIN;
     while (--last_edge >= pedge) {
+        if (last_edge->amplitude < 5 && last_edge->end - last_edge->begin < 3)
+            continue;
+
         if (last_edge->type == cur_edge->type) {
             if (last_edge->amplitude >= cur_edge->amplitude) {
                 if (last_edge->max_grad >= cur_edge->max_grad) {
