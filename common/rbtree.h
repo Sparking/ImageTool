@@ -5,7 +5,7 @@
 #define RB_RED              0
 #define RB_BLACK            1
 struct rb_node {
-    unsigned long   rb_parent_color;
+    size_t   rb_parent_color;
     struct rb_node *rb_left;
     struct rb_node *rb_right;
 };
@@ -23,26 +23,26 @@ struct rb_root {
 
 static inline void rb_set_parent(struct rb_node *rb, struct rb_node *p)
 {
-    rb->rb_parent_color = (unsigned long)(rb_color(rb) | (((char *)p) - ((char *)NULL)));
+    rb->rb_parent_color = (size_t)(rb_color(rb) | (((char *)p) - ((char *)NULL)));
 }
 
 static inline void rb_set_color(struct rb_node *rb, unsigned color)
 {
-    rb->rb_parent_color = (unsigned long)((rb->rb_parent_color & ~1) | color);
+    rb->rb_parent_color = (size_t)((rb->rb_parent_color & ~1) | color);
 }
 
 static inline void rb_set_parent_color(struct rb_node *rb, struct rb_node *p,
             unsigned color)
 {
-    rb->rb_parent_color = (unsigned long)((((char *)p) - ((char *)NULL)) | color);
+    rb->rb_parent_color = (size_t)((((char *)p) - ((char *)NULL)) | color);
 }
 
 #define rb_entry(ptr, type, m)  ((type *)((((char *)(ptr)) - ((char *)&((type *)0)->m))))
 
 #define RB_ROOT             (struct rb_root){NULL,}
 #define RB_EMPTY_ROOT(root) ((root)->rb_node == NULL)
-#define RB_EMPTY_NODE(rb)   ((rb)->rb_parent_color == (unsigned long)(((char *)(rb)) - ((char *)NULL)))
-#define RB_CLEAR_NODE(rb)   ((rb)->rb_parent_color = (unsigned long)(((char *)(rb)) - ((char *)NULL)))
+#define RB_EMPTY_NODE(rb)   ((rb)->rb_parent_color == (size_t)(((char *)(rb)) - ((char *)NULL)))
+#define RB_CLEAR_NODE(rb)   ((rb)->rb_parent_color = (size_t)(((char *)(rb)) - ((char *)NULL)))
 
 static inline void rb_init_node(struct rb_node *rb)
 {
@@ -54,7 +54,7 @@ static inline void rb_init_node(struct rb_node *rb)
 static inline void rb_link_node(struct rb_node *node, struct rb_node *parent,
         struct rb_node **rb_link)
 {
-    node->rb_parent_color = (unsigned long)((((char *)parent) - ((char *)NULL)));
+    node->rb_parent_color = (size_t)((((char *)parent) - ((char *)NULL)));
     node->rb_left = node->rb_right = NULL;
 
     *rb_link = node;
@@ -73,6 +73,3 @@ extern struct rb_node *rb_next(const struct rb_node *);
 extern struct rb_node *rb_prev(const struct rb_node *);
 extern struct rb_node *rb_first(const struct rb_root *);
 extern struct rb_node *rb_last(const struct rb_root *);
-
-extern void rb_replace_node(struct rb_node *victim, struct rb_node *parent,
-        struct rb_root *root);

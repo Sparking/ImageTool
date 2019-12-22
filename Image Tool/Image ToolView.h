@@ -34,7 +34,10 @@ public:
 #endif
 
 protected:
-	void RotateImage();
+	afx_msg void RotateImage();
+	afx_msg void QRFindPositionMarkings();
+	afx_msg void ShowEdges();
+
 // 生成的消息映射函数
 protected:
 	afx_msg void OnRButtonUp(UINT nFlags, CPoint point);

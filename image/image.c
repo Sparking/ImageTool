@@ -1936,7 +1936,7 @@ unsigned int image_find_raise_fall_edges_by_offset(
     if (img == NULL || pstart == NULL || setup_off == NULL || len <= 1 || pedge == NULL || num == 0)
         return 0;
 
-    if (pstart->x < 0 || pstart->x >= img->width || pstart->y < 0 || pstart->y >= img->height)
+    if (pstart->x < 0 || pstart->x >= (int)img->width || pstart->y < 0 || pstart->y >= (int)img->height)
         return 0;
 
     cnt = 0;
@@ -1952,8 +1952,8 @@ unsigned int image_find_raise_fall_edges_by_offset(
     imgdata += imgdata_off;
     last_type = IMAGE_RFEDGE_TYPE_NONE;
     buff_end = pedge + num - 1;
-    for (i = 1; i < len && off_end.x >= 0 && off_end.x < img->width
-                && off_end.y >= 0 && off_end.y < img->height;
+    for (i = 1; i < len && off_end.x >= 0 && off_end.x < (int)img->width
+                && off_end.y >= 0 && off_end.y < (int)img->height;
             ++i, imgdata += imgdata_off, off_end.x += setup_off->x, off_end.y += setup_off->y) {
         if (gray == *imgdata) {
             last_type = IMAGE_RFEDGE_TYPE_NONE;
@@ -2013,7 +2013,7 @@ unsigned int image_find_raise_fall_edges_by_offset(
     if (max_edge->amplitude <= 8)
         return 0;
 
-    cnt = cur_edge - pedge + 1;
+    cnt = (unsigned int)(cur_edge - pedge + 1);
     buff = (struct image_raise_fall_edge *)mem_alloc(sizeof(struct image_raise_fall_edge) * cnt);
     if (buff == NULL)
         return 0;
@@ -2076,7 +2076,7 @@ unsigned int image_find_raise_fall_edges_by_offset(
                 gray = cur_edge->amplitude >> 1;
         }
     }
-    cnt = buff_end - cur_edge + 1;
+    cnt = (int)(buff_end - cur_edge + 1);
     memcpy(pedge, cur_edge, sizeof(struct image_raise_fall_edge) * cnt);
     mem_free(buff);
 
@@ -2122,10 +2122,10 @@ unsigned int image_find_raise_fall_edges_pt2pt(
     if (img == NULL || start == NULL || end == NULL || pedge == NULL || num == 0)
         return 0;
 
-    if (start->x < 0 || start->x >= img->width || start->y < 0 || start->y >= img->height)
+    if (start->x < 0 || start->x >= (int)img->width || start->y < 0 || start->y >= (int)img->height)
         return 0;
 
-    if (end->x < 0 || end->x >= img->width || end->y < 0 || end->y >= img->height)
+    if (end->x < 0 || end->x >= (int)img->width || end->y < 0 || end->y >= (int)img->height)
         return 0;
 
     if (start->x == end->x && start->y == end->y)
@@ -2142,15 +2142,15 @@ unsigned int image_find_raise_fall_edges_pt2pt(
     gray = *imgdata;
     delta.x = end->x - start->x;
     delta.y = end->y - start->y;
-    delta_abs.x = fabs(delta.x);
-    delta_abs.y = fabs(delta.y);
+    delta_abs.x = (int)fabs(delta.x);
+    delta_abs.y = (int)fabs(delta.y);
     if (delta_abs.x >= delta_abs.y) {
         step = 1;
         if (delta.x < 0)
             step = -1;
 
-        for (pos = 1, i = 1; pos <= delta_abs.x; i += step, ++pos) {
-            j = (i * delta.y * 1.0 / delta.x + 0.5) + start->y;
+        for (pos = 1, i = 1; pos <= (unsigned int)delta_abs.x; i += step, ++pos) {
+            j = (int)((i * delta.y * 1.0 / delta.x + 0.5) + start->y);
             imgdata = &img->data[img->width * j + start->x + i];
 
             if (gray == *imgdata) {
@@ -2209,8 +2209,8 @@ unsigned int image_find_raise_fall_edges_pt2pt(
         if (delta.y < 0)
             step = -1;
 
-        for (pos = 1, j = 1; pos <= delta_abs.y; j += step, ++pos) {
-            i = (j * delta.x * 1.0 / delta.y + 0.5) + start->x;
+        for (pos = 1, j = 1; pos <= (unsigned int)delta_abs.y; j += step, ++pos) {
+            i = (int)((j * delta.x * 1.0 / delta.y + 0.5) + start->x);
             imgdata = &img->data[img->width * (j + start->y) + i];
 
             if (gray == *imgdata) {
@@ -2272,7 +2272,7 @@ unsigned int image_find_raise_fall_edges_pt2pt(
     if (max_edge->amplitude <= 8)
         return 0;
 
-    cnt = cur_edge - pedge + 1;
+    cnt = (unsigned int)(cur_edge - pedge + 1);
     buff = (struct image_raise_fall_edge *)mem_alloc(sizeof(struct image_raise_fall_edge) * cnt);
     if (buff == NULL)
         return 0;
@@ -2335,7 +2335,7 @@ unsigned int image_find_raise_fall_edges_pt2pt(
                 gray = cur_edge->amplitude >> 1;
         }
     }
-    cnt = buff_end - cur_edge + 1;
+    cnt = (unsigned int)(buff_end - cur_edge + 1);
     memcpy(pedge, cur_edge, sizeof(struct image_raise_fall_edge) * cnt);
     mem_free(buff);
 

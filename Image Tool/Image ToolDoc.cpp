@@ -11,7 +11,7 @@
 
 #include "MainFrm.h"
 #include "Image ToolDoc.h"
-
+#include "qr_position.h"
 #include <propkey.h>
 
 #ifdef _DEBUG
@@ -22,7 +22,7 @@ static int(*image_interp_func[4])(const struct image *, unsigned char *, const f
 	image_nearest_interp,
 	image_bilinear_interp,
 	image_bicubic_interp,
-	image_lanczos_interp
+	image_bicubic_interp
 };
 // CImageToolDoc
 
@@ -217,6 +217,75 @@ void CImageToolDoc::UpdateBitmap()
 {
 	m_bitmap.SetBitmapBits(m_img->size, m_img->data);
 	UpdateAllViews(NULL);
+}
+
+void CImageToolDoc::MarkQRPM()
+{
+	unsigned int n, i;
+	struct image *gray, *dump;
+	struct qr_position_makrings_info pm[20];
+	const unsigned char xxc[4] = { 0x00, 0x7E, 0xFF, 0xFF};
+
+	dump = image_dump(m_img);
+	if (dump == nullptr)
+		return;
+
+	gray = image_convert_gray(m_srcimg);
+	if (gray == nullptr) {
+		image_release(dump);
+		return;
+	}
+
+	m_img = dump;
+	n = qr_position_makrings_find(gray, pm, 20);
+	image_release(gray);
+	for (i = 0; i < n; ++i) {
+		img_print_point(m_img, pm[i].center.x, pm[i].center.y, xxc, 3);
+	}
+	UpdateBitmap();
+	m_stack_undo.push(m_img);
+	ClearRedoStack();
+}
+
+void CImageToolDoc::MarkEdges()
+{
+	struct point start, xoff;
+	unsigned int cnt, i, j;
+	struct image *gray, *dump;
+	const unsigned char xxc[2][4] = {
+		{ 0xFE, 0x97, 0x00, 0xFF },
+		{ 0x81, 0x10, 0xFF, 0xFF } };
+	struct image_raise_fall_edge rfe[500];
+
+	dump = image_dump(m_img);
+	if (dump == nullptr)
+		return;
+
+	gray = image_convert_gray(m_srcimg);
+	if (gray == nullptr) {
+		image_release(dump);
+		return;
+	}
+
+	m_img = dump;
+	xoff.x = 1;
+	xoff.y = 0;
+	start.x = 0;
+	for (j = 0; j < m_img->height; ++j) {
+		start.y = j;
+		cnt = image_find_raise_fall_edges_by_offset(gray, &start, &xoff, gray->width, rfe, 500);
+		for (i = 0; i < cnt; ++i) {
+			if (rfe[i].type == IMAGE_RFEDGE_TYPE_RAISE) {
+				memcpy(m_img->data + j * m_img->row_size + rfe[i].dpos * m_img->pixel_size, xxc[0], m_img->pixel_size);
+			} else {
+				memcpy(m_img->data + j * m_img->row_size + rfe[i].dpos * m_img->pixel_size, xxc[1], m_img->pixel_size);
+			}
+		}
+	}
+	image_release(gray);
+	UpdateBitmap();
+	m_stack_undo.push(m_img);
+	ClearRedoStack();
 }
 
 void CImageToolDoc::RotateImage(const point *rotation_center, const point *rotation_offset,

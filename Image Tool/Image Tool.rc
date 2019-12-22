@@ -73,7 +73,9 @@ END
 // Icon with lowest ID value placed first to ensure application icon
 // remains consistent on all systems.
 IDR_MAINFRAME           ICON                    "res\\Image Tool.ico"
+
 IDR_ImageToolTYPE       ICON                    "res\\Image ToolDoc.ico"
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -81,7 +83,9 @@ IDR_ImageToolTYPE       ICON                    "res\\Image ToolDoc.ico"
 //
 
 IDR_MAINFRAME           BITMAP                  "res\\Toolbar.bmp"
+
 IDR_MAINFRAME_256       BITMAP                  "res\\Toolbar256.bmp"
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -225,6 +229,11 @@ BEGIN
         BEGIN
             MENUITEM "旋转(&R)",                      ID_TOOL_TRANSFORM_ROTATE
         END
+        POPUP "QR解码测试"
+        BEGIN
+            MENUITEM "定位标志",                        ID_QR_FIND_PM
+        END
+        MENUITEM "增减边界",                        32773
     END
 END
 

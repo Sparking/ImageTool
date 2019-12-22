@@ -64,6 +64,8 @@ public:
 	image *GetSrcImage() const;
 	image *GetImage() const;
 	CSize GetDocSize() const;
+	void MarkQRPM();
+	void MarkEdges();
 
 	/* 操作接口 */
 	void RotateImage(const point *rotation_center, const point *rotation_offset,

@@ -25,6 +25,8 @@ IMPLEMENT_DYNCREATE(CImageToolView, CScrollView)
 
 BEGIN_MESSAGE_MAP(CImageToolView, CScrollView)
 	ON_COMMAND(ID_TOOL_TRANSFORM_ROTATE, &CImageToolView::RotateImage)
+	ON_COMMAND(ID_QR_FIND_PM, &CImageToolView::QRFindPositionMarkings)
+	ON_COMMAND(ID_SHOW_RFEDGES, &CImageToolView::ShowEdges)
 	ON_WM_CONTEXTMENU()
 	ON_WM_RBUTTONUP()
 	ON_WM_HSCROLL()
@@ -132,4 +134,14 @@ void CImageToolView::OnVScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
 void CImageToolView::RotateImage(void)
 {
 	((CMainFrame *)(AfxGetApp()->m_pMainWnd))->m_wndTransToolRotation.ShowWindow(SW_SHOW);
+}
+
+void CImageToolView::QRFindPositionMarkings(void)
+{
+	GetDocument()->MarkQRPM();
+}
+
+void CImageToolView::ShowEdges(void)
+{
+	GetDocument()->MarkEdges();
 }

@@ -22,6 +22,9 @@
     <Filter Include="Sources\Image">
       <UniqueIdentifier>{58090dcf-5a4b-450b-9f2f-a9b90c9015f0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Sources\Decode">
+      <UniqueIdentifier>{cd75504c-7d23-4738-8da7-681249e48893}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -103,6 +106,12 @@
     </ClCompile>
     <ClCompile Include="..\common\port_memory.c">
       <Filter>Sources\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\decode\qr_v2\qr_decode.c">
+      <Filter>Sources\Decode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\decode\qr_v2\qr_position.c">
+      <Filter>Sources\Decode</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

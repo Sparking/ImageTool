@@ -80,7 +80,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(SolutionDir)..\common;$(SolutionDir)..\image;$(SolutionDir)..\lib\msvc\libjpeg-turbo\Debug\x64\include;$(SolutionDir)..\lib\msvc\libpng\Debug\x64\include;$(SolutionDir)..\lib\msvc\zlib\Debug\x64\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)..\decode\qr_v2;$(SolutionDir)..\common;$(SolutionDir)..\image;$(SolutionDir)..\lib\msvc\libjpeg-turbo\Debug\x64\include;$(SolutionDir)..\lib\msvc\libpng\Debug\x64\include;$(SolutionDir)..\lib\msvc\zlib\Debug\x64\include;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)..\lib\msvc\libjpeg-turbo\Debug\x64\lib;$(SolutionDir)..\lib\msvc\libpng\Debug\x64\lib;$(SolutionDir)..\lib\msvc\zlib\Debug\x64\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -126,7 +126,7 @@
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
-      <AdditionalDependencies>zlibd.lib;jpeg.lib;libpng16d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>zlibd.lib;jpeg.lib;libpng16d.lib</AdditionalDependencies>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
@@ -180,7 +180,7 @@
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>zlib.lib;jpeg.lib;libpng16.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>zlib.lib;jpeg.lib;libpng16.lib</AdditionalDependencies>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
@@ -216,6 +216,8 @@
     <ClCompile Include="..\common\queue.c" />
     <ClCompile Include="..\common\rbtree.c" />
     <ClCompile Include="..\common\stack.c" />
+    <ClCompile Include="..\decode\qr_v2\qr_decode.c" />
+    <ClCompile Include="..\decode\qr_v2\qr_position.c" />
     <ClCompile Include="..\image\image.c" />
     <ClCompile Include="ChildFrm.cpp" />
     <ClCompile Include="DialogTransToolRotation.cpp" />
