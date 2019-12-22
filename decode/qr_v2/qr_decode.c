@@ -21,7 +21,7 @@ int qr_decode_entry(const struct image *img)
     if (nqpm == 0)
         return -1;
 
-#if 0
+#if 1
     printf("%d\n", nqpm);
     const unsigned char xxc[3] = {0x00, 0x7E, 0xFF};
     (void)xxc;

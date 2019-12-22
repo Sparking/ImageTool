@@ -141,7 +141,7 @@ int qr_position_makrings_find(const struct image *img,
     unsigned int edges_dist[5], edges_dist_temp[5];
 
     pm_root = RB_ROOT;
-    for (j = 0; j < img->height; j += 4) {
+    for (j = 0; j < img->height; j += 2) {
         edge_start.x = 0;
         edge_start.y = j;
         edge_off.x = 1;
@@ -233,7 +233,7 @@ int qr_position_makrings_find(const struct image *img,
                     continue;
 
                 diff = unsigned_diff(pqpmi[0].w45, pqpmi[0].wx);
-                if (diff > ((pqpmi[0].w45 + pqpmi[0].wx + 2) >> 2))
+                if (diff > ((pqpmi[0].w45 + pqpmi[0].wx + 1) >> 1))
                     continue;
 
                 /* 4.中心坐标保持不变, 扫描135方向上的模块比例 */
