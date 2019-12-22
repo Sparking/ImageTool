@@ -131,7 +131,7 @@ int image_scale_line(const struct image *img)
         }
     }
 
-    cnt = image_find_raise_fall_edges_by_offset(img, s_start, s_off, 1000, rfe, 500);
+    cnt = image_find_raise_fall_edges_by_offset(img, &s_start, &s_off, 1000, rfe, 500);
     j = img->size + 55 * simg->row_size;
     for (i = 0; i < simg->row_size; ++i) {
         simg->data[j + (255 - img->data[soff + i]) * simg->row_size + i] = 0;
@@ -208,7 +208,7 @@ int image_scan_column(void)
     image_release(tmpimg);
 
     rfe = (struct image_raise_fall_edge *)mem_alloc(sizeof(struct image_raise_fall_edge) * 500);
-    cnt = image_find_raise_fall_edges_by_offset(img, start_pt, setup, 1000, rfe, 500);
+    cnt = image_find_raise_fall_edges_by_offset(img, &start_pt, &setup, 1000, rfe, 500);
     for (i = 0; i < cnt; ++i) {
         switch (rfe[i].type) {
         case IMAGE_RFEDGE_TYPE_FALL:
@@ -254,7 +254,7 @@ int image_draw_rfedges(const struct image *simg)
             ++j, off[0] += simg->row_size, off[1] += img->row_size) {
         start.x = 0;
         start.y = j;
-        cnt = image_find_raise_fall_edges_by_offset(simg, start, xoff, 1000, rfe[0], 500);
+        cnt = image_find_raise_fall_edges_by_offset(simg, &start, &xoff, 1000, rfe[0], 500);
         for (i = 0; i < cnt; ++i) {
             if (rfe[0][i].type == IMAGE_RFEDGE_TYPE_RAISE) {
                 memcpy(img->data + off[1] + rfe[0][i].dpos * 3, re, img->pixel_size);
@@ -264,7 +264,7 @@ int image_draw_rfedges(const struct image *simg)
         }
         point s = {0, (int)j};
         point off1 = {1, 0};
-        cnt1 = image_find_raise_fall_edges_by_offset(simg, s, off1, 1000, rfe[1], 500);
+        cnt1 = image_find_raise_fall_edges_by_offset(simg, &s, &off1, 1000, rfe[1], 500);
         for (i = 0; i < cnt1; ++i) {
             if (rfe[1][i].type == IMAGE_RFEDGE_TYPE_RAISE) {
                 memcpy(dbg_img->data + off[1] + rfe[1][i].dpos * 3, re, dbg_img->pixel_size);

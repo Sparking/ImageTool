@@ -1912,8 +1912,8 @@ void img_print_point(struct image *img, const unsigned int x, const unsigned int
 #define IMAGE_RFEDGE_AMP_LIMIT_MIN      15
 
 unsigned int image_find_raise_fall_edges_by_offset(
-        const struct image *img, const struct point pstart,
-        const struct point setup_off, const unsigned int len,
+        const struct image *img, const struct point *pstart,
+        const struct point *setup_off, const unsigned int len,
         struct image_raise_fall_edge *pedge, const unsigned int num)
 {
     int imgdata_off;
@@ -1933,7 +1933,10 @@ unsigned int image_find_raise_fall_edges_by_offset(
     struct image_raise_fall_edge *buff_end;
     struct image_raise_fall_edge *buff_prev;
 
-    if (img == NULL || len <= 1 || pedge == NULL || num == 0)
+    if (img == NULL || pstart == NULL || setup_off == NULL || len <= 1 || pedge == NULL || num == 0)
+        return 0;
+
+    if (pstart->x < 0 || pstart->x >= img->width || pstart->y < 0 || pstart->y >= img->height)
         return 0;
 
     cnt = 0;
@@ -1941,17 +1944,17 @@ unsigned int image_find_raise_fall_edges_by_offset(
     max_edge = NULL;
     max_amplitude = 0;
     cur_edge = pedge - 1;
-    off_end.x = pstart.x + setup_off.x;
-    off_end.y = pstart.y + setup_off.y;
-    imgdata_off = setup_off.y * img->width + setup_off.x;
-    imgdata = img->data + pstart.y * img->width + pstart.x;
+    off_end.x = pstart->x + setup_off->x;
+    off_end.y = pstart->y + setup_off->y;
+    imgdata_off = setup_off->y * img->width + setup_off->x;
+    imgdata = img->data + pstart->y * img->width + pstart->x;
     gray = *imgdata;
     imgdata += imgdata_off;
     last_type = IMAGE_RFEDGE_TYPE_NONE;
     buff_end = pedge + num - 1;
     for (i = 1; i < len && off_end.x >= 0 && off_end.x < img->width
                 && off_end.y >= 0 && off_end.y < img->height;
-            ++i, imgdata += imgdata_off, off_end.x += setup_off.x, off_end.y += setup_off.y) {
+            ++i, imgdata += imgdata_off, off_end.x += setup_off->x, off_end.y += setup_off->y) {
         if (gray == *imgdata) {
             last_type = IMAGE_RFEDGE_TYPE_NONE;
             continue;
@@ -2007,19 +2010,272 @@ unsigned int image_find_raise_fall_edges_by_offset(
     if (cur_edge < pedge)
         return 0;
 
+    if (max_edge->amplitude <= 8)
+        return 0;
+
     cnt = cur_edge - pedge + 1;
     buff = (struct image_raise_fall_edge *)mem_alloc(sizeof(struct image_raise_fall_edge) * cnt);
     if (buff == NULL)
         return 0;
 
-    if (pstart.x == 0 && pstart.y == 81 && setup_off.x == 1 && setup_off.y == 0) {
-        printf("edges: %d, %d\n", max_edge->max_grad, max_edge->amplitude);
-        printf("max: %d, %d\n", max_grad, max_amplitude);
+    buff_end = pedge + cnt;
+    buff_prev = buff + (max_edge - pedge);
+    cur_edge = buff_prev;
+    last_edge = max_edge;
+    gray = (max_edge->amplitude + 2) >> 2;
+    grad = (max_edge->max_grad + 1) >> 1;
+    if (gray < IMAGE_RFEDGE_AMP_LIMIT_MIN)
+        gray = IMAGE_RFEDGE_AMP_LIMIT_MIN;
+    memcpy(cur_edge, last_edge, sizeof(struct image_raise_fall_edge));
+    while (++last_edge < buff_end) {
+        if (last_edge->amplitude < 5 && last_edge->end - last_edge->begin < 3)
+            continue;
+
+        if (last_edge->type == cur_edge->type) {
+            if (last_edge->amplitude >= cur_edge->amplitude) {
+                if (last_edge->max_grad >= cur_edge->max_grad) {
+                    memcpy(cur_edge, last_edge, sizeof(struct image_raise_fall_edge));
+                }
+            }
+        } else if (last_edge->max_grad >= grad || last_edge->amplitude >= gray) {
+            ++cur_edge;
+            memcpy(cur_edge, last_edge, sizeof(struct image_raise_fall_edge));
+            gray = (cur_edge->amplitude) >> 2;
+            grad = (cur_edge->max_grad  + 1) >> 1;
+            if (gray < IMAGE_RFEDGE_AMP_LIMIT_MIN)
+                gray = IMAGE_RFEDGE_AMP_LIMIT_MIN;
+            if (gray > cur_edge->amplitude >> 1)
+                gray = cur_edge->amplitude >> 1;
+        }
     }
+    buff_end = cur_edge;
+    cur_edge = buff_prev;
+    last_edge = max_edge;
+    gray = (max_edge->amplitude + 2) >> 2;
+    grad = (max_edge->max_grad + 1) >> 1;
+    if (gray < IMAGE_RFEDGE_AMP_LIMIT_MIN)
+        gray = IMAGE_RFEDGE_AMP_LIMIT_MIN;
+    while (--last_edge >= pedge) {
+        if (last_edge->amplitude < 5 && last_edge->end - last_edge->begin < 3)
+            continue;
+
+        if (last_edge->type == cur_edge->type) {
+            if (last_edge->amplitude >= cur_edge->amplitude) {
+                if (last_edge->max_grad >= cur_edge->max_grad) {
+                    memcpy(cur_edge, last_edge, sizeof(struct image_raise_fall_edge));
+                }
+            }
+        } else if (last_edge->max_grad >= grad || last_edge->amplitude >= gray) {
+            --cur_edge;
+            memcpy(cur_edge, last_edge, sizeof(struct image_raise_fall_edge));
+            gray = (cur_edge->amplitude) >> 2;
+            grad = (cur_edge->max_grad + 1) >> 1;
+            if (gray < IMAGE_RFEDGE_AMP_LIMIT_MIN)
+                gray = IMAGE_RFEDGE_AMP_LIMIT_MIN;
+            if (gray > cur_edge->amplitude >> 1)
+                gray = cur_edge->amplitude >> 1;
+        }
+    }
+    cnt = buff_end - cur_edge + 1;
+    memcpy(pedge, cur_edge, sizeof(struct image_raise_fall_edge) * cnt);
+    mem_free(buff);
+
+    cur_edge = pedge;
+    last_edge = pedge + cnt;
+    while (cur_edge < last_edge) {
+        if (cur_edge->type == IMAGE_RFEDGE_TYPE_RAISE) {
+            gray = cur_edge->max_gray;
+            cur_edge->max_gray = cur_edge->min_gray;
+            cur_edge->min_gray = gray;
+        }
+        cur_edge->dpos_256x = (cur_edge->dpos_256x << 8) / cur_edge->amplitude;
+        cur_edge->dpos = (cur_edge->dpos_256x + (1 << 7)) >> 8;
+        ++cur_edge;
+    }
+
+    return cnt;
+}
+
+unsigned int image_find_raise_fall_edges_pt2pt(
+        const struct image *img, const struct point *start, const struct point *end,
+        struct image_raise_fall_edge *pedge, const unsigned int num)
+{
+    int i, j, step;
+    struct point delta;
+    struct point delta_abs;
+    unsigned int cnt;
+    unsigned int pos;
+    unsigned char grad;
+    unsigned char gray;
+    unsigned char max_grad;
+    unsigned char cur_type;
+    unsigned char last_type;
+    unsigned char max_amplitude;
+    const unsigned char *imgdata;
+    struct image_raise_fall_edge *cur_edge;
+    struct image_raise_fall_edge *max_edge;
+    struct image_raise_fall_edge *last_edge;
+    struct image_raise_fall_edge *buff;
+    struct image_raise_fall_edge *buff_end;
+    struct image_raise_fall_edge *buff_prev;
+
+    if (img == NULL || start == NULL || end == NULL || pedge == NULL || num == 0)
+        return 0;
+
+    if (start->x < 0 || start->x >= img->width || start->y < 0 || start->y >= img->height)
+        return 0;
+
+    if (end->x < 0 || end->x >= img->width || end->y < 0 || end->y >= img->height)
+        return 0;
+
+    if (start->x == end->x && start->y == end->y)
+        return 0;
+
+    cnt = 0;
+    max_grad = 0;
+    max_edge = NULL;
+    max_amplitude = 0;
+    cur_edge = pedge - 1;
+    buff_end = pedge + num - 1;
+    last_type = IMAGE_RFEDGE_TYPE_NONE;
+    imgdata = img->data + start->y * img->width + start->x;
+    gray = *imgdata;
+    delta.x = end->x - start->x;
+    delta.y = end->y - start->y;
+    delta_abs.x = fabs(delta.x);
+    delta_abs.y = fabs(delta.y);
+    if (delta_abs.x >= delta_abs.y) {
+        step = 1;
+        if (delta.x < 0)
+            step = -1;
+
+        for (pos = 1, i = 1; pos <= delta_abs.x; i += step, ++pos) {
+            j = (i * delta.y * 1.0 / delta.x + 0.5) + start->y;
+            imgdata = &img->data[img->width * j + start->x + i];
+
+            if (gray == *imgdata) {
+                last_type = IMAGE_RFEDGE_TYPE_NONE;
+                continue;
+            } else if (gray < *imgdata) {
+                grad = *imgdata - gray;
+                cur_type = IMAGE_RFEDGE_TYPE_RAISE;
+            } else {
+                grad = gray - *imgdata;
+                cur_type = IMAGE_RFEDGE_TYPE_FALL;
+            }
+
+            if (grad > max_grad)
+                max_grad = grad;
+
+            if (last_type != cur_type) {
+                if (max_edge == NULL) {
+                    max_edge = pedge;
+                } else if (max_edge->max_grad <= cur_edge->max_grad
+                        && max_edge->amplitude <= cur_edge->amplitude) {
+                    max_edge = cur_edge;
+                }
+
+                if (cur_edge >= buff_end)
+                    break;
+
+                ++cur_edge;
+                cur_edge->begin = pos - 1;
+                cur_edge->end = pos;
+                cur_edge->type = cur_type;
+                cur_edge->max_grad = grad;
+                cur_edge->min_grad = grad;
+                cur_edge->amplitude = grad;
+                last_type = cur_type;
+                cur_edge->max_gray = gray;
+                cur_edge->min_gray = *imgdata;
+                cur_edge->dpos_256x = grad * pos;
+            } else {
+                cur_edge->end = pos;
+                if (grad > cur_edge->max_grad) {
+                    cur_edge->max_grad = grad;
+                } else if (grad < cur_edge->min_grad) {
+                    cur_edge->min_grad = grad;
+                }
+                cur_edge->min_gray = *imgdata;
+                cur_edge->amplitude += grad;
+                cur_edge->dpos_256x += grad * pos;
+                if (cur_edge->amplitude > max_amplitude)
+                    max_amplitude = cur_edge->amplitude;
+            }
+            gray = *imgdata;
+        }
+    } else {
+        step = 1;
+        if (delta.y < 0)
+            step = -1;
+
+        for (pos = 1, j = 1; pos <= delta_abs.y; j += step, ++pos) {
+            i = (j * delta.x * 1.0 / delta.y + 0.5) + start->x;
+            imgdata = &img->data[img->width * (j + start->y) + i];
+
+            if (gray == *imgdata) {
+                last_type = IMAGE_RFEDGE_TYPE_NONE;
+                continue;
+            } else if (gray < *imgdata) {
+                grad = *imgdata - gray;
+                cur_type = IMAGE_RFEDGE_TYPE_RAISE;
+            } else {
+                grad = gray - *imgdata;
+                cur_type = IMAGE_RFEDGE_TYPE_FALL;
+            }
+
+            if (grad > max_grad)
+                max_grad = grad;
+
+            if (last_type != cur_type) {
+                if (max_edge == NULL) {
+                    max_edge = pedge;
+                } else if (max_edge->max_grad <= cur_edge->max_grad
+                        && max_edge->amplitude <= cur_edge->amplitude) {
+                    max_edge = cur_edge;
+                }
+
+                if (cur_edge >= buff_end)
+                    break;
+
+                ++cur_edge;
+                cur_edge->begin = pos - 1;
+                cur_edge->end = pos;
+                cur_edge->type = cur_type;
+                cur_edge->max_grad = grad;
+                cur_edge->min_grad = grad;
+                cur_edge->amplitude = grad;
+                last_type = cur_type;
+                cur_edge->max_gray = gray;
+                cur_edge->min_gray = *imgdata;
+                cur_edge->dpos_256x = grad * pos;
+            } else {
+                cur_edge->end = pos;
+                if (grad > cur_edge->max_grad) {
+                    cur_edge->max_grad = grad;
+                } else if (grad < cur_edge->min_grad) {
+                    cur_edge->min_grad = grad;
+                }
+                cur_edge->min_gray = *imgdata;
+                cur_edge->amplitude += grad;
+                cur_edge->dpos_256x += grad * pos;
+                if (cur_edge->amplitude > max_amplitude)
+                    max_amplitude = cur_edge->amplitude;
+            }
+            gray = *imgdata;
+        }
+    }
+
+    if (cur_edge < pedge)
+        return 0;
 
     if (max_edge->amplitude <= 8)
         return 0;
 
+    cnt = cur_edge - pedge + 1;
+    buff = (struct image_raise_fall_edge *)mem_alloc(sizeof(struct image_raise_fall_edge) * cnt);
+    if (buff == NULL)
+        return 0;
 
     buff_end = pedge + cnt;
     buff_prev = buff + (max_edge - pedge);

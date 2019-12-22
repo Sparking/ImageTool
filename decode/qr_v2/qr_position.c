@@ -146,7 +146,7 @@ int qr_position_makrings_find(const struct image *img,
         edge_start.y = j;
         edge_off.x = 1;
         edge_off.y = 0;
-        ne = image_find_raise_fall_edges_by_offset(img, edge_start, edge_off, img->width, edges, 500);
+        ne = image_find_raise_fall_edges_by_offset(img, &edge_start, &edge_off, img->width, edges, 500);
         if (ne < 6)
             continue;
 
@@ -164,14 +164,14 @@ int qr_position_makrings_find(const struct image *img,
                 edge_start.y = j;
                 edge_off.x = 0;
                 edge_off.y = -1;
-                netmp = image_find_raise_fall_edges_by_offset(img, edge_start, edge_off, 1000, edges_tmp[0], 50);
+                netmp = image_find_raise_fall_edges_by_offset(img, &edge_start, &edge_off, 1000, edges_tmp[0], 50);
                 if (netmp < 3 || edges_tmp[0][0].type == edges[i].type)
                     continue;
 
                 edge_off.y = 1;
                 edges_dist_temp[0] = edges_tmp[0][2].dpos_256x - edges_tmp[0][1].dpos_256x;
                 edges_dist_temp[1] = edges_tmp[0][1].dpos_256x - edges_tmp[0][0].dpos_256x;
-                netmp = image_find_raise_fall_edges_by_offset(img, edge_start, edge_off, 1000, edges_tmp[1], 50);
+                netmp = image_find_raise_fall_edges_by_offset(img, &edge_start, &edge_off, 1000, edges_tmp[1], 50);
                 if (netmp < 3 || edges_tmp[1][0].type == edges[i].type)
                     continue;
 
@@ -189,7 +189,7 @@ int qr_position_makrings_find(const struct image *img,
                 edge_start.y  = j + edges_tmp[1][0].dpos - ((edges_tmp[1][0].dpos_256x + edges_tmp[0][0].dpos_256x + 256) >> 9);
                 edge_off.y = 0;
                 edge_off.x = -1;
-                netmp = image_find_raise_fall_edges_by_offset(img, edge_start, edge_off, 1000, edges_tmp[0], 50);
+                netmp = image_find_raise_fall_edges_by_offset(img, &edge_start, &edge_off, 1000, edges_tmp[0], 50);
                 if (netmp < 3 || edges_tmp[0][0].type == edges[i].type)
                     continue;
 
@@ -197,7 +197,7 @@ int qr_position_makrings_find(const struct image *img,
                 edge_off.x = 1;
                 edges_dist_temp[0] = edges_tmp[0][2].dpos_256x - edges_tmp[0][1].dpos_256x;
                 edges_dist_temp[1] = edges_tmp[0][1].dpos_256x - edges_tmp[0][0].dpos_256x;
-                netmp = image_find_raise_fall_edges_by_offset(img, edge_start, edge_off, 1000, edges_tmp[1], 50);
+                netmp = image_find_raise_fall_edges_by_offset(img, &edge_start, &edge_off, 1000, edges_tmp[1], 50);
                 if (netmp < 3 || edges_tmp[1][0].type == edges[i].type)
                     continue;
 
@@ -214,7 +214,7 @@ int qr_position_makrings_find(const struct image *img,
                 /* 3.中心坐标保持不变, 扫描45方向上的模块比例 */
                 edge_off.y = -1;
                 edge_off.x = -1;
-                netmp = image_find_raise_fall_edges_by_offset(img, edge_start, edge_off, 1000, edges_tmp[0], 50);
+                netmp = image_find_raise_fall_edges_by_offset(img, &edge_start, &edge_off, 1000, edges_tmp[0], 50);
                 if (netmp < 3 || edges_tmp[0][0].type == edges[i].type)
                     continue;
 
@@ -222,7 +222,7 @@ int qr_position_makrings_find(const struct image *img,
                 edge_off.x = 1;
                 edges_dist_temp[0] = edges_tmp[0][2].dpos_256x - edges_tmp[0][1].dpos_256x;
                 edges_dist_temp[1] = edges_tmp[0][1].dpos_256x - edges_tmp[0][0].dpos_256x;
-                netmp = image_find_raise_fall_edges_by_offset(img, edge_start, edge_off, 1000, edges_tmp[1], 50);
+                netmp = image_find_raise_fall_edges_by_offset(img, &edge_start, &edge_off, 1000, edges_tmp[1], 50);
                 if (netmp < 3 || edges_tmp[1][0].type == edges[i].type)
                     continue;
 
@@ -239,7 +239,7 @@ int qr_position_makrings_find(const struct image *img,
                 /* 4.中心坐标保持不变, 扫描135方向上的模块比例 */
                 edge_off.y = 1;
                 edge_off.x = -1;
-                netmp = image_find_raise_fall_edges_by_offset(img, edge_start, edge_off, 1000, edges_tmp[0], 50);
+                netmp = image_find_raise_fall_edges_by_offset(img, &edge_start, &edge_off, 1000, edges_tmp[0], 50);
                 if (netmp < 3 || edges_tmp[0][0].type == edges[i].type)
                     continue;
 
@@ -247,7 +247,7 @@ int qr_position_makrings_find(const struct image *img,
                 edge_off.x = 1;
                 edges_dist_temp[0] = edges_tmp[0][2].dpos_256x - edges_tmp[0][1].dpos_256x;
                 edges_dist_temp[1] = edges_tmp[0][1].dpos_256x - edges_tmp[0][0].dpos_256x;
-                netmp = image_find_raise_fall_edges_by_offset(img, edge_start, edge_off, 1000, edges_tmp[1], 50);
+                netmp = image_find_raise_fall_edges_by_offset(img, &edge_start, &edge_off, 1000, edges_tmp[1], 50);
                 if (netmp < 3 || edges_tmp[1][0].type == edges[i].type)
                     continue;
 
