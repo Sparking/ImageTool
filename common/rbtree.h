@@ -1,6 +1,7 @@
 #pragma once
 
-#include <stdio.h>
+#include <stdlib.h>
+#include "compilers.h"
 
 #define RB_RED              0
 #define RB_BLACK            1
@@ -19,19 +20,19 @@ struct rb_root {
 #define rb_is_red(rb)       (!rb_color(rb))
 #define rb_is_black(rb)     rb_color(rb)
 #define rb_set_red(rb)      do { (rb)->rb_parent_color &= ~1; } while (0)
-#define rb_set_black(rb)    do { (rb)->rb_parent_color |= 1; } while(0)
+#define rb_set_black(rb)    do { (rb)->rb_parent_color |= 1; } while (0)
 
-static inline void rb_set_parent(struct rb_node *rb, struct rb_node *p)
+INLINE void rb_set_parent(struct rb_node *rb, struct rb_node *p)
 {
     rb->rb_parent_color = (size_t)(rb_color(rb) | (((char *)p) - ((char *)NULL)));
 }
 
-static inline void rb_set_color(struct rb_node *rb, unsigned color)
+INLINE void rb_set_color(struct rb_node *rb, unsigned color)
 {
     rb->rb_parent_color = (size_t)((rb->rb_parent_color & ~1) | color);
 }
 
-static inline void rb_set_parent_color(struct rb_node *rb, struct rb_node *p,
+INLINE void rb_set_parent_color(struct rb_node *rb, struct rb_node *p,
             unsigned color)
 {
     rb->rb_parent_color = (size_t)((((char *)p) - ((char *)NULL)) | color);
@@ -44,14 +45,14 @@ static inline void rb_set_parent_color(struct rb_node *rb, struct rb_node *p,
 #define RB_EMPTY_NODE(rb)   ((rb)->rb_parent_color == (size_t)(((char *)(rb)) - ((char *)NULL)))
 #define RB_CLEAR_NODE(rb)   ((rb)->rb_parent_color = (size_t)(((char *)(rb)) - ((char *)NULL)))
 
-static inline void rb_init_node(struct rb_node *rb)
+INLINE void rb_init_node(struct rb_node *rb)
 {
     rb->rb_parent_color = 0;
     rb->rb_right = rb->rb_left = NULL;
     RB_CLEAR_NODE(rb);
 }
 
-static inline void rb_link_node(struct rb_node *node, struct rb_node *parent,
+INLINE void rb_link_node(struct rb_node *node, struct rb_node *parent,
         struct rb_node **rb_link)
 {
     node->rb_parent_color = (size_t)((((char *)parent) - ((char *)NULL)));

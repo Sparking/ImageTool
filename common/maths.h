@@ -2,16 +2,13 @@
 
 #ifdef __cplusplus
 extern "C" {
-#endif
-
-#define FAST_MATH
-
-#if !defined (FAST_MATH)
+#else
+#include <stdbool.h>
 #endif
 #include <math.h>
-#include <stdbool.h>
+#include "compilers.h"
 
-
+#define FAST_MATH
 #if defined (FAST_MATH)
 #define SQRTF               fast_sqrtf
 /* 快速开平方 */
@@ -22,7 +19,6 @@ extern float fast_sqrtf(const float value);
 #define SQRTF               sqrtf
 #define M_PIf               acosf(-1.0f)
 #endif
-
 
 #define DEGREE2RAD(degree)	((degree) * (M_PIf / 180.0f))
 #define RAD2DEGREE(rad)		((rad) * (180.0f / M_PIf))
@@ -98,7 +94,7 @@ extern float points_distance(const struct point *p1, const struct point *p2);
  * @brief points_coincide 判断两点是否重合
  * @param p1, p2 两个点
  */
-static inline bool points_coincide(const struct point *p1, const struct point *p2)
+INLINE bool points_coincide(const struct point *p1, const struct point *p2)
 {
     return p1->x == p2->x && p1->y == p2->y;
 }
@@ -126,7 +122,7 @@ extern int point_position_to_polygon(const struct point *p, const struct polygon
 /**
  * @brief unsigned_diff 返回两个无符号整数的差值
  */
-static inline unsigned int unsigned_diff(const unsigned int a, const unsigned int b)
+INLINE unsigned int unsigned_diff(const unsigned int a, const unsigned int b)
 {
     return a >= b ? a - b : b - a;
 }
@@ -134,7 +130,7 @@ static inline unsigned int unsigned_diff(const unsigned int a, const unsigned in
 /**
  * @brief bits_count 计算出一个整数中1的位数
  */
-extern unsigned char bits_count(unsigned int i);
+extern unsigned int bits_count(unsigned int i);
 
 /**
  * @brief great_common_divisor 求解最大公约数
@@ -174,8 +170,10 @@ extern int least_square_method_fit_line(float *a, float *b, const struct point *
  */
 extern int line_cross_point(struct point *p, const float a1, const float b1,
         const float a2, const float b2);
-
-extern int points_in_line(const struct point *a, const struct point *b,
+/**
+ * 函数: 判断三个点是否是在同一条直线上(角度最大误差15°)
+ */
+extern bool points_in_line(const struct point *a, const struct point *b,
         const struct point *c);
 
 #ifdef __cplusplus

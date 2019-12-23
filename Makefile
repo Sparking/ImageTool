@@ -4,6 +4,8 @@ CXX      := g++
 RANLIB   := ranlib
 ARFLAGS  := rc
 CFLAGS   := -g -O0 -ffunction-sections -fdata-sections -fno-strict-aliasing
+CXXFLAGS := -std=c++11 $(CFLAGS)
+CFLAGS   := -std=c99 $(CFLAGS)
 CPPFLAGS := -Wall -Werror -ansi -MMD -I$(CURDIR) -DCHECK_ENTRY_PARAM
 LDFLAGS  := -Wl,--as-needed -Wl,-gc-section -L$(CURDIR)
 LIBS     :=
@@ -82,12 +84,12 @@ USER_DEP := $(patsubst %.cc,%.d,$(USER_SRC))
 
 define compile_c
 @echo CC	$1
-@$(CC) $(CPPFLAGS) -std=c99 $(CFLAGS) -c -o $1 $2
+@$(CC) $(CPPFLAGS) $(CFLAGS) -c -o $1 $2
 endef
 
 define compile_cc
 @echo CXX	$1
-@$(CC) $(CPPFLAGS) -std=c++11 $(CFLAGS) -c -o $1 $2
+@$(CC) $(CPPFLAGS) $(CXXFLAGS) -c -o $1 $2
 endef
 
 define ar_lib

@@ -16,7 +16,7 @@ extern void stack_init(struct stack *s, const unsigned int block_size);
 /**
  * @brief stack_empty 判断栈是否为空
  */
-static inline unsigned char stack_empty(const struct stack *s)
+INLINE unsigned char stack_empty(const struct stack *s)
 {
     if (s == NULL)
         return 1;

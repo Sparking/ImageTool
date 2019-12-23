@@ -1,5 +1,7 @@
 ﻿#pragma once
 
+#include "compilers.h"
+
 #undef offsetof
 #define offsetof(TYPE, MEMBER) ((size_t)&((TYPE *)0)->MEMBER)
 
@@ -33,12 +35,12 @@ struct list_head {
          &pos->member != (head);                                \
          pos = n, n = list_entry(n->member.next, type, member))
 
-static inline int list_empty(const struct list_head *head)
+INLINE int list_empty(const struct list_head *head)
 {
     return head->next == head;
 }
 
-static inline void __list_add(struct list_head *_node,
+INLINE void __list_add(struct list_head *_node,
                   struct list_head *prev,
                   struct list_head *next)
 {
@@ -48,17 +50,17 @@ static inline void __list_add(struct list_head *_node,
     prev->next = _node;
 }
 
-static inline void list_add(struct list_head *node, struct list_head *head)
+INLINE void list_add(struct list_head *node, struct list_head *head)
 {
     __list_add(node, head, head->next);
 }
 
-static inline void list_add_tail(struct list_head *_node, struct list_head *head)
+INLINE void list_add_tail(struct list_head *_node, struct list_head *head)
 {
     __list_add(_node, head->prev, head);
 }
 
-static inline void __list_del(struct list_head *prev, struct list_head *next)
+INLINE void __list_del(struct list_head *prev, struct list_head *next)
 {
     next->prev = prev;
     prev->next = next;
@@ -67,7 +69,7 @@ static inline void __list_del(struct list_head *prev, struct list_head *next)
 #define LIST_POISON1  ((void *)0x00100100)
 #define LIST_POISON2  ((void *)0x00200200)
 
-static inline void list_del(struct list_head *entry)
+INLINE void list_del(struct list_head *entry)
 {
     __list_del(entry->prev, entry->next);
     entry->next = (struct list_head*)LIST_POISON1;

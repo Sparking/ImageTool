@@ -1,10 +1,7 @@
-﻿#include <assert.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+﻿#include <string.h>
 #include "maths.h"
 
-unsigned char bits_count(unsigned int i)
+unsigned int bits_count(unsigned int i)
 {
     i = i - ((i >> 1) & 0x55555555);
     i = (i & 0x33333333) + ((i >> 2) & 0x33333333);
@@ -30,17 +27,12 @@ float fast_inv_sqrtf(float number)
 
     x2 = number * 0.5f;
     y = number;
-    i = *(long *)&y;  // evil floating point bit level hacking
-    i = 0x5F3759DF - ( i >> 1 ); // what the fuck?
-    y = * (float *)&i;
-    y = y * (threehalfs - (x2 * y * y)); // 1st iteration
-    // y = y * (threehalfs - ( x2 * y * y)); // 2nd iteration, this can be removed
+    i = *(long *)&y;
+    i = 0x5F3759DF - (i >> 1);
+    y = *(float *)&i;
+    y = y * (threehalfs - (x2 * y * y));
 
-#ifdef __linux__
-    assert( !isnan(y) ); // bk010122 - FPE?
-#endif
-
-  return y;
+    return y;
 }
 
 /* 快速开平方 */
@@ -59,7 +51,8 @@ unsigned int find_max_common_divisor(const unsigned int a, const unsigned int b)
 {
 	unsigned int new_divisor, divisor;
 
-    for (divisor = 1, new_divisor = 2; new_divisor <= a && new_divisor <= b; ++ new_divisor) {
+    for (divisor = 1, new_divisor = 2; new_divisor <= a && new_divisor <= b;
+            ++new_divisor) {
         if (a % new_divisor == 0 && b % new_divisor == 0)
             divisor = new_divisor;
     }
@@ -80,7 +73,8 @@ int vector_cross_product(const struct vector *vec1, const struct vector *vec2)
 int vector_cross_product3(const struct vector *vec1, const struct vector *vec2,
     const struct vector *vec3)
 {
-    return (vec3->i - vec2->i) * (vec1->j - vec2->j) - (vec3->j - vec2->j) * (vec1->i - vec2->i);
+    return (vec3->i - vec2->i) * (vec1->j - vec2->j)
+            - (vec3->j - vec2->j) * (vec1->i - vec2->i);
 }
 
 
@@ -123,7 +117,8 @@ int point_position_to_line(const struct point *p, const struct line *l)
  *         true  点在线段之中(包括顶点)
  * @note 使用该函数的前提是确定点落在线段所在的直线上
  */
-static bool is_point_in_line_segment(const struct point *p, const struct line *l)
+static bool is_point_in_line_segment(const struct point *p,
+        const struct line *l)
 {
     struct vector p2start_vec;
     struct vector p2end_vec;
@@ -200,7 +195,8 @@ int gaussian_elimination(float *matrix, float *res, const unsigned int rows)
 
         /* 1. 将列主元最大的行移到剩余行中的第一行 */
         /* 1.1 找出主元最大的一行 */
-        for (next_offset = current_offset + columns, next_row = j + 1; next_row < rows; ++next_row, next_offset += columns) {
+        for (next_offset = current_offset + columns, next_row = j + 1;
+                next_row < rows; ++next_row, next_offset += columns) {
             if (fabs(matrix[next_offset]) > current_main_element) {
                 max_main_element_row = next_row;
                 max_main_element_row_offset = next_offset;
@@ -217,14 +213,16 @@ int gaussian_elimination(float *matrix, float *res, const unsigned int rows)
         }
 
         /* 2. 消主元 */
-        for (next_offset = current_offset + columns, next_row = j + 1; next_row < rows; ++next_row, next_offset += columns) {
+        for (next_offset = current_offset + columns, next_row = j + 1;
+                next_row < rows; ++next_row, next_offset += columns) {
             if (matrix[next_offset] == 0.0f)
                 continue;
 
             temp = matrix[current_offset] / matrix[next_offset];
             matrix[next_offset] = 0.0f;
             for (i = 1; i + j < columns; ++i)
-                matrix[next_offset + i] = matrix[next_offset + i] * temp - matrix[current_offset + i];
+                matrix[next_offset + i] =
+                        matrix[next_offset + i] * temp - matrix[current_offset + i];
         }
 
     }
@@ -277,7 +275,8 @@ int least_square_method_fit_line(float *a, float *b, const struct point *p, cons
     return 0;
 }
 
-int line_cross_point(struct point *p, const float a1, const float b1, const float a2, const float b2)
+int line_cross_point(struct point *p, const float a1, const float b1,
+        const float a2, const float b2)
 {
     float matrix[2][3], res[2];
 
@@ -299,7 +298,8 @@ int line_cross_point(struct point *p, const float a1, const float b1, const floa
     return 0;
 }
 
-int points_in_line(const struct point *a, const struct point *b, const struct point *c)
+bool points_in_line(const struct point *a, const struct point *b,
+        const struct point *c)
 {
     int dot_product;
     struct vector vec[2];
@@ -308,13 +308,12 @@ int points_in_line(const struct point *a, const struct point *b, const struct po
     vec[0].j = b->y - a->y;
     vec[1].i = c->x - b->x;
     vec[1].j = c->y - b->y;
-
     dot_product = vector_dot(vec, vec + 1);
     if (dot_product == 0)
-        return 0;
+        return false;
 
     if ((int)fabs((vector_cross_product(vec, vec + 1) << 3) / dot_product) >= 1)
-        return 0;
+        return false;
 
-    return 1;
+    return true;
 }

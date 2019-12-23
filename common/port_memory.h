@@ -1,5 +1,7 @@
 ﻿#pragma once
 
+#include "compilers.h"
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -20,13 +22,13 @@ extern size_t mem_avaiable_size(void);
 #include <stdlib.h>
 
 /* 从内存池中申请出一片内存 */
-static inline void *mem_alloc(size_t size)
+INLINE void *mem_alloc(size_t size)
 {
     return malloc(size);
 }
 
 /* 释放内存池中的内存 */
-static inline void mem_free(void *pv)
+INLINE void mem_free(void *pv)
 {
     if (pv != NULL) {
         free(pv);
@@ -34,7 +36,7 @@ static inline void mem_free(void *pv)
 }
 
 /* 获取内存池剩余空间 */
-static inline size_t mem_avaiable_size(void)
+INLINE size_t mem_avaiable_size(void)
 {
     return 0;
 }
