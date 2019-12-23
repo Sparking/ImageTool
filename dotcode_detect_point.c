@@ -279,22 +279,22 @@ static bool dotcode_detect_point_get_hori_width(const struct image *img,
     struct image_raise_fall_edge rfe_buff[20], rfe_tmp;
 
     edge_off.y = 0;
+    edge_off.x = -1;
+    cnt = image_find_raise_fall_edges_by_offset_dotcode(img, pos,
+            &edge_off, img->width, rfe_buff, 20);
+    if (cnt == 0 || rfe_buff[0].type != edge_type)
+        return false;
+    rfe_tmp = rfe_buff[0];
+
     edge_off.x = 1;
     cnt = image_find_raise_fall_edges_by_offset_dotcode(img, pos,
             &edge_off, img->width, rfe_buff, 20);
     if (cnt == 0 || rfe_buff[0].type != edge_type)
         return false;
 
-    rfe_tmp = rfe_buff[0];
-    edge_off.x = -1;
-    cnt = image_find_raise_fall_edges_by_offset_dotcode(img, pos,
-            &edge_off, img->width, rfe_buff, 20);
-    if (cnt == 0 || rfe_buff[0].type != edge_type)
-        return false;
-
     *width = rfe_tmp.dpos_256x + rfe_buff[0].dpos_256x;
-    newpos->x = pos->x;
-    newpos->y = pos->y - ((*width + 256) >> 9) + rfe_tmp.dpos;
+    newpos->x = (((pos->x << 8) + rfe_buff[0].dpos_256x - ((*width + 1) >> 1) + 128) >> 8);
+    newpos->y = pos->y;
     *width = (*width + 128) >> 8;
 
     return true;
@@ -313,8 +313,8 @@ static bool dotcode_detect_point_get_vertical_width(const struct image *img,
             &edge_off, img->width, rfe_buff, 20);
     if (cnt == 0 || rfe_buff[0].type != edge_type)
         return false;
-
     rfe_tmp = rfe_buff[0];
+
     edge_off.y = 1;
     cnt = image_find_raise_fall_edges_by_offset_dotcode(img, pos,
             &edge_off, img->width, rfe_buff, 20);
@@ -323,7 +323,7 @@ static bool dotcode_detect_point_get_vertical_width(const struct image *img,
 
     *width = rfe_tmp.dpos_256x + rfe_buff[0].dpos_256x;
     newpos->x = pos->x;
-    newpos->y = pos->y - ((*width + 256) >> 9) + rfe_tmp.dpos;
+    newpos->y = (((pos->y << 8) + rfe_buff[0].dpos_256x - ((*width + 1) >> 1) + 128) >> 8);
     *width = (*width + 128) >> 8;
 
     return true;
@@ -342,10 +342,10 @@ static bool dotcode_detect_point_get_45_width(const struct image *img,
             &edge_off, img->width, rfe_buff, 20);
     if (cnt == 0 || rfe_buff[0].type != edge_type)
         return false;
-
     rfe_tmp = rfe_buff[0];
-    edge_off.x = -1;
-    edge_off.y = 1;
+
+    edge_off.x = 1;
+    edge_off.y = -1;
     cnt = image_find_raise_fall_edges_by_offset_dotcode(img, pos,
             &edge_off, img->width, rfe_buff, 20);
     if (cnt == 0 || rfe_buff[0].type != edge_type)
@@ -370,8 +370,8 @@ static bool dotcode_detect_point_get_135_width(const struct image *img,
             &edge_off, img->width, rfe_buff, 10);
     if (cnt == 0 || rfe_buff[0].type != edge_type)
         return false;
-
     rfe_tmp = rfe_buff[0];
+
     edge_off.x = -1;
     edge_off.y = -1;
     cnt = image_find_raise_fall_edges_by_offset_dotcode(img, pos,
@@ -417,16 +417,13 @@ unsigned int dotcode_detect_point(const struct image *img,
             continue;
 
         for (i = 1; i < rfe_cnt; ++i) {
+            pt.nw = rfe_hori[i].dpos_256x - rfe_hori[i - 1].dpos_256x;
+            edge_start.x = (rfe_hori[i - 1].dpos_256x + ((pt.nw + 1) >> 1) + 128) >> 8;
+            pt.nw = (pt.nw + 128) >> 8;
             edge_start.y = j;
-            pt.nw = (rfe_hori[i].dpos_256x - rfe_hori[i - 1].dpos_256x + 128) >> 8;
-            edge_start.x = rfe_hori[i].dpos - ((pt.nw + 1) >> 1);
 
             if (!dotcode_detect_point_get_vertical_width(img, &edge_start,
                     rfe_hori[i].type, &pt.center, &pt.nh))
-                continue;
-
-            diff = (unsigned_diff(pt.nw, pt.nh) + 1) >> 1;
-            if (pt.nw <= diff || pt.nh <= diff)
                 continue;
 
             if (j !=  pt.center.y) {
@@ -436,7 +433,7 @@ unsigned int dotcode_detect_point(const struct image *img,
                     continue;
             }
 
-            diff = (unsigned_diff(pt.nw, pt.nh) + 1) >> 1;
+            diff = unsigned_diff(pt.nw, pt.nh) >> 1;
             if (pt.nw <= diff || pt.nh <= diff)
                 continue;
 
@@ -444,7 +441,7 @@ unsigned int dotcode_detect_point(const struct image *img,
                     &pt.n45))
                 continue;
 
-            diff = (unsigned_diff(pt.nw, pt.n45) + 1) >> 1;
+            diff = unsigned_diff(pt.nw, pt.n45) >> 1;
             if (pt.nw <= diff || pt.n45 <= diff)
                 continue;
 
@@ -452,7 +449,7 @@ unsigned int dotcode_detect_point(const struct image *img,
                     &pt.n135))
                 continue;
 
-            diff = (unsigned_diff(pt.n135, pt.n45) + 1) >> 1;
+            diff = unsigned_diff(pt.n135, pt.n45) >> 1;
             if (pt.n135 <= diff || pt.n45 <= diff)
                 continue;
 
