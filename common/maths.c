@@ -298,3 +298,23 @@ int line_cross_point(struct point *p, const float a1, const float b1, const floa
 
     return 0;
 }
+
+int points_in_line(const struct point *a, const struct point *b, const struct point *c)
+{
+    int dot_product;
+    struct vector vec[2];
+
+    vec[0].i = b->x - a->x;
+    vec[0].j = b->y - a->y;
+    vec[1].i = c->x - b->x;
+    vec[1].j = c->y - b->y;
+
+    dot_product = vector_dot(vec, vec + 1);
+    if (dot_product == 0)
+        return 0;
+
+    if ((int)fabs((vector_cross_product(vec, vec + 1) << 3) / dot_product) >= 1)
+        return 0;
+
+    return 1;
+}

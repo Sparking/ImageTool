@@ -175,6 +175,9 @@ extern int least_square_method_fit_line(float *a, float *b, const struct point *
 extern int line_cross_point(struct point *p, const float a1, const float b1,
         const float a2, const float b2);
 
+extern int points_in_line(const struct point *a, const struct point *b,
+        const struct point *c);
+
 #ifdef __cplusplus
 }
 #endif
