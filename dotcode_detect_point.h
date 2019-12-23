@@ -10,7 +10,7 @@ extern "C" {
 
 struct dotcode_point {
     struct point center;    /**点的中心点坐标**/
-    unsigned int nw;       /**点的水平宽度**/
+    unsigned int nw;        /**点的水平宽度**/
     unsigned int nh;
     unsigned int n45;
     unsigned int n135;

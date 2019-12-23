@@ -307,9 +307,9 @@ int main(const int argc, char *argv[])
     if (gray == nullptr)
         return -1;
 
-    qr_decode_info(gray);
+    //qr_decode_info(gray);
     image_scale_line(gray);
-#if 0
+#if 1
     struct dotcode_point w[10000];
     unsigned int nxx = dotcode_detect_point(gray, w, 10000);
     //printf("%d\n", nxx);
