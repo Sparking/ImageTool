@@ -247,6 +247,11 @@ extern unsigned int image_find_raise_fall_edges_by_offset(
         const struct point *setup, const unsigned int len,
         struct image_raise_fall_edge *pedge, const unsigned int num);
 
+extern unsigned int image_find_raise_fall_edges_pt2pt(
+        const struct image *img, const struct point *start,
+        const struct point *end,
+        struct image_raise_fall_edge *pedge, const unsigned int num);
+
 #ifdef __cplusplus
 }
 #endif

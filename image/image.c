@@ -1909,7 +1909,7 @@ void img_print_point(struct image *img, const unsigned int x, const unsigned int
     }
 }
 
-#define IMAGE_RFEDGE_AMP_LIMIT_MIN      15
+#define IMAGE_RFEDGE_AMP_LIMIT_MIN      25
 
 unsigned int image_find_raise_fall_edges_by_offset(
         const struct image *img, const struct point *pstart,
@@ -2096,6 +2096,53 @@ unsigned int image_find_raise_fall_edges_by_offset(
     return cnt;
 }
 
+#define BLACKCOLOR      0x00000000 /*黑色*/
+#define WHITECOLOR      0x00ffffff /*白色*/
+#define REDCOLOR        0x000000ff /*红色*/
+#define GREENCOLOR      0x0000ff00 /*绿色*/
+#define BLUECOLOR       0x00ff0000 /*蓝色*/
+#define YELLOWCOLOR     0x0000ffff /*黄色*/
+#define CYANCOLOR       0x00ffff00 /*青色*/
+#define MAGENTACOLOR    0x00ff00ff /*洋红色*/
+#define ORANGECOLOR     0x00008cff /*深橙色*/
+#define MAROONCOLOR     0x00000080 /*粟色*/
+#define BROWNCOLOR      0x002a2aa5 /*棕色*/
+#define GOLDCOLOR       0x0000d7ff /*金色*/
+#define OLIVECOLOR      0x00008080 /*橄榄色*/
+#define PINKCOLOR       0x00cbc0ff /*粉色*/
+#define DARKGREENCOLOR  0x00006400 /*深绿*/
+#define INDIGOCOLOR     0x0082004b /*靛青 */
+#ifdef _MSC_VER
+extern void show_ptWidth(int x, int y, int color, int n_width);
+INLINE void ushow_ptWidth(int flag, int x, int y, int color, int n_width)
+{
+	if (flag)
+		show_ptWidth(x, y, color, n_width);
+}
+extern void show_pt(int x, int y, int color);
+INLINE void ushow_pt(int flag, int x, int y, int color)
+{
+	if (flag)
+		show_pt(x, y, color);
+}
+#else
+#define ushow_ptWidth(f,a,b,c,d) \
+    do { \
+        (void)(f); \
+        (void)(a); \
+        (void)(b); \
+        (void)(c); \
+        (void)(d); \
+    } while (0)
+#define ushow_pt(f,a,b,c) \
+    do { \
+        (void)(f); \
+        (void)(a); \
+        (void)(b); \
+        (void)(c); \
+    } while (0)
+#endif
+
 unsigned int image_find_raise_fall_edges_pt2pt(
         const struct image *img, const struct point *start, const struct point *end,
         struct image_raise_fall_edge *pedge, const unsigned int num)
@@ -2152,7 +2199,7 @@ unsigned int image_find_raise_fall_edges_pt2pt(
         for (pos = 1, i = 1; pos <= (unsigned int)delta_abs.x; i += step, ++pos) {
             j = (int)((i * delta.y * 1.0 / delta.x + 0.5) + start->y);
             imgdata = &img->data[img->width * j + start->x + i];
-
+			ushow_pt(1, start->x + i, j, YELLOWCOLOR);
             if (gray == *imgdata) {
                 last_type = IMAGE_RFEDGE_TYPE_NONE;
                 continue;
@@ -2212,6 +2259,7 @@ unsigned int image_find_raise_fall_edges_pt2pt(
         for (pos = 1, j = 1; pos <= (unsigned int)delta_abs.y; j += step, ++pos) {
             i = (int)((j * delta.x * 1.0 / delta.y + 0.5) + start->x);
             imgdata = &img->data[img->width * (j + start->y) + i];
+			ushow_pt(1, i, j + start->y, YELLOWCOLOR);
 
             if (gray == *imgdata) {
                 last_type = IMAGE_RFEDGE_TYPE_NONE;

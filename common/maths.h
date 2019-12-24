@@ -85,6 +85,11 @@ extern int vector_cross_product3(const struct vector *vec1, const struct vector 
 extern float vector_length(const struct vector *vec);
 
 /**
+ * @brief vector_get_tan_2n计算向量之间角度的tan值, 并将结果放大2^n倍
+ */
+extern int vector_get_tan_2n(const struct vector *vec1, const struct vector *vec2,
+        const unsigned int e);
+/**
  * @brief points_distance 计算点和点之间的距离
  * @param p1, p2 两个点
  */
@@ -97,6 +102,19 @@ extern float points_distance(const struct point *p1, const struct point *p2);
 INLINE bool points_coincide(const struct point *p1, const struct point *p2)
 {
     return p1->x == p2->x && p1->y == p2->y;
+}
+
+/**
+ * @brief unsigned_diff 返回两个无符号整数的差值
+ */
+INLINE unsigned int unsigned_diff(const unsigned int a, const unsigned int b)
+{
+    return a >= b ? a - b : b - a;
+}
+
+INLINE int iabs(const int a)
+{
+    return a < 0 ? -a : a;
 }
 
 /**
@@ -120,12 +138,10 @@ extern int point_position_to_line(const struct point *p, const struct line *l);
 extern int point_position_to_polygon(const struct point *p, const struct polygon *s);
 
 /**
- * @brief unsigned_diff 返回两个无符号整数的差值
+ * 函数: 判断三个点是否是在同一条直线上(角度最大误差15°)
  */
-INLINE unsigned int unsigned_diff(const unsigned int a, const unsigned int b)
-{
-    return a >= b ? a - b : b - a;
-}
+extern bool points_in_line(const struct point *a, const struct point *b,
+        const struct point *c);
 
 /**
  * @brief bits_count 计算出一个整数中1的位数
@@ -170,11 +186,18 @@ extern int least_square_method_fit_line(float *a, float *b, const struct point *
  */
 extern int line_cross_point(struct point *p, const float a1, const float b1,
         const float a2, const float b2);
+
 /**
- * 函数: 判断三个点是否是在同一条直线上(角度最大误差15°)
+ * 判断两条直线是否接近平行, 夹角在15°内认为是平行线
+ * ap1, ap2是直线a上的两个点, bp1, bp2是直线b上的两个点
  */
-extern bool points_in_line(const struct point *a, const struct point *b,
-        const struct point *c);
+extern bool line4p_is_parell(const struct point *ap1, const struct point *ap2,
+        const struct point *bp1, const struct point *bp2);
+
+INLINE bool line_is_parell(const struct line *a, const struct line *b)
+{
+    return line4p_is_parell(&a->start, &a->end, &b->start, &b->end);
+}
 
 #ifdef __cplusplus
 }

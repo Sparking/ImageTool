@@ -66,6 +66,7 @@ public:
 	CSize GetDocSize() const;
 	void MarkQRPM();
 	void MarkEdges();
+	void EdgesTest();
 
 	/* 操作接口 */
 	void RotateImage(const point *rotation_center, const point *rotation_offset,

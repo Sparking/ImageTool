@@ -236,8 +236,8 @@ int image_draw_rfedges(const struct image *simg)
     struct image *img;
     struct image *dbg_img;
     struct point start;
-    struct point xoff = {1, 0};
-    unsigned int i, j, off[2], cnt, cnt1;
+    struct point xoff = {0, 1};
+    unsigned int i, j, cnt, cnt1;
     struct image_raise_fall_edge rfe[2][500];
     const unsigned char re[4] = {0x98, 0x35, 0x95, 0xFF};
     const unsigned char fe[4] = {0x11, 0xbf, 0xF7, 0xFF};
@@ -250,26 +250,25 @@ int image_draw_rfedges(const struct image *simg)
     if (img == nullptr)
         return -1;
 
-    for (j = 0, off[0] = off[1] = 0; j < img->height;
-            ++j, off[0] += simg->row_size, off[1] += img->row_size) {
-        start.x = 0;
-        start.y = j;
+    for (j = 0; j < img->width; ++j) {
+        start.x = j;
+        start.y = 0;
         cnt = image_find_raise_fall_edges_by_offset(simg, &start, &xoff, 1000, rfe[0], 500);
         for (i = 0; i < cnt; ++i) {
             if (rfe[0][i].type == IMAGE_RFEDGE_TYPE_RAISE) {
-                memcpy(img->data + off[1] + rfe[0][i].dpos * 3, re, img->pixel_size);
+                memcpy(img->data + rfe[0][i].dpos * img->row_size + j * 3, re, img->pixel_size);
             } else {
-                memcpy(img->data + off[1] + rfe[0][i].dpos * 3, fe, img->pixel_size);
+                memcpy(img->data + rfe[0][i].dpos * img->row_size + j * 3, fe, img->pixel_size);
             }
         }
-        point s = {0, (int)j};
-        point off1 = {1, 0};
-        cnt1 = image_find_raise_fall_edges_by_offset(simg, &s, &off1, 1000, rfe[1], 500);
+        point s = {(int)j, 0};
+        point off1 = {s.x, (int)img->height - 1};
+        cnt1 = image_find_raise_fall_edges_pt2pt(simg, &s, &off1, rfe[1], 500);
         for (i = 0; i < cnt1; ++i) {
             if (rfe[1][i].type == IMAGE_RFEDGE_TYPE_RAISE) {
-                memcpy(dbg_img->data + off[1] + rfe[1][i].dpos * 3, re, dbg_img->pixel_size);
+                memcpy(dbg_img->data + rfe[1][i].dpos * dbg_img->row_size + j * 3, re, dbg_img->pixel_size);
             } else {
-                memcpy(dbg_img->data + off[1] + rfe[1][i].dpos * 3, fe, dbg_img->pixel_size);
+                memcpy(dbg_img->data + rfe[1][i].dpos * dbg_img->row_size + j * 3, fe, dbg_img->pixel_size);
             }
         }
     }

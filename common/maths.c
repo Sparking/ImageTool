@@ -1,5 +1,7 @@
-﻿#include <string.h>
-#include "maths.h"
+﻿#include "maths.h"
+#include <limits.h>
+#include <stdint.h>
+#include <string.h>
 
 unsigned int bits_count(unsigned int i)
 {
@@ -176,9 +178,9 @@ int point_position_to_polygon(const struct point *p, const struct polygon *s)
 int gaussian_elimination(float *matrix, float *res, const unsigned int rows)
 {
     int ret;
-	float current_main_element, temp;
     unsigned int j, i;
-    unsigned int next_row, next_offset, current_offset;
+	float current_main_element, temp;
+    unsigned int next_row, next_offset, current_offset, row_offset;
 	unsigned int max_main_element_row, max_main_element_row_offset;
     const unsigned int columns = rows + 1;
 
@@ -229,16 +231,16 @@ int gaussian_elimination(float *matrix, float *res, const unsigned int rows)
 
     /* 回代求解 */
     for (j = rows; j-- > 0;) {
-        unsigned int row_offset = j * columns;
+        row_offset = j * columns;
         if (matrix[row_offset + j] == 0.0f) {   /* 无唯一解 */
             ret = -1;
             break;
         }
 
-        float sum = 0.0f;
+        temp = 0.0f;
         for (i = columns - 2; i > j; --i)
-            sum += res[i] * matrix[row_offset + i];
-        res[j] = (matrix[row_offset + rows] - sum) / matrix[row_offset + j];
+            temp += res[i] * matrix[row_offset + i];
+        res[j] = (matrix[row_offset + rows] - temp) / matrix[row_offset + j];
     }
 
     return ret;
@@ -298,22 +300,39 @@ int line_cross_point(struct point *p, const float a1, const float b1,
     return 0;
 }
 
+int vector_get_tan_2n(const struct vector *vec1, const struct vector *vec2,
+        const unsigned int e)
+{
+    const int dot_product = vector_dot(vec1, vec2);
+
+    if (dot_product == 0)
+        return INT_MAX;
+
+    return (vector_cross_product(vec1, vec2) << e) / dot_product;
+}
+
 bool points_in_line(const struct point *a, const struct point *b,
         const struct point *c)
 {
-    int dot_product;
     struct vector vec[2];
 
     vec[0].i = b->x - a->x;
     vec[0].j = b->y - a->y;
     vec[1].i = c->x - b->x;
     vec[1].j = c->y - b->y;
-    dot_product = vector_dot(vec, vec + 1);
-    if (dot_product == 0)
-        return false;
 
-    if ((int)fabs((vector_cross_product(vec, vec + 1) << 3) / dot_product) >= 1)
-        return false;
+    return (vector_get_tan_2n(vec, vec + 1, 2) >= 1);
+}
 
-    return true;
+bool line4p_is_parell(const struct point *ap1, const struct point *ap2,
+        const struct point *bp1, const struct point *bp2)
+{
+    struct vector vec[2];
+
+    vec[0].i = ap2->x - ap1->x;
+    vec[0].j = ap2->y - ap1->y;
+    vec[1].i = bp2->x - bp1->x;
+    vec[1].j = bp2->y - bp1->y;
+
+    return (vector_get_tan_2n(vec, vec + 1, 2) >= 1);
 }

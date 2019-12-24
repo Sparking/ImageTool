@@ -234,6 +234,7 @@ BEGIN
             MENUITEM "定位标志",                        ID_QR_FIND_PM
         END
         MENUITEM "增减边界",                        32773
+        MENUITEM "自由增减边界",                      ID_EDGETEST
     END
 END
 

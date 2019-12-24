@@ -10,13 +10,52 @@
 #endif
 
 #include "MainFrm.h"
+#include "Image ToolView.h"
 #include "Image ToolDoc.h"
 #include "qr_position.h"
+#include "image.h"
 #include <propkey.h>
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
+extern "C" void show_ptWidth(int x, int y, int color, int n_width)
+{
+	int i, j, l, m, n;
+	CMDIFrameWnd *pFrame = (CMDIFrameWnd *)AfxGetApp()->m_pMainWnd;
+	CMDIChildWnd *pChild = (CMDIChildWnd *)pFrame->GetActiveFrame();
+	CImageToolView *pView = (CImageToolView *)pChild->GetActiveView();
+	CImageToolDoc * pDoc = pView->GetDocument();
+	CSize sz = pDoc->GetDocSize();
+	CDC *pDC = pView->GetDC();
+
+	l = (int)(n_width);
+	m = (int)(x);
+	n = (int)(y);
+	for (i = m - l; i <= m + l; ++i) {
+		for (j = n - l; j <= n + l; ++j) {
+			pDC->SetPixel(i, j, color);
+		}
+	}
+	pView->ReleaseDC(pDC);
+}
+
+extern "C" void show_pt(int x, int y, int color)
+{
+	CMDIFrameWnd *pFrame = (CMDIFrameWnd *)AfxGetApp()->m_pMainWnd;
+	CMDIChildWnd *pChild = (CMDIChildWnd *)pFrame->GetActiveFrame();
+	CImageToolView *pView = (CImageToolView *)pChild->GetActiveView();
+	CImageToolDoc * pDoc = pView->GetDocument();
+	CSize sz = pDoc->GetDocSize();
+	CDC *pDC = pView->GetDC();
+
+	if (x < 0 || x > sz.cx || y < 0 || y > sz.cy) {
+		pView->ReleaseDC(pDC);
+		return;
+	}
+	pDC->SetPixel(x, y, color);
+	pView->ReleaseDC(pDC);
+}
 
 static int(*image_interp_func[4])(const struct image *, unsigned char *, const float, const float) = {
 	image_nearest_interp,
@@ -31,6 +70,7 @@ IMPLEMENT_DYNCREATE(CImageToolDoc, CDocument)
 BEGIN_MESSAGE_MAP(CImageToolDoc, CDocument)
 	ON_COMMAND(ID_EDIT_UNDO, &CImageToolDoc::OnEditUndo)
 	ON_COMMAND(ID_EDIT_REDO, &CImageToolDoc::OnEditRedo)
+	ON_COMMAND(ID_EDGETEST, &CImageToolDoc::EdgesTest)
 END_MESSAGE_MAP()
 
 
@@ -222,29 +262,52 @@ void CImageToolDoc::UpdateBitmap()
 void CImageToolDoc::MarkQRPM()
 {
 	unsigned int n, i;
-	struct image *gray, *dump;
+	struct image *gray;
 	struct qr_position_makrings_info pm[20];
 	const unsigned char xxc[4] = { 0x00, 0x7E, 0xFF, 0xFF};
-
-	dump = image_dump(m_img);
-	if (dump == nullptr)
-		return;
+	int xc = 0x0000ffff;
 
 	gray = image_convert_gray(m_srcimg);
 	if (gray == nullptr) {
-		image_release(dump);
 		return;
 	}
 
-	m_img = dump;
 	n = qr_position_makrings_find(gray, pm, 20);
 	image_release(gray);
 	for (i = 0; i < n; ++i) {
-		img_print_point(m_img, pm[i].center.x, pm[i].center.y, xxc, 3);
+		show_ptWidth(pm[i].center.x, pm[i].center.y, xc, 3);
 	}
-	UpdateBitmap();
-	m_stack_undo.push(m_img);
-	ClearRedoStack();
+}
+
+unsigned int image_find_raise_fall_edges_pt2pt(
+	const struct image *img, const struct point *start, const struct point *end,
+	struct image_raise_fall_edge *pedge, const unsigned int num);
+void CImageToolDoc::EdgesTest()
+{
+	int i, j;
+	unsigned int cnt;
+	struct image *img;
+	struct point start, end;
+	struct image_raise_fall_edge edges[500];
+
+	img = image_convert_gray(m_img);
+	if (img == nullptr)
+		return;
+
+	start.x = m_img->width >> 1;
+	start.y = m_img->height >> 1;
+	end.y = 0;
+	for (i = 0; i < m_img->width; ++i) {
+		end.x = i;
+		cnt = image_find_raise_fall_edges_pt2pt(img, &start, &end, edges, 500);
+		(void)cnt;
+	}
+	end.y = m_img->height - 1;
+	for (i = 0; i < m_img->width; ++i) {
+		end.x = i;
+		cnt = image_find_raise_fall_edges_pt2pt(img, &start, &end, edges, 500);
+		(void)cnt;
+	}
 }
 
 void CImageToolDoc::MarkEdges()
