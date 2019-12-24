@@ -303,25 +303,30 @@ int line_cross_point(struct point *p, const float a1, const float b1,
 int vector_get_tan_2n(const struct vector *vec1, const struct vector *vec2,
         const unsigned int e)
 {
-    const int dot_product = vector_dot(vec1, vec2);
+    const int dot_product = fabs(vector_dot(vec1, vec2));
+    int cross_product;
 
     if (dot_product == 0)
         return INT_MAX;
 
-    return (vector_cross_product(vec1, vec2) << e) / dot_product;
+    cross_product = fabs(vector_cross_product(vec1, vec2));
+
+    return (cross_product << e) / dot_product;
 }
 
 bool points_in_line(const struct point *a, const struct point *b,
         const struct point *c)
 {
     struct vector vec[2];
+    int res;
 
     vec[0].i = b->x - a->x;
     vec[0].j = b->y - a->y;
     vec[1].i = c->x - b->x;
     vec[1].j = c->y - b->y;
+    res = vector_get_tan_2n(vec, vec + 1, 3);
 
-    return (vector_get_tan_2n(vec, vec + 1, 2) >= 1);
+    return (fabs(res) <= 1);
 }
 
 bool line4p_is_parell(const struct point *ap1, const struct point *ap2,

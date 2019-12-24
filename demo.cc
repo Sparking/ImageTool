@@ -281,9 +281,21 @@ int image_draw_rfedges(const struct image *simg)
     return 0;
 }
 
+void test()
+{
+    struct point b = {314, 296};
+    struct point a = {291, 254};
+    struct point c = {324, 307};
+
+    if (points_in_line(&a, &b, &c))
+        printf("Hello");
+}
+
 int main(const int argc, char *argv[])
 {
     image *img, *gray;
+
+    test();
 
     if (config_get("config.ini") == -1)
         return -1;
@@ -308,7 +320,7 @@ int main(const int argc, char *argv[])
 
     //qr_decode_info(gray);
     image_scale_line(gray);
-#if 1
+#if 0
     struct dotcode_point w[10000];
     unsigned int nxx = dotcode_detect_point(gray, w, 10000);
     //printf("%d\n", nxx);
