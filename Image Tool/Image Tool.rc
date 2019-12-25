@@ -235,6 +235,7 @@ BEGIN
         END
         MENUITEM "增减边界",                        32773
         MENUITEM "自由增减边界",                      ID_EDGETEST
+        MENUITEM "Dotcode测试",                   ID_DOTCODE_TEST
     END
 END
 

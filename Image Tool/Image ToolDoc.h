@@ -67,7 +67,7 @@ public:
 	void MarkQRPM();
 	void MarkEdges();
 	void EdgesTest();
-
+	void DotcodeTest();
 	/* 操作接口 */
 	void RotateImage(const point *rotation_center, const point *rotation_offset,
 		const float theta, const int interp, const BOOL save);	/* 旋转 */

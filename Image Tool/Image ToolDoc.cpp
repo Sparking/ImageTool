@@ -12,8 +12,9 @@
 #include "MainFrm.h"
 #include "Image ToolView.h"
 #include "Image ToolDoc.h"
-#include "qr_position.h"
 #include "image.h"
+#include "qr_position.h"
+#include "dotcode_detect_point.h"
 #include <propkey.h>
 
 #ifdef _DEBUG
@@ -71,6 +72,7 @@ BEGIN_MESSAGE_MAP(CImageToolDoc, CDocument)
 	ON_COMMAND(ID_EDIT_UNDO, &CImageToolDoc::OnEditUndo)
 	ON_COMMAND(ID_EDIT_REDO, &CImageToolDoc::OnEditRedo)
 	ON_COMMAND(ID_EDGETEST, &CImageToolDoc::EdgesTest)
+	ON_COMMAND(ID_DOTCODE_TEST, &CImageToolDoc::DotcodeTest)
 END_MESSAGE_MAP()
 
 
@@ -279,12 +281,9 @@ void CImageToolDoc::MarkQRPM()
 	}
 }
 
-unsigned int image_find_raise_fall_edges_pt2pt(
-	const struct image *img, const struct point *start, const struct point *end,
-	struct image_raise_fall_edge *pedge, const unsigned int num);
 void CImageToolDoc::EdgesTest()
 {
-	int i, j;
+	int i;
 	unsigned int cnt;
 	struct image *img;
 	struct point start, end;
@@ -297,13 +296,13 @@ void CImageToolDoc::EdgesTest()
 	start.x = m_img->width >> 1;
 	start.y = m_img->height >> 1;
 	end.y = 0;
-	for (i = 0; i < m_img->width; ++i) {
+	for (i = 0; i < (int)m_img->width; ++i) {
 		end.x = i;
 		cnt = image_find_raise_fall_edges_pt2pt(img, &start, &end, edges, 500);
 		(void)cnt;
 	}
-	end.y = m_img->height - 1;
-	for (i = 0; i < m_img->width; ++i) {
+	end.y = (int)m_img->height - 1;
+	for (i = 0; i < (int)m_img->width; ++i) {
 		end.x = i;
 		cnt = image_find_raise_fall_edges_pt2pt(img, &start, &end, edges, 500);
 		(void)cnt;
@@ -420,4 +419,26 @@ void CImageToolDoc::OnEditRedo()
 	m_stack_redo.pop();
 	m_img = m_stack_undo.top();
 	UpdateBitmap();
+}
+
+void CImageToolDoc::DotcodeTest(void)
+{
+	unsigned int cnt, i;
+	struct dotcode_point dtp[2000];
+	struct image *gray;
+
+	gray = image_convert_gray(m_img);
+	if (gray == nullptr)
+		return;
+
+	cnt = dotcode_detect_point(gray, dtp, 2000);
+	for (i = 0; i < cnt; ++i) {
+		if (dtp[i].isblack) {
+			ushow_ptWidth(1, dtp[i].center.x, dtp[i].center.y, REDCOLOR, 1);
+		} else {
+			ushow_ptWidth(1, dtp[i].center.x, dtp[i].center.y, BLUECOLOR, 1);
+		}
+	}
+
+	image_release(gray);
 }

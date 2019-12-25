@@ -117,6 +117,16 @@ INLINE int iabs(const int a)
     return a < 0 ? -a : a;
 }
 
+INLINE int imin(const int a, const int b)
+{
+    return a > b ? b : a;
+}
+
+INLINE int imax(const int a, const int b)
+{
+    return a > b ? a : b;
+}
+
 /**
  * @brief point_position_to_line 判断点和线的位置关系
  * @param p 点

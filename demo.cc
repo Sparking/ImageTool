@@ -283,12 +283,12 @@ int image_draw_rfedges(const struct image *simg)
 
 void test()
 {
-    struct point b = {314, 296};
-    struct point a = {291, 254};
-    struct point c = {324, 307};
+    struct point a = {333, 253};
+    struct point b = {345, 263};
+    struct point c = {355, 274};
 
     if (points_in_line(&a, &b, &c))
-        printf("Hello");
+        printf("Hello\n");
 }
 
 int main(const int argc, char *argv[])
@@ -320,7 +320,7 @@ int main(const int argc, char *argv[])
 
     //qr_decode_info(gray);
     image_scale_line(gray);
-#if 0
+#if 1
     struct dotcode_point w[10000];
     unsigned int nxx = dotcode_detect_point(gray, w, 10000);
     //printf("%d\n", nxx);

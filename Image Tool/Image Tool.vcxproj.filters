@@ -113,6 +113,9 @@
     <ClCompile Include="..\decode\qr_v2\qr_position.c">
       <Filter>Sources\Decode</Filter>
     </ClCompile>
+    <ClCompile Include="..\dotcode_detect_point.c">
+      <Filter>Sources\Decode</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Image Tool.reg" />

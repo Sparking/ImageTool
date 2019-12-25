@@ -109,8 +109,8 @@ static int qr_position_makrings_filter(struct qr_position_makrings_info *pqpmi,
         top = pqpmi[i].center.y - bottom;
         bottom += pqpmi[i].center.y;
         for (j = i + 1; j < cnt;) {
-            if (pqpmi[j].center.y < bottom && pqpmi[j].center.y > top
-                && pqpmi[j].center.x > left && pqpmi[j].center.x < right) {
+            if (pqpmi[j].center.y < (int)bottom && pqpmi[j].center.y > (int)top
+                && pqpmi[j].center.x > (int)left && pqpmi[j].center.x < (int)right) {
                 pqpmi[i].center.x = (pqpmi[i].center.x + pqpmi[j].center.x + 1) >> 1;
                 pqpmi[i].center.y = (pqpmi[i].center.y + pqpmi[j].center.y + 1) >> 1;
                 for (r = j + 1; r < cnt; ++r)
