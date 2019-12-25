@@ -2118,6 +2118,7 @@ unsigned int image_find_raise_fall_edges_pt2pt(
     struct image_raise_fall_edge *buff;
     struct image_raise_fall_edge *buff_end;
     struct image_raise_fall_edge *buff_prev;
+	UNUSED int flag = 0;
 
     if (img == NULL || start == NULL || end == NULL || pedge == NULL || num == 0)
         return 0;
@@ -2152,7 +2153,7 @@ unsigned int image_find_raise_fall_edges_pt2pt(
         for (pos = 1, i = 1; pos <= (unsigned int)delta_abs.x; i += step, ++pos) {
             j = (int)((i * delta.y * 1.0 / delta.x + 0.5) + start->y);
             imgdata = &img->data[img->width * j + start->x + i];
-			ushow_pt(1, start->x + i, j, YELLOWCOLOR);
+			ushow_pt(flag, start->x + i, j, YELLOWCOLOR);
             if (gray == *imgdata) {
                 last_type = IMAGE_RFEDGE_TYPE_NONE;
                 continue;
@@ -2212,7 +2213,7 @@ unsigned int image_find_raise_fall_edges_pt2pt(
         for (pos = 1, j = 1; pos <= (unsigned int)delta_abs.y; j += step, ++pos) {
             i = (int)((j * delta.x * 1.0 / delta.y + 0.5) + start->x);
             imgdata = &img->data[img->width * (j + start->y) + i];
-			ushow_pt(1, i, j + start->y, YELLOWCOLOR);
+			ushow_pt(flag, i, j + start->y, YELLOWCOLOR);
 
             if (gray == *imgdata) {
                 last_type = IMAGE_RFEDGE_TYPE_NONE;

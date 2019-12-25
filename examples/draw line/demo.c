@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <assert.h>
 #include "image.h"
 #include "maths.h"
 
@@ -47,7 +48,7 @@ int image_draw_line(struct image *img, struct point *start, struct point *end)
     } else {
         d = (b << 1) + a;
         d1 = b << 1;
-        d2 = (b << 1) + (a << 2);
+        d2 = (b << 1) + (a << 1);
         while (y != y2) {
             if (d >= 0) {
                 x += dx;
@@ -64,6 +65,32 @@ int image_draw_line(struct image *img, struct point *start, struct point *end)
     return 0;
 }
 
+void dotcode_get_scan_point_pos(const struct point *start, const struct point *end,
+        const unsigned int pos, struct point *pt)
+{
+    int step;
+    struct point delta;
+    struct point delta_abs;
+
+    step = (int)pos;
+    delta.x = end->x - start->x;
+    delta.y = end->y - start->y;
+    delta_abs.x = fabs(delta.x);
+    delta_abs.y = fabs(delta.y);
+    if (delta_abs.x >= delta_abs.y) {
+        if (delta.x < 0)
+            step = -step;
+
+        pt->x = start->x + step;
+        pt->y = (step * delta.y * 1.0 / delta.x + 0.5) + start->y;
+    } else {
+        if (delta.y < 0)
+            step = -step;
+
+        pt->y = step + start->y;
+        pt->x = (step * delta.x * 1.0 / delta.y + 0.5) + start->x;
+    }
+}
 
 int image_draw_line2(struct image *img, struct point *start, struct point *end)
 {
@@ -97,6 +124,7 @@ int image_draw_line2(struct image *img, struct point *start, struct point *end)
 
     return 0;
 }
+
 
 int main(void)
 {

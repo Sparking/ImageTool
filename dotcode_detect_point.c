@@ -271,7 +271,7 @@ unsigned int image_find_raise_fall_edges_by_offset_dotcode(
 
     return cnt;
 }
-
+#if 0
 unsigned int image_find_raise_fall_edges_pt2pt_dotcode(const struct image *img,
 	    const struct point *start, const struct point *end,
 		struct image_raise_fall_edge *pedge, const unsigned int num)
@@ -565,6 +565,7 @@ unsigned int image_find_raise_fall_edges_pt2pt_dotcode(const struct image *img,
 
 	return cnt;
 }
+#endif
 
 static bool dotcode_detect_point_get_hori_width(const struct image *img,
         const struct point *pos, const int edge_type, struct point *newpos, unsigned int *width)
@@ -695,45 +696,38 @@ bool dotcode_judge_width(const unsigned int a, const unsigned int b)
 bool dotcode_checkdot_with_ref(const struct image *img, const int ref_rfet,
         struct dotcode_point *pt, struct point *coordinate, const struct dotcode_point *ref)
 {
-	unsigned int diff;
-
 	if (img == NULL || pt == NULL || coordinate == NULL || ref == NULL) {
 		return false;
 	}
 
 	pt->score = 0;
 	if (dotcode_detect_point_get_hori_width(img, coordinate, ref_rfet, &pt->center, &pt->nw)) {
-		diff = unsigned_diff(pt->nw, ref->nw) >> 1;
-		if (pt->nw > diff && ref->nw > diff) {
+		if (dotcode_judge_width(pt->nw, ref->nw)) {
 			memcpy(coordinate, &pt->center, sizeof(*coordinate));
 			++pt->score;
 		}
 	}
 
 	if (dotcode_detect_point_get_vertical_width(img, coordinate, ref_rfet, &pt->center, &pt->nh)) {
-		diff = unsigned_diff(pt->nh, ref->nh) >> 1;
-		if (pt->nh > diff && ref->nh > diff) {
+		if (dotcode_judge_width(pt->nh, ref->nh)) {
 			++pt->score;
 		}
 	}
 
 	if (dotcode_detect_point_get_45_width(img, &pt->center, ref_rfet, &pt->n45)) {
-		diff = unsigned_diff(pt->n45, ref->n45) >> 1;
-		if (ref->n45 > diff && ref->n45 > diff) {
+		if (dotcode_judge_width(pt->n45, ref->n45)) {
 			++pt->score;
 		}
 	}
 
 	if (dotcode_detect_point_get_135_width(img, &pt->center, ref_rfet, &pt->n135)) {
-		diff = unsigned_diff(pt->n135, ref->n135) >> 1;
-		if (ref->n135 > diff && ref->n135 > diff) {
+		if (dotcode_judge_width(pt->n135, ref->n135)) {
 			++pt->score;
 		}
 	}
-
 	pt->isblack = (ref_rfet == IMAGE_RFEDGE_TYPE_RAISE);
 
-	return pt->score > 1;
+	return pt->score >= 4;
 }
 
 bool dotcode_checkdot(const struct image *img, const int ref_rfet,
@@ -785,46 +779,49 @@ bool dotcode_checkdot(const struct image *img, const int ref_rfet,
 }
 
 void dotcode_get_edge_pos_in_pt2pt(const struct point *start, const struct point *end,
-	    struct point *pt, const int pos)
+	struct point *pt, const unsigned int pos)
 {
-	struct point delta, delta_abs;
+	int step;
+	struct point delta;
+	struct point delta_abs;
 
+	step = (int)pos;
 	delta.x = end->x - start->x;
 	delta.y = end->y - start->y;
-	delta_abs.x = (int)fabs(delta.x);
-	delta_abs.y = (int)fabs(delta.y);
-	if (start->x == 126 && start->y == 142 && end->x == 145 && end->y == 191)
-		delta.x = delta.x;
+	delta_abs.x = fabs(delta.x);
+	delta_abs.y = fabs(delta.y);
 	if (delta_abs.x >= delta_abs.y) {
-		pt->y = (int)((pos * delta.y * 1.0 / delta.x + 0.5) + start->y);
 		if (delta.x < 0)
-		    pt->x = start->x - pos;
-		else
-			pt->x = start->x + pos;
-	} else {
-		pt->x = (int)((pos * delta.x * 1.0 / delta.y + 0.5) + start->x);
+			step = -step;
+
+		pt->x = start->x + step;
+		pt->y = (step * delta.y * 1.0 / delta.x + 0.5) + start->y;
+	}
+	else {
 		if (delta.y < 0)
-			pt->y = start->y - pos;
-		else
-			pt->y = start->y + pos;
+			step = -step;
+
+		pt->y = step + start->y;
+		pt->x = (step * delta.x * 1.0 / delta.y + 0.5) + start->x;
 	}
 }
 
 bool dotcode_gooddot_search(const struct image *img, const struct dotcode_point *pdtp, struct dotcode_point_lineset *lines)
 {
 	int scan_off;
-	int edge_type;
+	UNUSED int edge_type;
 	unsigned int nedge;
-	unsigned int iedge;
-	struct dotcode_point curpt;
-	struct dotcode_point lastpt;
+	UNUSED unsigned int iedge;
+	UNUSED struct dotcode_point curpt;
+	UNUSED struct dotcode_point lastpt;
 	struct dotcode_point_line dtline;
 	struct point pt, last_secpt;
 	struct point scan_range[2];
-	struct point scan_endpos, pos_eosl;
+	struct point scan_endpos;
+	UNUSED struct point pos_eosl;
 	struct image_raise_fall_edge edges[50];
 
-	const int dbg_ushow_scan_flag = 1;
+	const int dbg_ushow_scan_flag = 0;
 	const int color[2][3] = { {REDCOLOR, YELLOWCOLOR, CYANCOLOR},{GREENCOLOR, PINKCOLOR, BLUECOLOR} };
 	int ci;
 
@@ -853,7 +850,7 @@ bool dotcode_gooddot_search(const struct image *img, const struct dotcode_point 
 
 		if (scan_endpos.x < 0 || scan_endpos.x >= img->width || scan_endpos.y < 0 || scan_endpos.y >img->height)
 			break;
-		ushow_pt(dbg_ushow_scan_flag, scan_endpos.x, scan_endpos.y, color[ci][2]);
+		ushow_ptWidth(dbg_ushow_scan_flag, scan_endpos.x, scan_endpos.y, color[0][2], 2);
 
 		memcpy(&dtline.pt[0], pdtp, sizeof(*pdtp));
 		nedge = image_find_raise_fall_edges_pt2pt(img, &scan_range[0], &scan_endpos, edges, 50);
@@ -861,10 +858,12 @@ bool dotcode_gooddot_search(const struct image *img, const struct dotcode_point 
 			continue;
 
 		dotcode_get_edge_pos_in_pt2pt(&scan_range[0], &scan_endpos, &pt,
-			edges[1].dpos + ((edges[1].dpos_256x + edges[2].dpos_256x + 256) >> 9));
-
-		ushow_ptWidth(dbg_ushow_scan_flag, pt.x, pt.y, color[ci][2], 1);
-	} while (scan_endpos.x >= scan_range[1].x);
+			(edges[2].dpos_256x + edges[1].dpos_256x + 256) >> 9);
+		//ushow_ptWidth(dbg_ushow_scan_flag, pt.x, pt.y, YELLOWCOLOR, 1);
+		if (dotcode_checkdot_with_ref(img, edges[0].type, &curpt, &pt, pdtp)) {
+			ushow_ptWidth(1, curpt.center.x, curpt.center.y, YELLOWCOLOR, 1);
+		}
+   	} while (scan_endpos.x >= scan_range[1].x);
 
 	return false;
 }
@@ -910,9 +909,12 @@ unsigned int dotcode_detect_point(const struct image *img,
 			if (!dotcode_checkdot(img, rfe_hori[i].type, &pt, &edge_start))
 				continue;
 
+			if (pt.nw <= 6)
+				continue;
+
 			pt.score = 4;
 			if (dotcode_gooddot_search(img, &pt, &lineset))
-				break;
+				continue;
 
 			if (off < (pt.nh >> 1))
 				off = (pt.nh >> 1);
