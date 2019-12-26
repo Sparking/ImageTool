@@ -7,12 +7,16 @@ extern "C" {
 #ifndef INLINE
 #ifdef __GNUC__
 #define INLINE static inline __attribute__((always_inline))
+#else
+#define INLINE static __inline
+#endif
+#endif
+
+#ifndef UNUSED
+#ifdef __GNUC__
 #define UNUSED __attribute__((unused))
 #else
-#define INLINE static inline
-#ifndef UNUSED
 #define UNUSED
-#endif
 #endif
 #endif
 

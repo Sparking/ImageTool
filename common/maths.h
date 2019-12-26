@@ -11,10 +11,6 @@ extern "C" {
 #define FAST_MATH
 #if defined (FAST_MATH)
 #define SQRTF               fast_sqrtf
-/* 快速开平方 */
-extern float fast_inv_sqrtf(float number);
-extern float fast_sqrtf(const float value);
-
 #define M_PIf               3.14159f
 #else
 #define SQRTF               sqrtf
@@ -48,6 +44,9 @@ struct line {           /* 有向线段 */
     struct point start; /* 线的起始点 */
     struct point end;   /* 线的终点 */
 };
+
+extern float fast_inv_sqrtf(float number);
+extern float fast_sqrtf(const float value);
 
 /**
  * @brief find_max_common_divisor 寻找出两个整数的最大公约数
@@ -86,10 +85,11 @@ extern int vector_cross_product3(const struct vector *vec1, const struct vector 
 extern float vector_length(const struct vector *vec);
 
 /**
- * @brief vector_get_tan_2n计算向量之间角度的tan值, 并将结果放大2^n倍
+ * @brief vector_tan_pow2计算向量之间角度的tan值, 并将结果放大2^n倍
  */
-extern int vector_get_tan_2n(const struct vector *vec1, const struct vector *vec2,
+extern int vector_tan_pow2(const struct vector *vec1, const struct vector *vec2,
         const unsigned int e);
+
 /**
  * @brief points_distance 计算点和点之间的距离
  * @param p1, p2 两个点
@@ -209,6 +209,9 @@ INLINE bool line_is_parell(const struct line *a, const struct line *b)
 {
     return line4p_is_parell(&a->start, &a->end, &b->start, &b->end);
 }
+
+extern bool get_line_dirpos(const struct point *start, const struct point *end,
+	const struct point *base, struct point *pos, const int len);
 
 #ifdef __cplusplus
 }

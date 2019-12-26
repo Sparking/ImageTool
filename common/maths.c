@@ -1,7 +1,7 @@
-﻿#include "maths.h"
-#include <limits.h>
+﻿#include <limits.h>
 #include <stdint.h>
 #include <string.h>
+#include "maths.h"
 
 unsigned int bits_count(unsigned int i)
 {
@@ -18,8 +18,6 @@ int great_common_divisor(const int a, const int b)
 {
     return (a % b == 0) ? b : great_common_divisor(b, a % b);
 }
-
-#if defined (FAST_MATH)
 
 float fast_inv_sqrtf(float number)
 {
@@ -46,8 +44,6 @@ float fast_sqrtf(const float value)
 
     return 1.0f / fast_inv_sqrtf(value);
 }
-
-#endif
 
 unsigned int find_max_common_divisor(const unsigned int a, const unsigned int b)
 {
@@ -300,7 +296,7 @@ int line_cross_point(struct point *p, const float a1, const float b1,
     return 0;
 }
 
-int vector_get_tan_2n(const struct vector *vec1, const struct vector *vec2,
+int vector_tan_pow2(const struct vector *vec1, const struct vector *vec2,
         const unsigned int e)
 {
     const int dot_product = vector_dot(vec1, vec2);
@@ -317,16 +313,16 @@ int vector_get_tan_2n(const struct vector *vec1, const struct vector *vec2,
 bool points_in_line(const struct point *a, const struct point *b,
         const struct point *c)
 {
+	int res;
     struct vector vec[2];
-    int res;
 
     vec[0].i = b->x - a->x;
     vec[0].j = b->y - a->y;
     vec[1].i = c->x - b->x;
     vec[1].j = c->y - b->y;
-    res = vector_get_tan_2n(vec, vec + 1, 8);
+    res = vector_tan_pow2(vec, vec + 1, 8);
 
-    return (fabs(res) <= 30);
+    return ((int)fabs(res) <= 35);
 }
 
 bool line4p_is_parell(const struct point *ap1, const struct point *ap2,
@@ -339,5 +335,23 @@ bool line4p_is_parell(const struct point *ap1, const struct point *ap2,
     vec[1].i = bp2->x - bp1->x;
     vec[1].j = bp2->y - bp1->y;
 
-    return (vector_get_tan_2n(vec, vec + 1, 2) >= 1);
+    return (fabs(vector_tan_pow2(vec, vec + 1, 2)) >= 1);
+}
+
+bool get_line_dirpos(const struct point *start, const struct point *end, const struct point *base,
+	    struct point *pos, const int len)
+{
+	float inv_sqr;
+	struct point d;
+
+	d.x = end->x - start->x;
+	d.y = end->y - start->y;
+	if (d.x == 0 && d.y == 0)
+		return false;
+
+	inv_sqr = 1.0f / sqrtf(d.x * d.x + d.y * d.y);
+	pos->x = base->x + d.x * len * inv_sqr + 0.5f;
+	pos->y = base->y + d.y * len * inv_sqr + 0.5f;
+
+	return true;
 }

@@ -4,6 +4,11 @@
 #include "rbtree.h"
 #include "dotcode_detect_point.h"
 
+struct point g_dtcline_coeff[] = {
+	{ -5,0 },{ -5,-3 },{ -3,-5 },{ 0, -5 },{ 3,-5 },{ 5,-3 },{ 5,0 },{ 5,3 },{ 3,5 },{ 0,5 },{ -3,5 },{ -5,3 },{ -5,0 }
+	/**-180     -150     -120       -90       -60      -30      0       30      60      90      120      150       180**/
+};
+
 void dotcode_point_init(struct dotcode_point *pt)
 {
 	pt->nw = 0;
@@ -296,301 +301,6 @@ unsigned int image_find_raise_fall_edges_by_offset_dotcode(
 
     return cnt;
 }
-#if 0
-unsigned int image_find_raise_fall_edges_pt2pt_dotcode(const struct image *img,
-	    const struct point *start, const struct point *end,
-		struct image_raise_fall_edge *pedge, const unsigned int num)
-{
-	int i, j, step;
-	struct point delta;
-	struct point setup;
-	struct point coordinate[3];
-	unsigned int cnt;
-	unsigned int pos;
-	unsigned char grad;
-	unsigned char gray;
-	unsigned char max_grad;
-	unsigned char cur_type;
-	unsigned char last_type;
-	unsigned char max_amplitude;
-	const unsigned char *imgdata;
-	struct image_raise_fall_edge *cur_edge;
-	struct image_raise_fall_edge *max_edge;
-	struct image_raise_fall_edge *last_edge;
-	struct image_raise_fall_edge *buff;
-	struct image_raise_fall_edge *buff_end;
-	struct image_raise_fall_edge *buff_prev;
-
-	if (img == NULL || start == NULL || end == NULL || pedge == NULL || num == 0)
-		return 0;
-
-	if (start->x < 0 || start->x >= (int)img->width || start->y < 0 || start->y >= (int)img->height)
-		return 0;
-
-	if (end->x < 0 || end->x >= (int)img->width || end->y < 0 || end->y >= (int)img->height)
-		return 0;
-
-	if (start->x == end->x && start->y == end->y)
-		return 0;
-
-	memcpy(&coordinate[1], start, sizeof(coordinate[1]));
-	memcpy(&coordinate[2], end, sizeof(coordinate[2]));
-	if (coordinate[1].y < 0) {
-		coordinate[1].y = 0;
-	} else if (coordinate[1].y >= img->height) {
-		coordinate[1].y = img->height - 1;
-	}
-
-	if (coordinate[2].y < 0) {
-		coordinate[2].y = 0;
-	} else if (coordinate[2].y >= img->height) {
-		coordinate[2].y = img->height - 1;
-	}
-
-	if (coordinate[1].x < 0) {
-		coordinate[1].x = 0;
-	} else if (coordinate[1].x >= img->height) {
-		coordinate[1].x = img->width - 1;
-	}
-
-	if (coordinate[2].x < 0) {
-		coordinate[2].x = 0;
-	} else if (coordinate[2].x >= img->height) {
-		coordinate[2].x = img->width - 1;
-	}
-	memcpy(&coordinate[0], &coordinate[1], sizeof(coordinate[0]));
-
-	delta.x = end->x - start->x;
-	delta.y = start->y - end->y;
-	setup.x = 1;
-	setup.y = 1;
-	if (delta.x < 0) {
-		delta.x = -delta.x;
-		setup.x = -1;
-	}
-
-	if (delta.y > 0) {
-		delta.y = -delta.y;
-		setup.y = -1;
-	}
-
-	cnt = 0;
-	max_grad = 0;
-	max_edge = NULL;
-	max_amplitude = 0;
-	cur_edge = pedge - 1;
-	buff_end = pedge + num - 1;
-	last_type = IMAGE_RFEDGE_TYPE_NONE;
-	imgdata = img->data + start->y * img->width + start->x;
-	gray = *imgdata;
-	if (-delta.y < delta.x) {
-		for (pos = 1; ;  ++pos) {
-			j = (int)((i * delta.y * 1.0 / delta.x + 0.5) + start->y);
-			imgdata = &img->data[img->width * j + start->x + i];
-			ushow_pt(1, start->x + i, j, YELLOWCOLOR);
-			if (gray == *imgdata) {
-				last_type = IMAGE_RFEDGE_TYPE_NONE;
-				continue;
-			} else if (gray < *imgdata) {
-				grad = *imgdata - gray;
-				cur_type = IMAGE_RFEDGE_TYPE_RAISE;
-			} else {
-				grad = gray - *imgdata;
-				cur_type = IMAGE_RFEDGE_TYPE_FALL;
-			}
-
-			if (grad > max_grad)
-				max_grad = grad;
-
-			if (last_type != cur_type) {
-				if (max_edge == NULL) {
-					max_edge = pedge;
-				} else if (max_edge->max_grad <= cur_edge->max_grad
-					&& max_edge->amplitude <= cur_edge->amplitude) {
-					max_edge = cur_edge;
-				}
-
-				if (cur_edge >= buff_end)
-					break;
-
-				++cur_edge;
-				cur_edge->begin = pos - 1;
-				cur_edge->end = pos;
-				cur_edge->type = cur_type;
-				cur_edge->max_grad = grad;
-				cur_edge->min_grad = grad;
-				cur_edge->amplitude = grad;
-				last_type = cur_type;
-				cur_edge->max_gray = gray;
-				cur_edge->min_gray = *imgdata;
-				cur_edge->dpos_256x = grad * pos;
-			} else {
-				cur_edge->end = pos;
-				if (grad > cur_edge->max_grad) {
-					cur_edge->max_grad = grad;
-				} else if (grad < cur_edge->min_grad) {
-					cur_edge->min_grad = grad;
-				}
-				cur_edge->min_gray = *imgdata;
-				cur_edge->amplitude += grad;
-				cur_edge->dpos_256x += grad * pos;
-				if (cur_edge->amplitude > max_amplitude)
-					max_amplitude = cur_edge->amplitude;
-			}
-			gray = *imgdata;
-		}
-	} else {
-		step = 1;
-		if (delta.y < 0)
-			step = -1;
-
-		for (pos = 1, j = 1; pos <= (unsigned int)delta_abs.y; j += step, ++pos) {
-			i = (int)((j * delta.x * 1.0 / delta.y + 0.5) + start->x);
-			imgdata = &img->data[img->width * (j + start->y) + i];
-			ushow_pt(1, i, j + start->y, YELLOWCOLOR);
-
-			if (gray == *imgdata) {
-				last_type = IMAGE_RFEDGE_TYPE_NONE;
-				continue;
-			} else if (gray < *imgdata) {
-				grad = *imgdata - gray;
-				cur_type = IMAGE_RFEDGE_TYPE_RAISE;
-			} else {
-				grad = gray - *imgdata;
-				cur_type = IMAGE_RFEDGE_TYPE_FALL;
-			}
-
-			if (grad > max_grad)
-				max_grad = grad;
-
-			if (last_type != cur_type) {
-				if (max_edge == NULL) {
-					max_edge = pedge;
-				} else if (max_edge->max_grad <= cur_edge->max_grad
-					&& max_edge->amplitude <= cur_edge->amplitude) {
-					max_edge = cur_edge;
-				}
-
-				if (cur_edge >= buff_end)
-					break;
-
-				++cur_edge;
-				cur_edge->begin = pos - 1;
-				cur_edge->end = pos;
-				cur_edge->type = cur_type;
-				cur_edge->max_grad = grad;
-				cur_edge->min_grad = grad;
-				cur_edge->amplitude = grad;
-				last_type = cur_type;
-				cur_edge->max_gray = gray;
-				cur_edge->min_gray = *imgdata;
-				cur_edge->dpos_256x = grad * pos;
-			} else {
-				cur_edge->end = pos;
-				if (grad > cur_edge->max_grad) {
-					cur_edge->max_grad = grad;
-				} else if (grad < cur_edge->min_grad) {
-					cur_edge->min_grad = grad;
-				}
-				cur_edge->min_gray = *imgdata;
-				cur_edge->amplitude += grad;
-				cur_edge->dpos_256x += grad * pos;
-				if (cur_edge->amplitude > max_amplitude)
-					max_amplitude = cur_edge->amplitude;
-			}
-			gray = *imgdata;
-		}
-	}
-
-	if (cur_edge < pedge)
-		return 0;
-
-	if (max_edge->amplitude <= 8)
-		return 0;
-
-	cnt = (unsigned int)(cur_edge - pedge + 1);
-	buff = (struct image_raise_fall_edge *)mem_alloc(sizeof(struct image_raise_fall_edge) * cnt);
-	if (buff == NULL)
-		return 0;
-
-	buff_end = pedge + cnt;
-	buff_prev = buff + (max_edge - pedge);
-	cur_edge = buff_prev;
-	last_edge = max_edge;
-	gray = (max_edge->amplitude + 2) >> 2;
-	grad = (max_edge->max_grad + 1) >> 1;
-	if (gray < IMAGE_RFEDGE_AMP_LIMIT_MIN)
-		gray = IMAGE_RFEDGE_AMP_LIMIT_MIN;
-	memcpy(cur_edge, last_edge, sizeof(struct image_raise_fall_edge));
-	while (++last_edge < buff_end) {
-		if (last_edge->amplitude < 5 && last_edge->end - last_edge->begin < 3)
-			continue;
-
-		if (last_edge->type == cur_edge->type) {
-			if (last_edge->amplitude >= cur_edge->amplitude) {
-				if (last_edge->max_grad >= cur_edge->max_grad) {
-					memcpy(cur_edge, last_edge, sizeof(struct image_raise_fall_edge));
-				}
-			}
-		} else if (last_edge->max_grad >= grad || last_edge->amplitude >= gray) {
-			++cur_edge;
-			memcpy(cur_edge, last_edge, sizeof(struct image_raise_fall_edge));
-			gray = (cur_edge->amplitude) >> 2;
-			grad = (cur_edge->max_grad + 1) >> 1;
-			if (gray < IMAGE_RFEDGE_AMP_LIMIT_MIN)
-				gray = IMAGE_RFEDGE_AMP_LIMIT_MIN;
-			if (gray > cur_edge->amplitude >> 1)
-				gray = cur_edge->amplitude >> 1;
-		}
-	}
-	buff_end = cur_edge;
-	cur_edge = buff_prev;
-	last_edge = max_edge;
-	gray = (max_edge->amplitude + 2) >> 2;
-	grad = (max_edge->max_grad + 1) >> 1;
-	if (gray < IMAGE_RFEDGE_AMP_LIMIT_MIN)
-		gray = IMAGE_RFEDGE_AMP_LIMIT_MIN;
-	while (--last_edge >= pedge) {
-		if (last_edge->amplitude < 5 && last_edge->end - last_edge->begin < 3)
-			continue;
-
-		if (last_edge->type == cur_edge->type) {
-			if (last_edge->amplitude >= cur_edge->amplitude) {
-				if (last_edge->max_grad >= cur_edge->max_grad) {
-					memcpy(cur_edge, last_edge, sizeof(struct image_raise_fall_edge));
-				}
-			}
-		} else if (last_edge->max_grad >= grad || last_edge->amplitude >= gray) {
-			--cur_edge;
-			memcpy(cur_edge, last_edge, sizeof(struct image_raise_fall_edge));
-			gray = (cur_edge->amplitude) >> 2;
-			grad = (cur_edge->max_grad + 1) >> 1;
-			if (gray < IMAGE_RFEDGE_AMP_LIMIT_MIN)
-				gray = IMAGE_RFEDGE_AMP_LIMIT_MIN;
-			if (gray > cur_edge->amplitude >> 1)
-				gray = cur_edge->amplitude >> 1;
-		}
-	}
-	cnt = (unsigned int)(buff_end - cur_edge + 1);
-	memcpy(pedge, cur_edge, sizeof(struct image_raise_fall_edge) * cnt);
-	mem_free(buff);
-
-	cur_edge = pedge;
-	last_edge = pedge + cnt;
-	while (cur_edge < last_edge) {
-		if (cur_edge->type == IMAGE_RFEDGE_TYPE_RAISE) {
-			gray = cur_edge->max_gray;
-			cur_edge->max_gray = cur_edge->min_gray;
-			cur_edge->min_gray = gray;
-		}
-		cur_edge->dpos_256x = (cur_edge->dpos_256x << 8) / cur_edge->amplitude;
-		cur_edge->dpos = (cur_edge->dpos_256x + (1 << 7)) >> 8;
-		++cur_edge;
-	}
-
-	return cnt;
-}
-#endif
 
 static bool dotcode_detect_point_get_hori_width(const struct image *img,
         const struct point *pos, const int edge_type, struct point *newpos, unsigned int *width)
@@ -706,7 +416,7 @@ static bool dotcode_detect_point_get_135_width(const struct image *img,
     return true;
 }
 
-bool dotcode_judge_width(const unsigned int a, const unsigned int b)
+static bool dotcode_judge_width(const unsigned int a, const unsigned int b)
 {
 	unsigned int diff;
 
@@ -906,37 +616,22 @@ bool dotcode_insert_line(struct dotcode_line *head, struct dotcode_line_node *li
 	return true;
 }
 
-bool get_line_dirpos(const struct point *start, const struct point *end, const struct point *base,
-        struct point *pos, const int len)
-{
-	float inv_sqr;
-	struct point d;
-
-	d.x = end->x - start->x;
-	d.y = end->y - start->y;
-	if (d.x == 0 && d.y == 0)
-		return false;
-
-	inv_sqr = fast_inv_sqrtf(d.x * d.x + d.y * d.y);
-	pos->x = base->x + d.x * len * inv_sqr;
-	pos->y = base->y + d.y * len * inv_sqr;
-
-	return true;
-}
-
 bool dotcode_gooddot_search(const struct image *img, const struct dotcode_point *pdtp, struct dotcode_line *lines)
 {
+	int min_len;
 	int scan_off;
 	unsigned int nedge;
-	struct dotcode_point curpt;
-	struct dotcode_point *newpt;
-	struct dotcode_line_node *dtline;
-	struct point pt, last_secpt;
-	struct point scan_range[2];
+	unsigned int ndpt;
+	struct point pt;
+	struct point last_secpt;
 	struct point scan_endpos;
-	struct point pos_eosl;
+	struct point scan_range[2];
+	struct dotcode_point *ppt;
+	struct list_head llist, *lnode;
+	struct dotcode_point curpt;
+	struct dotcode_point dpt[100];
+	struct dotcode_line_node *dtline, *minline;
 	struct image_raise_fall_edge edges[50];
-	struct list_head llist;
 
 	const int dbg_ushow_scan_flag = 0;
 	const int color[2][3] = { {REDCOLOR, YELLOWCOLOR, CYANCOLOR},{GREENCOLOR, PINKCOLOR, BLUECOLOR} };
@@ -944,6 +639,7 @@ bool dotcode_gooddot_search(const struct image *img, const struct dotcode_point 
 	if (img == NULL || pdtp == NULL || lines == NULL)
 		return 0;
 
+	ndpt = 0;
 	INIT_LIST_HEAD(llist);
 	scan_off = (pdtp->nw + 1) >> 1;
 	memset(&last_secpt, 0, sizeof(last_secpt));
@@ -953,8 +649,10 @@ bool dotcode_gooddot_search(const struct image *img, const struct dotcode_point 
 	scan_range[1].y += pdtp->nh * (5);
 	scan_endpos.x = pdtp->center.x + pdtp->nw * 5;
 	scan_endpos.y = pdtp->center.y + pdtp->nh * (-3) - scan_off;
+
 	ushow_ptWidth(dbg_ushow_scan_flag, scan_range[0].x, scan_range[0].y, color[0][0], 3);
 	ushow_ptWidth(dbg_ushow_scan_flag, scan_range[1].x, scan_range[1].y, color[0][1], 1);
+
 	do {
 		if (fabs(scan_range[0].x - scan_endpos.x) >= fabs(scan_range[0].y - scan_endpos.y)) {
 			scan_endpos.y += scan_off;
@@ -964,7 +662,8 @@ bool dotcode_gooddot_search(const struct image *img, const struct dotcode_point 
 
 		if (scan_endpos.x < 0 || scan_endpos.x >= img->width || scan_endpos.y < 0 || scan_endpos.y >img->height)
 			break;
-		ushow_ptWidth(dbg_ushow_scan_flag, scan_endpos.x, scan_endpos.y, color[0][2], 2);
+
+		ushow_pt(dbg_ushow_scan_flag, scan_endpos.x, scan_endpos.y, color[0][2]);
 
 		nedge = image_find_raise_fall_edges_pt2pt(img, &scan_range[0], &scan_endpos, edges, 50);
 		if (nedge < 3)
@@ -972,23 +671,90 @@ bool dotcode_gooddot_search(const struct image *img, const struct dotcode_point 
 
 		dotcode_get_edge_pos_in_pt2pt(&scan_range[0], &scan_endpos, &pt,
 			(edges[2].dpos_256x + edges[1].dpos_256x + 256) >> 9);
-		ushow_ptWidth(1, pt.x, pt.y, YELLOWCOLOR, 1);	/*边界中点*/
 		if (!dotcode_checkdot_with_ref(img, edges[0].type, &curpt, &pt, pdtp))
 			continue;
 
 		/**直线去重**/
 		if ((int)fabs(last_secpt.x - curpt.center.x) <= 5 && (int)fabs(last_secpt.y - curpt.center.y) <= 5)
 			continue;
+
 		memcpy(&last_secpt, &curpt.center, sizeof(last_secpt));
+		memcpy(&dpt[0], pdtp, sizeof(dpt[0]));
+		memcpy(&dpt[1], &curpt, sizeof(dpt[0]));
+		ndpt = 2;
+		min_len = points_distance(&pdtp->center, &curpt.center);
 
-		dtline = dotcode_create_new_line_node(0);
-		if (dtline == NULL)
-			return false;
+		ushow_ptWidth(dbg_ushow_scan_flag, curpt.center.x, curpt.center.y, REDCOLOR, 1);/*新数据点*/
 
-		get_line_dirpos(&scan_range[0], &last_secpt, &last_secpt, &pos_eosl, pdtp->nw << 2);
-		ushow_ptWidth(1, pos_eosl.x, pos_eosl.y, REDCOLOR, 1);	/*边界中点*/
-		free(dtline);
+		do {
+			get_line_dirpos(&dpt[ndpt - 2].center, &dpt[ndpt - 1].center, &dpt[ndpt - 1].center,
+                &pt, dpt[0].nw << 2);
+			nedge = image_find_raise_fall_edges_pt2pt(img, &dpt[ndpt - 1].center, &pt, edges, 50);
+			if (nedge < 3)
+				break;
+
+			dotcode_get_edge_pos_in_pt2pt(&dpt[ndpt - 1].center, &pt, &pt,
+				(edges[2].dpos_256x + edges[1].dpos_256x + 256) >> 9);
+			if (!dotcode_checkdot_with_ref(img, edges[0].type, &curpt, &pt, pdtp))
+				break;
+
+			ushow_ptWidth(dbg_ushow_scan_flag, curpt.center.x, curpt.center.y, REDCOLOR, 1);	/*新数据点*/
+
+			if (!points_in_line(&dpt[ndpt - 2].center, &dpt[ndpt - 1].center, &curpt.center)) {
+
+				ushow_ptWidth(dbg_ushow_scan_flag, curpt.center.x, curpt.center.y, CYANCOLOR, 1);	/*数据终止点*/
+
+				break;
+			}
+
+			min_len = imin(min_len, (int)points_distance(&dpt[ndpt - 1].center, &curpt.center));
+			memcpy(&dpt[ndpt++], &curpt, sizeof(dpt[0]));
+			if (ndpt >= 50)
+				break;
+		} while (1);
+
+		if (ndpt > 5) {
+			dtline = dotcode_create_new_line_node(0);
+			if (dtline == NULL)
+				break;
+
+			dtline->min_len = min_len;
+			for (dtline->ndt = 0; dtline->ndt < ndpt; ++dtline->ndt) {
+				ppt = (struct dotcode_point *)malloc(sizeof(struct dotcode_point));
+				assert(ppt != NULL);
+				memcpy(ppt, &dpt[dtline->ndt], sizeof(*ppt));
+				ppt->node135.next = ppt->node135.prev = NULL;
+				ppt->node45.next = ppt->node45.prev = NULL;
+				list_add_tail(&ppt->node45, &dtline->pt);
+				ppt = list_entry(&ppt->node45, struct dotcode_point, node45);
+			}
+			for (lnode = dtline->pt.next; lnode = &dtline->pt; lnode = lnode->next) {
+				ppt = list_entry(lnode, struct dotcode_point, node45);
+				ushow_ptWidth(1, ppt->center.x, ppt->center.y, REDCOLOR, 1);
+			}
+			list_add_tail(&dtline->node, &llist);
+		}
    	} while (scan_endpos.x >= scan_range[1].x);
+
+	minline = NULL;
+	for (lnode = llist.next; lnode != &llist; lnode = lnode->next) {
+		dtline = list_entry(lnode, struct dotcode_line_node, node);
+		if (minline == NULL) {
+			minline = dtline;
+			continue;
+		}
+
+		if (minline->min_len >= dtline->min_len) {
+			minline = dtline;
+		}
+	}
+
+	if (minline != NULL) {
+		for (lnode = minline->pt.next; lnode = &minline->pt; lnode = lnode->next) {
+			ppt = list_entry(lnode, struct dotcode_point, node45);
+			ushow_ptWidth(1, ppt->center.x, ppt->center.y, REDCOLOR, 1);
+		}
+	}
 
 	return false;
 }

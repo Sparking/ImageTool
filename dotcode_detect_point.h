@@ -24,6 +24,7 @@ struct dotcode_point {
 
 struct dotcode_line_node {
 	int index;
+	int ndt;
 	int min_len;
 	struct list_head node;  /**表头:struct list_head(45°线/135°线)**/
 	struct list_head pt;    /**数据:struct dotcode_point -> node45/node135**/
