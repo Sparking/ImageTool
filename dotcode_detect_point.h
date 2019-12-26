@@ -1,5 +1,6 @@
 ﻿#pragma once
 
+#include "list.h"
 #include "maths.h"
 #include "image.h"
 #include "port_memory.h"
@@ -17,18 +18,20 @@ struct dotcode_point {
     unsigned int weight;
     unsigned char isblack;
 	unsigned char score;
+	struct list_head node45;    /**表头:struct dotcode_line_node -> pt(45°线)**/
+	struct list_head node135;   /**表头:struct dotcode_line_node -> pt(135°线)**/
 };
 
-struct dotcode_point_line {
-	struct dotcode_point pt[50];
-	unsigned int npt;
-	unsigned int min_len;
-	unsigned char is45;
+struct dotcode_line_node {
+	int index;
+	int min_len;
+	struct list_head node;  /**表头:struct list_head(45°线/135°线)**/
+	struct list_head pt;    /**数据:struct dotcode_point -> node45/node135**/
 };
 
-struct dotcode_point_lineset {
-	struct dotcode_point_line line[8];
-	unsigned int nline;
+struct dotcode_line {
+	struct list_head line45;
+	struct list_head line135;
 };
 
 /*******************************************************************************

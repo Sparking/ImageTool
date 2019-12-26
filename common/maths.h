@@ -12,6 +12,7 @@ extern "C" {
 #if defined (FAST_MATH)
 #define SQRTF               fast_sqrtf
 /* 快速开平方 */
+extern float fast_inv_sqrtf(float number);
 extern float fast_sqrtf(const float value);
 
 #define M_PIf               3.14159f

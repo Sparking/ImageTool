@@ -1,5 +1,9 @@
 ﻿#pragma once
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include "compilers.h"
 
 #undef offsetof
@@ -75,3 +79,7 @@ INLINE void list_del(struct list_head *entry)
     entry->next = (struct list_head*)LIST_POISON1;
     entry->prev = (struct list_head*)LIST_POISON2;
 }
+
+#ifdef __cplusplus
+}
+#endif
