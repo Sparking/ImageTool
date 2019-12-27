@@ -28,14 +28,14 @@ struct list_head {
 #define list_entry(ptr, type, member)                           \
     container_of(ptr, type, member)
 
-#define list_for_each_entry(pos, type, head, member)                  \
-    for (pos = list_entry((head)->next, type, member);  \
+#define list_for_each_entry(pos, type, head, member)            \
+    for (pos = list_entry((head)->next, type, member);          \
          &pos->member != (head);                                \
          pos = list_entry(pos->member.next, type, member))
 
-#define list_for_each_entry_safe(pos, n, type, head, member)          \
-    for (pos = list_entry((head)->next, type, member),  \
-        n = list_entry(pos->member.next, type, member); \
+#define list_for_each_entry_safe(pos, n, type, head, member)    \
+    for (pos = list_entry((head)->next, type, member),          \
+        n = list_entry(pos->member.next, type, member);         \
          &pos->member != (head);                                \
          pos = n, n = list_entry(n->member.next, type, member))
 

@@ -6,7 +6,7 @@ extern "C" {
 
 #ifndef INLINE
 #ifdef __GNUC__
-#define INLINE static inline __attribute__((always_inline))
+#define INLINE static __inline __attribute__((always_inline))
 #else
 #define INLINE static __inline
 #endif

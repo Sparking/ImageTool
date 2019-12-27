@@ -349,7 +349,7 @@ bool get_line_dirpos(const struct point *start, const struct point *end, const s
 	if (d.x == 0 && d.y == 0)
 		return false;
 
-	inv_sqr = 1.0f / sqrtf((float)(d.x * d.x + d.y * d.y));
+	inv_sqr = fast_inv_sqrtf((float)(d.x * d.x + d.y * d.y));
 	pos->x = (int)(base->x + d.x * len * inv_sqr + 0.5f);
 	pos->y = (int)(base->y + d.y * len * inv_sqr + 0.5f);
 
@@ -370,7 +370,7 @@ bool get_linepos_veroffset(const struct point *start, const struct point *final,
 		return true;
 	}
 
-	max = 1.0f / sqrtf((float)(dx * dx + dy * dy));
+	max = fast_inv_sqrtf((float)(dx * dx + dy * dy));
 	v = (float)(appoint->x - noffset * dx * max);
 	value->x = (int)(v + 0.5f);
 	v = (float)(appoint->y + noffset * dy * max);

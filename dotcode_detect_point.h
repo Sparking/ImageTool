@@ -18,14 +18,22 @@ struct dotcode_point {
     unsigned int weight;
     unsigned char isblack;
     unsigned char score;
+};
+
+struct dotcode_dot {
+    struct dotcode_point dot;
     struct list_head node45;    /**表头:struct dotcode_line_node -> pt(45°线)**/
     struct list_head node135;   /**表头:struct dotcode_line_node -> pt(135°线)**/
+    struct list_head *head45;
+    struct list_head *head135;
 };
 
 struct dotcode_line_node {
+    int dir;
     int ndt;
     int index;
     int min_len;
+    struct list_head *head;
     struct list_head node;  /**表头:struct list_head(45°线/135°线)**/
     struct list_head pt;    /**数据:struct dotcode_point -> node45/node135**/
 };
