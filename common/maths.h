@@ -211,7 +211,10 @@ INLINE bool line_is_parell(const struct line *a, const struct line *b)
 }
 
 extern bool get_line_dirpos(const struct point *start, const struct point *end,
-	const struct point *base, struct point *pos, const int len);
+	const struct point *base, const int len, struct point *pos);
+
+extern bool get_linepos_veroffset(const struct point *start, const struct point *end,
+	const struct point *base, const int len, struct point *pos);
 
 #ifdef __cplusplus
 }

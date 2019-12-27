@@ -339,7 +339,7 @@ bool line4p_is_parell(const struct point *ap1, const struct point *ap2,
 }
 
 bool get_line_dirpos(const struct point *start, const struct point *end, const struct point *base,
-	    struct point *pos, const int len)
+	    const int len, struct point *pos)
 {
 	float inv_sqr;
 	struct point d;
@@ -349,9 +349,32 @@ bool get_line_dirpos(const struct point *start, const struct point *end, const s
 	if (d.x == 0 && d.y == 0)
 		return false;
 
-	inv_sqr = 1.0f / sqrtf(d.x * d.x + d.y * d.y);
-	pos->x = base->x + d.x * len * inv_sqr + 0.5f;
-	pos->y = base->y + d.y * len * inv_sqr + 0.5f;
+	inv_sqr = 1.0f / sqrtf((float)(d.x * d.x + d.y * d.y));
+	pos->x = (int)(base->x + d.x * len * inv_sqr + 0.5f);
+	pos->y = (int)(base->y + d.y * len * inv_sqr + 0.5f);
+
+	return true;
+}
+
+bool get_linepos_veroffset(const struct point *start, const struct point *final,
+        const struct point *appoint, const int noffset, struct point *value)
+{
+	int dx, dy;
+	float max, v;
+
+	dx = start->y - final->y;
+	dy = start->x - final->x;
+	if (dx == 0 && dy == 0) {
+		value->x = appoint->x;
+		value->y = appoint->y;
+		return true;
+	}
+
+	max = 1.0f / sqrtf((float)(dx * dx + dy * dy));
+	v = (float)(appoint->x - noffset * dx * max);
+	value->x = (int)(v + 0.5f);
+	v = (float)(appoint->y + noffset * dy * max);
+	value->y = (int)(v + 0.5f);
 
 	return true;
 }
