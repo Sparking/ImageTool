@@ -601,7 +601,7 @@ static void dotcode_line_init(struct dotcode_line *pdln)
     INIT_LIST_HEAD(pdln->line135);
 }
 
-struct dotcode_dot *dotcode_create_dot(struct list_head *head45, struct list_head *head135,
+static struct dotcode_dot *dotcode_create_dot(struct list_head *head45, struct list_head *head135,
         const struct dotcode_point *pt)
 {
     struct dotcode_dot *dot;
@@ -617,7 +617,7 @@ struct dotcode_dot *dotcode_create_dot(struct list_head *head45, struct list_hea
     return dot;
 }
 
-struct dotcode_line_node *dotcode_create_line_node(struct dotcode_line *line,const int dir, const int index)
+static struct dotcode_line_node *dotcode_create_line_node(struct dotcode_line *line,const int dir, const int index)
 {
     struct dotcode_line_node *pln;
 
@@ -632,7 +632,7 @@ struct dotcode_line_node *dotcode_create_line_node(struct dotcode_line *line,con
     return pln;
 }
 
-void dotcode_remove_line_node(struct dotcode_line_node *node)
+static void dotcode_remove_line_node(struct dotcode_line_node *node)
 {
     struct dotcode_dot *pdot, *tmpp;
 
@@ -658,7 +658,7 @@ void dotcode_remove_line_node(struct dotcode_line_node *node)
     free(node);
 }
 
-bool dotcode_gooddot_search(const struct image *img, const struct dotcode_point *pdtp, struct dotcode_line *lines)
+static bool dotcode_gooddot_search_line45(const struct image *img, const struct dotcode_point *pdtp, struct dotcode_line *lines)
 {
     int min_len;
     int scan_off;
@@ -670,9 +670,8 @@ bool dotcode_gooddot_search(const struct image *img, const struct dotcode_point 
     struct point scan_range[2];
     struct dotcode_point curpt;
     struct dotcode_point dpt[100];
-    struct dotcode_line alldtline;
     struct dotcode_dot *pdot;
-    struct dotcode_line_node *line45;
+    struct dotcode_line_node *line45, *minln, *tmpln;
     struct image_raise_fall_edge edges[50];
 
     const int dbg_ushow_scan_flag = 0;
@@ -693,7 +692,8 @@ bool dotcode_gooddot_search(const struct image *img, const struct dotcode_point 
 
     ushow_ptWidth(dbg_ushow_scan_flag, scan_range[0].x, scan_range[0].y, color[0][0], 3);
     ushow_ptWidth(dbg_ushow_scan_flag, scan_range[1].x, scan_range[1].y, color[0][1], 1);
-    dotcode_line_init(&alldtline);
+    dotcode_line_init(lines);
+    minln = NULL;
     do {
         if (fabs(scan_range[0].x - scan_endpos.x) >= fabs(scan_range[0].y - scan_endpos.y)) {
             scan_endpos.y += scan_off;
@@ -745,8 +745,8 @@ bool dotcode_gooddot_search(const struct image *img, const struct dotcode_point 
                 break;
         } while (1);
 
-        if (ndpt > 2) {
-            line45 = dotcode_create_line_node(&alldtline, 0, 0);
+        if (ndpt > 5) {
+            line45 = dotcode_create_line_node(lines, 0, 0);
             if (line45 == NULL)
                 break;
 
@@ -755,19 +755,45 @@ bool dotcode_gooddot_search(const struct image *img, const struct dotcode_point 
                 pdot = dotcode_create_dot(&line45->pt, NULL, &dpt[line45->ndt]);
                 assert(pdot != NULL);
             }
-
-            list_for_each_entry(pdot, struct dotcode_dot, &line45->pt, node45) {
-                if (pdot->node45.prev == &line45->pt)
-                    ushow_ptWidth(1, pdot->dot.center.x, pdot->dot.center.y, CYANCOLOR, 1);
-                else
-                    ushow_ptWidth(1, pdot->dot.center.x, pdot->dot.center.y, REDCOLOR, 1);
+            if (minln == NULL) {
+                minln = line45;
+            } else if (minln->min_len > min_len) {
+                minln = line45;
             }
-            dotcode_remove_line_node(line45);
         }
-
     } while (scan_endpos.x >= scan_range[1].x);
 
-    return false;
+    if (list_empty(&lines->line45))
+        return false;
+
+    list_for_each_entry_safe(line45, tmpln, struct dotcode_line_node, &lines->line45, node) {
+        if (line45 == minln)
+            continue;
+        dotcode_remove_line_node(line45);
+    }
+
+    return true;
+}
+
+static bool dotcode_extend_vertline(struct dotcode_line_node *pln)
+{
+    struct dotcode_dot *pdn;
+
+    if (pln == NULL || list_empty(&pln->pt))
+        return false;
+
+    if (pln->dir == 0) {
+        list_for_each_entry(pdn, struct dotcode_dot, &pln->pt, node45) {
+            ushow_ptWidth(1, pdn->dot.center.x, pdn->dot.center.y, GREENCOLOR, 1);
+        }
+    } else {
+        list_for_each_entry(pdn, struct dotcode_dot, &pln->pt, node135) {
+            ushow_ptWidth(1, pdn->dot.center.x, pdn->dot.center.y, GREENCOLOR, 1);
+        }
+    }
+    dotcode_remove_line_node(pln);
+
+    return true;
 }
 
 unsigned int dotcode_detect_point(const struct image *img,
@@ -816,7 +842,11 @@ unsigned int dotcode_detect_point(const struct image *img,
 
             pt.score = 4;
             ushow_ptWidth(1, pt.center.x, pt.center.y, GREENCOLOR, 2);
-            if (dotcode_gooddot_search(img, &pt, &lineset))
+            if (!dotcode_gooddot_search_line45(img, &pt, &lineset)) {
+                continue;
+            }
+
+            if (!dotcode_extend_vertline(list_entry(lineset.line45.next, struct dotcode_line_node, node)))
                 continue;
 
             if (off < (pt.nh >> 1))
