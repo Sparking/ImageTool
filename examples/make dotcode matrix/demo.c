@@ -60,11 +60,11 @@ bool dotcode_matrix_set(struct dotcode_matrix *pdm, const int x, const int y)
 
 void dotcode_matrix_reshape(struct dotcode_matrix *pdm)
 {
-    int i, j;
+    int i, j, r;
 
     pdm->nw = pdm->area.right - pdm->area.left + 1;
     pdm->nh = pdm->area.bottom - pdm->area.top + 1;
-    for (i = 0, j = pdm->area.top; i < pdm->nh; ++i, j += DTMW)
+    for (i = 0, r = 0, j = pdm->area.top * DTMW; i < pdm->nh; ++i, r += pdm->nw, j += DTMW)
         memcpy(pdm->m + i * pdm->nw, pdm->m + j + pdm->area.left, pdm->nw);
 
     pdm->area.left = 0;
