@@ -779,19 +779,29 @@ static bool dotcode_gooddot_search_vertline(const struct image *img,
         const struct point *start, const struct point *end, const struct dotcode_dot *ref)
 {
     int nedge;
-    struct point pt;
+    struct point pt, sr[2];
     struct dotcode_point dpt;
     struct image_raise_fall_edge edges[50];
 
-    nedge = image_find_raise_fall_edges_pt2pt(img, start, end, edges, 50);
-    if (nedge < 3)
-        return false;
+    memcpy(&sr[0], start, sizeof(struct point));
+    memcpy(&sr[1], end, sizeof(struct point));
+    do {
+        nedge = image_find_raise_fall_edges_pt2pt(img, &sr[0], &sr[1], edges, 50);
+        if (nedge < 3)
+            break;
 
-    dotcode_get_edge_pos_in_pt2pt(start, end, &pt,
-        (edges[2].dpos_256x + edges[1].dpos_256x + 256) >> 9);
-    ushow_ptWidth(1, pt.x, pt.y, CYANCOLOR, 1);
-    if (!dotcode_checkdot_with_ref(img, ref->dot.isblack ? IMAGE_RFEDGE_TYPE_RAISE : IMAGE_RFEDGE_TYPE_FALL, &dpt, &pt, ref))
-        return false;
+        dotcode_get_edge_pos_in_pt2pt(&sr[0], &sr[1], &pt,
+            (edges[2].dpos_256x + edges[1].dpos_256x + 256) >> 9);
+        ushow_ptWidth(1, pt.x, pt.y, YELLOWCOLOR, 1);
+
+        if (!dotcode_checkdot_with_ref(img, ref->dot.isblack ? IMAGE_RFEDGE_TYPE_RAISE : IMAGE_RFEDGE_TYPE_FALL, &dpt, &pt, &ref->dot))
+            break;
+
+        ushow_ptWidth(1, dpt.center.x, dpt.center.y, REDCOLOR, 1);
+        get_line_dirpos(&sr[0], &dpt.center, &dpt.center, dpt.nw << 2, &pt);
+        memcpy(&sr[0], &dpt.center, sizeof(struct point));
+        memcpy(&sr[1], &pt, sizeof(struct point));
+    } while (1);
 
     ushow_ptWidth(1, dpt.center.x, dpt.center.y, YELLOWCOLOR, 2);
 
