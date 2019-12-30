@@ -60,7 +60,7 @@ BEGIN_MESSAGE_MAP(DialogTransToolRotation, CDialog)
 	ON_BN_CLICKED(IDOK, &DialogTransToolRotation::OnBnClickedOk)
 	ON_BN_CLICKED(IDC_TRANSTOOLROTATION_BUTTON_RESET, &DialogTransToolRotation::OnBnClickedTranstoolrotationButtonReset)
 	ON_EN_CHANGE(IDC_EDIT1, &DialogTransToolRotation::OnEnChangeEdit1)
-	ON_WM_HSCROLL(IDC_SLIDER1, &DialogTransToolRotation::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar))
+	ON_WM_HSCROLL()
 	ON_NOTIFY(UDN_DELTAPOS, IDC_SPIN1, &DialogTransToolRotation::OnDeltaposSpin1)
 	ON_NOTIFY(UDN_DELTAPOS, IDC_SPIN2, &DialogTransToolRotation::OnDeltaposSpin2)
 	ON_NOTIFY(UDN_DELTAPOS, IDC_SPIN3, &DialogTransToolRotation::OnDeltaposSpin3)
@@ -159,11 +159,11 @@ void DialogTransToolRotation::OnDeltaposSpin1(NMHDR *pNMHDR, LRESULT *pResult)
 	UpdateData(TRUE);
 	if (pNMUpDown->iDelta == 1)
 	{
-		m_rotationAngle = m_rotationAngle + 0.1;
+		m_rotationAngle = m_rotationAngle + 0.1f;
 	}
 	else if (pNMUpDown->iDelta == -1)
 	{
-		m_rotationAngle = m_rotationAngle - 0.1;
+		m_rotationAngle = m_rotationAngle - 0.1f;
 	}
 	fmt.Format(_T("%.2f"), m_rotationAngle);
 	SetDlgItemText(IDC_EDIT1, fmt);
