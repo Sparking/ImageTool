@@ -775,16 +775,49 @@ static bool dotcode_gooddot_search_line45(const struct image *img, const struct 
     return true;
 }
 
-static bool dotcode_extend_vertline(struct dotcode_line_node *pln)
+static bool dotcode_gooddot_search_vertline(const struct image *img,
+        const struct point *start, const struct point *end, const struct dotcode_dot *ref)
 {
-    struct dotcode_dot *pdn;
+    int nedge;
+    struct point pt;
+    struct dotcode_point dpt;
+    struct image_raise_fall_edge edges[50];
+
+    nedge = image_find_raise_fall_edges_pt2pt(img, start, end, edges, 50);
+    if (nedge < 3)
+        return false;
+
+    dotcode_get_edge_pos_in_pt2pt(start, end, &pt,
+        (edges[2].dpos_256x + edges[1].dpos_256x + 256) >> 9);
+    ushow_ptWidth(1, pt.x, pt.y, CYANCOLOR, 1);
+    if (!dotcode_checkdot_with_ref(img, ref->dot.isblack ? IMAGE_RFEDGE_TYPE_RAISE : IMAGE_RFEDGE_TYPE_FALL, &dpt, &pt, ref))
+        return false;
+
+    ushow_ptWidth(1, dpt.center.x, dpt.center.y, YELLOWCOLOR, 2);
+
+    return true;
+}
+
+static bool dotcode_extend_vertline(const struct image *img, struct dotcode_line_node *pln)
+{
+    struct point verpt;
+    struct dotcode_dot *pdn, *lastdn, *firstdn;
 
     if (pln == NULL || list_empty(&pln->pt))
         return false;
 
     if (pln->dir == 0) {
+        firstdn = list_entry(pln->pt.next, struct dotcode_dot, node45);
+        lastdn = list_entry(pln->pt.prev, struct dotcode_dot, node45);
+        if (pln->pt.next == pln->pt.prev)
+            return false;
+
         list_for_each_entry(pdn, struct dotcode_dot, &pln->pt, node45) {
             ushow_ptWidth(1, pdn->dot.center.x, pdn->dot.center.y, GREENCOLOR, 1);
+            get_linepos_veroffset(&firstdn->dot.center, &lastdn->dot.center, &pdn->dot.center, pdn->dot.nw << 2, &verpt);
+            dotcode_gooddot_search_vertline(img, &pdn->dot.center, &verpt, pdn);
+            get_linepos_veroffset(&firstdn->dot.center, &lastdn->dot.center, &pdn->dot.center, -(int)(pdn->dot.nw << 2), &verpt);
+            dotcode_gooddot_search_vertline(img, &pdn->dot.center, &verpt, pdn);
         }
     } else {
         list_for_each_entry(pdn, struct dotcode_dot, &pln->pt, node135) {
@@ -846,7 +879,7 @@ unsigned int dotcode_detect_point(const struct image *img,
                 continue;
             }
 
-            if (!dotcode_extend_vertline(list_entry(lineset.line45.next, struct dotcode_line_node, node)))
+            if (!dotcode_extend_vertline(img, list_entry(lineset.line45.next, struct dotcode_line_node, node)))
                 continue;
 
             if (off < (pt.nh >> 1))
