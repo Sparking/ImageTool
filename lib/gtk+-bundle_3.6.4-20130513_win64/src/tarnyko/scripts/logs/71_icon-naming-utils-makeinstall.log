@@ -1,0 +1,10 @@
+make[1]: Entering directory `/home/Administrateur/71_icon-naming-utils/icon-naming-utils-0.8.90'
+test -z "/opt/libexec" || /bin/mkdir -p "/opt/libexec"
+ /bin/install -c 'icon-name-mapping' '/opt/libexec/icon-name-mapping'
+test -z "/opt/share/dtds" || /bin/mkdir -p "/opt/share/dtds"
+ /bin/install -c -m 644 'legacy-icon-mapping.dtd' '/opt/share/dtds/legacy-icon-mapping.dtd'
+test -z "/opt/share/pkgconfig" || /bin/mkdir -p "/opt/share/pkgconfig"
+ /bin/install -c -m 644 'icon-naming-utils.pc' '/opt/share/pkgconfig/icon-naming-utils.pc'
+test -z "/opt/share/icon-naming-utils" || /bin/mkdir -p "/opt/share/icon-naming-utils"
+ /bin/install -c -m 644 'legacy-icon-mapping.xml' '/opt/share/icon-naming-utils/legacy-icon-mapping.xml'
+make[1]: Leaving directory `/home/Administrateur/71_icon-naming-utils/icon-naming-utils-0.8.90'

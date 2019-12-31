@@ -1,0 +1,4431 @@
+
+/---gtk+-bundle_3.6.4-20130513_win64.README.txt
+|   
++---bin
+|       croco-0.6-config
+|       fc-cache.exe
+|       fc-cat.exe
+|       fc-list.exe
+|       fc-match.exe
+|       fc-pattern.exe
+|       fc-query.exe
+|       fc-scan.exe
+|       freetype-config
+|       gdbus-codegen
+|       gdbus.exe
+|       gdk-pixbuf-csource.exe
+|       gdk-pixbuf-pixdata.exe
+|       gdk-pixbuf-query-loaders.exe
+|       gio-querymodules.exe
+|       glib-compile-resources.exe
+|       glib-compile-schemas.exe
+|       glib-genmarshal.exe
+|       glib-gettextize
+|       glib-mkenums
+|       gobject-query.exe
+|       gresource.exe
+|       gsettings.exe
+|       gspawn-win64-helper-console.exe
+|       gspawn-win64-helper.exe
+|       gtk-query-immodules-3.0.exe
+|       gtk-update-icon-cache.exe
+|       gtk-update-icon-cache.exe.manifest
+|       gtk3-demo-application.exe
+|       gtk3-demo.exe
+|       gtk3-widget-factory.exe
+|       libatk-1.0-0.dll
+|       libcairo-2.dll
+|       libcairo-gobject-2.dll
+|       libcairo-script-interpreter-2.dll
+|       libcroco-0.6-3.dll
+|       libffi-6.dll
+|       libfontconfig-1.dll
+|       libfreetype-6.dll
+|       libgailutil-3-0.dll
+|       libgdk-3-0.dll
+|       libgdk_pixbuf-2.0-0.dll
+|       libgio-2.0-0.dll
+|       libglib-2.0-0.dll
+|       libgmodule-2.0-0.dll
+|       libgobject-2.0-0.dll
+|       libgthread-2.0-0.dll
+|       libgtk-3-0.dll
+|       libiconv-2.dll
+|       libintl-8.dll
+|       libjasper-1.dll
+|       libjpeg-9.dll
+|       liblzma-5.dll
+|       libpango-1.0-0.dll
+|       libpangocairo-1.0-0.dll
+|       libpangoft2-1.0-0.dll
+|       libpangowin32-1.0-0.dll
+|       libpixman-1-0.dll
+|       libpng-config
+|       libpng15-15.dll
+|       libpng15-config
+|       librsvg-2-2.dll
+|       libtiff-5.dll
+|       libtiffxx-5.dll
+|       libwinpthread-1.dll
+|       libxml2-2.dll
+|       pango-querymodules.exe
+|       pango-view.exe
+|       pkg-config.exe
+|       xml2-config
+|       zlib1.dll
+|       
++---etc
+|   +---fonts
+|   |   \---conf.d
+|   |           20-unhint-small-vera.conf
+|   |           30-metric-aliases.conf
+|   |           30-urw-aliases.conf
+|   |           40-nonlatin.conf
+|   |           45-latin.conf
+|   |           49-sansserif.conf
+|   |           50-user.conf
+|   |           51-local.conf
+|   |           60-latin.conf
+|   |           65-fonts-persian.conf
+|   |           65-nonlatin.conf
+|   |           69-unifont.conf
+|   |           80-delicious.conf
+|   |           90-synthetic.conf
+|   |           README
+|   |           
+|   +---gtk-3.0
+|   |       im-multipress.conf
+|   |       settings.ini
+|   |       
+|   \---pango
+|           pango.modules
+|           
++---include
+|   |   ft2build.h
+|   |   jconfig.h
+|   |   jerror.h
+|   |   jmorecfg.h
+|   |   jpeglib.h
+|   |   lzma.h
+|   |   png.h
+|   |   pngconf.h
+|   |   pnglibconf.h
+|   |   tiff.h
+|   |   tiffconf.h
+|   |   tiffio.h
+|   |   tiffio.hxx
+|   |   tiffvers.h
+|   |   zconf.h
+|   |   zlib.h
+|   |   
+|   +---atk-1.0
+|   |   \---atk
+|   |           atk-enum-types.h
+|   |           atk.h
+|   |           atkaction.h
+|   |           atkcomponent.h
+|   |           atkdocument.h
+|   |           atkeditabletext.h
+|   |           atkgobjectaccessible.h
+|   |           atkhyperlink.h
+|   |           atkhyperlinkimpl.h
+|   |           atkhypertext.h
+|   |           atkimage.h
+|   |           atkmisc.h
+|   |           atknoopobject.h
+|   |           atknoopobjectfactory.h
+|   |           atkobject.h
+|   |           atkobjectfactory.h
+|   |           atkplug.h
+|   |           atkregistry.h
+|   |           atkrelation.h
+|   |           atkrelationset.h
+|   |           atkrelationtype.h
+|   |           atkselection.h
+|   |           atksocket.h
+|   |           atkstate.h
+|   |           atkstateset.h
+|   |           atkstreamablecontent.h
+|   |           atktable.h
+|   |           atktext.h
+|   |           atkutil.h
+|   |           atkvalue.h
+|   |           atkwindow.h
+|   |           
+|   +---cairo
+|   |       cairo-deprecated.h
+|   |       cairo-features.h
+|   |       cairo-ft.h
+|   |       cairo-gobject.h
+|   |       cairo-pdf.h
+|   |       cairo-ps.h
+|   |       cairo-script-interpreter.h
+|   |       cairo-svg.h
+|   |       cairo-version.h
+|   |       cairo-win32.h
+|   |       cairo.h
+|   |       
+|   +---fontconfig
+|   |       fcfreetype.h
+|   |       fcprivate.h
+|   |       fontconfig.h
+|   |       
+|   +---freetype2
+|   |   \---freetype
+|   |       |   freetype.h
+|   |       |   ftadvanc.h
+|   |       |   ftautoh.h
+|   |       |   ftbbox.h
+|   |       |   ftbdf.h
+|   |       |   ftbitmap.h
+|   |       |   ftbzip2.h
+|   |       |   ftcache.h
+|   |       |   ftchapters.h
+|   |       |   ftcid.h
+|   |       |   fterrdef.h
+|   |       |   fterrors.h
+|   |       |   ftgasp.h
+|   |       |   ftglyph.h
+|   |       |   ftgxval.h
+|   |       |   ftgzip.h
+|   |       |   ftimage.h
+|   |       |   ftincrem.h
+|   |       |   ftlcdfil.h
+|   |       |   ftlist.h
+|   |       |   ftlzw.h
+|   |       |   ftmac.h
+|   |       |   ftmm.h
+|   |       |   ftmodapi.h
+|   |       |   ftmoderr.h
+|   |       |   ftotval.h
+|   |       |   ftoutln.h
+|   |       |   ftpfr.h
+|   |       |   ftrender.h
+|   |       |   ftsizes.h
+|   |       |   ftsnames.h
+|   |       |   ftstroke.h
+|   |       |   ftsynth.h
+|   |       |   ftsystem.h
+|   |       |   fttrigon.h
+|   |       |   fttypes.h
+|   |       |   ftwinfnt.h
+|   |       |   ftxf86.h
+|   |       |   t1tables.h
+|   |       |   ttnameid.h
+|   |       |   tttables.h
+|   |       |   tttags.h
+|   |       |   ttunpat.h
+|   |       |   
+|   |       \---config
+|   |               ftconfig.h
+|   |               ftheader.h
+|   |               ftmodule.h
+|   |               ftoption.h
+|   |               ftstdlib.h
+|   |               
+|   +---gail-3.0
+|   |   \---libgail-util
+|   |           gail-util.h
+|   |           gailmisc.h
+|   |           gailtextutil.h
+|   |           
+|   +---gdk-pixbuf-2.0
+|   |   \---gdk-pixbuf
+|   |           gdk-pixbuf-animation.h
+|   |           gdk-pixbuf-core.h
+|   |           gdk-pixbuf-enum-types.h
+|   |           gdk-pixbuf-features.h
+|   |           gdk-pixbuf-io.h
+|   |           gdk-pixbuf-loader.h
+|   |           gdk-pixbuf-marshal.h
+|   |           gdk-pixbuf-simple-anim.h
+|   |           gdk-pixbuf-transform.h
+|   |           gdk-pixbuf.h
+|   |           gdk-pixdata.h
+|   |           
+|   +---gio-win32-2.0
+|   |   \---gio
+|   |           gwin32inputstream.h
+|   |           gwin32outputstream.h
+|   |           
+|   +---glib-2.0
+|   |   |   glib-object.h
+|   |   |   glib-unix.h
+|   |   |   glib.h
+|   |   |   gmodule.h
+|   |   |   
+|   |   +---gio
+|   |   |       gaction.h
+|   |   |       gactiongroup.h
+|   |   |       gactiongroupexporter.h
+|   |   |       gactionmap.h
+|   |   |       gappinfo.h
+|   |   |       gapplication.h
+|   |   |       gapplicationcommandline.h
+|   |   |       gasyncinitable.h
+|   |   |       gasyncresult.h
+|   |   |       gbufferedinputstream.h
+|   |   |       gbufferedoutputstream.h
+|   |   |       gcancellable.h
+|   |   |       gcharsetconverter.h
+|   |   |       gcontenttype.h
+|   |   |       gconverter.h
+|   |   |       gconverterinputstream.h
+|   |   |       gconverteroutputstream.h
+|   |   |       gcredentials.h
+|   |   |       gdatainputstream.h
+|   |   |       gdataoutputstream.h
+|   |   |       gdbusactiongroup.h
+|   |   |       gdbusaddress.h
+|   |   |       gdbusauthobserver.h
+|   |   |       gdbusconnection.h
+|   |   |       gdbuserror.h
+|   |   |       gdbusinterface.h
+|   |   |       gdbusinterfaceskeleton.h
+|   |   |       gdbusintrospection.h
+|   |   |       gdbusmenumodel.h
+|   |   |       gdbusmessage.h
+|   |   |       gdbusmethodinvocation.h
+|   |   |       gdbusnameowning.h
+|   |   |       gdbusnamewatching.h
+|   |   |       gdbusobject.h
+|   |   |       gdbusobjectmanager.h
+|   |   |       gdbusobjectmanagerclient.h
+|   |   |       gdbusobjectmanagerserver.h
+|   |   |       gdbusobjectproxy.h
+|   |   |       gdbusobjectskeleton.h
+|   |   |       gdbusproxy.h
+|   |   |       gdbusserver.h
+|   |   |       gdbusutils.h
+|   |   |       gdrive.h
+|   |   |       gemblem.h
+|   |   |       gemblemedicon.h
+|   |   |       gfile.h
+|   |   |       gfileattribute.h
+|   |   |       gfileenumerator.h
+|   |   |       gfileicon.h
+|   |   |       gfileinfo.h
+|   |   |       gfileinputstream.h
+|   |   |       gfileiostream.h
+|   |   |       gfilemonitor.h
+|   |   |       gfilenamecompleter.h
+|   |   |       gfileoutputstream.h
+|   |   |       gfilterinputstream.h
+|   |   |       gfilteroutputstream.h
+|   |   |       gicon.h
+|   |   |       ginetaddress.h
+|   |   |       ginetaddressmask.h
+|   |   |       ginetsocketaddress.h
+|   |   |       ginitable.h
+|   |   |       ginputstream.h
+|   |   |       gio.h
+|   |   |       gioenums.h
+|   |   |       gioenumtypes.h
+|   |   |       gioerror.h
+|   |   |       giomodule.h
+|   |   |       gioscheduler.h
+|   |   |       giostream.h
+|   |   |       giotypes.h
+|   |   |       gloadableicon.h
+|   |   |       gmemoryinputstream.h
+|   |   |       gmemoryoutputstream.h
+|   |   |       gmenu.h
+|   |   |       gmenuexporter.h
+|   |   |       gmenumodel.h
+|   |   |       gmount.h
+|   |   |       gmountoperation.h
+|   |   |       gnativevolumemonitor.h
+|   |   |       gnetworkaddress.h
+|   |   |       gnetworkmonitor.h
+|   |   |       gnetworkservice.h
+|   |   |       goutputstream.h
+|   |   |       gpermission.h
+|   |   |       gpollableinputstream.h
+|   |   |       gpollableoutputstream.h
+|   |   |       gpollableutils.h
+|   |   |       gproxy.h
+|   |   |       gproxyaddress.h
+|   |   |       gproxyaddressenumerator.h
+|   |   |       gproxyresolver.h
+|   |   |       gremoteactiongroup.h
+|   |   |       gresolver.h
+|   |   |       gresource.h
+|   |   |       gseekable.h
+|   |   |       gsettings.h
+|   |   |       gsettingsbackend.h
+|   |   |       gsettingsschema.h
+|   |   |       gsimpleaction.h
+|   |   |       gsimpleactiongroup.h
+|   |   |       gsimpleasyncresult.h
+|   |   |       gsimplepermission.h
+|   |   |       gsocket.h
+|   |   |       gsocketaddress.h
+|   |   |       gsocketaddressenumerator.h
+|   |   |       gsocketclient.h
+|   |   |       gsocketconnectable.h
+|   |   |       gsocketconnection.h
+|   |   |       gsocketcontrolmessage.h
+|   |   |       gsocketlistener.h
+|   |   |       gsocketservice.h
+|   |   |       gsrvtarget.h
+|   |   |       gtcpconnection.h
+|   |   |       gtcpwrapperconnection.h
+|   |   |       gtestdbus.h
+|   |   |       gthemedicon.h
+|   |   |       gthreadedsocketservice.h
+|   |   |       gtlsbackend.h
+|   |   |       gtlscertificate.h
+|   |   |       gtlsclientconnection.h
+|   |   |       gtlsconnection.h
+|   |   |       gtlsdatabase.h
+|   |   |       gtlsfiledatabase.h
+|   |   |       gtlsinteraction.h
+|   |   |       gtlspassword.h
+|   |   |       gtlsserverconnection.h
+|   |   |       gvfs.h
+|   |   |       gvolume.h
+|   |   |       gvolumemonitor.h
+|   |   |       gzlibcompressor.h
+|   |   |       gzlibdecompressor.h
+|   |   |       
+|   |   +---glib
+|   |   |   |   galloca.h
+|   |   |   |   garray.h
+|   |   |   |   gasyncqueue.h
+|   |   |   |   gatomic.h
+|   |   |   |   gbacktrace.h
+|   |   |   |   gbase64.h
+|   |   |   |   gbitlock.h
+|   |   |   |   gbookmarkfile.h
+|   |   |   |   gbytes.h
+|   |   |   |   gcharset.h
+|   |   |   |   gchecksum.h
+|   |   |   |   gconvert.h
+|   |   |   |   gdataset.h
+|   |   |   |   gdate.h
+|   |   |   |   gdatetime.h
+|   |   |   |   gdir.h
+|   |   |   |   genviron.h
+|   |   |   |   gerror.h
+|   |   |   |   gfileutils.h
+|   |   |   |   ggettext.h
+|   |   |   |   ghash.h
+|   |   |   |   ghmac.h
+|   |   |   |   ghook.h
+|   |   |   |   ghostutils.h
+|   |   |   |   gi18n-lib.h
+|   |   |   |   gi18n.h
+|   |   |   |   giochannel.h
+|   |   |   |   gkeyfile.h
+|   |   |   |   glist.h
+|   |   |   |   gmacros.h
+|   |   |   |   gmain.h
+|   |   |   |   gmappedfile.h
+|   |   |   |   gmarkup.h
+|   |   |   |   gmem.h
+|   |   |   |   gmessages.h
+|   |   |   |   gnode.h
+|   |   |   |   goption.h
+|   |   |   |   gpattern.h
+|   |   |   |   gpoll.h
+|   |   |   |   gprimes.h
+|   |   |   |   gprintf.h
+|   |   |   |   gqsort.h
+|   |   |   |   gquark.h
+|   |   |   |   gqueue.h
+|   |   |   |   grand.h
+|   |   |   |   gregex.h
+|   |   |   |   gscanner.h
+|   |   |   |   gsequence.h
+|   |   |   |   gshell.h
+|   |   |   |   gslice.h
+|   |   |   |   gslist.h
+|   |   |   |   gspawn.h
+|   |   |   |   gstdio.h
+|   |   |   |   gstrfuncs.h
+|   |   |   |   gstring.h
+|   |   |   |   gstringchunk.h
+|   |   |   |   gtestutils.h
+|   |   |   |   gthread.h
+|   |   |   |   gthreadpool.h
+|   |   |   |   gtimer.h
+|   |   |   |   gtimezone.h
+|   |   |   |   gtrashstack.h
+|   |   |   |   gtree.h
+|   |   |   |   gtypes.h
+|   |   |   |   gunicode.h
+|   |   |   |   gurifuncs.h
+|   |   |   |   gutils.h
+|   |   |   |   gvariant.h
+|   |   |   |   gvarianttype.h
+|   |   |   |   gversion.h
+|   |   |   |   gversionmacros.h
+|   |   |   |   gwin32.h
+|   |   |   |   
+|   |   |   \---deprecated
+|   |   |           gallocator.h
+|   |   |           gcache.h
+|   |   |           gcompletion.h
+|   |   |           gmain.h
+|   |   |           grel.h
+|   |   |           gthread.h
+|   |   |           
+|   |   \---gobject
+|   |           gbinding.h
+|   |           gboxed.h
+|   |           gclosure.h
+|   |           genums.h
+|   |           glib-types.h
+|   |           gmarshal.h
+|   |           gobject.h
+|   |           gobjectnotifyqueue.c
+|   |           gparam.h
+|   |           gparamspecs.h
+|   |           gsignal.h
+|   |           gsourceclosure.h
+|   |           gtype.h
+|   |           gtypemodule.h
+|   |           gtypeplugin.h
+|   |           gvalue.h
+|   |           gvaluearray.h
+|   |           gvaluecollector.h
+|   |           gvaluetypes.h
+|   |           
+|   +---gtk-3.0
+|   |   +---gdk
+|   |   |   |   gdk.h
+|   |   |   |   gdkapplaunchcontext.h
+|   |   |   |   gdkcairo.h
+|   |   |   |   gdkcolor.h
+|   |   |   |   gdkconfig.h
+|   |   |   |   gdkcursor.h
+|   |   |   |   gdkdevice.h
+|   |   |   |   gdkdevicemanager.h
+|   |   |   |   gdkdisplay.h
+|   |   |   |   gdkdisplaymanager.h
+|   |   |   |   gdkdnd.h
+|   |   |   |   gdkenumtypes.h
+|   |   |   |   gdkevents.h
+|   |   |   |   gdkkeys.h
+|   |   |   |   gdkkeysyms-compat.h
+|   |   |   |   gdkkeysyms.h
+|   |   |   |   gdkmain.h
+|   |   |   |   gdkpango.h
+|   |   |   |   gdkpixbuf.h
+|   |   |   |   gdkprivate.h
+|   |   |   |   gdkproperty.h
+|   |   |   |   gdkrectangle.h
+|   |   |   |   gdkrgba.h
+|   |   |   |   gdkscreen.h
+|   |   |   |   gdkselection.h
+|   |   |   |   gdktestutils.h
+|   |   |   |   gdkthreads.h
+|   |   |   |   gdktypes.h
+|   |   |   |   gdkversionmacros.h
+|   |   |   |   gdkvisual.h
+|   |   |   |   gdkwin32.h
+|   |   |   |   gdkwindow.h
+|   |   |   |   
+|   |   |   \---win32
+|   |   |           gdkwin32cursor.h
+|   |   |           gdkwin32display.h
+|   |   |           gdkwin32displaymanager.h
+|   |   |           gdkwin32dnd.h
+|   |   |           gdkwin32keys.h
+|   |   |           gdkwin32screen.h
+|   |   |           gdkwin32window.h
+|   |   |           
+|   |   \---gtk
+|   |       |   gtk.h
+|   |       |   gtkaboutdialog.h
+|   |       |   gtkaccelgroup.h
+|   |       |   gtkaccellabel.h
+|   |       |   gtkaccelmap.h
+|   |       |   gtkaccessible.h
+|   |       |   gtkaction.h
+|   |       |   gtkactionable.h
+|   |       |   gtkactiongroup.h
+|   |       |   gtkactivatable.h
+|   |       |   gtkadjustment.h
+|   |       |   gtkalignment.h
+|   |       |   gtkappchooser.h
+|   |       |   gtkappchooserbutton.h
+|   |       |   gtkappchooserdialog.h
+|   |       |   gtkappchooserwidget.h
+|   |       |   gtkapplication.h
+|   |       |   gtkapplicationwindow.h
+|   |       |   gtkarrow.h
+|   |       |   gtkaspectframe.h
+|   |       |   gtkassistant.h
+|   |       |   gtkbbox.h
+|   |       |   gtkbin.h
+|   |       |   gtkbindings.h
+|   |       |   gtkborder.h
+|   |       |   gtkbox.h
+|   |       |   gtkbuildable.h
+|   |       |   gtkbuilder.h
+|   |       |   gtkbutton.h
+|   |       |   gtkcalendar.h
+|   |       |   gtkcellarea.h
+|   |       |   gtkcellareabox.h
+|   |       |   gtkcellareacontext.h
+|   |       |   gtkcelleditable.h
+|   |       |   gtkcelllayout.h
+|   |       |   gtkcellrenderer.h
+|   |       |   gtkcellrendereraccel.h
+|   |       |   gtkcellrenderercombo.h
+|   |       |   gtkcellrendererpixbuf.h
+|   |       |   gtkcellrendererprogress.h
+|   |       |   gtkcellrendererspin.h
+|   |       |   gtkcellrendererspinner.h
+|   |       |   gtkcellrenderertext.h
+|   |       |   gtkcellrenderertoggle.h
+|   |       |   gtkcellview.h
+|   |       |   gtkcheckbutton.h
+|   |       |   gtkcheckmenuitem.h
+|   |       |   gtkclipboard.h
+|   |       |   gtkcolorbutton.h
+|   |       |   gtkcolorchooser.h
+|   |       |   gtkcolorchooserdialog.h
+|   |       |   gtkcolorchooserwidget.h
+|   |       |   gtkcolorutils.h
+|   |       |   gtkcombobox.h
+|   |       |   gtkcomboboxtext.h
+|   |       |   gtkcontainer.h
+|   |       |   gtkcssprovider.h
+|   |       |   gtkcsssection.h
+|   |       |   gtkdebug.h
+|   |       |   gtkdialog.h
+|   |       |   gtkdnd.h
+|   |       |   gtkdrawingarea.h
+|   |       |   gtkeditable.h
+|   |       |   gtkentry.h
+|   |       |   gtkentrybuffer.h
+|   |       |   gtkentrycompletion.h
+|   |       |   gtkenums.h
+|   |       |   gtkeventbox.h
+|   |       |   gtkexpander.h
+|   |       |   gtkfilechooser.h
+|   |       |   gtkfilechooserbutton.h
+|   |       |   gtkfilechooserdialog.h
+|   |       |   gtkfilechooserwidget.h
+|   |       |   gtkfilefilter.h
+|   |       |   gtkfixed.h
+|   |       |   gtkfontbutton.h
+|   |       |   gtkfontchooser.h
+|   |       |   gtkfontchooserdialog.h
+|   |       |   gtkfontchooserwidget.h
+|   |       |   gtkframe.h
+|   |       |   gtkgradient.h
+|   |       |   gtkgrid.h
+|   |       |   gtkiconfactory.h
+|   |       |   gtkicontheme.h
+|   |       |   gtkiconview.h
+|   |       |   gtkimage.h
+|   |       |   gtkimagemenuitem.h
+|   |       |   gtkimcontext.h
+|   |       |   gtkimcontextinfo.h
+|   |       |   gtkimcontextsimple.h
+|   |       |   gtkimmodule.h
+|   |       |   gtkimmulticontext.h
+|   |       |   gtkinfobar.h
+|   |       |   gtkinvisible.h
+|   |       |   gtklabel.h
+|   |       |   gtklayout.h
+|   |       |   gtklevelbar.h
+|   |       |   gtklinkbutton.h
+|   |       |   gtkliststore.h
+|   |       |   gtklockbutton.h
+|   |       |   gtkmain.h
+|   |       |   gtkmenu.h
+|   |       |   gtkmenubar.h
+|   |       |   gtkmenubutton.h
+|   |       |   gtkmenuitem.h
+|   |       |   gtkmenushell.h
+|   |       |   gtkmenutoolbutton.h
+|   |       |   gtkmessagedialog.h
+|   |       |   gtkmisc.h
+|   |       |   gtkmodules.h
+|   |       |   gtkmountoperation.h
+|   |       |   gtknotebook.h
+|   |       |   gtknumerableicon.h
+|   |       |   gtkoffscreenwindow.h
+|   |       |   gtkorientable.h
+|   |       |   gtkoverlay.h
+|   |       |   gtkpagesetup.h
+|   |       |   gtkpaned.h
+|   |       |   gtkpapersize.h
+|   |       |   gtkplug.h
+|   |       |   gtkprintcontext.h
+|   |       |   gtkprintoperation.h
+|   |       |   gtkprintoperationpreview.h
+|   |       |   gtkprintsettings.h
+|   |       |   gtkprogressbar.h
+|   |       |   gtkradioaction.h
+|   |       |   gtkradiobutton.h
+|   |       |   gtkradiomenuitem.h
+|   |       |   gtkradiotoolbutton.h
+|   |       |   gtkrange.h
+|   |       |   gtkrecentaction.h
+|   |       |   gtkrecentchooser.h
+|   |       |   gtkrecentchooserdialog.h
+|   |       |   gtkrecentchoosermenu.h
+|   |       |   gtkrecentchooserwidget.h
+|   |       |   gtkrecentfilter.h
+|   |       |   gtkrecentmanager.h
+|   |       |   gtkscale.h
+|   |       |   gtkscalebutton.h
+|   |       |   gtkscrollable.h
+|   |       |   gtkscrollbar.h
+|   |       |   gtkscrolledwindow.h
+|   |       |   gtksearchentry.h
+|   |       |   gtkselection.h
+|   |       |   gtkseparator.h
+|   |       |   gtkseparatormenuitem.h
+|   |       |   gtkseparatortoolitem.h
+|   |       |   gtksettings.h
+|   |       |   gtkshow.h
+|   |       |   gtksizegroup.h
+|   |       |   gtksizerequest.h
+|   |       |   gtksocket.h
+|   |       |   gtkspinbutton.h
+|   |       |   gtkspinner.h
+|   |       |   gtkstatusbar.h
+|   |       |   gtkstatusicon.h
+|   |       |   gtkstock.h
+|   |       |   gtkstylecontext.h
+|   |       |   gtkstyleproperties.h
+|   |       |   gtkstyleprovider.h
+|   |       |   gtkswitch.h
+|   |       |   gtksymboliccolor.h
+|   |       |   gtktestutils.h
+|   |       |   gtktextattributes.h
+|   |       |   gtktextbuffer.h
+|   |       |   gtktextbufferrichtext.h
+|   |       |   gtktextchild.h
+|   |       |   gtktextdisplay.h
+|   |       |   gtktextiter.h
+|   |       |   gtktextlayout.h
+|   |       |   gtktextmark.h
+|   |       |   gtktexttag.h
+|   |       |   gtktexttagtable.h
+|   |       |   gtktextview.h
+|   |       |   gtkthemingengine.h
+|   |       |   gtktoggleaction.h
+|   |       |   gtktogglebutton.h
+|   |       |   gtktoggletoolbutton.h
+|   |       |   gtktoolbar.h
+|   |       |   gtktoolbutton.h
+|   |       |   gtktoolitem.h
+|   |       |   gtktoolitemgroup.h
+|   |       |   gtktoolpalette.h
+|   |       |   gtktoolshell.h
+|   |       |   gtktooltip.h
+|   |       |   gtktreednd.h
+|   |       |   gtktreemodel.h
+|   |       |   gtktreemodelfilter.h
+|   |       |   gtktreemodelsort.h
+|   |       |   gtktreeselection.h
+|   |       |   gtktreesortable.h
+|   |       |   gtktreestore.h
+|   |       |   gtktreeview.h
+|   |       |   gtktreeviewcolumn.h
+|   |       |   gtktypebuiltins.h
+|   |       |   gtktypes.h
+|   |       |   gtkuimanager.h
+|   |       |   gtkversion.h
+|   |       |   gtkviewport.h
+|   |       |   gtkvolumebutton.h
+|   |       |   gtkwidget.h
+|   |       |   gtkwidgetpath.h
+|   |       |   gtkwindow.h
+|   |       |   gtkx.h
+|   |       |   
+|   |       \---deprecated
+|   |               gtkcolorsel.h
+|   |               gtkcolorseldialog.h
+|   |               gtkfontsel.h
+|   |               gtkhandlebox.h
+|   |               gtkhbbox.h
+|   |               gtkhbox.h
+|   |               gtkhpaned.h
+|   |               gtkhscale.h
+|   |               gtkhscrollbar.h
+|   |               gtkhseparator.h
+|   |               gtkhsv.h
+|   |               gtkrc.h
+|   |               gtkstyle.h
+|   |               gtktable.h
+|   |               gtktearoffmenuitem.h
+|   |               gtkvbbox.h
+|   |               gtkvbox.h
+|   |               gtkvpaned.h
+|   |               gtkvscale.h
+|   |               gtkvscrollbar.h
+|   |               gtkvseparator.h
+|   |               
+|   +---jasper
+|   |       jasper.h
+|   |       jas_cm.h
+|   |       jas_config.h
+|   |       jas_config2.h
+|   |       jas_debug.h
+|   |       jas_fix.h
+|   |       jas_getopt.h
+|   |       jas_icc.h
+|   |       jas_image.h
+|   |       jas_init.h
+|   |       jas_malloc.h
+|   |       jas_math.h
+|   |       jas_seq.h
+|   |       jas_stream.h
+|   |       jas_string.h
+|   |       jas_tmr.h
+|   |       jas_tvp.h
+|   |       jas_types.h
+|   |       jas_version.h
+|   |       
+|   +---libcroco-0.6
+|   |   \---libcroco
+|   |           cr-additional-sel.h
+|   |           cr-attr-sel.h
+|   |           cr-cascade.h
+|   |           cr-declaration.h
+|   |           cr-doc-handler.h
+|   |           cr-enc-handler.h
+|   |           cr-fonts.h
+|   |           cr-input.h
+|   |           cr-num.h
+|   |           cr-om-parser.h
+|   |           cr-parser.h
+|   |           cr-parsing-location.h
+|   |           cr-prop-list.h
+|   |           cr-pseudo.h
+|   |           cr-rgb.h
+|   |           cr-sel-eng.h
+|   |           cr-selector.h
+|   |           cr-simple-sel.h
+|   |           cr-statement.h
+|   |           cr-string.h
+|   |           cr-style.h
+|   |           cr-stylesheet.h
+|   |           cr-term.h
+|   |           cr-tknzr.h
+|   |           cr-token.h
+|   |           cr-utils.h
+|   |           libcroco-config.h
+|   |           libcroco.h
+|   |           
+|   +---libpng15
+|   |       png.h
+|   |       pngconf.h
+|   |       pnglibconf.h
+|   |       
+|   +---librsvg-2.0
+|   |   \---librsvg
+|   |           librsvg-enum-types.h
+|   |           librsvg-features.h
+|   |           rsvg-cairo.h
+|   |           rsvg.h
+|   |           
+|   +---libxml2
+|   |   \---libxml
+|   |           c14n.h
+|   |           catalog.h
+|   |           chvalid.h
+|   |           debugXML.h
+|   |           dict.h
+|   |           DOCBparser.h
+|   |           encoding.h
+|   |           entities.h
+|   |           globals.h
+|   |           hash.h
+|   |           HTMLparser.h
+|   |           HTMLtree.h
+|   |           list.h
+|   |           nanoftp.h
+|   |           nanohttp.h
+|   |           parser.h
+|   |           parserInternals.h
+|   |           pattern.h
+|   |           relaxng.h
+|   |           SAX.h
+|   |           SAX2.h
+|   |           schemasInternals.h
+|   |           schematron.h
+|   |           threads.h
+|   |           tree.h
+|   |           uri.h
+|   |           valid.h
+|   |           xinclude.h
+|   |           xlink.h
+|   |           xmlautomata.h
+|   |           xmlerror.h
+|   |           xmlexports.h
+|   |           xmlIO.h
+|   |           xmlmemory.h
+|   |           xmlmodule.h
+|   |           xmlreader.h
+|   |           xmlregexp.h
+|   |           xmlsave.h
+|   |           xmlschemas.h
+|   |           xmlschemastypes.h
+|   |           xmlstring.h
+|   |           xmlunicode.h
+|   |           xmlversion.h
+|   |           xmlwriter.h
+|   |           xpath.h
+|   |           xpathInternals.h
+|   |           xpointer.h
+|   |           
+|   +---lzma
+|   |       base.h
+|   |       bcj.h
+|   |       block.h
+|   |       check.h
+|   |       container.h
+|   |       delta.h
+|   |       filter.h
+|   |       hardware.h
+|   |       index.h
+|   |       index_hash.h
+|   |       lzma.h
+|   |       stream_flags.h
+|   |       version.h
+|   |       vli.h
+|   |       
+|   +---pango-1.0
+|   |   \---pango
+|   |           pango-attributes.h
+|   |           pango-bidi-type.h
+|   |           pango-break.h
+|   |           pango-context.h
+|   |           pango-coverage.h
+|   |           pango-engine.h
+|   |           pango-enum-types.h
+|   |           pango-features.h
+|   |           pango-font.h
+|   |           pango-fontmap.h
+|   |           pango-fontset.h
+|   |           pango-glyph-item.h
+|   |           pango-glyph.h
+|   |           pango-gravity.h
+|   |           pango-item.h
+|   |           pango-language.h
+|   |           pango-layout.h
+|   |           pango-matrix.h
+|   |           pango-modules.h
+|   |           pango-ot.h
+|   |           pango-renderer.h
+|   |           pango-script.h
+|   |           pango-tabs.h
+|   |           pango-types.h
+|   |           pango-utils.h
+|   |           pango.h
+|   |           pangocairo.h
+|   |           pangofc-decoder.h
+|   |           pangofc-font.h
+|   |           pangofc-fontmap.h
+|   |           pangoft2.h
+|   |           pangowin32.h
+|   |           
+|   \---pixman-1
+|           pixman-version.h
+|           pixman.h
+|           
++---lib
+|   |   atk-1.0.def
+|   |   atk-1.0.lib
+|   |   cairo.def
+|   |   cairo.lib
+|   |   fontconfig.def
+|   |   fontconfig.lib
+|   |   gailutil.def
+|   |   gailutil.lib
+|   |   gdk-win32-3.0.def
+|   |   gdk-win32-3.0.lib
+|   |   gdk_pixbuf-2.0.def
+|   |   gdk_pixbuf-2.0.lib
+|   |   gio-2.0.def
+|   |   gio-2.0.lib
+|   |   glib-2.0.def
+|   |   glib-2.0.lib
+|   |   gmodule-2.0.def
+|   |   gmodule-2.0.lib
+|   |   gobject-2.0.def
+|   |   gobject-2.0.lib
+|   |   gthread-2.0.def
+|   |   gthread-2.0.lib
+|   |   gtk-win32-3.0.def
+|   |   gtk-win32-3.0.lib
+|   |   libatk-1.0.dll.a
+|   |   libcairo-gobject.dll.a
+|   |   libcairo-script-interpreter.dll.a
+|   |   libcairo.dll.a
+|   |   libcroco-0.6.dll.a
+|   |   libffi.dll.a
+|   |   libfontconfig.dll.a
+|   |   libfreetype.dll.a
+|   |   libgailutil-3.dll.a
+|   |   libgdk-3.dll.a
+|   |   libgdk_pixbuf-2.0.dll.a
+|   |   libgio-2.0.dll.a
+|   |   libglib-2.0.dll.a
+|   |   libgmodule-2.0.dll.a
+|   |   libgobject-2.0.dll.a
+|   |   libgthread-2.0.dll.a
+|   |   libgtk-3.dll.a
+|   |   libjasper.dll.a
+|   |   libjpeg.dll.a
+|   |   liblzma.dll.a
+|   |   libpango-1.0.dll.a
+|   |   libpangocairo-1.0.dll.a
+|   |   libpangoft2-1.0.dll.a
+|   |   libpangowin32-1.0.dll.a
+|   |   libpixman-1.dll.a
+|   |   libpng.dll.a
+|   |   libpng15.dll.a
+|   |   librsvg-2.dll.a
+|   |   libtiff.dll.a
+|   |   libtiffxx.dll.a
+|   |   libxml2.dll.a
+|   |   libz.dll.a
+|   |   pango-1.0.def
+|   |   pango-1.0.lib
+|   |   pangocairo-1.0.def
+|   |   pangocairo-1.0.lib
+|   |   pangoft2-1.0.def
+|   |   pangoft2-1.0.lib
+|   |   pangowin32-1.0.def
+|   |   pangowin32-1.0.lib
+|   |   xml2Conf.sh
+|   |   
+|   +---gdbus-2.0
+|   |   \---codegen
+|   |           codegen.py
+|   |           codegen_docbook.py
+|   |           codegen_main.py
+|   |           config.py
+|   |           dbustypes.py
+|   |           parser.py
+|   |           utils.py
+|   |           __init__.py
+|   |           
+|   +---gdk-pixbuf-2.0
+|   |   \---2.10.0
+|   |       |   loaders.cache
+|   |       |   
+|   |       \---loaders
+|   |               libpixbufloader-svg.dll
+|   |               libpixbufloader-svg.dll.a
+|   |               
+|   +---gio
+|   |   \---modules
+|   +---glib-2.0
+|   |   \---include
+|   |           glibconfig.h
+|   |           
+|   +---gtk-3.0
+|   |   \---3.0.0
+|   |       |   immodules.cache
+|   |       |   
+|   |       \---immodules
+|   +---libffi-3.0.12
+|   |   \---include
+|   |           ffi.h
+|   |           ffitarget.h
+|   |           
+|   \---pkgconfig
+|           atk.pc
+|           cairo-fc.pc
+|           cairo-ft.pc
+|           cairo-gobject.pc
+|           cairo-pdf.pc
+|           cairo-png.pc
+|           cairo-ps.pc
+|           cairo-svg.pc
+|           cairo-win32-font.pc
+|           cairo-win32.pc
+|           cairo.pc
+|           fontconfig.pc
+|           freetype2.pc
+|           gail-3.0.pc
+|           gdk-3.0.pc
+|           gdk-pixbuf-2.0.pc
+|           gdk-win32-3.0.pc
+|           gio-2.0.pc
+|           gio-windows-2.0.pc
+|           glib-2.0.pc
+|           gmodule-2.0.pc
+|           gmodule-export-2.0.pc
+|           gmodule-no-export-2.0.pc
+|           gobject-2.0.pc
+|           gthread-2.0.pc
+|           gtk+-3.0.pc
+|           gtk+-win32-3.0.pc
+|           libcroco-0.6.pc
+|           libffi.pc
+|           liblzma.pc
+|           libpng.pc
+|           libpng15.pc
+|           librsvg-2.0.pc
+|           libtiff-4.pc
+|           libxml-2.0.pc
+|           pango.pc
+|           pangocairo.pc
+|           pangoft2.pc
+|           pangowin32.pc
+|           pixman-1.pc
+|           zlib.pc
+|           
++---manifest
++---share
+|   +---aclocal
+|   |       freetype2.m4
+|   |       glib-2.0.m4
+|   |       glib-gettext.m4
+|   |       gsettings.m4
+|   |       gtk-3.0.m4
+|   |       libxml.m4
+|   |       pkg.m4
+|   |       
+|   +---bash-completion
+|   |   \---completions
+|   |           gdbus
+|   |           gresource
+|   |           gsettings
+|   |           
+|   +---doc
+|   |   +---cairo_1.10.2-2_win64
+|   |   |       COPYING
+|   |   |       COPYING-LGPL-2.1
+|   |   |       COPYING-MPL-1.1
+|   |   |       
+|   |   +---glib-2.34.3
+|   |   |       COPYING
+|   |   |       
+|   |   +---gtk+-3.6.4
+|   |   |       COPYING
+|   |   |       
+|   |   +---libxml2-2.8.0
+|   |   |   |   Copyright
+|   |   |   |   
+|   |   |   +---examples
+|   |   |   |       testHTML.c
+|   |   |   |       testSAX.c
+|   |   |   |       testXPath.c
+|   |   |   |       xmllint.c
+|   |   |   |       
+|   |   |   \---html
+|   |   |       |   DOM.gif
+|   |   |       |   encoding.html
+|   |   |       |   examples.xml
+|   |   |       |   examples.xsl
+|   |   |       |   FAQ.html
+|   |   |       |   io1.c
+|   |   |       |   io1.res
+|   |   |       |   io2.c
+|   |   |       |   io2.res
+|   |   |       |   libxml.gif
+|   |   |       |   Libxml2-Logo-180x168.gif
+|   |   |       |   Libxml2-Logo-90x34.gif
+|   |   |       |   parse1.c
+|   |   |       |   parse2.c
+|   |   |       |   parse3.c
+|   |   |       |   parse4.c
+|   |   |       |   reader1.c
+|   |   |       |   reader1.res
+|   |   |       |   reader2.c
+|   |   |       |   reader3.c
+|   |   |       |   reader3.res
+|   |   |       |   reader4.c
+|   |   |       |   reader4.res
+|   |   |       |   redhat.gif
+|   |   |       |   smallfootonly.gif
+|   |   |       |   structure.gif
+|   |   |       |   test1.xml
+|   |   |       |   test2.xml
+|   |   |       |   test3.xml
+|   |   |       |   testWriter.c
+|   |   |       |   tree1.c
+|   |   |       |   tree1.res
+|   |   |       |   tree2.c
+|   |   |       |   tree2.res
+|   |   |       |   tst.xml
+|   |   |       |   w3c.png
+|   |   |       |   writer.xml
+|   |   |       |   xml.html
+|   |   |       |   xpath1.c
+|   |   |       |   xpath1.res
+|   |   |       |   xpath2.c
+|   |   |       |   xpath2.res
+|   |   |       |   
+|   |   |       +---html
+|   |   |       |       book1.html
+|   |   |       |       home.png
+|   |   |       |       index.html
+|   |   |       |       left.png
+|   |   |       |       libxml-c14n.html
+|   |   |       |       libxml-catalog.html
+|   |   |       |       libxml-chvalid.html
+|   |   |       |       libxml-debugXML.html
+|   |   |       |       libxml-dict.html
+|   |   |       |       libxml-DOCBparser.html
+|   |   |       |       libxml-encoding.html
+|   |   |       |       libxml-entities.html
+|   |   |       |       libxml-globals.html
+|   |   |       |       libxml-hash.html
+|   |   |       |       libxml-HTMLparser.html
+|   |   |       |       libxml-HTMLtree.html
+|   |   |       |       libxml-lib.html
+|   |   |       |       libxml-list.html
+|   |   |       |       libxml-nanoftp.html
+|   |   |       |       libxml-nanohttp.html
+|   |   |       |       libxml-parser.html
+|   |   |       |       libxml-parserInternals.html
+|   |   |       |       libxml-pattern.html
+|   |   |       |       libxml-relaxng.html
+|   |   |       |       libxml-SAX.html
+|   |   |       |       libxml-SAX2.html
+|   |   |       |       libxml-schemasInternals.html
+|   |   |       |       libxml-schematron.html
+|   |   |       |       libxml-threads.html
+|   |   |       |       libxml-tree.html
+|   |   |       |       libxml-uri.html
+|   |   |       |       libxml-valid.html
+|   |   |       |       libxml-xinclude.html
+|   |   |       |       libxml-xlink.html
+|   |   |       |       libxml-xmlautomata.html
+|   |   |       |       libxml-xmlerror.html
+|   |   |       |       libxml-xmlexports.html
+|   |   |       |       libxml-xmlIO.html
+|   |   |       |       libxml-xmlmemory.html
+|   |   |       |       libxml-xmlmodule.html
+|   |   |       |       libxml-xmlreader.html
+|   |   |       |       libxml-xmlregexp.html
+|   |   |       |       libxml-xmlsave.html
+|   |   |       |       libxml-xmlschemas.html
+|   |   |       |       libxml-xmlschemastypes.html
+|   |   |       |       libxml-xmlstring.html
+|   |   |       |       libxml-xmlunicode.html
+|   |   |       |       libxml-xmlversion.html
+|   |   |       |       libxml-xmlwriter.html
+|   |   |       |       libxml-xpath.html
+|   |   |       |       libxml-xpathInternals.html
+|   |   |       |       libxml-xpointer.html
+|   |   |       |       libxml-xzlib.html
+|   |   |       |       right.png
+|   |   |       |       up.png
+|   |   |       |       
+|   |   |       \---tutorial
+|   |   |           |   apa.html
+|   |   |           |   apb.html
+|   |   |           |   apc.html
+|   |   |           |   apd.html
+|   |   |           |   ape.html
+|   |   |           |   apf.html
+|   |   |           |   apg.html
+|   |   |           |   aph.html
+|   |   |           |   api.html
+|   |   |           |   ar01s02.html
+|   |   |           |   ar01s03.html
+|   |   |           |   ar01s04.html
+|   |   |           |   ar01s05.html
+|   |   |           |   ar01s06.html
+|   |   |           |   ar01s07.html
+|   |   |           |   ar01s08.html
+|   |   |           |   ar01s09.html
+|   |   |           |   includeaddattribute.c
+|   |   |           |   includeaddkeyword.c
+|   |   |           |   includeconvert.c
+|   |   |           |   includegetattribute.c
+|   |   |           |   includekeyword.c
+|   |   |           |   includexpath.c
+|   |   |           |   index.html
+|   |   |           |   ix01.html
+|   |   |           |   xmltutorial.pdf
+|   |   |           |   
+|   |   |           \---images
+|   |   |               |   blank.png
+|   |   |               |   caution.png
+|   |   |               |   draft.png
+|   |   |               |   home.png
+|   |   |               |   important.png
+|   |   |               |   next.png
+|   |   |               |   note.png
+|   |   |               |   prev.png
+|   |   |               |   tip.png
+|   |   |               |   toc-blank.png
+|   |   |               |   toc-minus.png
+|   |   |               |   toc-plus.png
+|   |   |               |   up.png
+|   |   |               |   warning.png
+|   |   |               |   
+|   |   |               \---callouts
+|   |   |                       1.png
+|   |   |                       10.png
+|   |   |                       2.png
+|   |   |                       3.png
+|   |   |                       4.png
+|   |   |                       5.png
+|   |   |                       6.png
+|   |   |                       7.png
+|   |   |                       8.png
+|   |   |                       9.png
+|   |   |                       
+|   |   +---pango-1.30.1
+|   |   |       COPYING
+|   |   |       
+|   |   +---pkg-config
+|   |   |       pkg-config-guide.html
+|   |   |       
+|   |   +---tiff-4.0.3
+|   |   |   |   ChangeLog
+|   |   |   |   COPYRIGHT
+|   |   |   |   README
+|   |   |   |   README.vms
+|   |   |   |   RELEASE-DATE
+|   |   |   |   TODO
+|   |   |   |   VERSION
+|   |   |   |   
+|   |   |   \---html
+|   |   |       |   addingtags.html
+|   |   |       |   bugs.html
+|   |   |       |   build.html
+|   |   |       |   contrib.html
+|   |   |       |   document.html
+|   |   |       |   images.html
+|   |   |       |   index.html
+|   |   |       |   internals.html
+|   |   |       |   intro.html
+|   |   |       |   libtiff.html
+|   |   |       |   misc.html
+|   |   |       |   support.html
+|   |   |       |   TIFFTechNote2.html
+|   |   |       |   tools.html
+|   |   |       |   v3.4beta007.html
+|   |   |       |   v3.4beta016.html
+|   |   |       |   v3.4beta018.html
+|   |   |       |   v3.4beta024.html
+|   |   |       |   v3.4beta028.html
+|   |   |       |   v3.4beta029.html
+|   |   |       |   v3.4beta031.html
+|   |   |       |   v3.4beta032.html
+|   |   |       |   v3.4beta033.html
+|   |   |       |   v3.4beta034.html
+|   |   |       |   v3.4beta035.html
+|   |   |       |   v3.4beta036.html
+|   |   |       |   v3.5.1.html
+|   |   |       |   v3.5.2.html
+|   |   |       |   v3.5.3.html
+|   |   |       |   v3.5.4.html
+|   |   |       |   v3.5.5.html
+|   |   |       |   v3.5.6-beta.html
+|   |   |       |   v3.5.7.html
+|   |   |       |   v3.6.0.html
+|   |   |       |   v3.6.1.html
+|   |   |       |   v3.7.0.html
+|   |   |       |   v3.7.0alpha.html
+|   |   |       |   v3.7.0beta.html
+|   |   |       |   v3.7.0beta2.html
+|   |   |       |   v3.7.1.html
+|   |   |       |   v3.7.2.html
+|   |   |       |   v3.7.3.html
+|   |   |       |   v3.7.4.html
+|   |   |       |   v3.8.0.html
+|   |   |       |   v3.8.1.html
+|   |   |       |   v3.8.2.html
+|   |   |       |   v3.9.0beta.html
+|   |   |       |   v3.9.1.html
+|   |   |       |   v3.9.2.html
+|   |   |       |   v4.0.0.html
+|   |   |       |   v4.0.1.html
+|   |   |       |   v4.0.2.html
+|   |   |       |   
+|   |   |       +---images
+|   |   |       |       back.gif
+|   |   |       |       bali.jpg
+|   |   |       |       cat.gif
+|   |   |       |       cover.jpg
+|   |   |       |       cramps.gif
+|   |   |       |       dave.gif
+|   |   |       |       info.gif
+|   |   |       |       jello.jpg
+|   |   |       |       jim.gif
+|   |   |       |       note.gif
+|   |   |       |       oxford.gif
+|   |   |       |       quad.jpg
+|   |   |       |       ring.gif
+|   |   |       |       smallliz.jpg
+|   |   |       |       strike.gif
+|   |   |       |       warning.gif
+|   |   |       |       
+|   |   |       \---man
+|   |   |               bmp2tiff.1.html
+|   |   |               fax2ps.1.html
+|   |   |               fax2tiff.1.html
+|   |   |               gif2tiff.1.html
+|   |   |               index.html
+|   |   |               libtiff.3tiff.html
+|   |   |               pal2rgb.1.html
+|   |   |               ppm2tiff.1.html
+|   |   |               ras2tiff.1.html
+|   |   |               raw2tiff.1.html
+|   |   |               rgb2ycbcr.1.html
+|   |   |               sgi2tiff.1.html
+|   |   |               thumbnail.1.html
+|   |   |               tiff2bw.1.html
+|   |   |               tiff2pdf.1.html
+|   |   |               tiff2ps.1.html
+|   |   |               tiff2rgba.1.html
+|   |   |               TIFFbuffer.3tiff.html
+|   |   |               TIFFClose.3tiff.html
+|   |   |               tiffcmp.1.html
+|   |   |               TIFFcodec.3tiff.html
+|   |   |               TIFFcolor.3tiff.html
+|   |   |               tiffcp.1.html
+|   |   |               tiffcrop.1.html
+|   |   |               TIFFDataWidth.3tiff.html
+|   |   |               tiffdither.1.html
+|   |   |               tiffdump.1.html
+|   |   |               TIFFError.3tiff.html
+|   |   |               TIFFFieldDataType.3tiff.html
+|   |   |               TIFFFieldName.3tiff.html
+|   |   |               TIFFFieldPassCount.3tiff.html
+|   |   |               TIFFFieldReadCount.3tiff.html
+|   |   |               TIFFFieldTag.3tiff.html
+|   |   |               TIFFFieldWriteCount.3tiff.html
+|   |   |               TIFFFlush.3tiff.html
+|   |   |               TIFFGetField.3tiff.html
+|   |   |               tiffgt.1.html
+|   |   |               tiffinfo.1.html
+|   |   |               tiffmedian.1.html
+|   |   |               TIFFmemory.3tiff.html
+|   |   |               TIFFOpen.3tiff.html
+|   |   |               TIFFPrintDirectory.3tiff.html
+|   |   |               TIFFquery.3tiff.html
+|   |   |               TIFFReadDirectory.3tiff.html
+|   |   |               TIFFReadEncodedStrip.3tiff.html
+|   |   |               TIFFReadEncodedTile.3tiff.html
+|   |   |               TIFFReadRawStrip.3tiff.html
+|   |   |               TIFFReadRawTile.3tiff.html
+|   |   |               TIFFReadRGBAImage.3tiff.html
+|   |   |               TIFFReadRGBAStrip.3tiff.html
+|   |   |               TIFFReadRGBATile.3tiff.html
+|   |   |               TIFFReadScanline.3tiff.html
+|   |   |               TIFFReadTile.3tiff.html
+|   |   |               TIFFRGBAImage.3tiff.html
+|   |   |               tiffset.1.html
+|   |   |               TIFFSetDirectory.3tiff.html
+|   |   |               TIFFSetField.3tiff.html
+|   |   |               TIFFsize.3tiff.html
+|   |   |               tiffsplit.1.html
+|   |   |               TIFFstrip.3tiff.html
+|   |   |               tiffsv.1.html
+|   |   |               TIFFswab.3tiff.html
+|   |   |               TIFFtile.3tiff.html
+|   |   |               TIFFWarning.3tiff.html
+|   |   |               TIFFWriteDirectory.3tiff.html
+|   |   |               TIFFWriteEncodedStrip.3tiff.html
+|   |   |               TIFFWriteEncodedTile.3tiff.html
+|   |   |               TIFFWriteRawStrip.3tiff.html
+|   |   |               TIFFWriteRawTile.3tiff.html
+|   |   |               TIFFWriteScanline.3tiff.html
+|   |   |               TIFFWriteTile.3tiff.html
+|   |   |               
+|   |   \---xz
+|   |       |   AUTHORS
+|   |       |   COPYING
+|   |       |   COPYING.GPLv2
+|   |       |   faq.txt
+|   |       |   history.txt
+|   |       |   liblzma.def
+|   |       |   lzma-file-format.txt
+|   |       |   NEWS
+|   |       |   README
+|   |       |   THANKS
+|   |       |   TODO
+|   |       |   xz-file-format.txt
+|   |       |   
+|   |       +---examples
+|   |       |       00_README.txt
+|   |       |       01_compress_easy.c
+|   |       |       02_decompress.c
+|   |       |       03_compress_custom.c
+|   |       |       Makefile
+|   |       |       
+|   |       \---examples_old
+|   |               xz_pipe_comp.c
+|   |               xz_pipe_decomp.c
+|   |               
+|   +---fontconfig
+|   |   \---conf.avail
+|   |           10-autohint.conf
+|   |           10-no-sub-pixel.conf
+|   |           10-sub-pixel-bgr.conf
+|   |           10-sub-pixel-rgb.conf
+|   |           10-sub-pixel-vbgr.conf
+|   |           10-sub-pixel-vrgb.conf
+|   |           10-unhinted.conf
+|   |           11-lcdfilter-default.conf
+|   |           11-lcdfilter-legacy.conf
+|   |           11-lcdfilter-light.conf
+|   |           20-unhint-small-vera.conf
+|   |           25-unhint-nonlatin.conf
+|   |           30-metric-aliases.conf
+|   |           30-urw-aliases.conf
+|   |           40-nonlatin.conf
+|   |           45-latin.conf
+|   |           49-sansserif.conf
+|   |           50-user.conf
+|   |           51-local.conf
+|   |           60-latin.conf
+|   |           65-fonts-persian.conf
+|   |           65-khmer.conf
+|   |           65-nonlatin.conf
+|   |           69-unifont.conf
+|   |           70-no-bitmaps.conf
+|   |           70-yes-bitmaps.conf
+|   |           80-delicious.conf
+|   |           90-synthetic.conf
+|   |           
+|   +---gdb
+|   |   \---auto-load
+|   |           libglib-2.0.so.0.3400.3-gdb.py
+|   |           libgobject-2.0.so.0.3400.3-gdb.py
+|   |           
+|   +---glib-2.0
+|   |   +---gdb
+|   |   |       glib.py
+|   |   |       gobject.py
+|   |   |       
+|   |   +---gettext
+|   |   |   |   mkinstalldirs
+|   |   |   |   
+|   |   |   \---po
+|   |   |           Makefile.in.in
+|   |   |           
+|   |   \---schemas
+|   |           gschema.dtd
+|   |           gschemas.compiled
+|   |           org.gtk.Demo.gschema.xml
+|   |           org.gtk.Settings.ColorChooser.gschema.xml
+|   |           org.gtk.Settings.FileChooser.gschema.xml
+|   |           
+|   +---gtk-3.0
+|   |   |   gtkbuilder.rng
+|   |   |   
+|   |   \---demo
+|   |           alphatest.png
+|   |           apple-red.png
+|   |           application.c
+|   |           application.ui
+|   |           appwindow.c
+|   |           assistant.c
+|   |           background.jpg
+|   |           builder.c
+|   |           button_box.c
+|   |           changedisplay.c
+|   |           clipboard.c
+|   |           colorsel.c
+|   |           combobox.c
+|   |           cssview.css
+|   |           css_accordion.c
+|   |           css_accordion.css
+|   |           css_basics.c
+|   |           css_basics.css
+|   |           css_multiplebgs.c
+|   |           css_multiplebgs.css
+|   |           css_pixbufs.c
+|   |           css_pixbufs.css
+|   |           css_shadows.c
+|   |           css_shadows.css
+|   |           demo.ui
+|   |           dialog.c
+|   |           drawingarea.c
+|   |           editable_cells.c
+|   |           entry_buffer.c
+|   |           entry_completion.c
+|   |           expander.c
+|   |           fancy.css
+|   |           floppybuddy.gif
+|   |           gnome-applets.png
+|   |           gnome-calendar.png
+|   |           gnome-foot.png
+|   |           gnome-fs-directory.png
+|   |           gnome-fs-regular.png
+|   |           gnome-gimp.png
+|   |           gnome-gmush.png
+|   |           gnome-gsame.png
+|   |           gnu-keys.png
+|   |           gtk-logo-24.png
+|   |           gtk-logo-48.png
+|   |           gtk-logo-rgb.gif
+|   |           hypertext.c
+|   |           iconview.c
+|   |           iconview_edit.c
+|   |           images.c
+|   |           infobar.c
+|   |           links.c
+|   |           list_store.c
+|   |           menus.c
+|   |           menus.ui
+|   |           offscreen_window.c
+|   |           offscreen_window2.c
+|   |           overlay.c
+|   |           panes.c
+|   |           pickers.c
+|   |           pixbufs.c
+|   |           printing.c
+|   |           reset.css
+|   |           rotated_text.c
+|   |           search_entry.c
+|   |           sizegroup.c
+|   |           spinner.c
+|   |           stock_browser.c
+|   |           textscroll.c
+|   |           textview.c
+|   |           theming.ui
+|   |           theming_custom_css.c
+|   |           theming_style_classes.c
+|   |           toolpalette.c
+|   |           transparent.c
+|   |           tree_store.c
+|   |           ui_manager.c
+|   |           
+|   +---gtk-doc
+|   |   \---html
+|   |       +---atk
+|   |       |       api-index-1-12.html
+|   |       |       api-index-1-13.html
+|   |       |       api-index-1-18.html
+|   |       |       api-index-1-20.html
+|   |       |       api-index-1-22.html
+|   |       |       api-index-1-24.html
+|   |       |       api-index-1-26.html
+|   |       |       api-index-1-28.html
+|   |       |       api-index-1-3.html
+|   |       |       api-index-1-30.html
+|   |       |       api-index-1-32.html
+|   |       |       api-index-1-4.html
+|   |       |       api-index-1-6.html
+|   |       |       api-index-deprecated.html
+|   |       |       api-index-full.html
+|   |       |       atk-AtkHyperlinkImpl.html
+|   |       |       atk-AtkPlug.html
+|   |       |       atk-AtkSocket.html
+|   |       |       atk-AtkState.html
+|   |       |       atk.devhelp2
+|   |       |       atk.html
+|   |       |       AtkAction.html
+|   |       |       AtkComponent.html
+|   |       |       AtkDocument.html
+|   |       |       AtkEditableText.html
+|   |       |       AtkGObjectAccessible.html
+|   |       |       AtkHyperlink.html
+|   |       |       AtkHypertext.html
+|   |       |       AtkImage.html
+|   |       |       AtkNoOpObject.html
+|   |       |       AtkNoOpObjectFactory.html
+|   |       |       AtkObject.html
+|   |       |       AtkObjectFactory.html
+|   |       |       AtkRegistry.html
+|   |       |       AtkRelation.html
+|   |       |       AtkRelationSet.html
+|   |       |       AtkSelection.html
+|   |       |       AtkStateSet.html
+|   |       |       AtkStreamableContent.html
+|   |       |       AtkTable.html
+|   |       |       AtkText.html
+|   |       |       AtkUtil.html
+|   |       |       AtkValue.html
+|   |       |       home.png
+|   |       |       index.html
+|   |       |       index.sgml
+|   |       |       left.png
+|   |       |       right.png
+|   |       |       style.css
+|   |       |       up.png
+|   |       |       
+|   |       +---cairo
+|   |       |       bindings-errors.html
+|   |       |       bindings-fonts.html
+|   |       |       bindings-memory.html
+|   |       |       bindings-overloading.html
+|   |       |       bindings-path.html
+|   |       |       bindings-patterns.html
+|   |       |       bindings-return-values.html
+|   |       |       bindings-streams.html
+|   |       |       bindings-surfaces.html
+|   |       |       cairo-cairo-device-t.html
+|   |       |       cairo-cairo-font-face-t.html
+|   |       |       cairo-cairo-font-options-t.html
+|   |       |       cairo-cairo-matrix-t.html
+|   |       |       cairo-cairo-pattern-t.html
+|   |       |       cairo-cairo-scaled-font-t.html
+|   |       |       cairo-cairo-surface-t.html
+|   |       |       cairo-cairo-t.html
+|   |       |       cairo-drawing.html
+|   |       |       cairo-Error-handling.html
+|   |       |       cairo-fonts.html
+|   |       |       cairo-FreeType-Fonts.html
+|   |       |       cairo-Image-Surfaces.html
+|   |       |       cairo-Paths.html
+|   |       |       cairo-PDF-Surfaces.html
+|   |       |       cairo-PNG-Support.html
+|   |       |       cairo-PostScript-Surfaces.html
+|   |       |       cairo-Quartz-(CGFont)-Fonts.html
+|   |       |       cairo-Quartz-Surfaces.html
+|   |       |       cairo-Recording-Surfaces.html
+|   |       |       cairo-Regions.html
+|   |       |       cairo-support.html
+|   |       |       cairo-surfaces.html
+|   |       |       cairo-SVG-Surfaces.html
+|   |       |       cairo-text.html
+|   |       |       cairo-Transformations.html
+|   |       |       cairo-Types.html
+|   |       |       cairo-User-Fonts.html
+|   |       |       cairo-Version-Information.html
+|   |       |       cairo-Win32-Fonts.html
+|   |       |       cairo-Win32-Surfaces.html
+|   |       |       cairo-XLib-Surfaces.html
+|   |       |       cairo.devhelp
+|   |       |       cairo.devhelp2
+|   |       |       home.png
+|   |       |       index-1.10.html
+|   |       |       index-1.2.html
+|   |       |       index-1.4.html
+|   |       |       index-1.6.html
+|   |       |       index-1.8.html
+|   |       |       index-all.html
+|   |       |       index.html
+|   |       |       index.sgml
+|   |       |       language-bindings.html
+|   |       |       left.png
+|   |       |       right.png
+|   |       |       style.css
+|   |       |       up.png
+|   |       |       
+|   |       +---gail-libgail-util3
+|   |       |       gail-libgail-util3-GailMisc.html
+|   |       |       gail-libgail-util3-GailTextUtil.html
+|   |       |       gail-libgail-util3.devhelp2
+|   |       |       home.png
+|   |       |       index.html
+|   |       |       index.sgml
+|   |       |       left.png
+|   |       |       libgail-util-main.html
+|   |       |       right.png
+|   |       |       style.css
+|   |       |       up.png
+|   |       |       
+|   |       +---gdk-pixbuf
+|   |       |       annotation-glossary.html
+|   |       |       api-index-2-12.html
+|   |       |       api-index-2-14.html
+|   |       |       api-index-2-2.html
+|   |       |       api-index-2-26.html
+|   |       |       api-index-2-4.html
+|   |       |       api-index-2-6.html
+|   |       |       api-index-2-8.html
+|   |       |       api-index-deprecated.html
+|   |       |       api-index-full.html
+|   |       |       composite.png
+|   |       |       gdk-pixbuf-Animations.html
+|   |       |       gdk-pixbuf-csource.html
+|   |       |       gdk-pixbuf-File-Loading.html
+|   |       |       gdk-pixbuf-File-saving.html
+|   |       |       gdk-pixbuf-gdk-pixbuf-from-drawables.html
+|   |       |       gdk-pixbuf-gdk-pixbuf-rendering.html
+|   |       |       gdk-pixbuf-gdk-pixbuf-Xlib-initialization.html
+|   |       |       gdk-pixbuf-Image-Data-in-Memory.html
+|   |       |       gdk-pixbuf-Inline-data.html
+|   |       |       gdk-pixbuf-Module-Interface.html
+|   |       |       gdk-pixbuf-query-loaders.html
+|   |       |       gdk-pixbuf-Reference-Counting-and-Memory-Mangement.html
+|   |       |       gdk-pixbuf-Scaling.html
+|   |       |       gdk-pixbuf-The-GdkPixbuf-Structure.html
+|   |       |       gdk-pixbuf-Utilities.html
+|   |       |       gdk-pixbuf-Versioning.html
+|   |       |       gdk-pixbuf-X-Drawables-to-Pixbufs.html
+|   |       |       gdk-pixbuf-Xlib-Rendering.html
+|   |       |       gdk-pixbuf-XlibRGB.html
+|   |       |       gdk-pixbuf.devhelp2
+|   |       |       GdkPixbufLoader.html
+|   |       |       home.png
+|   |       |       index.html
+|   |       |       index.sgml
+|   |       |       left.png
+|   |       |       license.html
+|   |       |       right.png
+|   |       |       rn01.html
+|   |       |       rn02.html
+|   |       |       style.css
+|   |       |       up.png
+|   |       |       
+|   |       +---gdk3
+|   |       |       annotation-glossary.html
+|   |       |       api-index-3-0.html
+|   |       |       api-index-3-2.html
+|   |       |       api-index-3-4.html
+|   |       |       api-index-3-6.html
+|   |       |       api-index-deprecated.html
+|   |       |       api-index-full.html
+|   |       |       arrow.png
+|   |       |       based_arrow_down.png
+|   |       |       based_arrow_up.png
+|   |       |       boat.png
+|   |       |       bogosity.png
+|   |       |       bottom_left_corner.png
+|   |       |       bottom_right_corner.png
+|   |       |       bottom_side.png
+|   |       |       bottom_tee.png
+|   |       |       box_spiral.png
+|   |       |       center_ptr.png
+|   |       |       circle.png
+|   |       |       clock.png
+|   |       |       coffee_mug.png
+|   |       |       cross.png
+|   |       |       crosshair.png
+|   |       |       cross_reverse.png
+|   |       |       diamond_cross.png
+|   |       |       dot.png
+|   |       |       dotbox.png
+|   |       |       double_arrow.png
+|   |       |       draft_large.png
+|   |       |       draft_small.png
+|   |       |       draped_box.png
+|   |       |       exchange.png
+|   |       |       fleur.png
+|   |       |       gdk3-Application-launching.html
+|   |       |       gdk3-Cairo-Interaction.html
+|   |       |       gdk3-Colors.html
+|   |       |       gdk3-Cursors.html
+|   |       |       gdk3-Drag-and-Drop.html
+|   |       |       gdk3-Event-Structures.html
+|   |       |       gdk3-Events.html
+|   |       |       gdk3-General.html
+|   |       |       gdk3-Keyboard-Handling.html
+|   |       |       gdk3-Pango-Interaction.html
+|   |       |       gdk3-Pixbufs.html
+|   |       |       gdk3-Points-Rectangles-and-Regions.html
+|   |       |       gdk3-Properties-and-Atoms.html
+|   |       |       gdk3-RGBA-Colors.html
+|   |       |       gdk3-Selections.html
+|   |       |       gdk3-Testing.html
+|   |       |       gdk3-Threads.html
+|   |       |       gdk3-Visuals.html
+|   |       |       gdk3-Windows.html
+|   |       |       gdk3-X-Window-System-Interaction.html
+|   |       |       gdk3.devhelp2
+|   |       |       GdkDevice.html
+|   |       |       GdkDeviceManager.html
+|   |       |       GdkDisplay.html
+|   |       |       GdkDisplayManager.html
+|   |       |       GdkScreen.html
+|   |       |       gobbler.png
+|   |       |       gumby.png
+|   |       |       hand1.png
+|   |       |       hand2.png
+|   |       |       heart.png
+|   |       |       home.png
+|   |       |       icon.png
+|   |       |       index.html
+|   |       |       index.sgml
+|   |       |       iron_cross.png
+|   |       |       left.png
+|   |       |       leftbutton.png
+|   |       |       left_ptr.png
+|   |       |       left_side.png
+|   |       |       left_tee.png
+|   |       |       ll_angle.png
+|   |       |       lr_angle.png
+|   |       |       man.png
+|   |       |       middlebutton.png
+|   |       |       mouse.png
+|   |       |       pencil.png
+|   |       |       pirate.png
+|   |       |       plus.png
+|   |       |       question_arrow.png
+|   |       |       reference.html
+|   |       |       right.png
+|   |       |       rightbutton.png
+|   |       |       right_ptr.png
+|   |       |       right_side.png
+|   |       |       right_tee.png
+|   |       |       rotated-text.png
+|   |       |       rtl_logo.png
+|   |       |       sailboat.png
+|   |       |       sb_down_arrow.png
+|   |       |       sb_h_double_arrow.png
+|   |       |       sb_left_arrow.png
+|   |       |       sb_right_arrow.png
+|   |       |       sb_up_arrow.png
+|   |       |       sb_v_double_arrow.png
+|   |       |       shuttle.png
+|   |       |       sizing.png
+|   |       |       spider.png
+|   |       |       spraycan.png
+|   |       |       star.png
+|   |       |       style.css
+|   |       |       target.png
+|   |       |       tcross.png
+|   |       |       top_left_arrow.png
+|   |       |       top_left_corner.png
+|   |       |       top_right_corner.png
+|   |       |       top_side.png
+|   |       |       top_tee.png
+|   |       |       trek.png
+|   |       |       ul_angle.png
+|   |       |       umbrella.png
+|   |       |       up.png
+|   |       |       ur_angle.png
+|   |       |       watch.png
+|   |       |       xterm.png
+|   |       |       X_cursor.png
+|   |       |       
+|   |       +---gio
+|   |       |       annotation-glossary.html
+|   |       |       api-index-2-18.html
+|   |       |       api-index-2-20.html
+|   |       |       api-index-2-22.html
+|   |       |       api-index-2-24.html
+|   |       |       api-index-2-26.html
+|   |       |       api-index-2-28.html
+|   |       |       api-index-2-30.html
+|   |       |       api-index-2-32.html
+|   |       |       api-index-2-34.html
+|   |       |       api-index-deprecated.html
+|   |       |       api-index-full.html
+|   |       |       application.html
+|   |       |       async.html
+|   |       |       ch01.html
+|   |       |       ch02.html
+|   |       |       ch03.html
+|   |       |       ch29.html
+|   |       |       ch30.html
+|   |       |       ch30s02.html
+|   |       |       ch30s03.html
+|   |       |       ch31.html
+|   |       |       ch31s02.html
+|   |       |       ch31s03.html
+|   |       |       ch31s04.html
+|   |       |       ch31s05.html
+|   |       |       ch31s06.html
+|   |       |       ch31s07.html
+|   |       |       ch32.html
+|   |       |       ch32s02.html
+|   |       |       ch32s03.html
+|   |       |       ch32s04.html
+|   |       |       ch32s05.html
+|   |       |       conversion.html
+|   |       |       ExampleAnimal.html
+|   |       |       ExampleCat.html
+|   |       |       ExampleObject.html
+|   |       |       ExampleObjectManagerClient.html
+|   |       |       extending-gio.html
+|   |       |       extending.html
+|   |       |       failable_initialization.html
+|   |       |       file_mon.html
+|   |       |       file_ops.html
+|   |       |       GAction.html
+|   |       |       GActionGroup.html
+|   |       |       GActionMap.html
+|   |       |       GAppInfo.html
+|   |       |       GApplication.html
+|   |       |       GApplicationCommandLine.html
+|   |       |       GAsyncInitable.html
+|   |       |       GAsyncResult.html
+|   |       |       GBufferedInputStream.html
+|   |       |       GBufferedOutputStream.html
+|   |       |       GCancellable.html
+|   |       |       GCharsetConverter.html
+|   |       |       GConverter.html
+|   |       |       GCredentials.html
+|   |       |       GDataInputStream.html
+|   |       |       GDataOutputStream.html
+|   |       |       gdbus-codegen.html
+|   |       |       gdbus-convenience.html
+|   |       |       gdbus-lowlevel.html
+|   |       |       gdbus-org.gtk.GDBus.Example.ObjectManager.Animal.html
+|   |       |       gdbus-org.gtk.GDBus.Example.ObjectManager.Cat.html
+|   |       |       gdbus.html
+|   |       |       GDBusActionGroup.html
+|   |       |       GDBusAuthObserver.html
+|   |       |       GDBusConnection.html
+|   |       |       GDBusInterface.html
+|   |       |       GDBusInterfaceSkeleton.html
+|   |       |       GDBusMenuModel.html
+|   |       |       GDBusMessage.html
+|   |       |       GDBusMethodInvocation.html
+|   |       |       GDBusObject.html
+|   |       |       GDBusObjectManager.html
+|   |       |       GDBusObjectManagerClient.html
+|   |       |       GDBusObjectManagerServer.html
+|   |       |       GDBusObjectProxy.html
+|   |       |       GDBusObjectSkeleton.html
+|   |       |       GDBusProxy.html
+|   |       |       GDBusServer.html
+|   |       |       GDrive.html
+|   |       |       GEmblem.html
+|   |       |       GEmblemedIcon.html
+|   |       |       GFile.html
+|   |       |       GFileDescriptorBased.html
+|   |       |       GFileEnumerator.html
+|   |       |       GFileIcon.html
+|   |       |       GFileInfo.html
+|   |       |       GFileInputStream.html
+|   |       |       GFileIOStream.html
+|   |       |       GFileMonitor.html
+|   |       |       GFilenameCompleter.html
+|   |       |       GFileOutputStream.html
+|   |       |       GFilterInputStream.html
+|   |       |       GFilterOutputStream.html
+|   |       |       GIcon.html
+|   |       |       GInetAddress.html
+|   |       |       GInetSocketAddress.html
+|   |       |       GInitable.html
+|   |       |       GInputStream.html
+|   |       |       gio-D-Bus-Addresses.html
+|   |       |       gio-D-Bus-Introspection-Data.html
+|   |       |       gio-D-Bus-Utilities.html
+|   |       |       gio-Desktop-file-based-GAppInfo.html
+|   |       |       gio-Extension-Points.html
+|   |       |       gio-GActionGroup-exporter.html
+|   |       |       gio-GContentType.html
+|   |       |       gio-GConverterInputstream.html
+|   |       |       gio-GConverterOutputstream.html
+|   |       |       gio-GDBusError.html
+|   |       |       gio-GFileAttribute.html
+|   |       |       gio-GInetAddressMask.html
+|   |       |       gio-GIOError.html
+|   |       |       gio-GIOScheduler.html
+|   |       |       gio-GMenuModel-exporter.html
+|   |       |       gio-gpollableutils.html
+|   |       |       gio-GResource.html
+|   |       |       gio-GSettingsSchema-GSettingsSchemaSource.html
+|   |       |       gio-GWin32InputStream.html
+|   |       |       gio-GWin32OutputStream.html
+|   |       |       gio-hierarchy.html
+|   |       |       gio-Owning-Bus-Names.html
+|   |       |       gio-querymodules.html
+|   |       |       gio-TLS-Overview.html
+|   |       |       gio-Unix-Mounts.html
+|   |       |       gio-Watching-Bus-Names.html
+|   |       |       gio.devhelp2
+|   |       |       GIOModule.html
+|   |       |       GIOStream.html
+|   |       |       glib-compile-resources.html
+|   |       |       glib-compile-schemas.html
+|   |       |       GLoadableIcon.html
+|   |       |       GMemoryInputStream.html
+|   |       |       GMemoryOutputStream.html
+|   |       |       GMenu.html
+|   |       |       GMenuModel.html
+|   |       |       GMount.html
+|   |       |       GMountOperation.html
+|   |       |       GNetworkAddress.html
+|   |       |       GNetworkMonitor.html
+|   |       |       GNetworkService.html
+|   |       |       GOutputStream.html
+|   |       |       GPermission.html
+|   |       |       GPollableInputStream.html
+|   |       |       GPollableOutputStream.html
+|   |       |       GProxy.html
+|   |       |       GProxyAddress.html
+|   |       |       GProxyResolver.html
+|   |       |       GRemoteActionGroup.html
+|   |       |       GResolver.html
+|   |       |       gresource-tool.html
+|   |       |       GSeekable.html
+|   |       |       gsettings-tool.html
+|   |       |       GSettings.html
+|   |       |       GSettingsBackend.html
+|   |       |       GSimpleAction.html
+|   |       |       GSimpleActionGroup.html
+|   |       |       GSimpleAsyncResult.html
+|   |       |       GSimplePermission.html
+|   |       |       GSocket.html
+|   |       |       GSocketAddress.html
+|   |       |       GSocketClient.html
+|   |       |       GSocketConnectable.html
+|   |       |       GSocketConnection.html
+|   |       |       GSocketControlMessage.html
+|   |       |       GSocketListener.html
+|   |       |       GSocketService.html
+|   |       |       GSrvTarget.html
+|   |       |       GTcpConnection.html
+|   |       |       GTcpWrapperConnection.html
+|   |       |       GTestDBus.html
+|   |       |       GThemedIcon.html
+|   |       |       GThreadedSocketService.html
+|   |       |       GTlsBackend.html
+|   |       |       GTlsCertificate.html
+|   |       |       GTlsClientConnection.html
+|   |       |       GTlsConnection.html
+|   |       |       GTlsDatabase.html
+|   |       |       GTlsFileDatabase.html
+|   |       |       GTlsInteraction.html
+|   |       |       GTlsPassword.html
+|   |       |       GTlsServerConnection.html
+|   |       |       GUnixConnection.html
+|   |       |       GUnixCredentialsMessage.html
+|   |       |       GUnixFDList.html
+|   |       |       GUnixFDMessage.html
+|   |       |       GUnixInputStream.html
+|   |       |       GUnixOutputStream.html
+|   |       |       GUnixSocketAddress.html
+|   |       |       gvfs-overview.png
+|   |       |       GVfs.html
+|   |       |       GVolume.html
+|   |       |       GVolumeMonitor.html
+|   |       |       GZlibCompressor.html
+|   |       |       GZlibDecompressor.html
+|   |       |       highlevel-socket.html
+|   |       |       home.png
+|   |       |       icons.html
+|   |       |       index.html
+|   |       |       index.sgml
+|   |       |       left.png
+|   |       |       menu-example.png
+|   |       |       menu-model.png
+|   |       |       migrating.html
+|   |       |       networking.html
+|   |       |       permissions.html
+|   |       |       pt01.html
+|   |       |       pt02.html
+|   |       |       resolver.html
+|   |       |       resources.html
+|   |       |       right.png
+|   |       |       running-gio-apps.html
+|   |       |       settings.html
+|   |       |       streaming.html
+|   |       |       style.css
+|   |       |       testing.html
+|   |       |       tls.html
+|   |       |       tools.html
+|   |       |       types.html
+|   |       |       up.png
+|   |       |       utils.html
+|   |       |       volume_mon.html
+|   |       |       
+|   |       +---glib
+|   |       |       annotation-glossary.html
+|   |       |       api-index-2-10.html
+|   |       |       api-index-2-12.html
+|   |       |       api-index-2-14.html
+|   |       |       api-index-2-16.html
+|   |       |       api-index-2-18.html
+|   |       |       api-index-2-2.html
+|   |       |       api-index-2-20.html
+|   |       |       api-index-2-22.html
+|   |       |       api-index-2-24.html
+|   |       |       api-index-2-26.html
+|   |       |       api-index-2-28.html
+|   |       |       api-index-2-30.html
+|   |       |       api-index-2-32.html
+|   |       |       api-index-2-34.html
+|   |       |       api-index-2-4.html
+|   |       |       api-index-2-6.html
+|   |       |       api-index-2-8.html
+|   |       |       api-index-deprecated.html
+|   |       |       api-index-full.html
+|   |       |       deprecated.html
+|   |       |       file-name-encodings.png
+|   |       |       glib-Arrays.html
+|   |       |       glib-Asynchronous-Queues.html
+|   |       |       glib-Atomic-Operations.html
+|   |       |       glib-Automatic-String-Completion.html
+|   |       |       glib-Balanced-Binary-Trees.html
+|   |       |       glib-Base64-Encoding.html
+|   |       |       glib-Basic-Types.html
+|   |       |       glib-Bookmark-file-parser.html
+|   |       |       glib-building.html
+|   |       |       glib-Byte-Arrays.html
+|   |       |       glib-Byte-Order-Macros.html
+|   |       |       glib-Caches.html
+|   |       |       glib-changes.html
+|   |       |       glib-Character-Set-Conversion.html
+|   |       |       glib-Commandline-option-parser.html
+|   |       |       glib-compiling.html
+|   |       |       glib-core.html
+|   |       |       glib-cross-compiling.html
+|   |       |       glib-Data-Checksums.html
+|   |       |       glib-Data-HMACs.html
+|   |       |       glib-data-types.html
+|   |       |       glib-Datasets.html
+|   |       |       glib-Date-and-Time-Functions.html
+|   |       |       glib-Deprecated-Thread-APIs.html
+|   |       |       glib-Double-ended-Queues.html
+|   |       |       glib-Doubly-Linked-Lists.html
+|   |       |       glib-Dynamic-Loading-of-Modules.html
+|   |       |       glib-Error-Reporting.html
+|   |       |       glib-File-Utilities.html
+|   |       |       glib-fundamentals.html
+|   |       |       glib-GDateTime.html
+|   |       |       glib-gettextize.html
+|   |       |       glib-Glob-style-pattern-matching.html
+|   |       |       glib-GTimeZone.html
+|   |       |       glib-GVariant.html
+|   |       |       glib-GVariantType.html
+|   |       |       glib-Hash-Tables.html
+|   |       |       glib-Hook-Functions.html
+|   |       |       glib-Hostname-Utilities.html
+|   |       |       glib-I18N.html
+|   |       |       glib-IO-Channels.html
+|   |       |       glib-Key-value-file-parser.html
+|   |       |       glib-Keyed-Data-Lists.html
+|   |       |       glib-Lexical-Scanner.html
+|   |       |       glib-Memory-Allocation.html
+|   |       |       glib-Memory-Slices.html
+|   |       |       glib-Message-Logging.html
+|   |       |       glib-Miscellaneous-Macros.html
+|   |       |       glib-Miscellaneous-Utility-Functions.html
+|   |       |       glib-N-ary-Trees.html
+|   |       |       glib-Numerical-Definitions.html
+|   |       |       glib-Perl-compatible-regular-expressions.html
+|   |       |       glib-Pointer-Arrays.html
+|   |       |       glib-programming.html
+|   |       |       glib-Quarks.html
+|   |       |       glib-Random-Numbers.html
+|   |       |       glib-regex-syntax.html
+|   |       |       glib-Relations-and-Tuples.html
+|   |       |       glib-resources.html
+|   |       |       glib-running.html
+|   |       |       glib-Sequences.html
+|   |       |       glib-Shell-related-Utilities.html
+|   |       |       glib-Simple-XML-Subset-Parser.html
+|   |       |       glib-Singly-Linked-Lists.html
+|   |       |       glib-Spawning-Processes.html
+|   |       |       glib-Standard-Macros.html
+|   |       |       glib-String-Chunks.html
+|   |       |       glib-String-Utility-Functions.html
+|   |       |       glib-Strings.html
+|   |       |       glib-Testing.html
+|   |       |       glib-The-Main-Event-Loop.html
+|   |       |       glib-Thread-Pools.html
+|   |       |       glib-Threads.html
+|   |       |       glib-Timers.html
+|   |       |       glib-Trash-Stacks.html
+|   |       |       glib-Type-Conversion-Macros.html
+|   |       |       glib-Unicode-Manipulation.html
+|   |       |       glib-UNIX-specific-utilities-and-integration.html
+|   |       |       glib-URI-Functions.html
+|   |       |       glib-utilities.html
+|   |       |       glib-Version-Information.html
+|   |       |       glib-Warnings-and-Assertions.html
+|   |       |       glib-Windows-Compatibility-Functions.html
+|   |       |       glib.devhelp2
+|   |       |       glib.html
+|   |       |       gtester-report.html
+|   |       |       gtester.html
+|   |       |       gvariant-format-strings.html
+|   |       |       gvariant-text.html
+|   |       |       home.png
+|   |       |       index.html
+|   |       |       index.sgml
+|   |       |       left.png
+|   |       |       mainloop-states.gif
+|   |       |       right.png
+|   |       |       style.css
+|   |       |       tools.html
+|   |       |       up.png
+|   |       |       
+|   |       +---gobject
+|   |       |       annotation-glossary.html
+|   |       |       api-index-2-10.html
+|   |       |       api-index-2-12.html
+|   |       |       api-index-2-14.html
+|   |       |       api-index-2-18.html
+|   |       |       api-index-2-2.html
+|   |       |       api-index-2-22.html
+|   |       |       api-index-2-24.html
+|   |       |       api-index-2-26.html
+|   |       |       api-index-2-28.html
+|   |       |       api-index-2-30.html
+|   |       |       api-index-2-32.html
+|   |       |       api-index-2-34.html
+|   |       |       api-index-2-4.html
+|   |       |       api-index-2-6.html
+|   |       |       api-index-2-8.html
+|   |       |       api-index-deprecated.html
+|   |       |       api-index-full.html
+|   |       |       ch01s02.html
+|   |       |       chapter-gobject.html
+|   |       |       chapter-gtype.html
+|   |       |       chapter-intro.html
+|   |       |       chapter-signal.html
+|   |       |       GBinding.html
+|   |       |       glib-genmarshal.html
+|   |       |       glib-mkenums.html
+|   |       |       glue.png
+|   |       |       gobject-Boxed-Types.html
+|   |       |       gobject-Closures.html
+|   |       |       gobject-Enumeration-and-Flag-Types.html
+|   |       |       gobject-Generic-values.html
+|   |       |       gobject-GParamSpec.html
+|   |       |       gobject-memory.html
+|   |       |       gobject-properties.html
+|   |       |       gobject-query.html
+|   |       |       gobject-Signals.html
+|   |       |       gobject-Standard-Parameter-and-Value-Types.html
+|   |       |       gobject-The-Base-Object-Type.html
+|   |       |       gobject-Type-Information.html
+|   |       |       gobject-Value-arrays.html
+|   |       |       gobject-Varargs-Value-Collection.html
+|   |       |       gobject.devhelp2
+|   |       |       gtype-conventions.html
+|   |       |       gtype-instantiable-classed.html
+|   |       |       gtype-non-instantiable-classed.html
+|   |       |       gtype-non-instantiable.html
+|   |       |       GTypeModule.html
+|   |       |       GTypePlugin.html
+|   |       |       home.png
+|   |       |       howto-gobject-chainup.html
+|   |       |       howto-gobject-code.html
+|   |       |       howto-gobject-construction.html
+|   |       |       howto-gobject-destruction.html
+|   |       |       howto-gobject-methods.html
+|   |       |       howto-gobject.html
+|   |       |       howto-interface-implement.html
+|   |       |       howto-interface-override.html
+|   |       |       howto-interface-prerequisite.html
+|   |       |       howto-interface-properties.html
+|   |       |       howto-interface.html
+|   |       |       howto-signals.html
+|   |       |       index.html
+|   |       |       index.sgml
+|   |       |       left.png
+|   |       |       pr01.html
+|   |       |       pt01.html
+|   |       |       pt02.html
+|   |       |       pt03.html
+|   |       |       right.png
+|   |       |       rn01.html
+|   |       |       rn02.html
+|   |       |       signal.html
+|   |       |       style.css
+|   |       |       tools-ginspector.html
+|   |       |       tools-gob.html
+|   |       |       tools-gtkdoc.html
+|   |       |       tools-refdb.html
+|   |       |       tools-vala.html
+|   |       |       up.png
+|   |       |       
+|   |       +---gtk3
+|   |       |       aboutdialog.png
+|   |       |       AbstractObjects.html
+|   |       |       accel-label.png
+|   |       |       Actions.html
+|   |       |       annotation-glossary.html
+|   |       |       api-index-3-0.html
+|   |       |       api-index-3-2.html
+|   |       |       api-index-3-4.html
+|   |       |       api-index-3-6.html
+|   |       |       api-index-deprecated.html
+|   |       |       api-index-full.html
+|   |       |       appchooserbutton.png
+|   |       |       appchooserdialog.png
+|   |       |       application-exit.png
+|   |       |       Application.html
+|   |       |       ApplicationChoosing.html
+|   |       |       arrows.png
+|   |       |       assistant.png
+|   |       |       background.png
+|   |       |       bloatpad-gnome.png
+|   |       |       bloatpad-osx.png
+|   |       |       bloatpad-xfce.png
+|   |       |       border1.png
+|   |       |       border2.png
+|   |       |       border3.png
+|   |       |       box-expand.png
+|   |       |       box-packing.png
+|   |       |       Builder.html
+|   |       |       button.png
+|   |       |       ButtonWidgets.html
+|   |       |       ch02.html
+|   |       |       ch03.html
+|   |       |       ch24s02.html
+|   |       |       ch26s02.html
+|   |       |       ch28s02.html
+|   |       |       ch28s03.html
+|   |       |       chap-drawing-model.html
+|   |       |       check-button.png
+|   |       |       checklist-gdkeventexpose-region.html
+|   |       |       checklist-modifiers.html
+|   |       |       checklist-named-icons.html
+|   |       |       checks.png
+|   |       |       color-button.png
+|   |       |       colorchooser.png
+|   |       |       colorsel.png
+|   |       |       combo-box-entry.png
+|   |       |       combo-box.png
+|   |       |       dialog-error.png
+|   |       |       dialog-information.png
+|   |       |       dialog-password.png
+|   |       |       dialog-question.png
+|   |       |       dialog-warning.png
+|   |       |       DisplayWidgets.html
+|   |       |       document-new.png
+|   |       |       document-open.png
+|   |       |       document-print-preview.png
+|   |       |       document-print.png
+|   |       |       document-properties.png
+|   |       |       document-revert-ltr.png
+|   |       |       document-revert-rtl.png
+|   |       |       document-save-as.png
+|   |       |       document-save.png
+|   |       |       down-center.png
+|   |       |       down-end.png
+|   |       |       down-start.png
+|   |       |       drawing.png
+|   |       |       drive-harddisk.png
+|   |       |       ease-in-out.png
+|   |       |       ease-in.png
+|   |       |       ease-out.png
+|   |       |       ease.png
+|   |       |       edit-clear.png
+|   |       |       edit-copy.png
+|   |       |       edit-cut.png
+|   |       |       edit-delete.png
+|   |       |       edit-find-replace.png
+|   |       |       edit-find.png
+|   |       |       edit-paste.png
+|   |       |       edit-redo-ltr.png
+|   |       |       edit-redo-rtl.png
+|   |       |       edit-select-all.png
+|   |       |       edit-undo-ltr.png
+|   |       |       edit-undo-rtl.png
+|   |       |       entry.png
+|   |       |       expanders.png
+|   |       |       extensions.png
+|   |       |       figure-hierarchical-drawing.png
+|   |       |       figure-windowed-label.png
+|   |       |       file-button.png
+|   |       |       filechooser.png
+|   |       |       focus.png
+|   |       |       folder.png
+|   |       |       font-button.png
+|   |       |       fontchooser.png
+|   |       |       fontsel.png
+|   |       |       format-indent-less-ltr.png
+|   |       |       format-indent-less-rtl.png
+|   |       |       format-indent-more-ltr.png
+|   |       |       format-indent-more-rtl.png
+|   |       |       format-justify-center.png
+|   |       |       format-justify-fill.png
+|   |       |       format-justify-left.png
+|   |       |       format-justify-right.png
+|   |       |       format-text-bold.png
+|   |       |       format-text-italic.png
+|   |       |       format-text-strikethrough.png
+|   |       |       format-text-underline.png
+|   |       |       frame-gap.png
+|   |       |       frame.png
+|   |       |       frames.png
+|   |       |       glossary.html
+|   |       |       go-bottom.png
+|   |       |       go-down.png
+|   |       |       go-first-ltr.png
+|   |       |       go-first-rtl.png
+|   |       |       go-home.png
+|   |       |       go-jump-ltr.png
+|   |       |       go-jump-rtl.png
+|   |       |       go-last-ltr.png
+|   |       |       go-last-rtl.png
+|   |       |       go-next-ltr.png
+|   |       |       go-next-rtl.png
+|   |       |       go-previous-ltr.png
+|   |       |       go-previous-rtl.png
+|   |       |       go-top.png
+|   |       |       go-up.png
+|   |       |       gradient1.png
+|   |       |       gradient2.png
+|   |       |       gradient3.png
+|   |       |       gradient4.png
+|   |       |       grid-packing.png
+|   |       |       gtk-apply.png
+|   |       |       gtk-broadway.html
+|   |       |       gtk-building.html
+|   |       |       gtk-cancel.png
+|   |       |       gtk-caps-lock-warning.png
+|   |       |       gtk-color-picker.png
+|   |       |       gtk-compiling.html
+|   |       |       gtk-connect.png
+|   |       |       gtk-convert.png
+|   |       |       gtk-disconnect.png
+|   |       |       gtk-dnd-multiple.png
+|   |       |       gtk-dnd.png
+|   |       |       gtk-edit.png
+|   |       |       gtk-font.png
+|   |       |       gtk-getting-started.html
+|   |       |       gtk-index.png
+|   |       |       gtk-launch.html
+|   |       |       gtk-migrating-2-to-3.html
+|   |       |       gtk-migrating-checklist.html
+|   |       |       gtk-migrating-GtkGrid.html
+|   |       |       gtk-migrating-GtkStyleContext-bonus-points.html
+|   |       |       gtk-migrating-GtkStyleContext-checklist.html
+|   |       |       gtk-migrating-GtkStyleContext-css.html
+|   |       |       gtk-migrating-GtkStyleContext-parser-extensions.html
+|   |       |       gtk-migrating-GtkStyleContext-parsing.html
+|   |       |       gtk-migrating-GtkStyleContext.html
+|   |       |       gtk-migrating-smclient-GtkApplication.html
+|   |       |       gtk-migrating-theme-GtkStyleContext-engines.html
+|   |       |       gtk-migrating-unique-GtkApplication.html
+|   |       |       gtk-no.png
+|   |       |       gtk-ok.png
+|   |       |       gtk-orientation-landscape.png
+|   |       |       gtk-orientation-portrait.png
+|   |       |       gtk-orientation-reverse-landscape.png
+|   |       |       gtk-orientation-reverse-portrait.png
+|   |       |       gtk-osx.html
+|   |       |       gtk-page-setup.png
+|   |       |       gtk-preferences.png
+|   |       |       gtk-query-immodules-3.0.html
+|   |       |       gtk-question-index.html
+|   |       |       gtk-resources.html
+|   |       |       gtk-running.html
+|   |       |       gtk-select-color.png
+|   |       |       gtk-undelete-ltr.png
+|   |       |       gtk-undelete-rtl.png
+|   |       |       gtk-update-icon-cache.html
+|   |       |       gtk-windows.html
+|   |       |       gtk-x11.html
+|   |       |       gtk-yes.png
+|   |       |       gtk.html
+|   |       |       gtk3-Accelerator-Maps.html
+|   |       |       gtk3-Bindings.html
+|   |       |       gtk3-Clipboards.html
+|   |       |       gtk3-Drag-and-Drop.html
+|   |       |       gtk3-Feature-Test-Macros.html
+|   |       |       gtk3-Filesystem-utilities.html
+|   |       |       gtk3-General.html
+|   |       |       gtk3-GtkGradient.html
+|   |       |       gtk3-GtkStyleProperties.html
+|   |       |       gtk3-GtkSymbolicColor.html
+|   |       |       gtk3-GtkTreeView-drag-and-drop.html
+|   |       |       gtk3-GtkWidgetPath.html
+|   |       |       gtk3-High-level-Printing-API.html
+|   |       |       gtk3-Keyboard-Accelerators.html
+|   |       |       gtk3-Orientable.html
+|   |       |       gtk3-Resource-Files.html
+|   |       |       gtk3-Selections.html
+|   |       |       gtk3-Standard-Enumerations.html
+|   |       |       gtk3-Stock-Items.html
+|   |       |       gtk3-Testing.html
+|   |       |       gtk3-Themeable-Stock-Images.html
+|   |       |       gtk3.devhelp2
+|   |       |       GtkAboutDialog.html
+|   |       |       GtkAccelLabel.html
+|   |       |       GtkAccessible.html
+|   |       |       GtkAction.html
+|   |       |       GtkActionable.html
+|   |       |       GtkActionGroup.html
+|   |       |       GtkActivatable.html
+|   |       |       GtkAdjustment.html
+|   |       |       GtkAlignment.html
+|   |       |       GtkAppChooser.html
+|   |       |       GtkAppChooserButton.html
+|   |       |       GtkAppChooserDialog.html
+|   |       |       GtkAppChooserWidget.html
+|   |       |       GtkApplication.html
+|   |       |       GtkApplicationWindow.html
+|   |       |       GtkArrow.html
+|   |       |       GtkAspectFrame.html
+|   |       |       GtkAssistant.html
+|   |       |       gtkbase.html
+|   |       |       GtkBin.html
+|   |       |       GtkBox.html
+|   |       |       GtkBuildable.html
+|   |       |       GtkBuilder.html
+|   |       |       GtkButton.html
+|   |       |       GtkButtonBox.html
+|   |       |       GtkCalendar.html
+|   |       |       GtkCellArea.html
+|   |       |       GtkCellAreaBox.html
+|   |       |       GtkCellAreaContext.html
+|   |       |       GtkCellEditable.html
+|   |       |       GtkCellLayout.html
+|   |       |       GtkCellRenderer.html
+|   |       |       GtkCellRendererAccel.html
+|   |       |       GtkCellRendererCombo.html
+|   |       |       GtkCellRendererPixbuf.html
+|   |       |       GtkCellRendererProgress.html
+|   |       |       GtkCellRendererSpin.html
+|   |       |       GtkCellRendererSpinner.html
+|   |       |       GtkCellRendererText.html
+|   |       |       GtkCellRendererToggle.html
+|   |       |       GtkCellView.html
+|   |       |       GtkCheckButton.html
+|   |       |       GtkCheckMenuItem.html
+|   |       |       GtkColorButton.html
+|   |       |       GtkColorChooser.html
+|   |       |       GtkColorChooserDialog.html
+|   |       |       GtkColorChooserWidget.html
+|   |       |       GtkColorSelection.html
+|   |       |       GtkColorSelectionDialog.html
+|   |       |       GtkComboBox.html
+|   |       |       GtkComboBoxText.html
+|   |       |       GtkContainer.html
+|   |       |       GtkCssProvider.html
+|   |       |       GtkDialog.html
+|   |       |       GtkDrawingArea.html
+|   |       |       GtkEditable.html
+|   |       |       GtkEntry.html
+|   |       |       GtkEntryBuffer.html
+|   |       |       GtkEntryCompletion.html
+|   |       |       GtkEventBox.html
+|   |       |       GtkExpander.html
+|   |       |       GtkFileChooser.html
+|   |       |       GtkFileChooserButton.html
+|   |       |       GtkFileChooserDialog.html
+|   |       |       GtkFileChooserWidget.html
+|   |       |       GtkFileFilter.html
+|   |       |       GtkFixed.html
+|   |       |       GtkFontButton.html
+|   |       |       GtkFontChooser.html
+|   |       |       GtkFontChooserDialog.html
+|   |       |       GtkFontChooserWidget.html
+|   |       |       GtkFontSelection.html
+|   |       |       GtkFontSelectionDialog.html
+|   |       |       GtkFrame.html
+|   |       |       GtkGrid.html
+|   |       |       GtkHandleBox.html
+|   |       |       GtkHBox.html
+|   |       |       GtkHButtonBox.html
+|   |       |       GtkHPaned.html
+|   |       |       GtkHScale.html
+|   |       |       GtkHScrollbar.html
+|   |       |       GtkHSeparator.html
+|   |       |       GtkHSV.html
+|   |       |       GtkIconTheme.html
+|   |       |       GtkIconView.html
+|   |       |       GtkImage.html
+|   |       |       GtkImageMenuItem.html
+|   |       |       GtkIMContext.html
+|   |       |       GtkIMContextSimple.html
+|   |       |       GtkIMMulticontext.html
+|   |       |       GtkInfoBar.html
+|   |       |       GtkInvisible.html
+|   |       |       GtkLabel.html
+|   |       |       GtkLayout.html
+|   |       |       GtkLevelBar.html
+|   |       |       GtkLinkButton.html
+|   |       |       GtkListStore.html
+|   |       |       GtkLockButton.html
+|   |       |       GtkMenu.html
+|   |       |       GtkMenuBar.html
+|   |       |       GtkMenuButton.html
+|   |       |       GtkMenuItem.html
+|   |       |       GtkMenuShell.html
+|   |       |       GtkMenuToolButton.html
+|   |       |       GtkMessageDialog.html
+|   |       |       GtkMisc.html
+|   |       |       GtkNotebook.html
+|   |       |       GtkNumerableIcon.html
+|   |       |       gtkobjects.html
+|   |       |       GtkOffscreenWindow.html
+|   |       |       GtkOverlay.html
+|   |       |       GtkPageSetup.html
+|   |       |       GtkPageSetupUnixDialog.html
+|   |       |       GtkPaned.html
+|   |       |       GtkPaperSize.html
+|   |       |       GtkPlug.html
+|   |       |       GtkPrintContext.html
+|   |       |       GtkPrinter.html
+|   |       |       GtkPrintJob.html
+|   |       |       GtkPrintSettings.html
+|   |       |       GtkPrintUnixDialog.html
+|   |       |       GtkProgressBar.html
+|   |       |       GtkRadioAction.html
+|   |       |       GtkRadioButton.html
+|   |       |       GtkRadioMenuItem.html
+|   |       |       GtkRadioToolButton.html
+|   |       |       GtkRange.html
+|   |       |       GtkRecentAction.html
+|   |       |       GtkRecentChooser.html
+|   |       |       GtkRecentChooserDialog.html
+|   |       |       GtkRecentChooserMenu.html
+|   |       |       GtkRecentChooserWidget.html
+|   |       |       GtkRecentFilter.html
+|   |       |       GtkRecentManager.html
+|   |       |       GtkScale.html
+|   |       |       GtkScaleButton.html
+|   |       |       GtkScrollable.html
+|   |       |       GtkScrollbar.html
+|   |       |       GtkScrolledWindow.html
+|   |       |       GtkSearchEntry.html
+|   |       |       GtkSeparator.html
+|   |       |       GtkSeparatorMenuItem.html
+|   |       |       GtkSeparatorToolItem.html
+|   |       |       GtkSettings.html
+|   |       |       GtkSizeGroup.html
+|   |       |       GtkSocket.html
+|   |       |       GtkSpinButton.html
+|   |       |       GtkSpinner.html
+|   |       |       GtkStatusbar.html
+|   |       |       GtkStatusIcon.html
+|   |       |       GtkStyle.html
+|   |       |       GtkStyleContext.html
+|   |       |       GtkStyleProvider.html
+|   |       |       GtkSwitch.html
+|   |       |       GtkTable.html
+|   |       |       GtkTearoffMenuItem.html
+|   |       |       GtkTextBuffer.html
+|   |       |       GtkTextIter.html
+|   |       |       GtkTextMark.html
+|   |       |       GtkTextTag.html
+|   |       |       GtkTextTagTable.html
+|   |       |       GtkTextView.html
+|   |       |       GtkThemingEngine.html
+|   |       |       GtkToggleAction.html
+|   |       |       GtkToggleButton.html
+|   |       |       GtkToggleToolButton.html
+|   |       |       GtkToolbar.html
+|   |       |       GtkToolButton.html
+|   |       |       GtkToolItem.html
+|   |       |       GtkToolItemGroup.html
+|   |       |       GtkToolPalette.html
+|   |       |       GtkToolShell.html
+|   |       |       GtkTooltip.html
+|   |       |       GtkTreeModel.html
+|   |       |       GtkTreeModelFilter.html
+|   |       |       GtkTreeModelSort.html
+|   |       |       GtkTreeSelection.html
+|   |       |       GtkTreeSortable.html
+|   |       |       GtkTreeStore.html
+|   |       |       GtkTreeView.html
+|   |       |       GtkTreeViewColumn.html
+|   |       |       GtkUIManager.html
+|   |       |       GtkVBox.html
+|   |       |       GtkVButtonBox.html
+|   |       |       GtkViewport.html
+|   |       |       GtkVolumeButton.html
+|   |       |       GtkVPaned.html
+|   |       |       GtkVScale.html
+|   |       |       GtkVScrollbar.html
+|   |       |       GtkVSeparator.html
+|   |       |       GtkWidget.html
+|   |       |       GtkWindow.html
+|   |       |       GtkWindowGroup.html
+|   |       |       handles.png
+|   |       |       hello-world.png
+|   |       |       help-about.png
+|   |       |       help-contents.png
+|   |       |       home.png
+|   |       |       icon-view.png
+|   |       |       image-missing.png
+|   |       |       image.png
+|   |       |       index.html
+|   |       |       index.sgml
+|   |       |       label.png
+|   |       |       layout-btlr.png
+|   |       |       layout-btrl.png
+|   |       |       layout-lrbt.png
+|   |       |       layout-lrtb.png
+|   |       |       layout-rlbt.png
+|   |       |       layout-rltb.png
+|   |       |       layout-tblr.png
+|   |       |       layout-tbrl.png
+|   |       |       LayoutContainers.html
+|   |       |       left-center.png
+|   |       |       left-end.png
+|   |       |       left-start.png
+|   |       |       left.png
+|   |       |       levelbar.png
+|   |       |       linear.png
+|   |       |       link-button.png
+|   |       |       list-add.png
+|   |       |       list-and-tree.png
+|   |       |       list-remove.png
+|   |       |       lock-button.png
+|   |       |       lockbutton-locked.png
+|   |       |       lockbutton-sorry.png
+|   |       |       lockbutton-unlocked.png
+|   |       |       lockbutton.png
+|   |       |       media-floppy.png
+|   |       |       media-optical.png
+|   |       |       media-playback-pause.png
+|   |       |       media-playback-start-ltr.png
+|   |       |       media-playback-start-rtl.png
+|   |       |       media-playback-stop.png
+|   |       |       media-record.png
+|   |       |       media-seek-backward-ltr.png
+|   |       |       media-seek-backward-rtl.png
+|   |       |       media-seek-forward-ltr.png
+|   |       |       media-seek-forward-rtl.png
+|   |       |       media-skip-backward-ltr.png
+|   |       |       media-skip-backward-rtl.png
+|   |       |       media-skip-forward-ltr.png
+|   |       |       media-skip-forward-rtl.png
+|   |       |       menu-button.png
+|   |       |       menubar.png
+|   |       |       MenusAndCombos.html
+|   |       |       messagedialog.png
+|   |       |       migrating.html
+|   |       |       MiscObjects.html
+|   |       |       multiline-text.png
+|   |       |       network-idle.png
+|   |       |       notebook.png
+|   |       |       numerableicon.png
+|   |       |       numerableicon2.png
+|   |       |       NumericEntry.html
+|   |       |       options.png
+|   |       |       Ornaments.html
+|   |       |       pagesetupdialog.png
+|   |       |       panes.png
+|   |       |       PlugSocket.html
+|   |       |       printdialog.png
+|   |       |       printer-error.png
+|   |       |       printer-info.png
+|   |       |       printer-paused.png
+|   |       |       printer-warning.png
+|   |       |       Printing.html
+|   |       |       process-stop.png
+|   |       |       progressbar.png
+|   |       |       pt06.html
+|   |       |       radio-group.png
+|   |       |       recentchooserdialog.png
+|   |       |       RecentDocuments.html
+|   |       |       right-center.png
+|   |       |       right-end.png
+|   |       |       right-start.png
+|   |       |       right.png
+|   |       |       scales.png
+|   |       |       scrolledwindow.png
+|   |       |       ScrollingWidgets.html
+|   |       |       search-entry.png
+|   |       |       SelectorWidgets.html
+|   |       |       separator.png
+|   |       |       slices.png
+|   |       |       sliders.png
+|   |       |       spinbutton.png
+|   |       |       spinner.png
+|   |       |       statusbar.png
+|   |       |       style.css
+|   |       |       switch.png
+|   |       |       system-run.png
+|   |       |       text-x-generic.png
+|   |       |       TextWidget.html
+|   |       |       TextWidgetObjects.html
+|   |       |       theming.html
+|   |       |       toggle-button.png
+|   |       |       toolbar.png
+|   |       |       toolpalette.png
+|   |       |       tools-check-spelling.png
+|   |       |       tree-view-coordinates.png
+|   |       |       TreeWidget.html
+|   |       |       TreeWidgetObjects.html
+|   |       |       up-center.png
+|   |       |       up-end.png
+|   |       |       up-start.png
+|   |       |       up.png
+|   |       |       view-fullscreen.png
+|   |       |       view-refresh.png
+|   |       |       view-restore.png
+|   |       |       view-sort-ascending.png
+|   |       |       view-sort-descending.png
+|   |       |       volumebutton.png
+|   |       |       widget-hvalign.png
+|   |       |       window-close.png
+|   |       |       window-default.png
+|   |       |       window.png
+|   |       |       WindowWidgets.html
+|   |       |       zoom-fit-best.png
+|   |       |       zoom-in.png
+|   |       |       zoom-original.png
+|   |       |       zoom-out.png
+|   |       |       
+|   |       +---libcroco
+|   |       |       ch01.html
+|   |       |       home.png
+|   |       |       index.html
+|   |       |       index.sgml
+|   |       |       left.png
+|   |       |       libcroco-cr-additional-sel.html
+|   |       |       libcroco-cr-attr-sel.html
+|   |       |       libcroco-cr-cascade.html
+|   |       |       libcroco-cr-declaration.html
+|   |       |       libcroco-cr-doc-handler.html
+|   |       |       libcroco-cr-enc-handler.html
+|   |       |       libcroco-cr-fonts.html
+|   |       |       libcroco-cr-input.html
+|   |       |       libcroco-cr-num.html
+|   |       |       libcroco-cr-om-parser.html
+|   |       |       libcroco-cr-parser.html
+|   |       |       libcroco-cr-parsing-location.html
+|   |       |       libcroco-cr-prop-list.html
+|   |       |       libcroco-cr-pseudo.html
+|   |       |       libcroco-cr-rgb.html
+|   |       |       libcroco-cr-sel-eng.html
+|   |       |       libcroco-cr-selector.html
+|   |       |       libcroco-cr-simple-sel.html
+|   |       |       libcroco-cr-statement.html
+|   |       |       libcroco-cr-string.html
+|   |       |       libcroco-cr-style.html
+|   |       |       libcroco-cr-stylesheet.html
+|   |       |       libcroco-cr-term.html
+|   |       |       libcroco-cr-tknzr.html
+|   |       |       libcroco-cr-token.html
+|   |       |       libcroco-cr-utils.html
+|   |       |       libcroco-libcroco-config.html
+|   |       |       libcroco.devhelp2
+|   |       |       right.png
+|   |       |       style.css
+|   |       |       up.png
+|   |       |       
+|   |       +---libxml2
+|   |       |       general.html
+|   |       |       home.png
+|   |       |       index.html
+|   |       |       left.png
+|   |       |       libxml2-c14n.html
+|   |       |       libxml2-catalog.html
+|   |       |       libxml2-chvalid.html
+|   |       |       libxml2-debugXML.html
+|   |       |       libxml2-dict.html
+|   |       |       libxml2-DOCBparser.html
+|   |       |       libxml2-encoding.html
+|   |       |       libxml2-entities.html
+|   |       |       libxml2-globals.html
+|   |       |       libxml2-hash.html
+|   |       |       libxml2-HTMLparser.html
+|   |       |       libxml2-HTMLtree.html
+|   |       |       libxml2-list.html
+|   |       |       libxml2-nanoftp.html
+|   |       |       libxml2-nanohttp.html
+|   |       |       libxml2-parser.html
+|   |       |       libxml2-parserInternals.html
+|   |       |       libxml2-pattern.html
+|   |       |       libxml2-relaxng.html
+|   |       |       libxml2-SAX.html
+|   |       |       libxml2-SAX2.html
+|   |       |       libxml2-schemasInternals.html
+|   |       |       libxml2-schematron.html
+|   |       |       libxml2-threads.html
+|   |       |       libxml2-tree.html
+|   |       |       libxml2-uri.html
+|   |       |       libxml2-valid.html
+|   |       |       libxml2-xinclude.html
+|   |       |       libxml2-xlink.html
+|   |       |       libxml2-xmlautomata.html
+|   |       |       libxml2-xmlerror.html
+|   |       |       libxml2-xmlexports.html
+|   |       |       libxml2-xmlIO.html
+|   |       |       libxml2-xmlmemory.html
+|   |       |       libxml2-xmlmodule.html
+|   |       |       libxml2-xmlreader.html
+|   |       |       libxml2-xmlregexp.html
+|   |       |       libxml2-xmlsave.html
+|   |       |       libxml2-xmlschemas.html
+|   |       |       libxml2-xmlschemastypes.html
+|   |       |       libxml2-xmlstring.html
+|   |       |       libxml2-xmlunicode.html
+|   |       |       libxml2-xmlversion.html
+|   |       |       libxml2-xmlwriter.html
+|   |       |       libxml2-xpath.html
+|   |       |       libxml2-xpathInternals.html
+|   |       |       libxml2-xpointer.html
+|   |       |       libxml2.devhelp
+|   |       |       right.png
+|   |       |       style.css
+|   |       |       up.png
+|   |       |       
+|   |       +---pango
+|   |       |       annotation-glossary.html
+|   |       |       api-index-1-10.html
+|   |       |       api-index-1-12.html
+|   |       |       api-index-1-14.html
+|   |       |       api-index-1-16.html
+|   |       |       api-index-1-18.html
+|   |       |       api-index-1-2.html
+|   |       |       api-index-1-20.html
+|   |       |       api-index-1-22.html
+|   |       |       api-index-1-24.html
+|   |       |       api-index-1-26.html
+|   |       |       api-index-1-28.html
+|   |       |       api-index-1-30.html
+|   |       |       api-index-1-4.html
+|   |       |       api-index-1-6.html
+|   |       |       api-index-1-8.html
+|   |       |       api-index-deprecated.html
+|   |       |       api-index-full.html
+|   |       |       home.png
+|   |       |       index.html
+|   |       |       index.sgml
+|   |       |       layout.gif
+|   |       |       left.png
+|   |       |       lowlevel.html
+|   |       |       pango-ATSUI-Fonts.html
+|   |       |       pango-Bidirectional-Text.html
+|   |       |       pango-Cairo-Rendering.html
+|   |       |       pango-CoreText-Fonts.html
+|   |       |       pango-Coverage-Maps.html
+|   |       |       pango-Engines.html
+|   |       |       pango-Fonts.html
+|   |       |       pango-FreeType-Fonts-and-Rendering.html
+|   |       |       pango-Glyph-Storage.html
+|   |       |       pango-hierarchy.html
+|   |       |       pango-Layout-Objects.html
+|   |       |       pango-Miscellaneous-Utilities.html
+|   |       |       pango-Modules.html
+|   |       |       pango-OpenType-Font-Handling.html
+|   |       |       pango-pango-renderer.html
+|   |       |       pango-querymodules.html
+|   |       |       pango-Scripts-and-Languages.html
+|   |       |       pango-Tab-Stops.html
+|   |       |       pango-Text-Attributes.html
+|   |       |       pango-Text-Processing.html
+|   |       |       pango-Version-Checking.html
+|   |       |       pango-Vertical-Text.html
+|   |       |       pango-Win32-Fonts-and-Rendering.html
+|   |       |       pango-X-Fonts-and-Rendering.html
+|   |       |       pango-Xft-Fonts-and-Rendering.html
+|   |       |       pango.devhelp2
+|   |       |       pango.html
+|   |       |       PangoEngineLang.html
+|   |       |       PangoEngineShape.html
+|   |       |       PangoFcDecoder.html
+|   |       |       PangoFcFont.html
+|   |       |       PangoFcFontMap.html
+|   |       |       PangoMarkupFormat.html
+|   |       |       rendering.html
+|   |       |       right.png
+|   |       |       rotated-text.png
+|   |       |       style.css
+|   |       |       tools.html
+|   |       |       up.png
+|   |       |       
+|   |       \---rsvg-2.0
+|   |               annotation-glossary.html
+|   |               api-index-2-14.html
+|   |               api-index-2-22.html
+|   |               api-index-2-32.html
+|   |               api-index-2-36.html
+|   |               api-index-2-4.html
+|   |               api-index-2-8.html
+|   |               api-index-2-9.html
+|   |               api-index-deprecated.html
+|   |               api-index-full.html
+|   |               home.png
+|   |               index.html
+|   |               index.sgml
+|   |               left.png
+|   |               licence.html
+|   |               object-tree.html
+|   |               right.png
+|   |               rsvg-2.0.devhelp2
+|   |               rsvg-Using-RSVG-with-cairo.html
+|   |               rsvg-Using-RSVG-with-GdkPixbuf.html
+|   |               rsvg-Using-RSVG-with-GIO.html
+|   |               rsvg-Version-check-and-feature-tests.html
+|   |               rsvg.html
+|   |               RsvgHandle.html
+|   |               style.css
+|   |               up.png
+|   |               
+|   +---icons
+|   |   +---gnome-light
+|   |   |   |   icon-theme.cache
+|   |   |   |   index.theme
+|   |   |   |   
+|   |   |   +---16x16
+|   |   |   |   \---mimetypes
+|   |   |   |           application-x-executable.png
+|   |   |   |           binary.png
+|   |   |   |           exec.png
+|   |   |   |           gnome-fs-executable.png
+|   |   |   |           gnome-mime-application-x-executable.png
+|   |   |   |           gnome-mime-application-x-ms-dos-executable.png
+|   |   |   |           
+|   |   |   +---22x22
+|   |   |   |   \---mimetypes
+|   |   |   |           application-x-executable.png
+|   |   |   |           binary.png
+|   |   |   |           exec.png
+|   |   |   |           gnome-fs-executable.png
+|   |   |   |           gnome-mime-application-x-executable.png
+|   |   |   |           gnome-mime-application-x-ms-dos-executable.png
+|   |   |   |           
+|   |   |   +---24x24
+|   |   |   |   \---mimetypes
+|   |   |   |           application-x-executable.png
+|   |   |   |           binary.png
+|   |   |   |           exec.png
+|   |   |   |           gnome-fs-executable.png
+|   |   |   |           gnome-mime-application-x-executable.png
+|   |   |   |           gnome-mime-application-x-ms-dos-executable.png
+|   |   |   |           
+|   |   |   +---256x256
+|   |   |   |   \---mimetypes
+|   |   |   |           application-x-executable.png
+|   |   |   |           binary.png
+|   |   |   |           exec.png
+|   |   |   |           gnome-fs-executable.png
+|   |   |   |           gnome-mime-application-x-executable.png
+|   |   |   |           gnome-mime-application-x-ms-dos-executable.png
+|   |   |   |           
+|   |   |   +---32x32
+|   |   |   |   \---mimetypes
+|   |   |   |           application-x-executable.png
+|   |   |   |           binary.png
+|   |   |   |           exec.png
+|   |   |   |           gnome-fs-executable.png
+|   |   |   |           gnome-mime-application-x-executable.png
+|   |   |   |           gnome-mime-application-x-ms-dos-executable.png
+|   |   |   |           
+|   |   |   +---48x48
+|   |   |   |   \---mimetypes
+|   |   |   |           application-x-executable.png
+|   |   |   |           binary.png
+|   |   |   |           exec.png
+|   |   |   |           gnome-fs-executable.png
+|   |   |   |           gnome-mime-application-x-executable.png
+|   |   |   |           gnome-mime-application-x-ms-dos-executable.png
+|   |   |   |           
+|   |   |   \---scalable
+|   |   |       +---actions
+|   |   |       |       edit-clear-symbolic.svg
+|   |   |       |       edit-find-symbolic.svg
+|   |   |       |       go-up-symbolic.svg
+|   |   |       |       list-add-symbolic.svg
+|   |   |       |       list-remove-symbolic.svg
+|   |   |       |       
+|   |   |       +---emblems
+|   |   |       |       emblem-default-symbolic.svg
+|   |   |       |       emblem-important-symbolic.svg
+|   |   |       |       
+|   |   |       \---status
+|   |   |               battery-caution-charging-symbolic.svg
+|   |   |               
+|   |   \---hicolor
+|   |       |   index.theme
+|   |       |   
+|   |       +---128x128
+|   |       |   +---actions
+|   |       |   +---animations
+|   |       |   +---apps
+|   |       |   +---categories
+|   |       |   +---devices
+|   |       |   +---emblems
+|   |       |   +---emotes
+|   |       |   +---filesystems
+|   |       |   +---intl
+|   |       |   +---mimetypes
+|   |       |   +---places
+|   |       |   +---status
+|   |       |   \---stock
+|   |       |       +---chart
+|   |       |       +---code
+|   |       |       +---data
+|   |       |       +---form
+|   |       |       +---image
+|   |       |       +---io
+|   |       |       +---media
+|   |       |       +---navigation
+|   |       |       +---net
+|   |       |       +---object
+|   |       |       +---table
+|   |       |       \---text
+|   |       +---16x16
+|   |       |   +---actions
+|   |       |   +---animations
+|   |       |   +---apps
+|   |       |   +---categories
+|   |       |   +---devices
+|   |       |   +---emblems
+|   |       |   +---emotes
+|   |       |   +---filesystems
+|   |       |   +---intl
+|   |       |   +---mimetypes
+|   |       |   +---places
+|   |       |   +---status
+|   |       |   \---stock
+|   |       |       +---chart
+|   |       |       +---code
+|   |       |       +---data
+|   |       |       +---form
+|   |       |       +---image
+|   |       |       +---io
+|   |       |       +---media
+|   |       |       +---navigation
+|   |       |       +---net
+|   |       |       +---object
+|   |       |       +---table
+|   |       |       \---text
+|   |       +---192x192
+|   |       |   +---actions
+|   |       |   +---animations
+|   |       |   +---apps
+|   |       |   +---categories
+|   |       |   +---devices
+|   |       |   +---emblems
+|   |       |   +---emotes
+|   |       |   +---filesystems
+|   |       |   +---intl
+|   |       |   +---mimetypes
+|   |       |   +---places
+|   |       |   +---status
+|   |       |   \---stock
+|   |       |       +---chart
+|   |       |       +---code
+|   |       |       +---data
+|   |       |       +---form
+|   |       |       +---image
+|   |       |       +---io
+|   |       |       +---media
+|   |       |       +---navigation
+|   |       |       +---net
+|   |       |       +---object
+|   |       |       +---table
+|   |       |       \---text
+|   |       +---22x22
+|   |       |   +---actions
+|   |       |   +---animations
+|   |       |   +---apps
+|   |       |   +---categories
+|   |       |   +---devices
+|   |       |   +---emblems
+|   |       |   +---emotes
+|   |       |   +---filesystems
+|   |       |   +---intl
+|   |       |   +---mimetypes
+|   |       |   +---places
+|   |       |   +---status
+|   |       |   \---stock
+|   |       |       +---chart
+|   |       |       +---code
+|   |       |       +---data
+|   |       |       +---form
+|   |       |       +---image
+|   |       |       +---io
+|   |       |       +---media
+|   |       |       +---navigation
+|   |       |       +---net
+|   |       |       +---object
+|   |       |       +---table
+|   |       |       \---text
+|   |       +---24x24
+|   |       |   +---actions
+|   |       |   +---animations
+|   |       |   +---apps
+|   |       |   +---categories
+|   |       |   +---devices
+|   |       |   +---emblems
+|   |       |   +---emotes
+|   |       |   +---filesystems
+|   |       |   +---intl
+|   |       |   +---mimetypes
+|   |       |   +---places
+|   |       |   +---status
+|   |       |   \---stock
+|   |       |       +---chart
+|   |       |       +---code
+|   |       |       +---data
+|   |       |       +---form
+|   |       |       +---image
+|   |       |       +---io
+|   |       |       +---media
+|   |       |       +---navigation
+|   |       |       +---net
+|   |       |       +---object
+|   |       |       +---table
+|   |       |       \---text
+|   |       +---256x256
+|   |       |   +---actions
+|   |       |   +---animations
+|   |       |   +---apps
+|   |       |   +---categories
+|   |       |   +---devices
+|   |       |   +---emblems
+|   |       |   +---emotes
+|   |       |   +---filesystems
+|   |       |   +---intl
+|   |       |   +---mimetypes
+|   |       |   +---places
+|   |       |   +---status
+|   |       |   \---stock
+|   |       |       +---chart
+|   |       |       +---code
+|   |       |       +---data
+|   |       |       +---form
+|   |       |       +---image
+|   |       |       +---io
+|   |       |       +---media
+|   |       |       +---navigation
+|   |       |       +---net
+|   |       |       +---object
+|   |       |       +---table
+|   |       |       \---text
+|   |       +---32x32
+|   |       |   +---actions
+|   |       |   +---animations
+|   |       |   +---apps
+|   |       |   +---categories
+|   |       |   +---devices
+|   |       |   +---emblems
+|   |       |   +---emotes
+|   |       |   +---filesystems
+|   |       |   +---intl
+|   |       |   +---mimetypes
+|   |       |   +---places
+|   |       |   +---status
+|   |       |   \---stock
+|   |       |       +---chart
+|   |       |       +---code
+|   |       |       +---data
+|   |       |       +---form
+|   |       |       +---image
+|   |       |       +---io
+|   |       |       +---media
+|   |       |       +---navigation
+|   |       |       +---net
+|   |       |       +---object
+|   |       |       +---table
+|   |       |       \---text
+|   |       +---36x36
+|   |       |   +---actions
+|   |       |   +---animations
+|   |       |   +---apps
+|   |       |   +---categories
+|   |       |   +---devices
+|   |       |   +---emblems
+|   |       |   +---emotes
+|   |       |   +---filesystems
+|   |       |   +---intl
+|   |       |   +---mimetypes
+|   |       |   +---places
+|   |       |   +---status
+|   |       |   \---stock
+|   |       |       +---chart
+|   |       |       +---code
+|   |       |       +---data
+|   |       |       +---form
+|   |       |       +---image
+|   |       |       +---io
+|   |       |       +---media
+|   |       |       +---navigation
+|   |       |       +---net
+|   |       |       +---object
+|   |       |       +---table
+|   |       |       \---text
+|   |       +---48x48
+|   |       |   +---actions
+|   |       |   +---animations
+|   |       |   +---apps
+|   |       |   +---categories
+|   |       |   +---devices
+|   |       |   +---emblems
+|   |       |   +---emotes
+|   |       |   +---filesystems
+|   |       |   +---intl
+|   |       |   +---mimetypes
+|   |       |   +---places
+|   |       |   +---status
+|   |       |   \---stock
+|   |       |       +---chart
+|   |       |       +---code
+|   |       |       +---data
+|   |       |       +---form
+|   |       |       +---image
+|   |       |       +---io
+|   |       |       +---media
+|   |       |       +---navigation
+|   |       |       +---net
+|   |       |       +---object
+|   |       |       +---table
+|   |       |       \---text
+|   |       +---64x64
+|   |       |   +---actions
+|   |       |   +---animations
+|   |       |   +---apps
+|   |       |   +---categories
+|   |       |   +---devices
+|   |       |   +---emblems
+|   |       |   +---emotes
+|   |       |   +---filesystems
+|   |       |   +---intl
+|   |       |   +---mimetypes
+|   |       |   +---places
+|   |       |   +---status
+|   |       |   \---stock
+|   |       |       +---chart
+|   |       |       +---code
+|   |       |       +---data
+|   |       |       +---form
+|   |       |       +---image
+|   |       |       +---io
+|   |       |       +---media
+|   |       |       +---navigation
+|   |       |       +---net
+|   |       |       +---object
+|   |       |       +---table
+|   |       |       \---text
+|   |       +---72x72
+|   |       |   +---actions
+|   |       |   +---animations
+|   |       |   +---apps
+|   |       |   +---categories
+|   |       |   +---devices
+|   |       |   +---emblems
+|   |       |   +---emotes
+|   |       |   +---filesystems
+|   |       |   +---intl
+|   |       |   +---mimetypes
+|   |       |   +---places
+|   |       |   +---status
+|   |       |   \---stock
+|   |       |       +---chart
+|   |       |       +---code
+|   |       |       +---data
+|   |       |       +---form
+|   |       |       +---image
+|   |       |       +---io
+|   |       |       +---media
+|   |       |       +---navigation
+|   |       |       +---net
+|   |       |       +---object
+|   |       |       +---table
+|   |       |       \---text
+|   |       +---96x96
+|   |       |   +---actions
+|   |       |   +---animations
+|   |       |   +---apps
+|   |       |   +---categories
+|   |       |   +---devices
+|   |       |   +---emblems
+|   |       |   +---emotes
+|   |       |   +---filesystems
+|   |       |   +---intl
+|   |       |   +---mimetypes
+|   |       |   +---places
+|   |       |   +---status
+|   |       |   \---stock
+|   |       |       +---chart
+|   |       |       +---code
+|   |       |       +---data
+|   |       |       +---form
+|   |       |       +---image
+|   |       |       +---io
+|   |       |       +---media
+|   |       |       +---navigation
+|   |       |       +---net
+|   |       |       +---object
+|   |       |       +---table
+|   |       |       \---text
+|   |       \---scalable
+|   |           +---actions
+|   |           +---animations
+|   |           +---apps
+|   |           +---categories
+|   |           +---devices
+|   |           +---emblems
+|   |           +---emotes
+|   |           +---filesystems
+|   |           +---intl
+|   |           +---mimetypes
+|   |           +---places
+|   |           +---status
+|   |           \---stock
+|   |               +---chart
+|   |               +---code
+|   |               +---data
+|   |               +---form
+|   |               +---image
+|   |               +---io
+|   |               +---media
+|   |               +---navigation
+|   |               +---net
+|   |               +---object
+|   |               +---table
+|   |               \---text
+|   +---locale
+|   |   +---af
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---am
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---ang
+|   |   |   \---LC_MESSAGES
+|   |   |           gdk-pixbuf.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---ar
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---as
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---ast
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---az
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---az_IR
+|   |   |   \---LC_MESSAGES
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---be
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---be@latin
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---bg
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---bn
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---bn_IN
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---br
+|   |   |   \---LC_MESSAGES
+|   |   |           gdk-pixbuf.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---bs
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---ca
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---ca@valencia
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---crh
+|   |   |   \---LC_MESSAGES
+|   |   |           gdk-pixbuf.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---cs
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---csb
+|   |   |   \---LC_MESSAGES
+|   |   |           gdk-pixbuf.mo
+|   |   |           
+|   |   +---cy
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---da
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---de
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---dz
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---el
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---en
+|   |   |   \---LC_MESSAGES
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---en@shaw
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---en_CA
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---en_GB
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---eo
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---es
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---et
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---eu
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---fa
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---fi
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---fr
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---ga
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---gl
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---gu
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---he
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---hi
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---hr
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---hu
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---hy
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---ia
+|   |   |   \---LC_MESSAGES
+|   |   |           gdk-pixbuf.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---id
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---io
+|   |   |   \---LC_MESSAGES
+|   |   |           gdk-pixbuf.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---is
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---it
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---ja
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---ka
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---kg
+|   |   |   \---LC_MESSAGES
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---kk
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---km
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---kn
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---ko
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---ku
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---ky
+|   |   |   \---LC_MESSAGES
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---lg
+|   |   |   \---LC_MESSAGES
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---li
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---lt
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---lv
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---mai
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---mg
+|   |   |   \---LC_MESSAGES
+|   |   |           glib20.mo
+|   |   |           
+|   |   +---mi
+|   |   |   \---LC_MESSAGES
+|   |   |           gdk-pixbuf.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---mk
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---ml
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---mn
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---mr
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---ms
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---my
+|   |   |   \---LC_MESSAGES
+|   |   |           gdk-pixbuf.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---nb
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---nds
+|   |   |   \---LC_MESSAGES
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---ne
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---nl
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---nn
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---nso
+|   |   |   \---LC_MESSAGES
+|   |   |           gdk-pixbuf.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---oc
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---or
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---pa
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---pl
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---ps
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---pt
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---pt_BR
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---ro
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---ru
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---rw
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---si
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---sk
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---sl
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---sq
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---sr
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---sr@ije
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---sr@latin
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---sv
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---ta
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---te
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---th
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---tk
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---tl
+|   |   |   \---LC_MESSAGES
+|   |   |           glib20.mo
+|   |   |           
+|   |   +---tr
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---tt
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---ug
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---uk
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---ur
+|   |   |   \---LC_MESSAGES
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---uz
+|   |   |   \---LC_MESSAGES
+|   |   |           gdk-pixbuf.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---uz@cyrillic
+|   |   |   \---LC_MESSAGES
+|   |   |           gdk-pixbuf.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---vi
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---wa
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---xh
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---yi
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---zh_CN
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---zh_HK
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   +---zh_TW
+|   |   |   \---LC_MESSAGES
+|   |   |           atk10.mo
+|   |   |           gdk-pixbuf.mo
+|   |   |           glib20.mo
+|   |   |           gtk30-properties.mo
+|   |   |           gtk30.mo
+|   |   |           
+|   |   \---zu
+|   |       \---LC_MESSAGES
+|   |               atk10.mo
+|   |               
+|   +---man
+|   |   +---man1
+|   |   |       fc-cache.1
+|   |   |       fc-cat.1
+|   |   |       fc-list.1
+|   |   |       fc-match.1
+|   |   |       fc-pattern.1
+|   |   |       fc-query.1
+|   |   |       fc-scan.1
+|   |   |       gdk-pixbuf-csource.1
+|   |   |       gdk-pixbuf-query-loaders.1
+|   |   |       gtk-launch.1
+|   |   |       gtk-query-immodules-3.0.1
+|   |   |       gtk-update-icon-cache.1
+|   |   |       pango-querymodules.1
+|   |   |       pango-view.1
+|   |   |       pkg-config.1
+|   |   |       xml2-config.1
+|   |   |       
+|   |   \---man3
+|   |           libxml.3
+|   |           
+|   \---themes
+|       +---Default
+|       |   \---gtk-3.0
+|       |           gtk-keys.css
+|       |           
+|       \---Emacs
+|           \---gtk-3.0
+|                   gtk-keys.css
+|                   
+\---src
+    \---tarnyko
+        \---scripts
+            |   11_libffi.bat
+            |   12_glib.bat
+            |   13_pkg-config.bat
+            |   1_zlib.bat
+            |   21_atk.bat
+            |   2_xz.bat
+            |   31_libpng.bat
+            |   32_libfreetype.bat
+            |   33_libfontconfig.bat
+            |   34_pixman.bat
+            |   35_cairo.bat
+            |   36_pango.bat
+            |   3_libxml2.bat
+            |   41_libjpeg.bat
+            |   42_libjasper.bat
+            |   43_libtiff.bat
+            |   44_gdk-pixbuf.bat
+            |   51_gtk3.bat
+            |   61_libcroco.bat
+            |   62_librsvg.bat
+            |   71_icon-naming-utils.bat
+            |   72_hicolor-icon-theme.bat
+            |   73_gnome-icon-theme.bat
+            |   74_gnome-icon-theme-symbolic.bat
+            |   
+            +---11_libffi
+            |       libtool
+            |       
+            +---1_zlib
+            |       zlib.pc
+            |       
+            +---35_cairo
+            |       cairo-1.10.2-win32_surfaces.patch
+            |       configure
+            |       libtool
+            |       
+            +---42_libjasper
+            |       jasper-1.900.1-win32_sleep.patch
+            |       libtool
+            |       
+            +---51_gtk3
+            |       gtk+-3.6.4-win32_gtk-launch.patch
+            |       gtk+-3.6.4-win32_gtkassistant.patch
+            |       gtk+-3.6.4-win32_gtknotebook.patch
+            |       gtk+-3.6.4-win32_gtkspinner.patch
+            |       
+            \---logs
+                    11_libffi-make.log
+                    11_libffi-makeinstall.log
+                    12_glib-make.log
+                    12_glib-makeinstall.log
+                    13_pkg-config-make.log
+                    13_pkg-config-makeinstall.log
+                    1_zlib-make.log
+                    21_atk-make.log
+                    21_atk-makeinstall.log
+                    2_xz-make.log
+                    2_xz-makeinstall.log
+                    31_libpng-make.log
+                    31_libpng-makeinstall.log
+                    32_libfreetype-make.log
+                    32_libfreetype-makeinstall.log
+                    33_libfontconfig-make.log
+                    33_libfontconfig-makeinstall.log
+                    34_pixman-make.log
+                    34_pixman-makeinstall.log
+                    35_cairo-make.log
+                    35_cairo-makeinstall.log
+                    36_pango-make.log
+                    36_pango-makeinstall.log
+                    3_libxml2-make.log
+                    3_libxml2-makeinstall.log
+                    41_libjpeg-make.log
+                    41_libjpeg-makeinstall.log
+                    42_libjasper-make.log
+                    42_libjasper-makeinstall.log
+                    43_libtiff-make.log
+                    43_libtiff-makeinstall.log
+                    44_gdk-pixbuf-make.log
+                    44_gdk-pixbuf-makeinstall.log
+                    51_gtk3-make.log
+                    51_gtk3-makeinstall.log
+                    61_libcroco-make.log
+                    61_libcroco-makeinstall.log
+                    62_librsvg-make.log
+                    62_librsvg-makeinstall.log
+                    71_icon-naming-utils-make.log
+                    71_icon-naming-utils-makeinstall.log
+                    72_hicolor-icon-theme-make.log
+                    72_hicolor-icon-theme-makeinstall.log
+                    73_gnome-icon-theme-make.log
+                    73_gnome-icon-theme-makeinstall.log
+                    74_gnome-icon-theme-symbolic-make.log
+                    74_gnome-icon-theme-symbolic-makeinstall.log
+                    

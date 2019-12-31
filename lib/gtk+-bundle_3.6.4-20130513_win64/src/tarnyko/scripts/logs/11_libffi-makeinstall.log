@@ -1,0 +1,49 @@
+MAKE i686-pc-mingw32 : 0 * install
+make[1]: Entering directory `/home/Administrateur/11_libffi/libffi-3.0.12/x86_64-w64-mingw32'
+Making install in include
+make[2]: Entering directory `/home/Administrateur/11_libffi/libffi-3.0.12/x86_64-w64-mingw32/include'
+make[3]: Entering directory `/home/Administrateur/11_libffi/libffi-3.0.12/x86_64-w64-mingw32/include'
+make[3]: Nothing to be done for `install-exec-am'.
+ /bin/mkdir -p '/opt/lib/libffi-3.0.12/include'
+ /bin/install -c -m 644 ffi.h ffitarget.h '/opt/lib/libffi-3.0.12/include'
+make[3]: Leaving directory `/home/Administrateur/11_libffi/libffi-3.0.12/x86_64-w64-mingw32/include'
+make[2]: Leaving directory `/home/Administrateur/11_libffi/libffi-3.0.12/x86_64-w64-mingw32/include'
+Making install in testsuite
+make[2]: Entering directory `/home/Administrateur/11_libffi/libffi-3.0.12/x86_64-w64-mingw32/testsuite'
+make[3]: Entering directory `/home/Administrateur/11_libffi/libffi-3.0.12/x86_64-w64-mingw32/testsuite'
+make[3]: Nothing to be done for `install-exec-am'.
+make[3]: Nothing to be done for `install-data-am'.
+make[3]: Leaving directory `/home/Administrateur/11_libffi/libffi-3.0.12/x86_64-w64-mingw32/testsuite'
+make[2]: Leaving directory `/home/Administrateur/11_libffi/libffi-3.0.12/x86_64-w64-mingw32/testsuite'
+Making install in man
+make[2]: Entering directory `/home/Administrateur/11_libffi/libffi-3.0.12/x86_64-w64-mingw32/man'
+make[3]: Entering directory `/home/Administrateur/11_libffi/libffi-3.0.12/x86_64-w64-mingw32/man'
+make[3]: Nothing to be done for `install-exec-am'.
+ /bin/mkdir -p '/opt/share/man/man3'
+ /bin/install -c -m 644 ../../man/ffi.3 ../../man/ffi_call.3 ../../man/ffi_prep_cif.3 ../../man/ffi_prep_cif_var.3 '/opt/share/man/man3'
+make[3]: Leaving directory `/home/Administrateur/11_libffi/libffi-3.0.12/x86_64-w64-mingw32/man'
+make[2]: Leaving directory `/home/Administrateur/11_libffi/libffi-3.0.12/x86_64-w64-mingw32/man'
+make[2]: Entering directory `/home/Administrateur/11_libffi/libffi-3.0.12/x86_64-w64-mingw32'
+make[3]: Entering directory `/home/Administrateur/11_libffi/libffi-3.0.12/x86_64-w64-mingw32'
+ /bin/mkdir -p '/opt/lib/../lib'
+ /bin/sh ./libtool   --mode=install /bin/install -c   libffi.la '/opt/lib/../lib'
+libtool: install: /bin/install -c .libs/libffi.dll.a /opt/lib/../lib/libffi.dll.a
+libtool: install: base_file=`basename libffi.la`
+libtool: install:  dlpath=`/bin/sh 2>&1 -c '. .libs/'libffi.la'i; echo libffi-6.dll'`
+libtool: install:  dldir=/opt/lib/../lib/`dirname ../bin/libffi-6.dll`
+libtool: install:  test -d /opt/lib/../lib/../bin || mkdir -p /opt/lib/../lib/../bin
+libtool: install:  /bin/install -c .libs/libffi-6.dll /opt/lib/../lib/../bin/libffi-6.dll
+libtool: install:  chmod a+x /opt/lib/../lib/../bin/libffi-6.dll
+libtool: install:  if test -n '' && test -n 'x86_64-w64-mingw32-strip --strip-unneeded'; then eval 'x86_64-w64-mingw32-strip --strip-unneeded /opt/lib/../lib/../bin/libffi-6.dll' || exit 0; fi
+libtool: install: /bin/install -c .libs/libffi.lai /opt/lib/../lib/libffi.la
+libtool: install: /bin/install -c .libs/libffi.a /opt/lib/../lib/libffi.a
+libtool: install: chmod 644 /opt/lib/../lib/libffi.a
+libtool: install: x86_64-w64-mingw32-ranlib /opt/lib/../lib/libffi.a
+ /bin/mkdir -p '/opt/share/info'
+ /bin/install -c -m 644 ../doc/libffi.info '/opt/share/info'
+ install-info --info-dir='/opt/share/info' '/opt/share/info/libffi.info'
+ /bin/mkdir -p '/opt/lib/pkgconfig'
+ /bin/install -c -m 644 libffi.pc '/opt/lib/pkgconfig'
+make[3]: Leaving directory `/home/Administrateur/11_libffi/libffi-3.0.12/x86_64-w64-mingw32'
+make[2]: Leaving directory `/home/Administrateur/11_libffi/libffi-3.0.12/x86_64-w64-mingw32'
+make[1]: Leaving directory `/home/Administrateur/11_libffi/libffi-3.0.12/x86_64-w64-mingw32'

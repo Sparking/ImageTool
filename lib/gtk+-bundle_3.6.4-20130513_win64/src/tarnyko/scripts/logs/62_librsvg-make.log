@@ -1,0 +1,458 @@
+  GEN    s-enum-types-h
+  GEN    s-enum-types-c
+make  all-recursive
+make[1]: Entering directory `/home/Administrateur/62_librsvg/librsvg-2.36.4'
+Making all in .
+make[2]: Entering directory `/home/Administrateur/62_librsvg/librsvg-2.36.4'
+  CC     librsvg_2_la-librsvg-features.lo
+  CC     librsvg_2_la-rsvg-css.lo
+rsvg-css.c: In function 'rsvg_css_parse_xml_attribute_string':
+rsvg-css.c:844:9: warning: pointer targets in passing argument 1 of 'strcmp' differ in signedness [-Wpointer-sign]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/string.h:53:15: note: expected 'const char *' but argument is of type 'const xmlChar *'
+rsvg-css.c: In function 'rsvg_css_parse_vbox':
+rsvg-css.c:65:1: warning: function returns an aggregate [-Waggregate-return]
+rsvg-css.c: In function '_rsvg_css_parse_length':
+rsvg-css.c:182:1: warning: function returns an aggregate [-Waggregate-return]
+  CC     librsvg_2_la-rsvg-defs.lo
+  CC     librsvg_2_la-rsvg-image.lo
+rsvg-image.c: In function 'rsvg_node_image_set_atts':
+rsvg-image.c:194:22: warning: function call has aggregate value [-Waggregate-return]
+rsvg-image.c:196:22: warning: function call has aggregate value [-Waggregate-return]
+rsvg-image.c:198:22: warning: function call has aggregate value [-Waggregate-return]
+rsvg-image.c:200:22: warning: function call has aggregate value [-Waggregate-return]
+rsvg-image.c: In function 'rsvg_new_image':
+rsvg-image.c:236:14: warning: function call has aggregate value [-Waggregate-return]
+  CC     librsvg_2_la-rsvg-io.lo
+rsvg-io.c: In function 'rsvg_acquire_data_data':
+rsvg-io.c:110:18: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+rsvg-io.c:124:5: warning: pointer targets in return differ in signedness [-Wpointer-sign]
+rsvg-io.c: In function 'rsvg_acquire_file_data':
+rsvg-io.c:181:9: warning: pointer targets in passing argument 2 of 'g_content_type_guess' differ in signedness [-Wpointer-sign]
+C:/msys/1.0/opt/include/glib-2.0/gio/gcontenttype.h:50:10: note: expected 'const guchar *' but argument is of type 'gchar *'
+rsvg-io.c:189:5: warning: pointer targets in return differ in signedness [-Wpointer-sign]
+rsvg-io.c: In function 'rsvg_acquire_gvfs_data':
+rsvg-io.c:286:9: warning: pointer targets in passing argument 2 of 'g_content_type_guess' differ in signedness [-Wpointer-sign]
+C:/msys/1.0/opt/include/glib-2.0/gio/gcontenttype.h:50:10: note: expected 'const guchar *' but argument is of type 'gchar *'
+rsvg-io.c:292:5: warning: pointer targets in return differ in signedness [-Wpointer-sign]
+  CC     librsvg_2_la-rsvg-paint-server.lo
+rsvg-paint-server.c: In function 'rsvg_stop_set_atts':
+rsvg-paint-server.c:200:24: warning: function call has aggregate value [-Waggregate-return]
+rsvg-paint-server.c: In function 'rsvg_linear_gradient_set_atts':
+rsvg-paint-server.c:248:22: warning: function call has aggregate value [-Waggregate-return]
+rsvg-paint-server.c:252:22: warning: function call has aggregate value [-Waggregate-return]
+rsvg-paint-server.c:256:22: warning: function call has aggregate value [-Waggregate-return]
+rsvg-paint-server.c:260:22: warning: function call has aggregate value [-Waggregate-return]
+rsvg-paint-server.c: In function 'rsvg_new_linear_gradient':
+rsvg-paint-server.c:303:14: warning: function call has aggregate value [-Waggregate-return]
+rsvg-paint-server.c:304:14: warning: function call has aggregate value [-Waggregate-return]
+rsvg-paint-server.c: In function 'rsvg_radial_gradient_set_atts':
+rsvg-paint-server.c:324:22: warning: function call has aggregate value [-Waggregate-return]
+rsvg-paint-server.c:330:22: warning: function call has aggregate value [-Waggregate-return]
+rsvg-paint-server.c:336:21: warning: function call has aggregate value [-Waggregate-return]
+rsvg-paint-server.c:340:22: warning: function call has aggregate value [-Waggregate-return]
+rsvg-paint-server.c:344:22: warning: function call has aggregate value [-Waggregate-return]
+rsvg-paint-server.c: In function 'rsvg_new_radial_gradient':
+rsvg-paint-server.c:389:14: warning: function call has aggregate value [-Waggregate-return]
+rsvg-paint-server.c: In function 'rsvg_pattern_set_atts':
+rsvg-paint-server.c:406:27: warning: function call has aggregate value [-Waggregate-return]
+rsvg-paint-server.c:410:24: warning: function call has aggregate value [-Waggregate-return]
+rsvg-paint-server.c:414:24: warning: function call has aggregate value [-Waggregate-return]
+rsvg-paint-server.c:418:28: warning: function call has aggregate value [-Waggregate-return]
+rsvg-paint-server.c:422:29: warning: function call has aggregate value [-Waggregate-return]
+rsvg-paint-server.c: In function 'rsvg_new_pattern':
+rsvg-paint-server.c:469:16: warning: function call has aggregate value [-Waggregate-return]
+  CC     librsvg_2_la-rsvg-path.lo
+rsvg-path.c: In function 'rsvg_path_builder_curve_to':
+rsvg-path.c:122:36: warning: declaration of 'y1' shadows a global declaration [-Wshadow]
+rsvg-path.c: In function 'rsvg_path_arc_segment':
+rsvg-path.c:185:16: warning: declaration of 'y1' shadows a global declaration [-Wshadow]
+rsvg-path.c:188:15: warning: declaration of 'sinf' shadows a global declaration [-Wshadow]
+rsvg-path.c:188:21: warning: declaration of 'cosf' shadows a global declaration [-Wshadow]
+rsvg-path.c: In function 'rsvg_path_arc':
+rsvg-path.c:234:15: warning: declaration of 'sinf' shadows a global declaration [-Wshadow]
+rsvg-path.c:234:21: warning: declaration of 'cosf' shadows a global declaration [-Wshadow]
+rsvg-path.c:235:16: warning: declaration of 'y1' shadows a global declaration [-Wshadow]
+rsvg-path.c: In function 'rsvg_parse_path_do_cmd':
+rsvg-path.c:371:16: warning: declaration of 'y1' shadows a global declaration [-Wshadow]
+rsvg-path.c: In function 'rsvg_path_end_of_number':
+rsvg-path.c:528:90: warning: declaration of 'exp' shadows a global declaration [-Wshadow]
+rsvg-path.c: In function 'rsvg_parse_path_data':
+rsvg-path.c:582:9: warning: declaration of 'exp' shadows a global declaration [-Wshadow]
+  CC     librsvg_2_la-rsvg-base-file-util.lo
+  CC     librsvg_2_la-rsvg-filter.lo
+rsvg-filter.c: In function 'fixpow':
+rsvg-filter.c:2184:25: warning: declaration of 'exp' shadows a global declaration [-Wshadow]
+rsvg-filter.c: In function 'rsvg_filter_primitive_component_transfer_render':
+rsvg-filter.c:2228:48: warning: declaration of 'temp' shadows a previous local [-Wshadow]
+rsvg-filter.c:2208:10: warning: shadowed declaration is here [-Wshadow]
+rsvg-filter.c: In function 'get_light_direction':
+rsvg-filter.c:3999:72: warning: declaration of 'y1' shadows a global declaration [-Wshadow]
+rsvg-filter.c: In function 'get_light_colour':
+rsvg-filter.c:4027:39: warning: declaration of 'y1' shadows a global declaration [-Wshadow]
+rsvg-filter.c: In function 'rsvg_filter_primitive_get_bounds':
+rsvg-filter.c:90:1: warning: function returns an aggregate [-Waggregate-return]
+rsvg-filter.c: In function 'rsvg_filter_render':
+rsvg-filter.c:522:28: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c: In function 'rsvg_filter_get_result':
+rsvg-filter.c:676:1: warning: function returns an aggregate [-Waggregate-return]
+rsvg-filter.c: In function 'rsvg_filter_get_in':
+rsvg-filter.c:733:35: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c: In function 'rsvg_filter_set_args':
+rsvg-filter.c:785:23: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:787:23: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:789:27: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:791:28: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c: In function 'rsvg_new_filter':
+rsvg-filter.c:811:15: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:812:15: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:813:19: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:814:20: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c: In function 'rsvg_filter_primitive_blend_render':
+rsvg-filter.c:965:15: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c: In function 'rsvg_filter_primitive_blend_set_atts':
+rsvg-filter.c:1033:29: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:1035:29: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:1037:33: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:1039:34: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c: In function 'rsvg_filter_primitive_convolve_matrix_render':
+rsvg-filter.c:1104:15: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c: In function 'rsvg_filter_primitive_convolve_matrix_set_atts':
+rsvg-filter.c:1239:29: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:1241:29: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:1243:33: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:1245:34: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c: In function 'rsvg_filter_primitive_gaussian_blur_render':
+rsvg-filter.c:1494:15: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:1496:8: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c: In function 'rsvg_filter_primitive_gaussian_blur_set_atts':
+rsvg-filter.c:1546:29: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:1548:29: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:1550:33: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:1552:34: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c: In function 'rsvg_filter_primitive_offset_render':
+rsvg-filter.c:1608:15: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c: In function 'rsvg_filter_primitive_offset_set_atts':
+rsvg-filter.c:1690:29: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:1692:29: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:1694:33: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:1696:34: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:1698:24: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:1700:24: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c: In function 'rsvg_new_filter_primitive_offset':
+rsvg-filter.c:1716:16: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:1717:16: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c: In function 'rsvg_filter_primitive_merge_render':
+rsvg-filter.c:1744:15: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c: In function 'rsvg_filter_primitive_merge_set_atts':
+rsvg-filter.c:1793:29: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:1795:29: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:1797:33: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:1799:34: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c: In function 'rsvg_filter_primitive_colour_matrix_render':
+rsvg-filter.c:1891:15: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c: In function 'rsvg_filter_primitive_colour_matrix_set_atts':
+rsvg-filter.c:1999:29: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:2001:29: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:2003:33: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:2005:34: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c: In function 'rsvg_filter_primitive_component_transfer_render':
+rsvg-filter.c:2219:15: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c: In function 'rsvg_filter_primitive_component_transfer_set_atts':
+rsvg-filter.c:2312:29: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:2314:29: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:2316:33: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:2318:34: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c: In function 'rsvg_filter_primitive_erode_render':
+rsvg-filter.c:2444:15: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c: In function 'rsvg_filter_primitive_erode_set_atts':
+rsvg-filter.c:2531:29: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:2533:29: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:2535:33: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:2537:34: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c: In function 'rsvg_filter_primitive_composite_render':
+rsvg-filter.c:2605:15: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c: In function 'rsvg_filter_primitive_composite_set_atts':
+rsvg-filter.c:2775:29: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:2777:29: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:2779:33: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:2781:34: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c: In function 'rsvg_filter_primitive_flood_render':
+rsvg-filter.c:2835:15: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c: In function 'rsvg_filter_primitive_flood_set_atts':
+rsvg-filter.c:2892:23: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:2894:23: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:2896:27: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:2898:28: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c: In function 'rsvg_filter_primitive_displacement_map_render':
+rsvg-filter.c:2952:15: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c: In function 'rsvg_filter_primitive_displacement_map_set_atts':
+rsvg-filter.c:3079:29: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:3081:29: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:3083:33: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:3085:34: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c: In function 'rsvg_filter_primitive_turbulence_render':
+rsvg-filter.c:3380:15: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c: In function 'rsvg_filter_primitive_turbulence_set_atts':
+rsvg-filter.c:3459:29: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:3461:29: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:3463:33: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:3465:34: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c: In function 'rsvg_filter_primitive_image_render_ext':
+rsvg-filter.c:3556:15: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c: In function 'rsvg_filter_primitive_image_render':
+rsvg-filter.c:3623:15: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c: In function 'rsvg_filter_primitive_image_set_atts':
+rsvg-filter.c:3699:29: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:3701:29: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:3703:33: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:3705:34: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c: In function 'normalise':
+rsvg-filter.c:3760:1: warning: function returns an aggregate [-Waggregate-return]
+rsvg-filter.c: In function 'get_light_normal_matrix_x':
+rsvg-filter.c:3773:1: warning: function returns an aggregate [-Waggregate-return]
+rsvg-filter.c: In function 'get_light_normal_matrix_y':
+rsvg-filter.c:3827:1: warning: function returns an aggregate [-Waggregate-return]
+rsvg-filter.c: In function 'get_surface_normal':
+rsvg-filter.c:3883:1: warning: function returns an aggregate [-Waggregate-return]
+rsvg-filter.c:3908:10: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:3912:10: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:3978:12: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c: In function 'get_light_direction':
+rsvg-filter.c:3999:1: warning: function returns an aggregate [-Waggregate-return]
+rsvg-filter.c:4018:20: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c: In function 'get_light_colour':
+rsvg-filter.c:4026:1: warning: function returns an aggregate [-Waggregate-return]
+rsvg-filter.c:4051:7: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:4056:7: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c: In function 'rsvg_node_light_source_set_atts':
+rsvg-filter.c:4094:21: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:4096:21: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:4098:21: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:4100:29: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:4102:29: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:4104:29: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c: In function 'rsvg_filter_primitive_diffuse_lighting_render':
+rsvg-filter.c:4181:15: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:4225:15: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:4226:15: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:4229:25: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c: In function 'rsvg_filter_primitive_diffuse_lighting_set_atts':
+rsvg-filter.c:4276:29: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:4278:29: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:4280:33: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:4282:34: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c: In function 'rsvg_filter_primitive_specular_lighting_render':
+rsvg-filter.c:4367:15: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:4399:15: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:4401:15: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:4403:25: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:4404:31: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c: In function 'rsvg_filter_primitive_specular_lighting_set_atts':
+rsvg-filter.c:4466:29: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:4468:29: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:4470:33: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:4472:34: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c: In function 'rsvg_filter_primitive_tile_render':
+rsvg-filter.c:4539:16: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:4541:11: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c: In function 'rsvg_filter_primitive_tile_set_atts':
+rsvg-filter.c:4602:29: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:4604:29: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:4606:33: warning: function call has aggregate value [-Waggregate-return]
+rsvg-filter.c:4608:34: warning: function call has aggregate value [-Waggregate-return]
+  CC     librsvg_2_la-rsvg-marker.lo
+rsvg-marker.c: In function 'rsvg_marker_render':
+rsvg-marker.c:129:22: warning: declaration of 'x' shadows a parameter [-Wshadow]
+rsvg-marker.c:103:48: warning: shadowed declaration is here [-Wshadow]
+rsvg-marker.c:129:25: warning: declaration of 'y' shadows a parameter [-Wshadow]
+rsvg-marker.c:103:59: warning: shadowed declaration is here [-Wshadow]
+rsvg-marker.c: In function 'rsvg_node_marker_set_atts':
+rsvg-marker.c:58:26: warning: function call has aggregate value [-Waggregate-return]
+rsvg-marker.c:60:26: warning: function call has aggregate value [-Waggregate-return]
+rsvg-marker.c:62:26: warning: function call has aggregate value [-Waggregate-return]
+rsvg-marker.c:64:27: warning: function call has aggregate value [-Waggregate-return]
+rsvg-marker.c:66:28: warning: function call has aggregate value [-Waggregate-return]
+rsvg-marker.c: In function 'rsvg_new_marker':
+rsvg-marker.c:94:18: warning: function call has aggregate value [-Waggregate-return]
+rsvg-marker.c:95:19: warning: function call has aggregate value [-Waggregate-return]
+  CC     librsvg_2_la-rsvg-mask.lo
+rsvg-mask.c: In function 'rsvg_mask_set_atts':
+rsvg-mask.c:53:21: warning: function call has aggregate value [-Waggregate-return]
+rsvg-mask.c:55:21: warning: function call has aggregate value [-Waggregate-return]
+rsvg-mask.c:57:25: warning: function call has aggregate value [-Waggregate-return]
+rsvg-mask.c:59:26: warning: function call has aggregate value [-Waggregate-return]
+rsvg-mask.c: In function 'rsvg_new_mask':
+rsvg-mask.c:80:13: warning: function call has aggregate value [-Waggregate-return]
+rsvg-mask.c:81:13: warning: function call has aggregate value [-Waggregate-return]
+rsvg-mask.c:82:17: warning: function call has aggregate value [-Waggregate-return]
+rsvg-mask.c:83:18: warning: function call has aggregate value [-Waggregate-return]
+  CC     librsvg_2_la-rsvg-shapes.lo
+rsvg-shapes.c: In function '_rsvg_node_line_set_atts':
+rsvg-shapes.c:253:22: warning: function call has aggregate value [-Waggregate-return]
+rsvg-shapes.c:255:22: warning: function call has aggregate value [-Waggregate-return]
+rsvg-shapes.c:257:22: warning: function call has aggregate value [-Waggregate-return]
+rsvg-shapes.c:259:22: warning: function call has aggregate value [-Waggregate-return]
+rsvg-shapes.c: In function 'rsvg_new_line':
+rsvg-shapes.c:312:14: warning: function call has aggregate value [-Waggregate-return]
+rsvg-shapes.c: In function '_rsvg_node_rect_set_atts':
+rsvg-shapes.c:332:21: warning: function call has aggregate value [-Waggregate-return]
+rsvg-shapes.c:334:21: warning: function call has aggregate value [-Waggregate-return]
+rsvg-shapes.c:336:21: warning: function call has aggregate value [-Waggregate-return]
+rsvg-shapes.c:338:21: warning: function call has aggregate value [-Waggregate-return]
+rsvg-shapes.c:340:22: warning: function call has aggregate value [-Waggregate-return]
+rsvg-shapes.c:344:22: warning: function call has aggregate value [-Waggregate-return]
+rsvg-shapes.c: In function 'rsvg_new_rect':
+rsvg-shapes.c:492:13: warning: function call has aggregate value [-Waggregate-return]
+rsvg-shapes.c: In function '_rsvg_node_circle_set_atts':
+rsvg-shapes.c:512:24: warning: function call has aggregate value [-Waggregate-return]
+rsvg-shapes.c:514:24: warning: function call has aggregate value [-Waggregate-return]
+rsvg-shapes.c:516:23: warning: function call has aggregate value [-Waggregate-return]
+rsvg-shapes.c: In function 'rsvg_new_circle':
+rsvg-shapes.c:622:16: warning: function call has aggregate value [-Waggregate-return]
+rsvg-shapes.c: In function '_rsvg_node_ellipse_set_atts':
+rsvg-shapes.c:641:25: warning: function call has aggregate value [-Waggregate-return]
+rsvg-shapes.c:643:25: warning: function call has aggregate value [-Waggregate-return]
+rsvg-shapes.c:645:25: warning: function call has aggregate value [-Waggregate-return]
+rsvg-shapes.c:647:25: warning: function call has aggregate value [-Waggregate-return]
+rsvg-shapes.c: In function 'rsvg_new_ellipse':
+rsvg-shapes.c:753:17: warning: function call has aggregate value [-Waggregate-return]
+  CC     librsvg_2_la-rsvg-structure.lo
+rsvg-structure.c: In function 'rsvg_node_svg_set_atts':
+rsvg-structure.c:339:23: warning: function call has aggregate value [-Waggregate-return]
+rsvg-structure.c:344:20: warning: function call has aggregate value [-Waggregate-return]
+rsvg-structure.c:346:20: warning: function call has aggregate value [-Waggregate-return]
+rsvg-structure.c:352:20: warning: function call has aggregate value [-Waggregate-return]
+rsvg-structure.c:354:20: warning: function call has aggregate value [-Waggregate-return]
+rsvg-structure.c: In function 'rsvg_new_svg':
+rsvg-structure.c:400:12: warning: function call has aggregate value [-Waggregate-return]
+rsvg-structure.c:401:12: warning: function call has aggregate value [-Waggregate-return]
+rsvg-structure.c:402:12: warning: function call has aggregate value [-Waggregate-return]
+rsvg-structure.c:403:12: warning: function call has aggregate value [-Waggregate-return]
+rsvg-structure.c: In function 'rsvg_node_use_set_atts':
+rsvg-structure.c:420:20: warning: function call has aggregate value [-Waggregate-return]
+rsvg-structure.c:422:20: warning: function call has aggregate value [-Waggregate-return]
+rsvg-structure.c:424:20: warning: function call has aggregate value [-Waggregate-return]
+rsvg-structure.c:426:20: warning: function call has aggregate value [-Waggregate-return]
+rsvg-structure.c: In function 'rsvg_new_use':
+rsvg-structure.c:448:12: warning: function call has aggregate value [-Waggregate-return]
+rsvg-structure.c:449:12: warning: function call has aggregate value [-Waggregate-return]
+rsvg-structure.c:450:12: warning: function call has aggregate value [-Waggregate-return]
+rsvg-structure.c:451:12: warning: function call has aggregate value [-Waggregate-return]
+rsvg-structure.c: In function 'rsvg_node_symbol_set_atts':
+rsvg-structure.c:471:26: warning: function call has aggregate value [-Waggregate-return]
+  CC     librsvg_2_la-rsvg-styles.lo
+rsvg-styles.c: In function 'rsvg_state_init':
+rsvg-styles.c:125:25: warning: function call has aggregate value [-Waggregate-return]
+rsvg-styles.c:139:22: warning: function call has aggregate value [-Waggregate-return]
+rsvg-styles.c:148:27: warning: function call has aggregate value [-Waggregate-return]
+rsvg-styles.c: In function 'rsvg_parse_style_pair':
+rsvg-styles.c:640:29: warning: function call has aggregate value [-Waggregate-return]
+rsvg-styles.c:666:26: warning: function call has aggregate value [-Waggregate-return]
+rsvg-styles.c:753:24: warning: function call has aggregate value [-Waggregate-return]
+rsvg-styles.c:777:28: warning: function call has aggregate value [-Waggregate-return]
+  CC     librsvg_2_la-rsvg-text.lo
+rsvg-text.c: In function 'rsvg_make_valid_utf8':
+rsvg-text.c:56:17: warning: declaration of 'remainder' shadows a global declaration [-Wshadow]
+rsvg-text.c: In function 'rsvg_text_create_layout':
+rsvg-text.c:480:21: warning: declaration of 'attribute' shadows a global declaration [-Wshadow]
+C:/msys/1.0/opt/include/libxml2/libxml/SAX.h:104:3: warning: shadowed declaration is here [-Wshadow]
+rsvg-text.c: In function '_rsvg_node_text_set_atts':
+rsvg-text.c:134:21: warning: function call has aggregate value [-Waggregate-return]
+rsvg-text.c:136:21: warning: function call has aggregate value [-Waggregate-return]
+rsvg-text.c:138:22: warning: function call has aggregate value [-Waggregate-return]
+rsvg-text.c:140:22: warning: function call has aggregate value [-Waggregate-return]
+rsvg-text.c: In function 'rsvg_new_text':
+rsvg-text.c:308:13: warning: function call has aggregate value [-Waggregate-return]
+rsvg-text.c: In function '_rsvg_node_tspan_set_atts':
+rsvg-text.c:383:21: warning: function call has aggregate value [-Waggregate-return]
+rsvg-text.c:385:21: warning: function call has aggregate value [-Waggregate-return]
+rsvg-text.c:387:22: warning: function call has aggregate value [-Waggregate-return]
+rsvg-text.c:389:22: warning: function call has aggregate value [-Waggregate-return]
+rsvg-text.c: In function 'rsvg_new_tspan':
+rsvg-text.c:409:14: warning: function call has aggregate value [-Waggregate-return]
+  CC     librsvg_2_la-rsvg-cond.lo
+  CC     librsvg_2_la-rsvg-base.lo
+rsvg-base.c: In function 'rsvg_start_xinclude':
+rsvg-base.c:551:36: warning: pointer targets in passing argument 1 of 'g_convert' differ in signedness [-Wpointer-sign]
+C:/msys/1.0/opt/include/glib-2.0/glib/gconvert.h:89:8: note: expected 'const gchar *' but argument is of type 'guint8 *'
+rsvg-base.c:554:18: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+rsvg-base.c: In function 'rsvg_entity_decl':
+rsvg-base.c:822:13: warning: pointer targets in passing argument 1 of 'xmlCharStrndup' differ in signedness [-Wpointer-sign]
+C:/msys/1.0/opt/include/libxml2/libxml/xmlstring.h:46:17: note: expected 'const char *' but argument is of type 'guint8 *'
+rsvg-base.c: In function 'rsvg_handle_close_impl':
+rsvg-base.c:1147:19: warning: declaration of 'xmlDoc' shadows a global declaration [-Wshadow]
+C:/msys/1.0/opt/include/libxml2/libxml/tree.h:511:24: warning: shadowed declaration is here [-Wshadow]
+  CC     librsvg_2_la-librsvg-enum-types.lo
+  CC     librsvg_2_la-rsvg-cairo-draw.lo
+rsvg-cairo-draw.c: In function 'rsvg_cairo_create_pango_context':
+rsvg-cairo-draw.c:374:5: warning: 'pango_cairo_font_map_create_context' is deprecated (declared at C:/msys/1.0/opt/include/pango-1.0/pango/pangocairo.h:79): Use 'pango_font_map_create_context' instead [-Wdeprecated-declarations]
+rsvg-cairo-draw.c: In function 'rsvg_cairo_pop_render_stack':
+rsvg-cairo-draw.c:808:9: warning: passing argument 5 of 'rsvg_filter_render' discards 'const' qualifier from pointer target type [enabled by default]
+rsvg-filter.h:48:18: note: expected 'char *' but argument is of type 'const char *'
+  CC     librsvg_2_la-rsvg-cairo-render.lo
+rsvg-cairo-render.c: In function 'rsvg_cairo_transformed_image_bounding_box':
+rsvg-cairo-render.c:83:25: warning: declaration of 'y0' shadows a global declaration [-Wshadow]
+rsvg-cairo-render.c:83:49: warning: declaration of 'y1' shadows a global declaration [-Wshadow]
+  CC     librsvg_2_la-rsvg-cairo-clip.lo
+  CC     librsvg_2_la-rsvg.lo
+  CC     librsvg_2_la-rsvg-gobject.lo
+  CC     librsvg_2_la-rsvg-file-util.lo
+  CC     librsvg_2_la-rsvg-size-callback.lo
+  CC     librsvg_2_la-rsvg-xml.lo
+  CCLD   librsvg-2.la
+  CC     rsvg_convert-rsvg-convert.o
+rsvg-convert.c: In function 'main':
+rsvg-convert.c:248:9: warning: 'rsvg_handle_set_size_callback' is deprecated (declared at rsvg.h:201) [-Wdeprecated-declarations]
+  CC     rsvg_convert-rsvg-size-callback.o
+  CCLD   rsvg-convert.exe
+  CC     rsvg_view_3-test-display.o
+test-display.c: In function 'populate_window':
+test-display.c:544:5: warning: 'gtk_widget_size_request' is deprecated (declared at C:/msys/1.0/opt/include/gtk-3.0/gtk/gtkwidget.h:477): Use 'gtk_widget_get_preferred_size' instead [-Wdeprecated-declarations]
+  CCLD   rsvg-view-3.exe
+make[2]: Leaving directory `/home/Administrateur/62_librsvg/librsvg-2.36.4'
+Making all in gdk-pixbuf-loader
+make[2]: Entering directory `/home/Administrateur/62_librsvg/librsvg-2.36.4/gdk-pixbuf-loader'
+  CC     libpixbufloader_svg_la-io-svg.lo
+In file included from io-svg.c:31:0:
+../librsvg-features.h:2:2: warning: #warning "Including <librsvg/librsvg-features.h> directly is deprecated." [-Wcpp]
+io-svg.c: In function 'gdk_pixbuf__svg_image_load_increment':
+io-svg.c:127:17: warning: 'rsvg_handle_set_size_callback' is deprecated (declared at ../rsvg.h:201) [-Wdeprecated-declarations]
+  CCLD   libpixbufloader-svg.la
+  CC     rsvg_loader-test.o
+  GEN    gdk-pixbuf-loaders
+  CCLD   rsvg-loader.exe
+make[2]: Leaving directory `/home/Administrateur/62_librsvg/librsvg-2.36.4/gdk-pixbuf-loader'
+Making all in tests
+make[2]: Entering directory `/home/Administrateur/62_librsvg/librsvg-2.36.4/tests'
+Making all in pdiff
+make[3]: Entering directory `/home/Administrateur/62_librsvg/librsvg-2.36.4/tests/pdiff'
+  CC     lpyramid.lo
+  CC     pdiff.lo
+  CCLD   libpdiff.la
+  CC     args.o
+  CC     perceptualdiff.o
+  CCLD   perceptualdiff.exe
+make[3]: Leaving directory `/home/Administrateur/62_librsvg/librsvg-2.36.4/tests/pdiff'
+Making all in .
+make[3]: Entering directory `/home/Administrateur/62_librsvg/librsvg-2.36.4/tests'
+  CC     test-utils.lo
+  CC     rsvg-size-callback.lo
+  CCLD   libtest-utils.la
+make[3]: Leaving directory `/home/Administrateur/62_librsvg/librsvg-2.36.4/tests'
+make[2]: Leaving directory `/home/Administrateur/62_librsvg/librsvg-2.36.4/tests'
+Making all in tools
+make[2]: Entering directory `/home/Administrateur/62_librsvg/librsvg-2.36.4/tools'
+  CC     rsvg-tools-main.lo
+  CCLD   librsvg_tools_main.la
+  CC     rsvg-dimensions.o
+  CCLD   rsvg-dimensions.exe
+  CC     test-performance.o
+  CCLD   test-performance.exe
+  CC     test-memory.o
+  CCLD   test-memory.exe
+make[2]: Leaving directory `/home/Administrateur/62_librsvg/librsvg-2.36.4/tools'
+Making all in doc
+make[2]: Entering directory `/home/Administrateur/62_librsvg/librsvg-2.36.4/doc'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/home/Administrateur/62_librsvg/librsvg-2.36.4/doc'
+make[1]: Leaving directory `/home/Administrateur/62_librsvg/librsvg-2.36.4'

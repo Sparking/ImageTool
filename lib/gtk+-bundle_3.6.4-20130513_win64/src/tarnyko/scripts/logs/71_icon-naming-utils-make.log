@@ -1,0 +1,3 @@
+sed -e "s#\@PERL\@#/bin/perl#g"		\
+	    -e "s#\@DATADIR\@#/opt/share/icon-naming-utils#g"	\
+	< icon-name-mapping.pl.in > icon-name-mapping

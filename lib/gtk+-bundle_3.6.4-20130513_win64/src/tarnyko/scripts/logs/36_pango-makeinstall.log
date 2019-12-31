@@ -1,0 +1,369 @@
+Making install in pango
+make[1]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/pango'
+make  install-recursive
+make[2]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/pango'
+Making install in opentype
+make[3]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/pango/opentype'
+make[4]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/pango/opentype'
+make[4]: Nothing to be done for `install-exec-am'.
+make[4]: Nothing to be done for `install-data-am'.
+make[4]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/pango/opentype'
+make[3]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/pango/opentype'
+Making install in mini-fribidi
+make[3]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/pango/mini-fribidi'
+make[4]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/pango/mini-fribidi'
+make[4]: Nothing to be done for `install-exec-am'.
+make[4]: Nothing to be done for `install-data-am'.
+make[4]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/pango/mini-fribidi'
+make[3]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/pango/mini-fribidi'
+make[3]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/pango'
+  GEN    included-modules
+make[4]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/modules'
+make[5]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/modules/arabic'
+make[5]: Nothing to be done for `included-modules'.
+make[5]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/modules/arabic'
+make[5]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/modules/basic'
+make[5]: Nothing to be done for `included-modules'.
+make[5]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/modules/basic'
+make[5]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/modules/hangul'
+make[5]: Nothing to be done for `included-modules'.
+make[5]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/modules/hangul'
+make[5]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/modules/hebrew'
+make[5]: Nothing to be done for `included-modules'.
+make[5]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/modules/hebrew'
+make[5]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/modules/indic'
+make[5]: Nothing to be done for `included-modules'.
+make[5]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/modules/indic'
+make[5]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/modules/khmer'
+make[5]: Nothing to be done for `included-modules'.
+make[5]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/modules/khmer'
+make[5]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/modules/syriac'
+make[5]: Nothing to be done for `included-modules'.
+make[5]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/modules/syriac'
+make[5]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/modules/thai'
+make[5]: Nothing to be done for `included-modules'.
+make[5]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/modules/thai'
+make[5]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/modules/tibetan'
+make[5]: Nothing to be done for `included-modules'.
+make[5]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/modules/tibetan'
+make[4]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/modules'
+  GEN    ../modules/arabic/libpango-arabic-lang.la
+  GEN    ../modules/indic/libpango-indic-lang.la
+  GEN    ../modules/arabic/libpango-arabic-fc.la
+  GEN    ../modules/basic/libpango-basic-fc.la
+  GEN    ../modules/hangul/libpango-hangul-fc.la
+  GEN    ../modules/hebrew/libpango-hebrew-fc.la
+  GEN    ../modules/indic/libpango-indic-fc.la
+  GEN    ../modules/khmer/libpango-khmer-fc.la
+  GEN    ../modules/syriac/libpango-syriac-fc.la
+  GEN    ../modules/thai/libpango-thai-fc.la
+  GEN    ../modules/tibetan/libpango-tibetan-fc.la
+  GEN    ../modules/basic/libpango-basic-win32.la
+make[4]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/pango'
+  GEN    included-modules
+make[5]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/modules'
+make[6]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/modules/arabic'
+make[6]: Nothing to be done for `included-modules'.
+make[6]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/modules/arabic'
+make[6]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/modules/basic'
+make[6]: Nothing to be done for `included-modules'.
+make[6]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/modules/basic'
+make[6]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/modules/hangul'
+make[6]: Nothing to be done for `included-modules'.
+make[6]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/modules/hangul'
+make[6]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/modules/hebrew'
+make[6]: Nothing to be done for `included-modules'.
+make[6]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/modules/hebrew'
+make[6]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/modules/indic'
+make[6]: Nothing to be done for `included-modules'.
+make[6]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/modules/indic'
+make[6]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/modules/khmer'
+make[6]: Nothing to be done for `included-modules'.
+make[6]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/modules/khmer'
+make[6]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/modules/syriac'
+make[6]: Nothing to be done for `included-modules'.
+make[6]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/modules/syriac'
+make[6]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/modules/thai'
+make[6]: Nothing to be done for `included-modules'.
+make[6]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/modules/thai'
+make[6]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/modules/tibetan'
+make[6]: Nothing to be done for `included-modules'.
+make[6]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/modules/tibetan'
+make[5]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/modules'
+  GEN    ../modules/arabic/libpango-arabic-lang.la
+  GEN    ../modules/indic/libpango-indic-lang.la
+  GEN    ../modules/arabic/libpango-arabic-fc.la
+  GEN    ../modules/basic/libpango-basic-fc.la
+  GEN    ../modules/hangul/libpango-hangul-fc.la
+  GEN    ../modules/hebrew/libpango-hebrew-fc.la
+  GEN    ../modules/indic/libpango-indic-fc.la
+  GEN    ../modules/khmer/libpango-khmer-fc.la
+  GEN    ../modules/syriac/libpango-syriac-fc.la
+  GEN    ../modules/thai/libpango-thai-fc.la
+  GEN    ../modules/tibetan/libpango-tibetan-fc.la
+  GEN    ../modules/basic/libpango-basic-win32.la
+ /bin/mkdir -p '/opt/lib'
+ /bin/sh ../libtool   --mode=install /bin/install -c   libpango-1.0.la libpangoft2-1.0.la libpangocairo-1.0.la libpangowin32-1.0.la '/opt/lib'
+libtool: install: /bin/install -c .libs/libpango-1.0.dll.a /opt/lib/libpango-1.0.dll.a
+libtool: install: base_file=`basename libpango-1.0.la`
+libtool: install:  dlpath=`/bin/sh 2>&1 -c '. .libs/'libpango-1.0.la'i; echo libpango-1.0-0.dll'`
+libtool: install:  dldir=/opt/lib/`dirname ../bin/libpango-1.0-0.dll`
+libtool: install:  test -d /opt/lib/../bin || mkdir -p /opt/lib/../bin
+libtool: install:  /bin/install -c .libs/libpango-1.0-0.dll /opt/lib/../bin/libpango-1.0-0.dll
+libtool: install:  chmod a+x /opt/lib/../bin/libpango-1.0-0.dll
+libtool: install:  if test -n '' && test -n 'x86_64-w64-mingw32-strip --strip-unneeded'; then eval 'x86_64-w64-mingw32-strip --strip-unneeded /opt/lib/../bin/libpango-1.0-0.dll' || exit 0; fi
+libtool: install: /bin/install -c .libs/libpango-1.0.lai /opt/lib/libpango-1.0.la
+libtool: install: /bin/install -c .libs/libpangoft2-1.0.dll.a /opt/lib/libpangoft2-1.0.dll.a
+libtool: install: base_file=`basename libpangoft2-1.0.la`
+libtool: install:  dlpath=`/bin/sh 2>&1 -c '. .libs/'libpangoft2-1.0.la'i; echo libpangoft2-1.0-0.dll'`
+libtool: install:  dldir=/opt/lib/`dirname ../bin/libpangoft2-1.0-0.dll`
+libtool: install:  test -d /opt/lib/../bin || mkdir -p /opt/lib/../bin
+libtool: install:  /bin/install -c .libs/libpangoft2-1.0-0.dll /opt/lib/../bin/libpangoft2-1.0-0.dll
+libtool: install:  chmod a+x /opt/lib/../bin/libpangoft2-1.0-0.dll
+libtool: install:  if test -n '' && test -n 'x86_64-w64-mingw32-strip --strip-unneeded'; then eval 'x86_64-w64-mingw32-strip --strip-unneeded /opt/lib/../bin/libpangoft2-1.0-0.dll' || exit 0; fi
+libtool: install: /bin/install -c .libs/libpangoft2-1.0.lai /opt/lib/libpangoft2-1.0.la
+libtool: install: /bin/install -c .libs/libpangocairo-1.0.dll.a /opt/lib/libpangocairo-1.0.dll.a
+libtool: install: base_file=`basename libpangocairo-1.0.la`
+libtool: install:  dlpath=`/bin/sh 2>&1 -c '. .libs/'libpangocairo-1.0.la'i; echo libpangocairo-1.0-0.dll'`
+libtool: install:  dldir=/opt/lib/`dirname ../bin/libpangocairo-1.0-0.dll`
+libtool: install:  test -d /opt/lib/../bin || mkdir -p /opt/lib/../bin
+libtool: install:  /bin/install -c .libs/libpangocairo-1.0-0.dll /opt/lib/../bin/libpangocairo-1.0-0.dll
+libtool: install:  chmod a+x /opt/lib/../bin/libpangocairo-1.0-0.dll
+libtool: install:  if test -n '' && test -n 'x86_64-w64-mingw32-strip --strip-unneeded'; then eval 'x86_64-w64-mingw32-strip --strip-unneeded /opt/lib/../bin/libpangocairo-1.0-0.dll' || exit 0; fi
+libtool: install: /bin/install -c .libs/libpangocairo-1.0.lai /opt/lib/libpangocairo-1.0.la
+libtool: install: /bin/install -c .libs/libpangowin32-1.0.dll.a /opt/lib/libpangowin32-1.0.dll.a
+libtool: install: base_file=`basename libpangowin32-1.0.la`
+libtool: install:  dlpath=`/bin/sh 2>&1 -c '. .libs/'libpangowin32-1.0.la'i; echo libpangowin32-1.0-0.dll'`
+libtool: install:  dldir=/opt/lib/`dirname ../bin/libpangowin32-1.0-0.dll`
+libtool: install:  test -d /opt/lib/../bin || mkdir -p /opt/lib/../bin
+libtool: install:  /bin/install -c .libs/libpangowin32-1.0-0.dll /opt/lib/../bin/libpangowin32-1.0-0.dll
+libtool: install:  chmod a+x /opt/lib/../bin/libpangowin32-1.0-0.dll
+libtool: install:  if test -n '' && test -n 'x86_64-w64-mingw32-strip --strip-unneeded'; then eval 'x86_64-w64-mingw32-strip --strip-unneeded /opt/lib/../bin/libpangowin32-1.0-0.dll' || exit 0; fi
+libtool: install: /bin/install -c .libs/libpangowin32-1.0.lai /opt/lib/libpangowin32-1.0.la
+ /bin/mkdir -p '/opt/bin'
+  /bin/sh ../libtool   --mode=install /bin/install -c pango-querymodules.exe '/opt/bin'
+libtool: install: /bin/install -c .libs/pango-querymodules.exe /opt/bin/pango-querymodules.exe
+make  install-exec-hook
+make[5]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/pango'
+make[5]: Nothing to be done for `install-exec-hook'.
+make[5]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/pango'
+  GEN    install-def-files
+/bin/install -c ./pangoft2.def /opt/lib/pangoft2-1.0.def
+/bin/install -c ./pangowin32.def /opt/lib/pangowin32-1.0.def
+/bin/install -c ./pangocairo.def /opt/lib/pangocairo-1.0.def
+ /bin/mkdir -p '/opt/include/pango-1.0/pango'
+ /bin/install -c -m 644 pango.h pango-attributes.h pango-bidi-type.h pango-break.h pango-context.h pango-coverage.h pango-engine.h pango-font.h pango-fontmap.h pango-fontset.h pango-glyph.h pango-glyph-item.h pango-gravity.h pango-item.h pango-language.h pango-layout.h pango-matrix.h pango-modules.h pango-renderer.h pango-script.h pango-tabs.h pango-types.h pango-utils.h pango-features.h pango-enum-types.h pango-ot.h pangofc-font.h pangofc-fontmap.h pangofc-decoder.h pangoft2.h pangocairo.h pangowin32.h '/opt/include/pango-1.0/pango'
+make[4]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/pango'
+make[3]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/pango'
+make[2]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/pango'
+make[1]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/pango'
+Making install in modules
+make[1]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/modules'
+Making install in arabic
+make[2]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/modules/arabic'
+make[3]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/modules/arabic'
+make[3]: Nothing to be done for `install-exec-am'.
+make[3]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/modules/arabic'
+make[2]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/modules/arabic'
+Making install in basic
+make[2]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/modules/basic'
+make[3]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/modules/basic'
+make[3]: Nothing to be done for `install-exec-am'.
+make[3]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/modules/basic'
+make[2]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/modules/basic'
+Making install in hangul
+make[2]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/modules/hangul'
+make[3]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/modules/hangul'
+make[3]: Nothing to be done for `install-exec-am'.
+make[3]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/modules/hangul'
+make[2]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/modules/hangul'
+Making install in hebrew
+make[2]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/modules/hebrew'
+make[3]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/modules/hebrew'
+make[3]: Nothing to be done for `install-exec-am'.
+make[3]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/modules/hebrew'
+make[2]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/modules/hebrew'
+Making install in indic
+make[2]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/modules/indic'
+make[3]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/modules/indic'
+make[3]: Nothing to be done for `install-exec-am'.
+make[3]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/modules/indic'
+make[2]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/modules/indic'
+Making install in khmer
+make[2]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/modules/khmer'
+make[3]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/modules/khmer'
+make[3]: Nothing to be done for `install-exec-am'.
+make[3]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/modules/khmer'
+make[2]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/modules/khmer'
+Making install in syriac
+make[2]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/modules/syriac'
+make[3]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/modules/syriac'
+make[3]: Nothing to be done for `install-exec-am'.
+make[3]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/modules/syriac'
+make[2]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/modules/syriac'
+Making install in thai
+make[2]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/modules/thai'
+make[3]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/modules/thai'
+make[3]: Nothing to be done for `install-exec-am'.
+make[3]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/modules/thai'
+make[2]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/modules/thai'
+Making install in tibetan
+make[2]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/modules/tibetan'
+make[3]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/modules/tibetan'
+make[3]: Nothing to be done for `install-exec-am'.
+make[3]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/modules/tibetan'
+make[2]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/modules/tibetan'
+make[2]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/modules'
+make[3]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/modules'
+make[3]: Nothing to be done for `install-exec-am'.
+/bin/sh /home/Administrateur/36_pango/pango-1.30.1/install-sh -d /opt/etc/pango && ../pango/pango-querymodules.exe > /opt/etc/pango/pango.modules
+make[3]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/modules'
+make[2]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/modules'
+make[1]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/modules'
+Making install in pango-view
+make[1]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/pango-view'
+make  install-am
+make[2]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/pango-view'
+make[3]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/pango-view'
+ /bin/mkdir -p '/opt/bin'
+  /bin/sh ../libtool   --mode=install /bin/install -c pango-view.exe '/opt/bin'
+libtool: install: /bin/install -c .libs/pango-view.exe /opt/bin/pango-view.exe
+ /bin/mkdir -p '/opt/share/man/man1'
+ /bin/install -c -m 644 pango-view.1 '/opt/share/man/man1'
+make[3]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/pango-view'
+make[2]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/pango-view'
+make[1]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/pango-view'
+Making install in examples
+make[1]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/examples'
+make[2]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/examples'
+make[2]: Nothing to be done for `install-exec-am'.
+make[2]: Nothing to be done for `install-data-am'.
+make[2]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/examples'
+make[1]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/examples'
+Making install in docs
+make[1]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/docs'
+make  install-am
+make[2]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/docs'
+make[3]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/docs'
+make[3]: Nothing to be done for `install-exec-am'.
+ /bin/install -c -m 644 ./html/PangoEngineLang.html
+ /bin/install -c -m 644 ./html/PangoEngineShape.html
+ /bin/install -c -m 644 ./html/PangoFcDecoder.html
+ /bin/install -c -m 644 ./html/PangoFcFont.html
+ /bin/install -c -m 644 ./html/PangoFcFontMap.html
+ /bin/install -c -m 644 ./html/PangoMarkupFormat.html
+ /bin/install -c -m 644 ./html/annotation-glossary.html
+ /bin/install -c -m 644 ./html/api-index-1-10.html
+ /bin/install -c -m 644 ./html/api-index-1-12.html
+ /bin/install -c -m 644 ./html/api-index-1-14.html
+ /bin/install -c -m 644 ./html/api-index-1-16.html
+ /bin/install -c -m 644 ./html/api-index-1-18.html
+ /bin/install -c -m 644 ./html/api-index-1-2.html
+ /bin/install -c -m 644 ./html/api-index-1-20.html
+ /bin/install -c -m 644 ./html/api-index-1-22.html
+ /bin/install -c -m 644 ./html/api-index-1-24.html
+ /bin/install -c -m 644 ./html/api-index-1-26.html
+ /bin/install -c -m 644 ./html/api-index-1-28.html
+ /bin/install -c -m 644 ./html/api-index-1-30.html
+ /bin/install -c -m 644 ./html/api-index-1-4.html
+ /bin/install -c -m 644 ./html/api-index-1-6.html
+ /bin/install -c -m 644 ./html/api-index-1-8.html
+ /bin/install -c -m 644 ./html/api-index-deprecated.html
+ /bin/install -c -m 644 ./html/api-index-full.html
+ /bin/install -c -m 644 ./html/home.png
+ /bin/install -c -m 644 ./html/index.html
+ /bin/install -c -m 644 ./html/index.sgml
+ /bin/install -c -m 644 ./html/layout.gif
+ /bin/install -c -m 644 ./html/left.png
+ /bin/install -c -m 644 ./html/lowlevel.html
+ /bin/install -c -m 644 ./html/pango-ATSUI-Fonts.html
+ /bin/install -c -m 644 ./html/pango-Bidirectional-Text.html
+ /bin/install -c -m 644 ./html/pango-Cairo-Rendering.html
+ /bin/install -c -m 644 ./html/pango-CoreText-Fonts.html
+ /bin/install -c -m 644 ./html/pango-Coverage-Maps.html
+ /bin/install -c -m 644 ./html/pango-Engines.html
+ /bin/install -c -m 644 ./html/pango-Fonts.html
+ /bin/install -c -m 644 ./html/pango-FreeType-Fonts-and-Rendering.html
+ /bin/install -c -m 644 ./html/pango-Glyph-Storage.html
+ /bin/install -c -m 644 ./html/pango-Layout-Objects.html
+ /bin/install -c -m 644 ./html/pango-Miscellaneous-Utilities.html
+ /bin/install -c -m 644 ./html/pango-Modules.html
+ /bin/install -c -m 644 ./html/pango-OpenType-Font-Handling.html
+ /bin/install -c -m 644 ./html/pango-Scripts-and-Languages.html
+ /bin/install -c -m 644 ./html/pango-Tab-Stops.html
+ /bin/install -c -m 644 ./html/pango-Text-Attributes.html
+ /bin/install -c -m 644 ./html/pango-Text-Processing.html
+ /bin/install -c -m 644 ./html/pango-Version-Checking.html
+ /bin/install -c -m 644 ./html/pango-Vertical-Text.html
+ /bin/install -c -m 644 ./html/pango-Win32-Fonts-and-Rendering.html
+ /bin/install -c -m 644 ./html/pango-X-Fonts-and-Rendering.html
+ /bin/install -c -m 644 ./html/pango-Xft-Fonts-and-Rendering.html
+ /bin/install -c -m 644 ./html/pango-hierarchy.html
+ /bin/install -c -m 644 ./html/pango-pango-renderer.html
+ /bin/install -c -m 644 ./html/pango-querymodules.html
+ /bin/install -c -m 644 ./html/pango.devhelp2
+ /bin/install -c -m 644 ./html/pango.html
+ /bin/install -c -m 644 ./html/rendering.html
+ /bin/install -c -m 644 ./html/right.png
+ /bin/install -c -m 644 ./html/rotated-text.png
+ /bin/install -c -m 644 ./html/style.css
+ /bin/install -c -m 644 ./html/tools.html
+ /bin/install -c -m 644 ./html/up.png
+ /bin/mkdir -p '/opt/share/man/man1'
+ /bin/install -c -m 644 pango-querymodules.1 '/opt/share/man/man1'
+make[3]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/docs'
+make[2]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/docs'
+make[1]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/docs'
+Making install in tools
+make[1]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/tools'
+make[2]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/tools'
+make[2]: Nothing to be done for `install-exec-am'.
+make[2]: Nothing to be done for `install-data-am'.
+make[2]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/tools'
+make[1]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/tools'
+Making install in tests
+make[1]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/tests'
+make[2]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/tests'
+make[2]: Nothing to be done for `install-exec-am'.
+make[2]: Nothing to be done for `install-data-am'.
+make[2]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/tests'
+make[1]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/tests'
+Making install in build
+make[1]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/build'
+Making install in win32
+make[2]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/build/win32'
+Making install in vs9
+make[3]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/build/win32/vs9'
+make[4]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/build/win32/vs9'
+make[4]: Nothing to be done for `install-exec-am'.
+make[4]: Nothing to be done for `install-data-am'.
+make[4]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/build/win32/vs9'
+make[3]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/build/win32/vs9'
+Making install in vs10
+make[3]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/build/win32/vs10'
+make[4]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/build/win32/vs10'
+make[4]: Nothing to be done for `install-exec-am'.
+make[4]: Nothing to be done for `install-data-am'.
+make[4]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/build/win32/vs10'
+make[3]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/build/win32/vs10'
+make[3]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/build/win32'
+make[4]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/build/win32'
+make[4]: Nothing to be done for `install-exec-am'.
+make[4]: Nothing to be done for `install-data-am'.
+make[4]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/build/win32'
+make[3]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/build/win32'
+make[2]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/build/win32'
+make[2]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/build'
+make[3]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1/build'
+make[3]: Nothing to be done for `install-exec-am'.
+make[3]: Nothing to be done for `install-data-am'.
+make[3]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/build'
+make[2]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/build'
+make[1]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1/build'
+make[1]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1'
+make[2]: Entering directory `/home/Administrateur/36_pango/pango-1.30.1'
+make[2]: Nothing to be done for `install-exec-am'.
+ /bin/mkdir -p '/opt/lib/pkgconfig'
+ /bin/install -c -m 644 pango.pc pangocairo.pc pangoft2.pc pangowin32.pc '/opt/lib/pkgconfig'
+make[2]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1'
+make[1]: Leaving directory `/home/Administrateur/36_pango/pango-1.30.1'

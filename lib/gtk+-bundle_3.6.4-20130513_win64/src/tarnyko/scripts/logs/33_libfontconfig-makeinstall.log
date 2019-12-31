@@ -1,0 +1,170 @@
+Making install in fontconfig
+make[1]: Entering directory `/home/Administrateur/33_libfontconfig/fontconfig-2.10.2/fontconfig'
+make[2]: Entering directory `/home/Administrateur/33_libfontconfig/fontconfig-2.10.2/fontconfig'
+make[2]: Nothing to be done for `install-exec-am'.
+ /bin/mkdir -p '/opt/include/fontconfig'
+ /bin/install -c -m 644 fontconfig.h fcfreetype.h fcprivate.h '/opt/include/fontconfig'
+make[2]: Leaving directory `/home/Administrateur/33_libfontconfig/fontconfig-2.10.2/fontconfig'
+make[1]: Leaving directory `/home/Administrateur/33_libfontconfig/fontconfig-2.10.2/fontconfig'
+Making install in fc-case
+make[1]: Entering directory `/home/Administrateur/33_libfontconfig/fontconfig-2.10.2/fc-case'
+make  install-am
+make[2]: Entering directory `/home/Administrateur/33_libfontconfig/fontconfig-2.10.2/fc-case'
+make[3]: Entering directory `/home/Administrateur/33_libfontconfig/fontconfig-2.10.2/fc-case'
+make[3]: Nothing to be done for `install-exec-am'.
+make[3]: Nothing to be done for `install-data-am'.
+make[3]: Leaving directory `/home/Administrateur/33_libfontconfig/fontconfig-2.10.2/fc-case'
+make[2]: Leaving directory `/home/Administrateur/33_libfontconfig/fontconfig-2.10.2/fc-case'
+make[1]: Leaving directory `/home/Administrateur/33_libfontconfig/fontconfig-2.10.2/fc-case'
+Making install in fc-lang
+make[1]: Entering directory `/home/Administrateur/33_libfontconfig/fontconfig-2.10.2/fc-lang'
+make  install-am
+make[2]: Entering directory `/home/Administrateur/33_libfontconfig/fontconfig-2.10.2/fc-lang'
+make[3]: Entering directory `/home/Administrateur/33_libfontconfig/fontconfig-2.10.2/fc-lang'
+make[3]: Nothing to be done for `install-exec-am'.
+make[3]: Nothing to be done for `install-data-am'.
+make[3]: Leaving directory `/home/Administrateur/33_libfontconfig/fontconfig-2.10.2/fc-lang'
+make[2]: Leaving directory `/home/Administrateur/33_libfontconfig/fontconfig-2.10.2/fc-lang'
+make[1]: Leaving directory `/home/Administrateur/33_libfontconfig/fontconfig-2.10.2/fc-lang'
+Making install in fc-glyphname
+make[1]: Entering directory `/home/Administrateur/33_libfontconfig/fontconfig-2.10.2/fc-glyphname'
+make  install-am
+make[2]: Entering directory `/home/Administrateur/33_libfontconfig/fontconfig-2.10.2/fc-glyphname'
+make[3]: Entering directory `/home/Administrateur/33_libfontconfig/fontconfig-2.10.2/fc-glyphname'
+make[3]: Nothing to be done for `install-exec-am'.
+make[3]: Nothing to be done for `install-data-am'.
+make[3]: Leaving directory `/home/Administrateur/33_libfontconfig/fontconfig-2.10.2/fc-glyphname'
+make[2]: Leaving directory `/home/Administrateur/33_libfontconfig/fontconfig-2.10.2/fc-glyphname'
+make[1]: Leaving directory `/home/Administrateur/33_libfontconfig/fontconfig-2.10.2/fc-glyphname'
+Making install in src
+make[1]: Entering directory `/home/Administrateur/33_libfontconfig/fontconfig-2.10.2/src'
+make  install-am
+make[2]: Entering directory `/home/Administrateur/33_libfontconfig/fontconfig-2.10.2/src'
+make[3]: Entering directory `/home/Administrateur/33_libfontconfig/fontconfig-2.10.2/src'
+ /bin/mkdir -p '/opt/lib'
+ /bin/sh ../libtool   --mode=install /bin/install -c   libfontconfig.la '/opt/lib'
+libtool: install: /bin/install -c .libs/libfontconfig.dll.a /opt/lib/libfontconfig.dll.a
+libtool: install: base_file=`basename libfontconfig.la`
+libtool: install:  dlpath=`/bin/sh 2>&1 -c '. .libs/'libfontconfig.la'i; echo libfontconfig-1.dll'`
+libtool: install:  dldir=/opt/lib/`dirname ../bin/libfontconfig-1.dll`
+libtool: install:  test -d /opt/lib/../bin || mkdir -p /opt/lib/../bin
+libtool: install:  /bin/install -c .libs/libfontconfig-1.dll /opt/lib/../bin/libfontconfig-1.dll
+libtool: install:  chmod a+x /opt/lib/../bin/libfontconfig-1.dll
+libtool: install:  if test -n '' && test -n 'x86_64-w64-mingw32-strip --strip-unneeded'; then eval 'x86_64-w64-mingw32-strip --strip-unneeded /opt/lib/../bin/libfontconfig-1.dll' || exit 0; fi
+libtool: install: /bin/install -c .libs/libfontconfig.lai /opt/lib/libfontconfig.la
+libtool: install: /bin/install -c .libs/libfontconfig.a /opt/lib/libfontconfig.a
+libtool: install: chmod 644 /opt/lib/libfontconfig.a
+libtool: install: x86_64-w64-mingw32-ranlib /opt/lib/libfontconfig.a
+/bin/install -c .libs/libfontconfig.dll.a /opt/lib
+/bin/install -c fontconfig.def /opt/lib/fontconfig.def
+make[3]: Leaving directory `/home/Administrateur/33_libfontconfig/fontconfig-2.10.2/src'
+make[2]: Leaving directory `/home/Administrateur/33_libfontconfig/fontconfig-2.10.2/src'
+make[1]: Leaving directory `/home/Administrateur/33_libfontconfig/fontconfig-2.10.2/src'
+Making install in fc-cache
+make[1]: Entering directory `/home/Administrateur/33_libfontconfig/fontconfig-2.10.2/fc-cache'
+make[2]: Entering directory `/home/Administrateur/33_libfontconfig/fontconfig-2.10.2/fc-cache'
+ /bin/mkdir -p '/opt/bin'
+  /bin/sh ../libtool   --mode=install /bin/install -c fc-cache.exe '/opt/bin'
+libtool: install: /bin/install -c .libs/fc-cache.exe /opt/bin/fc-cache.exe
+ /bin/mkdir -p '/opt/share/man/man1'
+ /bin/install -c -m 644 fc-cache.1 '/opt/share/man/man1'
+make[2]: Leaving directory `/home/Administrateur/33_libfontconfig/fontconfig-2.10.2/fc-cache'
+make[1]: Leaving directory `/home/Administrateur/33_libfontconfig/fontconfig-2.10.2/fc-cache'
+Making install in fc-cat
+make[1]: Entering directory `/home/Administrateur/33_libfontconfig/fontconfig-2.10.2/fc-cat'
+make[2]: Entering directory `/home/Administrateur/33_libfontconfig/fontconfig-2.10.2/fc-cat'
+ /bin/mkdir -p '/opt/bin'
+  /bin/sh ../libtool   --mode=install /bin/install -c fc-cat.exe '/opt/bin'
+libtool: install: /bin/install -c .libs/fc-cat.exe /opt/bin/fc-cat.exe
+ /bin/mkdir -p '/opt/share/man/man1'
+ /bin/install -c -m 644 fc-cat.1 '/opt/share/man/man1'
+make[2]: Leaving directory `/home/Administrateur/33_libfontconfig/fontconfig-2.10.2/fc-cat'
+make[1]: Leaving directory `/home/Administrateur/33_libfontconfig/fontconfig-2.10.2/fc-cat'
+Making install in fc-list
+make[1]: Entering directory `/home/Administrateur/33_libfontconfig/fontconfig-2.10.2/fc-list'
+make[2]: Entering directory `/home/Administrateur/33_libfontconfig/fontconfig-2.10.2/fc-list'
+ /bin/mkdir -p '/opt/bin'
+  /bin/sh ../libtool   --mode=install /bin/install -c fc-list.exe '/opt/bin'
+libtool: install: /bin/install -c .libs/fc-list.exe /opt/bin/fc-list.exe
+ /bin/mkdir -p '/opt/share/man/man1'
+ /bin/install -c -m 644 fc-list.1 '/opt/share/man/man1'
+make[2]: Leaving directory `/home/Administrateur/33_libfontconfig/fontconfig-2.10.2/fc-list'
+make[1]: Leaving directory `/home/Administrateur/33_libfontconfig/fontconfig-2.10.2/fc-list'
+Making install in fc-match
+make[1]: Entering directory `/home/Administrateur/33_libfontconfig/fontconfig-2.10.2/fc-match'
+make[2]: Entering directory `/home/Administrateur/33_libfontconfig/fontconfig-2.10.2/fc-match'
+ /bin/mkdir -p '/opt/bin'
+  /bin/sh ../libtool   --mode=install /bin/install -c fc-match.exe '/opt/bin'
+libtool: install: /bin/install -c .libs/fc-match.exe /opt/bin/fc-match.exe
+ /bin/mkdir -p '/opt/share/man/man1'
+ /bin/install -c -m 644 fc-match.1 '/opt/share/man/man1'
+make[2]: Leaving directory `/home/Administrateur/33_libfontconfig/fontconfig-2.10.2/fc-match'
+make[1]: Leaving directory `/home/Administrateur/33_libfontconfig/fontconfig-2.10.2/fc-match'
+Making install in fc-pattern
+make[1]: Entering directory `/home/Administrateur/33_libfontconfig/fontconfig-2.10.2/fc-pattern'
+make[2]: Entering directory `/home/Administrateur/33_libfontconfig/fontconfig-2.10.2/fc-pattern'
+ /bin/mkdir -p '/opt/bin'
+  /bin/sh ../libtool   --mode=install /bin/install -c fc-pattern.exe '/opt/bin'
+libtool: install: /bin/install -c .libs/fc-pattern.exe /opt/bin/fc-pattern.exe
+ /bin/mkdir -p '/opt/share/man/man1'
+ /bin/install -c -m 644 fc-pattern.1 '/opt/share/man/man1'
+make[2]: Leaving directory `/home/Administrateur/33_libfontconfig/fontconfig-2.10.2/fc-pattern'
+make[1]: Leaving directory `/home/Administrateur/33_libfontconfig/fontconfig-2.10.2/fc-pattern'
+Making install in fc-query
+make[1]: Entering directory `/home/Administrateur/33_libfontconfig/fontconfig-2.10.2/fc-query'
+make[2]: Entering directory `/home/Administrateur/33_libfontconfig/fontconfig-2.10.2/fc-query'
+ /bin/mkdir -p '/opt/bin'
+  /bin/sh ../libtool   --mode=install /bin/install -c fc-query.exe '/opt/bin'
+libtool: install: /bin/install -c .libs/fc-query.exe /opt/bin/fc-query.exe
+ /bin/mkdir -p '/opt/share/man/man1'
+ /bin/install -c -m 644 fc-query.1 '/opt/share/man/man1'
+make[2]: Leaving directory `/home/Administrateur/33_libfontconfig/fontconfig-2.10.2/fc-query'
+make[1]: Leaving directory `/home/Administrateur/33_libfontconfig/fontconfig-2.10.2/fc-query'
+Making install in fc-scan
+make[1]: Entering directory `/home/Administrateur/33_libfontconfig/fontconfig-2.10.2/fc-scan'
+make[2]: Entering directory `/home/Administrateur/33_libfontconfig/fontconfig-2.10.2/fc-scan'
+ /bin/mkdir -p '/opt/bin'
+  /bin/sh ../libtool   --mode=install /bin/install -c fc-scan.exe '/opt/bin'
+libtool: install: /bin/install -c .libs/fc-scan.exe /opt/bin/fc-scan.exe
+ /bin/mkdir -p '/opt/share/man/man1'
+ /bin/install -c -m 644 fc-scan.1 '/opt/share/man/man1'
+make[2]: Leaving directory `/home/Administrateur/33_libfontconfig/fontconfig-2.10.2/fc-scan'
+make[1]: Leaving directory `/home/Administrateur/33_libfontconfig/fontconfig-2.10.2/fc-scan'
+Making install in conf.d
+make[1]: Entering directory `/home/Administrateur/33_libfontconfig/fontconfig-2.10.2/conf.d'
+make[2]: Entering directory `/home/Administrateur/33_libfontconfig/fontconfig-2.10.2/conf.d'
+make[2]: Nothing to be done for `install-exec-am'.
+ /bin/mkdir -p '/opt/etc/fonts/conf.d'
+ /bin/install -c -m 644 README '/opt/etc/fonts/conf.d'
+ /bin/mkdir -p '/opt/share/fontconfig/conf.avail'
+ /bin/install -c -m 644 10-autohint.conf 10-no-sub-pixel.conf 10-sub-pixel-bgr.conf 10-sub-pixel-rgb.conf 10-sub-pixel-vbgr.conf 10-sub-pixel-vrgb.conf 10-unhinted.conf 11-lcdfilter-default.conf 11-lcdfilter-legacy.conf 11-lcdfilter-light.conf 20-unhint-small-vera.conf 25-unhint-nonlatin.conf 30-urw-aliases.conf 30-metric-aliases.conf 40-nonlatin.conf 45-latin.conf 49-sansserif.conf 50-user.conf 51-local.conf 60-latin.conf 65-fonts-persian.conf 65-khmer.conf 65-nonlatin.conf 69-unifont.conf 70-no-bitmaps.conf 70-yes-bitmaps.conf 80-delicious.conf 90-synthetic.conf '/opt/share/fontconfig/conf.avail'
+make  install-data-hook
+make[3]: Entering directory `/home/Administrateur/33_libfontconfig/fontconfig-2.10.2/conf.d'
+mkdir -p /opt/etc/fonts/conf.d
+cd /opt/etc/fonts/conf.d
+rm -f 20-unhint-small-vera.conf; ln -s /opt/share/fontconfig/conf.avail/20-unhint-small-vera.conf .
+rm -f 30-urw-aliases.conf; ln -s /opt/share/fontconfig/conf.avail/30-urw-aliases.conf .
+rm -f 30-metric-aliases.conf; ln -s /opt/share/fontconfig/conf.avail/30-metric-aliases.conf .
+rm -f 40-nonlatin.conf; ln -s /opt/share/fontconfig/conf.avail/40-nonlatin.conf .
+rm -f 45-latin.conf; ln -s /opt/share/fontconfig/conf.avail/45-latin.conf .
+rm -f 49-sansserif.conf; ln -s /opt/share/fontconfig/conf.avail/49-sansserif.conf .
+rm -f 50-user.conf; ln -s /opt/share/fontconfig/conf.avail/50-user.conf .
+rm -f 51-local.conf; ln -s /opt/share/fontconfig/conf.avail/51-local.conf .
+rm -f 60-latin.conf; ln -s /opt/share/fontconfig/conf.avail/60-latin.conf .
+rm -f 65-fonts-persian.conf; ln -s /opt/share/fontconfig/conf.avail/65-fonts-persian.conf .
+rm -f 65-nonlatin.conf; ln -s /opt/share/fontconfig/conf.avail/65-nonlatin.conf .
+rm -f 69-unifont.conf; ln -s /opt/share/fontconfig/conf.avail/69-unifont.conf .
+rm -f 80-delicious.conf; ln -s /opt/share/fontconfig/conf.avail/80-delicious.conf .
+rm -f 90-synthetic.conf; ln -s /opt/share/fontconfig/conf.avail/90-synthetic.conf .
+make[3]: Leaving directory `/home/Administrateur/33_libfontconfig/fontconfig-2.10.2/conf.d'
+make[2]: Leaving directory `/home/Administrateur/33_libfontconfig/fontconfig-2.10.2/conf.d'
+make[1]: Leaving directory `/home/Administrateur/33_libfontconfig/fontconfig-2.10.2/conf.d'
+Making install in doc
+make[1]: Entering directory `/home/Administrateur/33_libfontconfig/fontconfig-2.10.2/doc'
+make  install-am
+make[2]: Entering directory `/home/Administrateur/33_libfontconfig/fontconfig-2.10.2/doc'
+make[2]: *** No rule to make target `FcAtomicCreate.3', needed by `all-am'.  Stop.
+make[2]: Leaving directory `/home/Administrateur/33_libfontconfig/fontconfig-2.10.2/doc'
+make[1]: *** [install] Error 2
+make[1]: Leaving directory `/home/Administrateur/33_libfontconfig/fontconfig-2.10.2/doc'
+make: *** [install-recursive] Error 1

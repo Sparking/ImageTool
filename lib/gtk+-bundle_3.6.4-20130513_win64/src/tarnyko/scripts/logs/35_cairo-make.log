@@ -1,0 +1,685 @@
+make  all-recursive
+make[1]: Entering directory `/home/Administrateur/35_cairo/cairo-1.10.2'
+Making all in src
+make[2]: Entering directory `/home/Administrateur/35_cairo/cairo-1.10.2/src'
+make  all-am
+make[3]: Entering directory `/home/Administrateur/35_cairo/cairo-1.10.2/src'
+  CC     cairo-analysis-surface.lo
+cairo-analysis-surface.c: In function '_cairo_analysis_surface_merge_status':
+cairo-analysis-surface.c:69:5: warning: comparison between 'cairo_int_status_t' and 'enum _cairo_status' [-Wenum-compare]
+cairo-analysis-surface.c:69:5: warning: comparison between 'cairo_int_status_t' and 'enum _cairo_status' [-Wenum-compare]
+cairo-analysis-surface.c:70:5: warning: comparison between 'cairo_int_status_t' and 'enum _cairo_status' [-Wenum-compare]
+cairo-analysis-surface.c:70:5: warning: comparison between 'cairo_int_status_t' and 'enum _cairo_status' [-Wenum-compare]
+cairo-analysis-surface.c:90:5: warning: comparison between 'cairo_int_status_t' and 'enum _cairo_status' [-Wenum-compare]
+cairo-analysis-surface.c:90:5: warning: comparison between 'cairo_int_status_t' and 'enum _cairo_status' [-Wenum-compare]
+cairo-analysis-surface.c: In function '_add_operation':
+cairo-analysis-surface.c:146:21: warning: comparison between 'cairo_int_status_t' and 'enum _cairo_status' [-Wenum-compare]
+cairo-analysis-surface.c:174:22: warning: comparison between 'cairo_int_status_t' and 'enum _cairo_status' [-Wenum-compare]
+cairo-analysis-surface.c:222:24: warning: comparison between 'cairo_int_status_t' and 'enum _cairo_status' [-Wenum-compare]
+cairo-analysis-surface.c:243:16: warning: comparison between 'cairo_int_status_t' and 'enum _cairo_status' [-Wenum-compare]
+cairo-analysis-surface.c: In function '_rectangle_intersect_clip':
+cairo-analysis-surface.c:275:18: warning: variable 'is_empty' set but not used [-Wunused-but-set-variable]
+cairo-analysis-surface.c: In function '_cairo_analysis_surface_operation_extents':
+cairo-analysis-surface.c:292:18: warning: variable 'is_empty' set but not used [-Wunused-but-set-variable]
+cairo-analysis-surface.c: In function '_cairo_analysis_surface_paint':
+cairo-analysis-surface.c:326:24: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-analysis-surface.c: In function '_cairo_analysis_surface_mask':
+cairo-analysis-surface.c:354:6: warning: comparison between 'cairo_int_status_t' and 'enum _cairo_status' [-Wenum-compare]
+cairo-analysis-surface.c:354:6: warning: comparison between 'cairo_int_status_t' and 'enum _cairo_status' [-Wenum-compare]
+cairo-analysis-surface.c:367:7: warning: comparison between 'cairo_int_status_t' and 'enum _cairo_status' [-Wenum-compare]
+cairo-analysis-surface.c:367:7: warning: comparison between 'cairo_int_status_t' and 'enum _cairo_status' [-Wenum-compare]
+cairo-analysis-surface.c:377:7: warning: comparison between 'cairo_int_status_t' and 'enum _cairo_status' [-Wenum-compare]
+cairo-analysis-surface.c:377:7: warning: comparison between 'cairo_int_status_t' and 'enum _cairo_status' [-Wenum-compare]
+cairo-analysis-surface.c:346:18: warning: variable 'is_empty' set but not used [-Wunused-but-set-variable]
+cairo-analysis-surface.c: In function '_cairo_analysis_surface_stroke':
+cairo-analysis-surface.c:432:24: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-analysis-surface.c:417:30: warning: variable 'is_empty' set but not used [-Wunused-but-set-variable]
+cairo-analysis-surface.c: In function '_cairo_analysis_surface_fill':
+cairo-analysis-surface.c:483:24: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-analysis-surface.c:469:30: warning: variable 'is_empty' set but not used [-Wunused-but-set-variable]
+cairo-analysis-surface.c: In function '_cairo_analysis_surface_show_glyphs':
+cairo-analysis-surface.c:548:24: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-analysis-surface.c:515:30: warning: variable 'is_empty' set but not used [-Wunused-but-set-variable]
+cairo-analysis-surface.c: In function '_cairo_analysis_surface_show_text_glyphs':
+cairo-analysis-surface.c:612:24: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-analysis-surface.c:632:24: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-analysis-surface.c:595:30: warning: variable 'is_empty' set but not used [-Wunused-but-set-variable]
+  CC     cairo-arc.lo
+  CC     cairo-array.lo
+  CC     cairo-atomic.lo
+  CC     cairo-base64-stream.lo
+  CC     cairo-base85-stream.lo
+  CC     cairo-bentley-ottmann.lo
+  CC     cairo-bentley-ottmann-rectangular.lo
+  CC     cairo-bentley-ottmann-rectilinear.lo
+  CC     cairo-botor-scan-converter.lo
+  CC     cairo-boxes.lo
+  CC     cairo.lo
+cairo.c: In function '_context_get':
+cairo.c:248:2: warning: implicit declaration of function 'ffs' [-Wimplicit-function-declaration]
+cairo.c: In function 'cairo_push_group_with_content':
+cairo.c:679:15: warning: variable 'is_empty' set but not used [-Wunused-but-set-variable]
+  CC     cairo-cache.lo
+  CC     cairo-clip.lo
+cairo-clip.c: In function '_cairo_clip_path_reapply_clip_path_transform':
+cairo-clip.c:371:18: warning: variable 'is_empty' set but not used [-Wunused-but-set-variable]
+cairo-clip.c: In function '_cairo_clip_apply_clip_path':
+cairo-clip.c:519:20: warning: variable 'status' set but not used [-Wunused-but-set-variable]
+cairo-clip.c: In function '_cairo_clip_path_to_region_geometric':
+cairo-clip.c:595:16: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-clip.c:626:16: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-clip.c: In function 'intersect_with_boxes':
+cairo-clip.c:1405:18: warning: variable 'is_empty' set but not used [-Wunused-but-set-variable]
+  CC     cairo-color.lo
+  CC     cairo-composite-rectangles.lo
+  CC     cairo-debug.lo
+  CC     cairo-device.lo
+cairo-device.c: In function '_cairo_device_set_error':
+cairo-device.c:451:50: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+  CC     cairo-fixed.lo
+  CC     cairo-font-face.lo
+  CC     cairo-font-face-twin.lo
+  CC     cairo-font-face-twin-data.lo
+  CC     cairo-font-options.lo
+  CC     cairo-freelist.lo
+  CC     cairo-freed-pool.lo
+  CC     cairo-gstate.lo
+cairo-gstate.c: In function '_cairo_gstate_int_clip_extents':
+cairo-gstate.c:1512:15: warning: variable 'is_empty' set but not used [-Wunused-but-set-variable]
+cairo-gstate.c: In function '_cairo_gstate_copy_clip_rectangle_list':
+cairo-gstate.c:1565:31: warning: ignoring return value of '_cairo_clip_rectangle', declared with attribute warn_unused_result [-Wunused-result]
+  CC     cairo-hash.lo
+  CC     cairo-hull.lo
+  CC     cairo-image-info.lo
+  CC     cairo-image-surface.lo
+cairo-image-surface.c: In function '_cairo_format_from_pixman_format':
+cairo-image-surface.c:101:5: warning: enumeration value 'PIXMAN_r8g8b8a8' not handled in switch [-Wswitch-enum]
+cairo-image-surface.c:101:5: warning: enumeration value 'PIXMAN_r8g8b8x8' not handled in switch [-Wswitch-enum]
+cairo-image-surface.c:101:5: warning: enumeration value 'PIXMAN_x14r6g6b6' not handled in switch [-Wswitch-enum]
+cairo-image-surface.c: In function '_pixman_image_for_surface':
+cairo-image-surface.c:1393:33: warning: comparison between 'cairo_surface_type_t' and 'enum _cairo_internal_surface_type' [-Wenum-compare]
+cairo-image-surface.c: In function '_create_composite_mask_pattern':
+cairo-image-surface.c:1930:2: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-image-surface.c:1932:29: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-image-surface.c: In function '_clip_and_composite':
+cairo-image-surface.c:2259:6: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-image-surface.c:2264:29: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-image-surface.c: In function '_composite_boxes':
+cairo-image-surface.c:2908:26: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-image-surface.c: In function '_clip_and_composite_boxes':
+cairo-image-surface.c:3048:16: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-image-surface.c: In function '_clip_and_composite_trapezoids':
+cairo-image-surface.c:3178:29: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-image-surface.c: In function '_cairo_image_surface_stroke':
+cairo-image-surface.c:3659:16: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+  CC     cairo-lzw.lo
+  CC     cairo-matrix.lo
+  CC     cairo-recording-surface.lo
+cairo-recording-surface.c: In function '_cairo_recording_surface_get_path':
+cairo-recording-surface.c:775:17: warning: comparison between 'cairo_int_status_t' and 'enum _cairo_status' [-Wenum-compare]
+cairo-recording-surface.c: In function '_cairo_recording_surface_replay_internal':
+cairo-recording-surface.c:969:17: warning: comparison between 'cairo_int_status_t' and 'enum _cairo_status' [-Wenum-compare]
+cairo-recording-surface.c:975:3: warning: comparison between 'cairo_int_status_t' and 'enum _cairo_status' [-Wenum-compare]
+cairo-recording-surface.c:975:3: warning: comparison between 'cairo_int_status_t' and 'enum _cairo_status' [-Wenum-compare]
+  CC     cairo-misc.lo
+cairo-misc.c:44:1: warning: comparison between 'enum _cairo_status' and 'enum _cairo_int_status' [-Wenum-compare]
+  CC     cairo-mutex.lo
+  CC     cairo-observer.lo
+  CC     cairo-output-stream.lo
+  CC     cairo-paginated-surface.lo
+cairo-paginated-surface.c: In function '_paint_page':
+cairo-paginated-surface.c:395:2: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+  CC     cairo-path-bounds.lo
+  CC     cairo-path.lo
+  CC     cairo-path-fill.lo
+  CC     cairo-path-fixed.lo
+  CC     cairo-path-in-fill.lo
+  CC     cairo-path-stroke.lo
+cairo-path-stroke.c: In function '_cairo_stroker_add_caps':
+cairo-path-stroke.c:860:29: warning: comparison between 'cairo_line_cap_t' and 'enum _cairo_line_join' [-Wenum-compare]
+cairo-path-stroke.c: In function '_cairo_path_fixed_stroke_to_traps':
+cairo-path-stroke.c:1407:13: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+  CC     cairo-pattern.lo
+cairo-pattern.c: In function '_cairo_pattern_acquire_surface_for_gradient':
+cairo-pattern.c:1338:27: warning: variable 'opaque' set but not used [-Wunused-but-set-variable]
+cairo-pattern.c: In function '_cairo_pattern_acquire_surface_for_surface':
+cairo-pattern.c:2234:18: warning: variable 'is_empty' set but not used [-Wunused-but-set-variable]
+  CC     cairo-pen.lo
+  CC     cairo-polygon.lo
+cairo-polygon.c: In function '_cairo_polygon_close':
+cairo-polygon.c:480:20: warning: variable 'status' set but not used [-Wunused-but-set-variable]
+  CC     cairo-rectangle.lo
+  CC     cairo-rectangular-scan-converter.lo
+  CC     cairo-region.lo
+  CC     cairo-rtree.lo
+  CC     cairo-scaled-font.lo
+cairo-scaled-font.c: In function '_cairo_scaled_glyph_page_destroy':
+cairo-scaled-font.c:446:19: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+cairo-scaled-font.c: In function '_cairo_scaled_font_init_key':
+cairo-scaled-font.c:622:13: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+cairo-scaled-font.c: In function 'cairo_scaled_font_text_to_glyphs':
+cairo-scaled-font.c:1941:20: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-scaled-font.c: In function '_cairo_scaled_font_show_glyphs':
+cairo-scaled-font.c:2219:13: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-scaled-font.c: In function '_cairo_scaled_font_glyph_path':
+cairo-scaled-font.c:2494:20: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-scaled-font.c: In function '_cairo_scaled_glyph_page_can_remove':
+cairo-scaled-font.c:2664:19: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+cairo-scaled-font.c: In function '_cairo_scaled_font_allocate_glyph':
+cairo-scaled-font.c:2690:30: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+cairo-scaled-font.c: In function '_cairo_scaled_glyph_lookup':
+cairo-scaled-font.c:2848:16: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+  CC     cairo-slope.lo
+  CC     cairo-spans.lo
+  CC     cairo-spline.lo
+  CC     cairo-stroke-style.lo
+  CC     cairo-surface.lo
+cairo-surface.c: In function '_cairo_surface_set_error':
+cairo-surface.c:171:16: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-surface.c:174:50: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-surface.c: In function '_cairo_surface_set_font_options':
+cairo-surface.c:1028:20: warning: variable 'status' set but not used [-Wunused-but-set-variable]
+cairo-surface.c: In function 'cairo_surface_set_fallback_resolution':
+cairo-surface.c:1354:20: warning: variable 'status' set but not used [-Wunused-but-set-variable]
+cairo-surface.c: In function '_cairo_surface_clone_similar':
+cairo-surface.c:1690:13: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-surface.c:1721:16: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-surface.c: In function '_cairo_surface_paint':
+cairo-surface.c:2023:13: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-surface.c: In function '_cairo_surface_mask':
+cairo-surface.c:2078:13: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-surface.c: In function '_cairo_surface_fill_stroke':
+cairo-surface.c:2146:13: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-surface.c: In function '_cairo_surface_stroke':
+cairo-surface.c:2211:13: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-surface.c: In function '_cairo_surface_fill':
+cairo-surface.c:2266:13: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-surface.c: In function 'cairo_surface_copy_page':
+cairo-surface.c:2395:20: warning: variable 'status_ignored' set but not used [-Wunused-but-set-variable]
+cairo-surface.c: In function 'cairo_surface_show_page':
+cairo-surface.c:2432:20: warning: variable 'status_ignored' set but not used [-Wunused-but-set-variable]
+cairo-surface.c: In function 'cairo_surface_has_show_text_glyphs':
+cairo-surface.c:2518:20: warning: variable 'status_ignored' set but not used [-Wunused-but-set-variable]
+cairo-surface.c: In function '_cairo_surface_show_text_glyphs':
+cairo-surface.c:2621:13: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-surface.c:2633:17: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-surface.c:2648:17: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-surface.c:2669:16: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-surface.c: In function '_rectangle_intersect_clip':
+cairo-surface.c:2964:18: warning: variable 'is_empty' set but not used [-Wunused-but-set-variable]
+cairo-surface.c: In function '_cairo_surface_operation_extents':
+cairo-surface.c:2981:18: warning: variable 'is_empty' set but not used [-Wunused-but-set-variable]
+cairo-surface.c: In function '_cairo_surface_mask_extents':
+cairo-surface.c:3014:18: warning: variable 'is_empty' set but not used [-Wunused-but-set-variable]
+cairo-surface.c: In function '_cairo_surface_stroke_extents':
+cairo-surface.c:3042:18: warning: variable 'is_empty' set but not used [-Wunused-but-set-variable]
+cairo-surface.c: In function '_cairo_surface_fill_extents':
+cairo-surface.c:3073:18: warning: variable 'is_empty' set but not used [-Wunused-but-set-variable]
+cairo-surface.c: In function '_cairo_surface_glyphs_extents':
+cairo-surface.c:3099:30: warning: variable 'is_empty' set but not used [-Wunused-but-set-variable]
+  CC     cairo-surface-fallback.lo
+cairo-surface-fallback.c: In function '_create_composite_mask_pattern':
+cairo-surface-fallback.c:136:6: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-surface-fallback.c:142:24: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-surface-fallback.c: In function '_clip_and_composite_source':
+cairo-surface-fallback.c:351:6: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-surface-fallback.c: In function '_clip_and_composite':
+cairo-surface-fallback.c:450:10: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-surface-fallback.c:456:28: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-surface-fallback.c: In function '_clip_and_composite_trapezoids':
+cairo-surface-fallback.c:792:6: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-surface-fallback.c:795:24: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-surface-fallback.c:809:24: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-surface-fallback.c:813:24: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-surface-fallback.c:852:10: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-surface-fallback.c: In function '_cairo_surface_old_show_glyphs_draw_func':
+cairo-surface-fallback.c:1289:16: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+  CC     cairo-surface-clipper.lo
+  CC     cairo-surface-offset.lo
+  CC     cairo-surface-snapshot.lo
+  CC     cairo-surface-subsurface.lo
+  CC     cairo-surface-wrapper.lo
+cairo-surface-wrapper.c: In function '_cairo_surface_wrapper_get_extents':
+cairo-surface-wrapper.c:659:33: warning: ignoring return value of '_cairo_rectangle_intersect', declared with attribute warn_unused_result [-Wunused-result]
+  CC     cairo-system.lo
+  CC     cairo-tor-scan-converter.lo
+  CC     cairo-toy-font-face.lo
+  CC     cairo-traps.lo
+  CC     cairo-unicode.lo
+  CC     cairo-user-font.lo
+cairo-user-font.c: In function '_cairo_user_scaled_glyph_init':
+cairo-user-font.c:161:17: warning: comparison between 'cairo_int_status_t' and 'enum _cairo_status' [-Wenum-compare]
+cairo-user-font.c: In function '_cairo_user_text_to_glyphs':
+cairo-user-font.c:331:13: warning: comparison between 'cairo_int_status_t' and 'enum _cairo_status' [-Wenum-compare]
+cairo-user-font.c:332:13: warning: comparison between 'cairo_int_status_t' and 'enum _cairo_status' [-Wenum-compare]
+cairo-user-font.c:335:13: warning: comparison between 'cairo_int_status_t' and 'enum _cairo_status' [-Wenum-compare]
+  CC     cairo-version.lo
+  CC     cairo-wideint.lo
+  CC     cairo-cff-subset.lo
+cairo-cff-subset.c: In function 'cairo_cff_font_write_fdselect':
+cairo-cff-subset.c:1407:9: warning: comparison between 'cairo_int_status_t' and 'enum _cairo_status' [-Wenum-compare]
+cairo-cff-subset.c:1411:9: warning: comparison between 'cairo_int_status_t' and 'enum _cairo_status' [-Wenum-compare]
+cairo-cff-subset.c:1415:9: warning: comparison between 'cairo_int_status_t' and 'enum _cairo_status' [-Wenum-compare]
+cairo-cff-subset.c:1419:9: warning: comparison between 'cairo_int_status_t' and 'enum _cairo_status' [-Wenum-compare]
+cairo-cff-subset.c:1423:9: warning: comparison between 'cairo_int_status_t' and 'enum _cairo_status' [-Wenum-compare]
+  CC     cairo-scaled-font-subsets.lo
+cairo-scaled-font-subsets.c: In function '_cairo_sub_font_init_key':
+cairo-scaled-font-subsets.c:249:31: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+cairo-scaled-font-subsets.c:254:31: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+cairo-scaled-font-subsets.c: In function '_cairo_sub_font_map_glyph':
+cairo-scaled-font-subsets.c:485:2: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-scaled-font-subsets.c: In function '_cairo_scaled_font_subsets_map_glyph':
+cairo-scaled-font-subsets.c:702:17: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-scaled-font-subsets.c:717:13: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+  CC     cairo-truetype-subset.lo
+cairo-truetype-subset.c: In function '_cairo_truetype_font_set_error':
+cairo-truetype-subset.c:125:50: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-truetype-subset.c: In function 'cairo_truetype_font_create_truetype_table_list':
+cairo-truetype-subset.c:1003:46: warning: comparison between 'cairo_int_status_t' and 'enum _cairo_status' [-Wenum-compare]
+cairo-truetype-subset.c:1009:46: warning: comparison between 'cairo_int_status_t' and 'enum _cairo_status' [-Wenum-compare]
+cairo-truetype-subset.c:1015:46: warning: comparison between 'cairo_int_status_t' and 'enum _cairo_status' [-Wenum-compare]
+cairo-truetype-subset.c: In function '_cairo_truetype_reverse_cmap':
+cairo-truetype-subset.c:1180:15: warning: variable 'glyph_array' set but not used [-Wunused-but-set-variable]
+cairo-truetype-subset.c: In function '_cairo_truetype_index_to_ucs4':
+cairo-truetype-subset.c:1314:24: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+  CC     cairo-type1-fallback.lo
+cairo-type1-fallback.c: In function 'cairo_type1_font_write_private_dict':
+cairo-type1-fallback.c:615:16: warning: comparison between 'cairo_int_status_t' and 'enum _cairo_status' [-Wenum-compare]
+  CC     cairo-type1-subset.lo
+cairo-type1-subset.c: In function 'cairo_type1_font_subset_write_private_dict':
+cairo-type1-subset.c:1010:9: warning: variable 'num_charstrings' set but not used [-Wunused-but-set-variable]
+cairo-type1-subset.c: In function '_cairo_type1_subset_init':
+cairo-type1-subset.c:1311:28: warning: variable 'status_ignored' set but not used [-Wunused-but-set-variable]
+  CC     cairo-type3-glyph-surface.lo
+cairo-type3-glyph-surface.c: In function '_cairo_type3_glyph_surface_analyze_glyph':
+cairo-type3-glyph-surface.c:439:16: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-type3-glyph-surface.c:450:16: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-type3-glyph-surface.c: In function '_cairo_type3_glyph_surface_emit_glyph':
+cairo-type3-glyph-surface.c:487:16: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-type3-glyph-surface.c:554:16: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+  CC     cairo-pdf-operators.lo
+cairo-pdf-operators.c: In function '_cairo_pdf_operators_emit_stroke':
+cairo-pdf-operators.c:770:16: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+  CC     cairo-deflate-stream.lo
+  CC     cairo-win32-surface.lo
+cairo-win32-surface.c: In function '_create_dc_and_bitmap':
+cairo-win32-surface.c:202:5: warning: enumeration value 'CAIRO_FORMAT_RGB16_565' not handled in switch [-Wswitch-enum]
+cairo-win32-surface.c:236:5: warning: enumeration value 'CAIRO_FORMAT_INVALID' not handled in switch [-Wswitch]
+cairo-win32-surface.c:236:5: warning: enumeration value 'CAIRO_FORMAT_RGB16_565' not handled in switch [-Wswitch]
+cairo-win32-surface.c:312:2: warning: enumeration value 'CAIRO_FORMAT_INVALID' not handled in switch [-Wswitch]
+cairo-win32-surface.c:312:2: warning: enumeration value 'CAIRO_FORMAT_RGB16_565' not handled in switch [-Wswitch]
+cairo-win32-surface.c: In function 'mirror_a1_bits':
+cairo-win32-surface.c:586:9: warning: unused variable 'w' [-Wunused-variable]
+cairo-win32-surface.c: In function '_cairo_win32_surface_composite':
+cairo-win32-surface.c:1338:23: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+cairo-win32-surface.c:1344:45: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+cairo-win32-surface.c:1348:19: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+cairo-win32-surface.c:1354:40: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+cairo-win32-surface.c:1370:14: warning: comparison between 'cairo_int_status_t' and 'enum _cairo_status' [-Wenum-compare]
+cairo-win32-surface.c:1391:16: warning: comparison between 'cairo_int_status_t' and 'enum _cairo_status' [-Wenum-compare]
+cairo-win32-surface.c: In function 'categorize_solid_dest_operator':
+cairo-win32-surface.c:1430:5: warning: enumeration value 'CAIRO_OPERATOR_MULTIPLY' not handled in switch [-Wswitch]
+cairo-win32-surface.c:1430:5: warning: enumeration value 'CAIRO_OPERATOR_SCREEN' not handled in switch [-Wswitch]
+cairo-win32-surface.c:1430:5: warning: enumeration value 'CAIRO_OPERATOR_OVERLAY' not handled in switch [-Wswitch]
+cairo-win32-surface.c:1430:5: warning: enumeration value 'CAIRO_OPERATOR_DARKEN' not handled in switch [-Wswitch]
+cairo-win32-surface.c:1430:5: warning: enumeration value 'CAIRO_OPERATOR_LIGHTEN' not handled in switch [-Wswitch]
+cairo-win32-surface.c:1430:5: warning: enumeration value 'CAIRO_OPERATOR_COLOR_DODGE' not handled in switch [-Wswitch]
+cairo-win32-surface.c:1430:5: warning: enumeration value 'CAIRO_OPERATOR_COLOR_BURN' not handled in switch [-Wswitch]
+cairo-win32-surface.c:1430:5: warning: enumeration value 'CAIRO_OPERATOR_HARD_LIGHT' not handled in switch [-Wswitch]
+cairo-win32-surface.c:1430:5: warning: enumeration value 'CAIRO_OPERATOR_SOFT_LIGHT' not handled in switch [-Wswitch]
+cairo-win32-surface.c:1430:5: warning: enumeration value 'CAIRO_OPERATOR_DIFFERENCE' not handled in switch [-Wswitch]
+cairo-win32-surface.c:1430:5: warning: enumeration value 'CAIRO_OPERATOR_EXCLUSION' not handled in switch [-Wswitch]
+cairo-win32-surface.c:1430:5: warning: enumeration value 'CAIRO_OPERATOR_HSL_HUE' not handled in switch [-Wswitch]
+cairo-win32-surface.c:1430:5: warning: enumeration value 'CAIRO_OPERATOR_HSL_SATURATION' not handled in switch [-Wswitch]
+cairo-win32-surface.c:1430:5: warning: enumeration value 'CAIRO_OPERATOR_HSL_COLOR' not handled in switch [-Wswitch]
+cairo-win32-surface.c:1430:5: warning: enumeration value 'CAIRO_OPERATOR_HSL_LUMINOSITY' not handled in switch [-Wswitch]
+cairo-win32-surface.c: In function '_cairo_win32_surface_show_glyphs':
+cairo-win32-surface.c:1630:6: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-win32-surface.c: In function 'cairo_win32_surface_create':
+cairo-win32-surface.c:1767:55: warning: comparison between 'cairo_int_status_t' and 'enum _cairo_status' [-Wenum-compare]
+cairo-win32-surface.c: At top level:
+cairo-win32-surface.c:615:1: warning: '_cairo_win32_surface_convert_to_gdi_format' defined but not used [-Wunused-function]
+  CC     cairo-win32-printing-surface.lo
+cairo-win32-printing-surface.c: In function '_cairo_win32_printing_surface_paint_recording_pattern':
+cairo-win32-printing-surface.c:503:6: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-win32-printing-surface.c: In function '_cairo_win32_printing_surface_paint_image_pattern':
+cairo-win32-printing-surface.c:653:16: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-win32-printing-surface.c: In function 'cairo_win32_printing_surface_create':
+cairo-win32-printing-surface.c:1767:55: warning: comparison between 'cairo_int_status_t' and 'enum _cairo_status' [-Wenum-compare]
+  CC     cairo-win32-font.lo
+cairo-win32-font.c:712:1: warning: '_cairo_win32_scaled_font_text_to_glyphs' defined but not used [-Wunused-function]
+  CC     cairo-png.lo
+cairo-png.c: In function 'write_png':
+cairo-png.c:179:16: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-png.c: In function 'read_png':
+cairo-png.c:707:17: warning: variable 'status_ignored' set but not used [-Wunused-but-set-variable]
+  CC     cairo-ft-font.lo
+cairo-ft-font.c: In function '_cairo_ft_unscaled_font_init_key':
+cairo-ft-font.c:355:14: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+  CC     cairo-ps-surface.lo
+cairo-ps-surface.c: In function '_cairo_ps_surface_emit_header':
+cairo-ps-surface.c:166:10: warning: unused variable 'ctime_buf' [-Wunused-variable]
+cairo-ps-surface.c: In function '_cairo_ps_surface_emit_unscaled_font_subset':
+cairo-ps-surface.c:677:16: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-ps-surface.c:682:16: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-ps-surface.c:686:16: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-ps-surface.c: In function '_cairo_ps_surface_emit_scaled_font_subset':
+cairo-ps-surface.c:705:16: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-ps-surface.c: In function '_cairo_ps_surface_create_for_stream_internal':
+cairo-ps-surface.c:919:28: warning: variable 'status_ignored' set but not used [-Wunused-but-set-variable]
+cairo-ps-surface.c: In function '_extract_ps_surface':
+cairo-ps-surface.c:1121:20: warning: variable 'status_ignored' set but not used [-Wunused-but-set-variable]
+cairo-ps-surface.c: In function '_cairo_ps_surface_emit_recording_surface':
+cairo-ps-surface.c:2475:5: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-ps-surface.c: In function '_cairo_ps_surface_emit_recording_subsurface':
+cairo-ps-surface.c:2547:5: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-ps-surface.c: In function '_cairo_ps_surface_emit_surface':
+cairo-ps-surface.c:2730:17: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-ps-surface.c: In function '_cairo_ps_surface_set_paginated_mode':
+cairo-ps-surface.c:3763:20: warning: variable 'status' set but not used [-Wunused-but-set-variable]
+  CC     cairo-pdf-surface.lo
+cairo-pdf-surface.c: In function '_cairo_pdf_surface_create_for_stream_internal':
+cairo-pdf-surface.c:317:28: warning: variable 'status_ignored' set but not used [-Wunused-but-set-variable]
+cairo-pdf-surface.c: In function '_extract_pdf_surface':
+cairo-pdf-surface.c:514:20: warning: variable 'status_ignored' set but not used [-Wunused-but-set-variable]
+cairo-pdf-surface.c: In function '_get_source_surface_size':
+cairo-pdf-surface.c:1112:16: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-pdf-surface.c:1119:16: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-pdf-surface.c: In function '_cairo_pdf_surface_emit_image_surface':
+cairo-pdf-surface.c:2118:16: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-pdf-surface.c:2122:16: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-pdf-surface.c: In function '_cairo_pdf_surface_emit_recording_surface':
+cairo-pdf-surface.c:2288:5: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-pdf-surface.c: In function '_cairo_pdf_surface_emit_recording_subsurface':
+cairo-pdf-surface.c:2346:5: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-pdf-surface.c: In function '_cairo_pdf_surface_emit_unscaled_font_subset':
+cairo-pdf-surface.c:4673:20: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-pdf-surface.c:4677:20: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-pdf-surface.c:4681:20: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-pdf-surface.c:4686:20: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-pdf-surface.c:4691:20: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-pdf-surface.c: In function '_cairo_pdf_surface_emit_scaled_font_subset':
+cairo-pdf-surface.c:4708:16: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-pdf-surface.c: In function '_cairo_pdf_surface_paint':
+cairo-pdf-surface.c:5428:13: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-pdf-surface.c:5474:9: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-pdf-surface.c: In function '_cairo_pdf_surface_mask':
+cairo-pdf-surface.c:5544:13: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-pdf-surface.c: In function '_cairo_pdf_surface_stroke':
+cairo-pdf-surface.c:5657:13: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-pdf-surface.c:5690:9: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-pdf-surface.c: In function '_cairo_pdf_surface_fill':
+cairo-pdf-surface.c:5786:13: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-pdf-surface.c:5849:9: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-pdf-surface.c: In function '_cairo_pdf_surface_show_text_glyphs':
+cairo-pdf-surface.c:6070:13: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-pdf-surface.c:6090:9: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+  CC     cairo-svg-surface.lo
+cairo-svg-surface.c: In function '_extract_svg_surface':
+cairo-svg-surface.c:278:20: warning: variable 'status_ignored' set but not used [-Wunused-but-set-variable]
+cairo-svg-surface.c: In function '_cairo_svg_surface_create_for_document':
+cairo-svg-surface.c:461:28: warning: variable 'status_ignored' set but not used [-Wunused-but-set-variable]
+cairo-svg-surface.c: In function '_cairo_svg_surface_store_page':
+cairo-svg-surface.c:567:20: warning: variable 'status' set but not used [-Wunused-but-set-variable]
+cairo-svg-surface.c: In function '_cairo_svg_document_emit_glyph':
+cairo-svg-surface.c:834:16: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-svg-surface.c: In function '_cairo_surface_base64_encode':
+cairo-svg-surface.c:1167:16: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-svg-surface.c:1171:16: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-svg-surface.c: In function '_cairo_svg_surface_show_glyphs':
+cairo-svg-surface.c:2523:13: warning: comparison between 'cairo_status_t' and 'enum _cairo_int_status' [-Wenum-compare]
+cairo-svg-surface.c: In function '_cairo_svg_document_create':
+cairo-svg-surface.c:2620:28: warning: variable 'status_ignored' set but not used [-Wunused-but-set-variable]
+cairo-svg-surface.c: In function '_cairo_svg_surface_supports_fine_grained_fallbacks':
+cairo-svg-surface.c:2838:19: warning: comparison between 'cairo_int_status_t' and 'enum _cairo_status' [-Wenum-compare]
+Generating cairo.def
+  CCLD   libcairo.la
+
+*** Warning: linker path does not have real file for library -lpthread.
+*** I have the capability to make that library automatically link in when
+*** you link to this library.  But I can only do this if you have a
+*** shared version of the library, which you do not appear to have
+*** because I did check the linker path looking for a file starting
+*** with libpthread and none of the candidates passed a file format test
+*** using a file magic. Last file checked: c:/msys/1.0/mingw/bin/../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/lib//libpthread.dll.a
+
+*** Warning: linker path does not have real file for library -lgdi32.
+*** I have the capability to make that library automatically link in when
+*** you link to this library.  But I can only do this if you have a
+*** shared version of the library, which you do not appear to have
+*** because I did check the linker path looking for a file starting
+*** with libgdi32 and none of the candidates passed a file format test
+*** using a file magic. Last file checked: c:/msys/1.0/mingw/bin/../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/lib//libgdi32.a
+
+*** Warning: linker path does not have real file for library -lmsimg32.
+*** I have the capability to make that library automatically link in when
+*** you link to this library.  But I can only do this if you have a
+*** shared version of the library, which you do not appear to have
+*** because I did check the linker path looking for a file starting
+*** with libmsimg32 and none of the candidates passed a file format test
+*** using a file magic. Last file checked: c:/msys/1.0/mingw/bin/../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/lib//libmsimg32.a
+
+*** Warning: linker path does not have real file for library -lz.
+*** I have the capability to make that library automatically link in when
+*** you link to this library.  But I can only do this if you have a
+*** shared version of the library, which you do not appear to have
+*** because I did check the linker path looking for a file starting
+*** with libz and none of the candidates passed a file format test
+*** using a file magic. Last file checked: C:/msys/1.0/opt/lib/libz.dll.a
+*** The inter-library dependencies that have been dropped here will be
+*** automatically added whenever a program is linked with this library
+*** or is declared to -dlopen it.
+make[3]: Leaving directory `/home/Administrateur/35_cairo/cairo-1.10.2/src'
+make[2]: Leaving directory `/home/Administrateur/35_cairo/cairo-1.10.2/src'
+Making all in doc
+make[2]: Entering directory `/home/Administrateur/35_cairo/cairo-1.10.2/doc'
+make  all-recursive
+make[3]: Entering directory `/home/Administrateur/35_cairo/cairo-1.10.2/doc'
+Making all in public
+make[4]: Entering directory `/home/Administrateur/35_cairo/cairo-1.10.2/doc/public'
+make  all-am
+make[5]: Entering directory `/home/Administrateur/35_cairo/cairo-1.10.2/doc/public'
+make[5]: Nothing to be done for `all-am'.
+make[5]: Leaving directory `/home/Administrateur/35_cairo/cairo-1.10.2/doc/public'
+make[4]: Leaving directory `/home/Administrateur/35_cairo/cairo-1.10.2/doc/public'
+make[4]: Entering directory `/home/Administrateur/35_cairo/cairo-1.10.2/doc'
+make[4]: Nothing to be done for `all-am'.
+make[4]: Leaving directory `/home/Administrateur/35_cairo/cairo-1.10.2/doc'
+make[3]: Leaving directory `/home/Administrateur/35_cairo/cairo-1.10.2/doc'
+make[2]: Leaving directory `/home/Administrateur/35_cairo/cairo-1.10.2/doc'
+Making all in util
+make[2]: Entering directory `/home/Administrateur/35_cairo/cairo-1.10.2/util'
+make  all-recursive
+make[3]: Entering directory `/home/Administrateur/35_cairo/cairo-1.10.2/util'
+Making all in .
+make[4]: Entering directory `/home/Administrateur/35_cairo/cairo-1.10.2/util'
+make[4]: Nothing to be done for `all-am'.
+make[4]: Leaving directory `/home/Administrateur/35_cairo/cairo-1.10.2/util'
+Making all in cairo-gobject
+make[4]: Entering directory `/home/Administrateur/35_cairo/cairo-1.10.2/util/cairo-gobject'
+  CC     libcairo_gobject_la-cairo-gobject-enums.lo
+  CC     libcairo_gobject_la-cairo-gobject-structs.lo
+  CCLD   libcairo-gobject.la
+
+*** Warning: linker path does not have real file for library -lpthread.
+*** I have the capability to make that library automatically link in when
+*** you link to this library.  But I can only do this if you have a
+*** shared version of the library, which you do not appear to have
+*** because I did check the linker path looking for a file starting
+*** with libpthread and none of the candidates passed a file format test
+*** using a file magic. Last file checked: c:/msys/1.0/mingw/bin/../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/lib//libpthread.dll.a
+
+*** Warning: linker path does not have real file for library -lgdi32.
+*** I have the capability to make that library automatically link in when
+*** you link to this library.  But I can only do this if you have a
+*** shared version of the library, which you do not appear to have
+*** because I did check the linker path looking for a file starting
+*** with libgdi32 and none of the candidates passed a file format test
+*** using a file magic. Last file checked: c:/msys/1.0/mingw/bin/../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/lib//libgdi32.a
+
+*** Warning: linker path does not have real file for library -lmsimg32.
+*** I have the capability to make that library automatically link in when
+*** you link to this library.  But I can only do this if you have a
+*** shared version of the library, which you do not appear to have
+*** because I did check the linker path looking for a file starting
+*** with libmsimg32 and none of the candidates passed a file format test
+*** using a file magic. Last file checked: c:/msys/1.0/mingw/bin/../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/lib//libmsimg32.a
+
+*** Warning: linker path does not have real file for library -lz.
+*** I have the capability to make that library automatically link in when
+*** you link to this library.  But I can only do this if you have a
+*** shared version of the library, which you do not appear to have
+*** because I did check the linker path looking for a file starting
+*** with libz and none of the candidates passed a file format test
+*** using a file magic. Last file checked: C:/msys/1.0/opt/lib/libz.dll.a
+*** The inter-library dependencies that have been dropped here will be
+*** automatically added whenever a program is linked with this library
+*** or is declared to -dlopen it.
+make[4]: Leaving directory `/home/Administrateur/35_cairo/cairo-1.10.2/util/cairo-gobject'
+Making all in cairo-script
+make[4]: Entering directory `/home/Administrateur/35_cairo/cairo-1.10.2/util/cairo-script'
+Making all in examples
+make[5]: Entering directory `/home/Administrateur/35_cairo/cairo-1.10.2/util/cairo-script/examples'
+make[5]: Nothing to be done for `all'.
+make[5]: Leaving directory `/home/Administrateur/35_cairo/cairo-1.10.2/util/cairo-script/examples'
+make[5]: Entering directory `/home/Administrateur/35_cairo/cairo-1.10.2/util/cairo-script'
+  CC     libcairo_script_interpreter_la-cairo-script-file.lo
+  CC     libcairo_script_interpreter_la-cairo-script-hash.lo
+  CC     libcairo_script_interpreter_la-cairo-script-interpreter.lo
+cairo-script-interpreter.c: In function '_init_dictionaries':
+cairo-script-interpreter.c:307:37: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+cairo-script-interpreter.c:310:37: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+cairo-script-interpreter.c: In function 'cairo_script_interpreter_finish':
+cairo-script-interpreter.c:636:23: warning: comparison between 'csi_status_t' and 'enum _cairo_status' [-Wenum-compare]
+  CC     libcairo_script_interpreter_la-cairo-script-objects.lo
+cairo-script-objects.c: In function 'csi_name_new':
+cairo-script-objects.c:455:23: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+cairo-script-objects.c: In function 'csi_name_new_static':
+cairo-script-objects.c:472:23: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+cairo-script-objects.c: In function 'csi_object_eq':
+cairo-script-objects.c:817:25: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+cairo-script-objects.c: In function 'csi_object_compare':
+cairo-script-objects.c:860:22: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+cairo-script-objects.c:861:22: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+cairo-script-objects.c:916:25: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  CC     libcairo_script_interpreter_la-cairo-script-operators.lo
+cairo-script-operators.c: In function '_csi_ostack_get_string_constant':
+cairo-script-operators.c:523:9: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+cairo-script-operators.c: In function '_type3_lookup':
+cairo-script-operators.c:1500:14: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+cairo-script-operators.c: In function '_ft_create_for_source':
+cairo-script-operators.c:1750:9: warning: variable 'vec_count' set but not used [-Wunused-but-set-variable]
+cairo-script-operators.c:1749:21: warning: variable 'vec' set but not used [-Wunused-but-set-variable]
+cairo-script-operators.c: In function '_ft_create_for_pattern':
+cairo-script-operators.c:1863:21: warning: unused variable 'vec' [-Wunused-variable]
+cairo-script-operators.c: In function '_context_get':
+cairo-script-operators.c:2312:17: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+cairo-script-operators.c:2325:24: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+cairo-script-operators.c:2328:24: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+cairo-script-operators.c:2331:24: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+cairo-script-operators.c:2334:24: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+cairo-script-operators.c:2337:24: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+cairo-script-operators.c: In function '_pattern_get':
+cairo-script-operators.c:2363:17: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+cairo-script-operators.c:2366:17: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+cairo-script-operators.c:2369:17: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+cairo-script-operators.c:2372:17: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+cairo-script-operators.c: In function '_surface_get':
+cairo-script-operators.c:2402:17: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+cairo-script-operators.c:2406:17: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+cairo-script-operators.c: In function '_image_load_from_dictionary':
+cairo-script-operators.c:3213:14: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+cairo-script-operators.c: In function '_context_set':
+cairo-script-operators.c:4332:17: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+cairo-script-operators.c:4341:17: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+cairo-script-operators.c:4350:17: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+cairo-script-operators.c: In function '_debug_print':
+cairo-script-operators.c:5896:33: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  CC     libcairo_script_interpreter_la-cairo-script-scanner.lo
+cairo-script-scanner.c: In function 'fprintf_obj':
+cairo-script-scanner.c:97:37: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+cairo-script-scanner.c: In function '_translate_name':
+cairo-script-scanner.c:1432:16: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+cairo-script-scanner.c:1433:17: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+cairo-script-scanner.c: In function 'build_opcodes':
+cairo-script-scanner.c:1741:46: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+  CC     libcairo_script_interpreter_la-cairo-script-stack.lo
+  CCLD   libcairo-script-interpreter.la
+
+*** Warning: linker path does not have real file for library -lpthread.
+*** I have the capability to make that library automatically link in when
+*** you link to this library.  But I can only do this if you have a
+*** shared version of the library, which you do not appear to have
+*** because I did check the linker path looking for a file starting
+*** with libpthread and none of the candidates passed a file format test
+*** using a file magic. Last file checked: c:/msys/1.0/mingw/bin/../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/lib//libpthread.dll.a
+
+*** Warning: linker path does not have real file for library -lgdi32.
+*** I have the capability to make that library automatically link in when
+*** you link to this library.  But I can only do this if you have a
+*** shared version of the library, which you do not appear to have
+*** because I did check the linker path looking for a file starting
+*** with libgdi32 and none of the candidates passed a file format test
+*** using a file magic. Last file checked: c:/msys/1.0/mingw/bin/../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/lib//libgdi32.a
+
+*** Warning: linker path does not have real file for library -lmsimg32.
+*** I have the capability to make that library automatically link in when
+*** you link to this library.  But I can only do this if you have a
+*** shared version of the library, which you do not appear to have
+*** because I did check the linker path looking for a file starting
+*** with libmsimg32 and none of the candidates passed a file format test
+*** using a file magic. Last file checked: c:/msys/1.0/mingw/bin/../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/lib//libmsimg32.a
+
+*** Warning: linker path does not have real file for library -lz.
+*** I have the capability to make that library automatically link in when
+*** you link to this library.  But I can only do this if you have a
+*** shared version of the library, which you do not appear to have
+*** because I did check the linker path looking for a file starting
+*** with libz and none of the candidates passed a file format test
+*** using a file magic. Last file checked: C:/msys/1.0/opt/lib/libz.dll.a
+*** The inter-library dependencies that have been dropped here will be
+*** automatically added whenever a program is linked with this library
+*** or is declared to -dlopen it.
+make[5]: Leaving directory `/home/Administrateur/35_cairo/cairo-1.10.2/util/cairo-script'
+make[4]: Leaving directory `/home/Administrateur/35_cairo/cairo-1.10.2/util/cairo-script'
+make[3]: Leaving directory `/home/Administrateur/35_cairo/cairo-1.10.2/util'
+make[2]: Leaving directory `/home/Administrateur/35_cairo/cairo-1.10.2/util'
+Making all in boilerplate
+make[2]: Entering directory `/home/Administrateur/35_cairo/cairo-1.10.2/boilerplate'
+(cd . && sh ./make-cairo-boilerplate-constructors.sh cairo-boilerplate-getopt.c cairo-boilerplate-system.c cairo-boilerplate.c           cairo-boilerplate-win32.c cairo-boilerplate-win32-printing.c                   cairo-boilerplate-ps.c cairo-boilerplate-pdf.c cairo-boilerplate-svg.c                                                      ) > cairo-boilerplate-constructors.c
+make  all-am
+make[3]: Entering directory `/home/Administrateur/35_cairo/cairo-1.10.2/boilerplate'
+make[3]: Nothing to be done for `all-am'.
+make[3]: Leaving directory `/home/Administrateur/35_cairo/cairo-1.10.2/boilerplate'
+make[2]: Leaving directory `/home/Administrateur/35_cairo/cairo-1.10.2/boilerplate'
+Making all in test
+make[2]: Entering directory `/home/Administrateur/35_cairo/cairo-1.10.2/test'
+(cd . && sh ./make-cairo-test-constructors.sh a1-bug.c a1-image-sample.c a1-mask.c a1-mask-sample.c a1-traps-sample.c a1-rasterisation.c a8-clear.c a8-mask.c aliasing.c alpha-similar.c api-special-cases.c big-line.c big-trap.c bilevel-image.c bug-bo-rectangular.c bug-extents.c bug-seams.c caps.c caps-joins.c caps-joins-alpha.c caps-joins-curve.c caps-sub-paths.c clear.c clear-source.c clip-all.c clip-contexts.c clip-disjoint.c clip-device-offset.c clip-draw-unbounded.c clip-empty.c clip-empty-group.c clip-empty-save.c clip-fill.c clip-fill-no-op.c clip-fill-rule.c clip-fill-rule-pixel-aligned.c clip-group-shapes.c clip-image.c clip-nesting.c clip-operator.c clip-push-group.c clip-shape.c clip-stroke.c clip-stroke-no-op.c clip-text.c clip-twice.c clip-twice-rectangle.c clip-unbounded.c clip-zero.c clipped-group.c clipped-surface.c close-path.c close-path-current-point.c composite-integer-translate-source.c composite-integer-translate-over.c composite-integer-translate-over-repeat.c copy-path.c coverage.c create-for-stream.c create-from-png.c create-from-png-stream.c culled-glyphs.c curve-to-as-line-to.c dash-caps-joins.c dash-curve.c dash-infinite-loop.c dash-no-dash.c dash-offset.c dash-offset-negative.c dash-scale.c dash-state.c dash-zero-length.c degenerate-arc.c degenerate-arcs.c degenerate-curve-to.c degenerate-dash.c degenerate-linear-gradient.c degenerate-path.c degenerate-pen.c degenerate-radial-gradient.c degenerate-rel-curve-to.c device-offset.c device-offset-fractional.c device-offset-positive.c device-offset-scale.c error-setters.c extend-pad.c extend-pad-border.c extend-pad-similar.c extend-reflect.c extend-reflect-similar.c extend-repeat.c extend-repeat-similar.c extended-blend.c extended-blend-alpha.c fill-alpha.c fill-alpha-pattern.c fill-and-stroke.c fill-and-stroke-alpha.c fill-and-stroke-alpha-add.c fill-degenerate-sort-order.c fill-empty.c fill-image.c fill-missed-stop.c fill-rule.c filter-bilinear-extents.c filter-nearest-offset.c filter-nearest-transformed.c finer-grained-fallbacks.c font-face-get-type.c font-matrix-translation.c font-options.c glyph-cache-pressure.c get-and-set.c get-clip.c get-group-target.c get-path-extents.c gradient-alpha.c gradient-constant-alpha.c gradient-zero-stops.c gradient-zero-stops-mask.c group-clip.c group-paint.c group-unaligned.c half-coverage.c halo.c huge-linear.c huge-radial.c image-surface-source.c implicit-close.c infinite-join.c in-fill-empty-trapezoid.c in-fill-trapezoid.c invalid-matrix.c inverse-text.c joins.c large-clip.c large-font.c large-source.c large-source-roi.c large-twin-antialias-mixed.c leaky-dash.c leaky-dashed-rectangle.c leaky-dashed-stroke.c leaky-polygon.c line-width.c line-width-scale.c line-width-zero.c linear-gradient.c linear-gradient-extend.c linear-gradient-large.c linear-gradient-one-stop.c linear-gradient-reflect.c linear-gradient-subset.c linear-step-function.c linear-uniform.c long-dashed-lines.c long-lines.c mask.c mask-alpha.c mask-ctm.c mask-glyphs.c mask-surface-ctm.c mask-transformed-image.c mask-transformed-similar.c recording-surface-pattern.c mime-data.c miter-precision.c move-to-show-surface.c new-sub-path.c nil-surface.c operator.c operator-alpha.c operator-alpha-alpha.c operator-clear.c operator-source.c over-above-source.c over-around-source.c over-below-source.c over-between-source.c overlapping-glyphs.c paint.c paint-repeat.c paint-source-alpha.c paint-with-alpha.c partial-clip-text.c partial-coverage.c path-append.c path-stroke-twice.c path-precision.c pattern-get-type.c pattern-getters.c pixman-rotate.c png.c push-group.c push-group-color.c push-group-path-offset.c radial-gradient.c radial-gradient-extend.c radial-gradient-mask.c radial-gradient-mask-source.c radial-gradient-one-stop.c radial-gradient-source.c random-intersections-eo.c random-intersections-nonzero.c random-intersections-curves-eo.c random-intersections-curves-nz.c rectangle-rounding-error.c rectilinear-fill.c rectilinear-grid.c rectilinear-miter-limit.c rectilinear-dash.c rectilinear-stroke.c reflected-stroke.c rel-path.c rgb24-ignore-alpha.c rotate-image-surface-paint.c rotated-clip.c rounded-rectangle-fill.c rounded-rectangle-stroke.c scale-down-source-surface-paint.c scale-offset-image.c scale-offset-similar.c scale-source-surface-paint.c scaled-font-zero-matrix.c stroke-ctm-caps.c stroke-image.c select-font-face.c select-font-no-show-text.c self-copy.c self-copy-overlap.c self-intersecting.c set-source.c show-glyphs-many.c show-text-current-point.c skew-extreme.c smask.c smask-fill.c smask-image-mask.c smask-mask.c smask-paint.c smask-stroke.c smask-text.c solid-pattern-cache-stress.c source-clip.c source-clip-scale.c source-surface-scale-paint.c spline-decomposition.c subsurface.c subsurface-image-repeat.c subsurface-repeat.c subsurface-reflect.c subsurface-pad.c subsurface-modify-child.c subsurface-modify-parent.c subsurface-outside-target.c subsurface-similar-repeat.c surface-finish-twice.c surface-pattern.c surface-pattern-big-scale-down.c surface-pattern-operator.c surface-pattern-scale-down.c surface-pattern-scale-down-extend.c surface-pattern-scale-up.c text-antialias-gray.c text-antialias-none.c text-antialias-subpixel.c text-cache-crash.c text-glyph-range.c text-pattern.c text-rotate.c text-transform.c text-zero-len.c toy-font-face.c transforms.c translate-show-surface.c trap-clip.c twin.c twin-antialias-gray.c twin-antialias-mixed.c twin-antialias-none.c twin-antialias-subpixel.c unantialiased-shapes.c unbounded-operator.c user-data.c user-font.c user-font-mask.c user-font-proxy.c user-font-rescale.c xcomposite-projection.c xlib-expose-event.c zero-alpha.c zero-mask.c pthread-same-source.c pthread-show-text.c pthread-similar.c  bitmap-font.c ft-font-create-for-ft-face.c ft-show-glyphs-positioning.c ft-show-glyphs-table.c ft-text-vertical-layout-type1.c ft-text-vertical-layout-type3.c ft-text-antialias-none.c   pdf-features.c pdf-mime-data.c pdf-surface-source.c ps-eps.c ps-features.c ps-surface-source.c svg-surface.c svg-clip.c svg-surface-source.c     multi-page.c ) > cairo-test-constructors.c
+make  all-recursive
+make[3]: Entering directory `/home/Administrateur/35_cairo/cairo-1.10.2/test'
+Making all in pdiff
+make[4]: Entering directory `/home/Administrateur/35_cairo/cairo-1.10.2/test/pdiff'
+make  all-am
+make[5]: Entering directory `/home/Administrateur/35_cairo/cairo-1.10.2/test/pdiff'
+  CC     lpyramid.lo
+  CC     pdiff.lo
+  CCLD   libpdiff.la
+make[5]: Leaving directory `/home/Administrateur/35_cairo/cairo-1.10.2/test/pdiff'
+make[4]: Leaving directory `/home/Administrateur/35_cairo/cairo-1.10.2/test/pdiff'
+Making all in .
+make[4]: Entering directory `/home/Administrateur/35_cairo/cairo-1.10.2/test'
+make[4]: Nothing to be done for `all-am'.
+make[4]: Leaving directory `/home/Administrateur/35_cairo/cairo-1.10.2/test'
+make[3]: Leaving directory `/home/Administrateur/35_cairo/cairo-1.10.2/test'
+make[2]: Leaving directory `/home/Administrateur/35_cairo/cairo-1.10.2/test'
+Making all in perf
+make[2]: Entering directory `/home/Administrateur/35_cairo/cairo-1.10.2/perf'
+make  all-am
+make[3]: Entering directory `/home/Administrateur/35_cairo/cairo-1.10.2/perf'
+make[3]: Nothing to be done for `all-am'.
+make[3]: Leaving directory `/home/Administrateur/35_cairo/cairo-1.10.2/perf'
+make[2]: Leaving directory `/home/Administrateur/35_cairo/cairo-1.10.2/perf'
+make[2]: Entering directory `/home/Administrateur/35_cairo/cairo-1.10.2'
+make[2]: Nothing to be done for `all-am'.
+make[2]: Leaving directory `/home/Administrateur/35_cairo/cairo-1.10.2'
+make[1]: Leaving directory `/home/Administrateur/35_cairo/cairo-1.10.2'

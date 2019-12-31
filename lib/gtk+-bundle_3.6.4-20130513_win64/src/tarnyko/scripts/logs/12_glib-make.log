@@ -1,0 +1,1250 @@
+ cd . && /bin/sh ./config.status Makefile 
+config.status: creating Makefile
+make  all-recursive
+make[1]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3'
+Making all in .
+make[2]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3'
+make[2]: Nothing to be done for `all-am'.
+make[2]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3'
+Making all in m4macros
+make[2]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/m4macros'
+ cd .. && /bin/sh ./config.status m4macros/Makefile 
+config.status: creating m4macros/Makefile
+make[2]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/m4macros'
+make[2]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/m4macros'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/m4macros'
+Making all in glib
+make[2]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/glib'
+ cd .. && /bin/sh ./config.status glib/Makefile depfiles
+config.status: creating glib/Makefile
+config.status: executing depfiles commands
+make[2]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/glib'
+make[2]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/glib'
+  GEN      glibconfig-stamp
+config.status: executing glib/glibconfig.h commands
+config.status: glib/glibconfig.h is unchanged
+make  all-recursive
+make[3]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/glib'
+Making all in libcharset
+make[4]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/glib/libcharset'
+ cd ../.. && /bin/sh ./config.status glib/libcharset/Makefile depfiles
+config.status: creating glib/libcharset/Makefile
+config.status: executing depfiles commands
+make[4]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/glib/libcharset'
+make[4]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/glib/libcharset'
+  CC       localcharset.lo
+  CCLD     libcharset.la
+  GEN      ref-add.sed
+  GEN      ref-del.sed
+  GEN      charset.alias
+make[4]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/glib/libcharset'
+Making all in gnulib
+make[4]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/glib/gnulib'
+ cd ../.. && /bin/sh ./config.status glib/gnulib/Makefile depfiles
+config.status: creating glib/gnulib/Makefile
+config.status: executing depfiles commands
+make[4]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/glib/gnulib'
+make[4]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/glib/gnulib'
+  CC       asnprintf.lo
+  CC       printf-args.lo
+  CC       printf-parse.lo
+  CC       vasnprintf.lo
+vasnprintf.c: In function '_g_gnulib_vasnprintf':
+vasnprintf.c:732:11: warning: variable 'retcount' set but not used [-Wunused-but-set-variable]
+  CC       printf.lo
+  CCLD     libgnulib.la
+make[4]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/glib/gnulib'
+Making all in pcre
+make[4]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/glib/pcre'
+ cd ../.. && /bin/sh ./config.status glib/pcre/Makefile depfiles
+config.status: creating glib/pcre/Makefile
+config.status: executing depfiles commands
+make[4]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/glib/pcre'
+make[4]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/glib/pcre'
+  CC       libpcre_la-pcre_byte_order.lo
+  CC       libpcre_la-pcre_chartables.lo
+  CC       libpcre_la-pcre_compile.lo
+  CC       libpcre_la-pcre_config.lo
+  CC       libpcre_la-pcre_dfa_exec.lo
+  CC       libpcre_la-pcre_exec.lo
+  CC       libpcre_la-pcre_fullinfo.lo
+  CC       libpcre_la-pcre_get.lo
+  CC       libpcre_la-pcre_globals.lo
+  CC       libpcre_la-pcre_jit_compile.lo
+  CC       libpcre_la-pcre_newline.lo
+  CC       libpcre_la-pcre_ord2utf8.lo
+  CC       libpcre_la-pcre_string_utils.lo
+  CC       libpcre_la-pcre_study.lo
+  CC       libpcre_la-pcre_tables.lo
+  CC       libpcre_la-pcre_valid_utf8.lo
+  CC       libpcre_la-pcre_xclass.lo
+  CCLD     libpcre.la
+make[4]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/glib/pcre'
+Making all in update-pcre
+make[4]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/glib/update-pcre'
+ cd ../.. && /bin/sh ./config.status glib/update-pcre/Makefile 
+config.status: creating glib/update-pcre/Makefile
+make[4]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/glib/update-pcre'
+make[4]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/glib/update-pcre'
+make[4]: Nothing to be done for `all'.
+make[4]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/glib/update-pcre'
+Making all in .
+make[4]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/glib'
+  CC       gallocator.lo
+  CC       gcache.lo
+  CC       gcompletion.lo
+  CC       grel.lo
+  CC       gthread-deprecated.lo
+  CC       garray.lo
+  CC       gasyncqueue.lo
+  CC       gatomic.lo
+  CC       gbacktrace.lo
+  CC       gbase64.lo
+  CC       gbitlock.lo
+  CC       gbookmarkfile.lo
+  CC       gbytes.lo
+  CC       gcharset.lo
+  CC       gchecksum.lo
+  CC       gconvert.lo
+gconvert.c: In function 'g_iconv':
+gconvert.c:310:3: warning: passing argument 2 of 'iconv' from incompatible pointer type [enabled by default]
+win_iconv.c:775:1: note: expected 'const char **' but argument is of type 'gchar **'
+  CC       gdataset.lo
+  CC       gdate.lo
+  CC       gdatetime.lo
+gdatetime.c: In function 'g_date_time_format_locale':
+gdatetime.c:2305:9: warning: assignment discards 'const' qualifier from pointer target type [enabled by default]
+gdatetime.c:2326:9: warning: assignment discards 'const' qualifier from pointer target type [enabled by default]
+  CC       gdir.lo
+  CC       genviron.lo
+  CC       gerror.lo
+  CC       gfileutils.lo
+  CC       ggettext.lo
+  CC       ghash.lo
+  CC       ghmac.lo
+  CC       ghook.lo
+  CC       ghostutils.lo
+  CC       giochannel.lo
+  CC       gkeyfile.lo
+gkeyfile.c:45:0: warning: "fstat" redefined [enabled by default]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/sys/stat.h:259:0: note: this is the location of the previous definition
+gkeyfile.c:46:0: warning: "stat" redefined [enabled by default]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/sys/stat.h:258:0: note: this is the location of the previous definition
+  CC       glib-init.lo
+  CC       glib-private.lo
+  CC       glist.lo
+  CC       gmain.lo
+  CC       gmappedfile.lo
+gmappedfile.c:41:0: warning: "fstat" redefined [enabled by default]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/sys/stat.h:259:0: note: this is the location of the previous definition
+gmappedfile.c:42:0: warning: "stat" redefined [enabled by default]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/sys/stat.h:258:0: note: this is the location of the previous definition
+  CC       gmarkup.lo
+  CC       gmem.lo
+  CC       gmessages.lo
+  CC       gnode.lo
+  CC       goption.lo
+  CC       gpattern.lo
+  CC       gpoll.lo
+  CC       gprimes.lo
+  CC       gqsort.lo
+  CC       gquark.lo
+  CC       gqueue.lo
+  CC       grand.lo
+  CC       gregex.lo
+  CC       gscanner.lo
+  CC       gsequence.lo
+  CC       gshell.lo
+  CC       gslice.lo
+  CC       gslist.lo
+  CC       gstdio.lo
+gstdio.c: In function 'g_stat':
+gstdio.c:496:3: warning: passing argument 2 of '_wstat64i32' from incompatible pointer type [enabled by default]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/sys/stat.h:128:15: note: expected 'struct _stat64i32 *' but argument is of type 'struct GStatBuf *'
+  CC       gstrfuncs.lo
+  CC       gstring.lo
+  CC       gstringchunk.lo
+  CC       gtestutils.lo
+gtestutils.c: In function 'g_test_log_send':
+gtestutils.c:577:13: warning: unknown conversion type character 'L' in format [-Wformat]
+gtestutils.c:577:13: warning: too many arguments for format [-Wformat-extra-args]
+gtestutils.c: In function 'g_assertion_message_cmpnum':
+gtestutils.c:1906:5: warning: unknown conversion type character 'L' in format [-Wformat]
+gtestutils.c:1906:5: warning: format '%s' expects argument of type 'char *', but argument 3 has type 'long double' [-Wformat]
+gtestutils.c:1906:5: warning: unknown conversion type character 'L' in format [-Wformat]
+gtestutils.c:1906:5: warning: too many arguments for format [-Wformat-extra-args]
+gtestutils.c:1908:5: warning: unknown conversion type character 'L' in format [-Wformat]
+gtestutils.c:1908:5: warning: format '%s' expects argument of type 'char *', but argument 3 has type 'long double' [-Wformat]
+gtestutils.c:1908:5: warning: unknown conversion type character 'L' in format [-Wformat]
+gtestutils.c:1908:5: warning: too many arguments for format [-Wformat-extra-args]
+  CC       gthread.lo
+  CC       gthreadpool.lo
+  CC       gtimer.lo
+  CC       gtimezone.lo
+  CC       gtrashstack.lo
+  CC       gtree.lo
+  CC       guniprop.lo
+  CC       gutf8.lo
+  CC       gunibreak.lo
+  CC       gunicollate.lo
+  CC       gunidecomp.lo
+  CC       gurifuncs.lo
+  CC       gutils.lo
+  CC       gvariant.lo
+  CC       gvariant-core.lo
+  CC       gvariant-parser.lo
+  CC       gvariant-serialiser.lo
+  CC       gvarianttypeinfo.lo
+  CC       gvarianttype.lo
+  CC       gversion.lo
+  CC       gwakeup.lo
+  CC       gprintf.lo
+  CC       gthread-win32.lo
+gthread-win32.c: In function 'g_private_get_impl':
+gthread-win32.c:339:16: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+gthread-win32.c:344:14: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+gthread-win32.c:370:54: warning: passing argument 1 of '_InterlockedCompareExchangePointer' from incompatible pointer type [enabled by default]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/winbase.h:981:18: note: expected 'void * volatile*' but argument is of type 'struct GPrivateDestructor * volatile*'
+gthread-win32.c:375:11: warning: passing argument 2 of '_InterlockedCompareExchangePointer' makes pointer from integer without a cast [enabled by default]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/winbase.h:981:18: note: expected 'void *' but argument is of type 'DWORD'
+gthread-win32.c: In function 'g_thread_xp_get_condition_variable':
+gthread-win32.c:822:7: warning: passing argument 1 of '_InterlockedCompareExchangePointer' from incompatible pointer type [enabled by default]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/winbase.h:981:18: note: expected 'void * volatile*' but argument is of type 'struct GThreadXpCONDITION_VARIABLE * volatile*'
+  CC       giowin32.lo
+giowin32.c: In function 'g_io_channel_new_file_utf8':
+giowin32.c:1680:7: warning: case value '9' not in enumerated type [-Wswitch]
+giowin32.c:1684:7: warning: case value '10' not in enumerated type [-Wswitch]
+giowin32.c:1688:7: warning: case value '12' not in enumerated type [-Wswitch]
+giowin32.c:1734:7: warning: case value '9' not in enumerated type [-Wswitch]
+giowin32.c:1735:7: warning: case value '10' not in enumerated type [-Wswitch]
+giowin32.c:1736:7: warning: case value '12' not in enumerated type [-Wswitch]
+  CC       gspawn-win32.lo
+  CC       gwin32.lo
+cd .. && /bin/sh ./config.status glib/glib.rc
+config.status: creating glib/glib.rc
+x86_64-w64-mingw32-windres glib.rc glib-win32-res.o
+  GEN      glib.def
+  CCLD     libglib-2.0.la
+  CC       gspawn-win64-helper.o
+gspawn-win32.c:68:14: warning: 'debug' defined but not used [-Wunused-variable]
+  CCLD     gspawn-win64-helper.exe
+  CC       gspawn-win64-helper-console.o
+gspawn-win32.c:68:14: warning: 'debug' defined but not used [-Wunused-variable]
+  CCLD     gspawn-win64-helper-console.exe
+echo glib-unix.h glib-object.h glib.h galloca.h garray.h gasyncqueue.h gatomic.h gbacktrace.h gbase64.h gbitlock.h gbookmarkfile.h gbytes.h gcharset.h gchecksum.h gconvert.h gdataset.h gdate.h gdatetime.h gdir.h genviron.h gerror.h gfileutils.h ggettext.h ghash.h ghmac.h ghook.h ghostutils.h gi18n.h gi18n-lib.h giochannel.h gkeyfile.h glist.h gmacros.h gmain.h gmappedfile.h gmarkup.h gmem.h gmessages.h gnode.h goption.h gpattern.h gpoll.h gprimes.h gqsort.h gquark.h gqueue.h grand.h gregex.h gscanner.h gsequence.h gshell.h gslice.h gslist.h gspawn.h gstdio.h gstrfuncs.h gtestutils.h gstring.h gstringchunk.h gthread.h gthreadpool.h gtimer.h gtimezone.h gtrashstack.h gtree.h gtypes.h gunicode.h gurifuncs.h gutils.h gvarianttype.h gvariant.h gversion.h gversionmacros.h gwin32.h gprintf.h > glib-public-headers.txt.tmp && mv glib-public-headers.txt.tmp glib-public-headers.txt
+make[4]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/glib'
+Making all in tests
+make[4]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/glib/tests'
+ cd ../.. && /bin/sh ./config.status glib/tests/Makefile depfiles
+config.status: creating glib/tests/Makefile
+config.status: executing depfiles commands
+make[4]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/glib/tests'
+make[4]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/glib/tests'
+  CC       testing.o
+  CCLD     testing.exe
+  CC       option-context.o
+  CCLD     option-context.exe
+  CC       option-argv0.o
+  CCLD     option-argv0.exe
+  CC       keyfile.o
+  CCLD     keyfile.exe
+  CC       fileutils.o
+fileutils.c: In function 'test_build_filename':
+fileutils.c:258:3: warning: not enough variable arguments to fit a sentinel [-Wformat]
+  CCLD     fileutils.exe
+  CC       test-printf.o
+test-printf.c: In function 'test_64bit':
+test-printf.c:724:3: warning: unknown conversion type character 'l' in format [-Wformat]
+test-printf.c:724:3: warning: too many arguments for format [-Wformat-extra-args]
+test-printf.c:728:3: warning: unknown conversion type character 'l' in format [-Wformat]
+test-printf.c:728:3: warning: too many arguments for format [-Wformat-extra-args]
+test-printf.c:732:3: warning: unknown conversion type character 'l' in format [-Wformat]
+test-printf.c:732:3: warning: too many arguments for format [-Wformat-extra-args]
+test-printf.c:736:3: warning: unknown conversion type character 'l' in format [-Wformat]
+test-printf.c:736:3: warning: too many arguments for format [-Wformat-extra-args]
+test-printf.c:740:3: warning: unknown conversion type character 'l' in format [-Wformat]
+test-printf.c:740:3: warning: too many arguments for format [-Wformat-extra-args]
+test-printf.c:744:3: warning: unknown conversion type character 'l' in format [-Wformat]
+test-printf.c:744:3: warning: too many arguments for format [-Wformat-extra-args]
+test-printf.c:748:3: warning: unknown conversion type character 'l' in format [-Wformat]
+test-printf.c:748:3: warning: too many arguments for format [-Wformat-extra-args]
+test-printf.c:752:3: warning: unknown conversion type character 'l' in format [-Wformat]
+test-printf.c:752:3: warning: too many arguments for format [-Wformat-extra-args]
+test-printf.c: In function 'test_64bit2':
+test-printf.c:845:7: warning: unknown conversion type character 'l' in format [-Wformat]
+test-printf.c:845:7: warning: too many arguments for format [-Wformat-extra-args]
+test-printf.c:854:7: warning: unknown conversion type character 'l' in format [-Wformat]
+test-printf.c:854:7: warning: too many arguments for format [-Wformat-extra-args]
+test-printf.c:863:7: warning: unknown conversion type character 'l' in format [-Wformat]
+test-printf.c:863:7: warning: too many arguments for format [-Wformat-extra-args]
+test-printf.c:872:7: warning: unknown conversion type character 'l' in format [-Wformat]
+test-printf.c:872:7: warning: too many arguments for format [-Wformat-extra-args]
+test-printf.c:881:7: warning: unknown conversion type character 'l' in format [-Wformat]
+test-printf.c:881:7: warning: too many arguments for format [-Wformat-extra-args]
+test-printf.c:890:7: warning: unknown conversion type character 'l' in format [-Wformat]
+test-printf.c:890:7: warning: too many arguments for format [-Wformat-extra-args]
+test-printf.c:899:7: warning: unknown conversion type character 'l' in format [-Wformat]
+test-printf.c:899:7: warning: too many arguments for format [-Wformat-extra-args]
+test-printf.c:908:7: warning: unknown conversion type character 'l' in format [-Wformat]
+test-printf.c:908:7: warning: too many arguments for format [-Wformat-extra-args]
+  CCLD     test-printf.exe
+  CC       protocol.o
+  CCLD     protocol.exe
+  CC       rand.o
+  CCLD     rand.exe
+  CC       strfuncs.o
+  CCLD     strfuncs.exe
+  CC       string.o
+  CCLD     string.exe
+  CC       markup-parse.o
+  CCLD     markup-parse.exe
+  CC       markup-collect.o
+  CCLD     markup-collect.exe
+  CC       markup-escape.o
+  CCLD     markup-escape.exe
+  CC       markup-subparser.o
+  CCLD     markup-subparser.exe
+  CC       array-test.o
+  CCLD     array-test.exe
+  CC       bytes.o
+  CCLD     bytes.exe
+  CC       hostutils.o
+  CCLD     hostutils.exe
+  CC       gvariant.o
+  CCLD     gvariant.exe
+  CC       mem-overflow.o
+  CCLD     mem-overflow.exe
+  CC       utf8-performance.o
+  CCLD     utf8-performance.exe
+  CC       utils.o
+  CCLD     utils.exe
+  CC       regex.o
+  CCLD     regex.exe
+  CC       base64.o
+  CCLD     base64.exe
+  CC       sequence.o
+  CCLD     sequence.exe
+  CC       scannerapi.o
+  CCLD     scannerapi.exe
+  CC       shell.o
+  CCLD     shell.exe
+  CC       collate.o
+  CCLD     collate.exe
+  CC       utf8-pointer.o
+  CCLD     utf8-pointer.exe
+  CC       utf8-validate.o
+  CCLD     utf8-validate.exe
+  CC       utf8-misc.o
+  CCLD     utf8-misc.exe
+  CC       unicode.o
+  CCLD     unicode.exe
+  CC       checksum.o
+  CCLD     checksum.exe
+  CC       hmac.o
+  CCLD     hmac.exe
+  CC       hash.o
+  CCLD     hash.exe
+  CC       cache.o
+  CCLD     cache.exe
+  CC       date.o
+  CCLD     date.exe
+  CC       node.o
+node.c: In function 'node_build_string':
+node.c:55:10: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+node.c: In function 'construct_test':
+node.c:227:7: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+  CCLD     node.exe
+  CC       convert.o
+  CCLD     convert.exe
+  CC       list.o
+  CCLD     list.exe
+  CC       slist.o
+  CCLD     slist.exe
+  CC       queue.o
+  CCLD     queue.exe
+  CC       tree.o
+  CCLD     tree.exe
+  CC       uri.o
+  CCLD     uri.exe
+  CC       dir.o
+  CCLD     dir.exe
+  CC       pattern.o
+  CCLD     pattern.exe
+  CC       logging.o
+  CCLD     logging.exe
+  CC       error.o
+  CCLD     error.exe
+  CC       bookmarkfile.o
+  CCLD     bookmarkfile.exe
+  CC       gdatetime.o
+gdatetime.c: In function 'test_GDateTime_get_utc_offset':
+gdatetime.c:682:13: warning: variable 'ts' set but not used [-Wunused-but-set-variable]
+gdatetime.c: In function 'test_GDateTime_printf':
+gdatetime.c:828:3: warning: format '%ld' expects argument of type 'long int', but argument 3 has type 'time_t' [-Wformat]
+gdatetime.c: In function 'test_strftime':
+gdatetime.c:1235:7: warning: unknown conversion type character 'C' in format [-Wformat]
+gdatetime.c:1235:7: warning: unknown conversion type character 'e' in format [-Wformat]
+gdatetime.c:1235:7: warning: unknown conversion type character 'F' in format [-Wformat]
+gdatetime.c:1235:7: warning: unknown conversion type character 'g' in format [-Wformat]
+gdatetime.c:1235:7: warning: unknown conversion type character 'G' in format [-Wformat]
+gdatetime.c:1235:7: warning: unknown conversion type character 'h' in format [-Wformat]
+gdatetime.c:1235:7: warning: unknown conversion type character 'n' in format [-Wformat]
+gdatetime.c:1235:7: warning: unknown conversion type character 'r' in format [-Wformat]
+gdatetime.c:1235:7: warning: unknown conversion type character 'R' in format [-Wformat]
+gdatetime.c:1235:7: warning: unknown conversion type character 't' in format [-Wformat]
+gdatetime.c:1235:7: warning: unknown conversion type character 'T' in format [-Wformat]
+gdatetime.c:1235:7: warning: unknown conversion type character 'u' in format [-Wformat]
+gdatetime.c:1235:7: warning: unknown conversion type character 'V' in format [-Wformat]
+  CCLD     gdatetime.exe
+  CC       timeout.o
+  CCLD     timeout.exe
+  CC       environment.o
+  CCLD     environment.exe
+  CC       mappedfile.o
+  CCLD     mappedfile.exe
+  CC       dataset.o
+  CCLD     dataset.exe
+  CC       sort.o
+  CCLD     sort.exe
+  CC       atomic-atomic.o
+  CCLD     atomic.exe
+  CC       bitlock.o
+  CCLD     bitlock.exe
+  CC       mutex.o
+  CCLD     mutex.exe
+  CC       rec-mutex.o
+  CCLD     rec-mutex.exe
+  CC       rwlock.o
+  CCLD     rwlock.exe
+  CC       once.o
+  CCLD     once.exe
+  CC       cond.o
+  CCLD     cond.exe
+  CC       thread.o
+  CCLD     thread.exe
+  CC       slice.o
+  CCLD     slice.exe
+  CC       hook.o
+  CCLD     hook.exe
+  CC       mainloop.o
+  CCLD     mainloop.exe
+  CC       private.o
+  CCLD     private.exe
+  CC       asyncqueue.o
+  CCLD     asyncqueue.exe
+  CC       1bit-mutex.o
+  CCLD     1bit-mutex.exe
+  CC       642026.o
+  CCLD     642026.exe
+  CC       642026_ec-642026.o
+  CCLD     642026-ec.exe
+  CC       1bit_emufutex-1bit-mutex.o
+  CCLD     1bit-emufutex.exe
+  CC       spawn-multithreaded.o
+  CCLD     spawn-multithreaded.exe
+  CC       spawn-singlethread.o
+  CCLD     spawn-singlethread.exe
+  CC       gwakeuptest.o
+  CC       gwakeup.o
+  CCLD     gwakeup.exe
+  CC       test-spawn-echo.o
+  CCLD     test-spawn-echo.exe
+make[4]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/glib/tests'
+make[3]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/glib'
+make[2]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/glib'
+Making all in gmodule
+make[2]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/gmodule'
+ cd .. && /bin/sh ./config.status gmodule/Makefile depfiles
+config.status: creating gmodule/Makefile
+config.status: executing depfiles commands
+make[2]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/gmodule'
+make[2]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/gmodule'
+make  all-am
+make[3]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/gmodule'
+  CC       gmodule.lo
+cd .. && /bin/sh ./config.status gmodule/gmodule.rc
+config.status: creating gmodule/gmodule.rc
+  GEN      gmodule-win32-res.o
+  GEN      gmodule.def
+  CCLD     libgmodule-2.0.la
+make[3]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/gmodule'
+make[2]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/gmodule'
+Making all in gthread
+make[2]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/gthread'
+ cd .. && /bin/sh ./config.status gthread/Makefile depfiles
+config.status: creating gthread/Makefile
+config.status: executing depfiles commands
+make[2]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/gthread'
+make[2]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/gthread'
+  CC       gthread-impl.lo
+cd .. && /bin/sh ./config.status gthread/gthread.rc
+config.status: creating gthread/gthread.rc
+  GEN      gthread-win32-res.o
+  CCLD     libgthread-2.0.la
+make[2]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/gthread'
+Making all in gobject
+make[2]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/gobject'
+ cd .. && /bin/sh ./config.status gobject/Makefile depfiles
+config.status: creating gobject/Makefile
+config.status: executing depfiles commands
+make[2]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/gobject'
+make[2]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/gobject'
+make  all-recursive
+make[3]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/gobject'
+Making all in .
+make[4]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/gobject'
+  CC       libgobject_2_0_la-gatomicarray.lo
+  CC       libgobject_2_0_la-gbinding.lo
+  CC       libgobject_2_0_la-gboxed.lo
+  CC       libgobject_2_0_la-gclosure.lo
+  CC       libgobject_2_0_la-genums.lo
+  CC       libgobject_2_0_la-gmarshal.lo
+  CC       libgobject_2_0_la-gobject.lo
+  CC       libgobject_2_0_la-gparam.lo
+  CC       libgobject_2_0_la-gparamspecs.lo
+  CC       libgobject_2_0_la-gsignal.lo
+  CC       libgobject_2_0_la-gsourceclosure.lo
+  CC       libgobject_2_0_la-gtype.lo
+  CC       libgobject_2_0_la-gtypemodule.lo
+  CC       libgobject_2_0_la-gtypeplugin.lo
+  CC       libgobject_2_0_la-gvalue.lo
+  CC       libgobject_2_0_la-gvaluearray.lo
+  CC       libgobject_2_0_la-gvaluetransform.lo
+  CC       libgobject_2_0_la-gvaluetypes.lo
+cd .. && /bin/sh ./config.status gobject/gobject.rc
+config.status: creating gobject/gobject.rc
+  GEN      gobject-win32-res.o
+  GEN      gobject.def
+  CCLD     libgobject-2.0.la
+  CC       gobject-query.o
+  CCLD     gobject-query.exe
+  CC       glib-genmarshal.o
+  CCLD     glib-genmarshal.exe
+  CC       testgobject.o
+  CCLD     testgobject.exe
+echo glib-types.h gbinding.h gboxed.h gclosure.h genums.h gmarshal.h gobject.h gparam.h gparamspecs.h gsignal.h gsourceclosure.h gtype.h gtypemodule.h gtypeplugin.h gvalue.h gvaluearray.h gvaluecollector.h gvaluetypes.h gobjectnotifyqueue.c > gobject-public-headers.txt.tmp && mv gobject-public-headers.txt.tmp gobject-public-headers.txt
+make[4]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/gobject'
+Making all in tests
+make[4]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/gobject/tests'
+ cd ../.. && /bin/sh ./config.status gobject/tests/Makefile depfiles
+config.status: creating gobject/tests/Makefile
+config.status: executing depfiles commands
+make[4]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/gobject/tests'
+make[4]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/gobject/tests'
+  GEN      marshalers.h
+  GEN      marshalers.c
+make  all-am
+make[5]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/gobject/tests'
+  CC       qdata.o
+  CCLD     qdata.exe
+  CC       boxed.o
+  CCLD     boxed.exe
+  CC       enums.o
+  CCLD     enums.exe
+  CC       param.o
+  CCLD     param.exe
+  CC       signals.o
+  CC       marshalers.o
+  CCLD     signals.exe
+  CC       threadtests.o
+  CCLD     threadtests.exe
+  CC       dynamictests.o
+  CCLD     dynamictests.exe
+  CC       binding.o
+  CCLD     binding.exe
+  CC       properties.o
+  CCLD     properties.exe
+  CC       reference.o
+  CCLD     reference.exe
+  CC       ifaceproperties.o
+  CCLD     ifaceproperties.exe
+  CC       valuearray.o
+  CCLD     valuearray.exe
+make[5]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/gobject/tests'
+make[4]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/gobject/tests'
+make[3]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/gobject'
+make[2]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/gobject'
+Making all in gio
+make[2]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/gio'
+ cd .. && /bin/sh ./config.status gio/Makefile depfiles
+config.status: creating gio/Makefile
+config.status: executing depfiles commands
+make[2]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/gio'
+make[2]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/gio'
+  GEN      gconstructor_as_data.h
+  GEN      gdbus-daemon-generated.c
+make  all-recursive
+make[3]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/gio'
+Making all in gdbus-2.0/codegen
+make[4]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/gio/gdbus-2.0/codegen'
+ cd ../../.. && /bin/sh ./config.status gio/gdbus-2.0/codegen/Makefile 
+config.status: creating gio/gdbus-2.0/codegen/Makefile
+make[4]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/gio/gdbus-2.0/codegen'
+make[4]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/gio/gdbus-2.0/codegen'
+  GEN      gdbus-codegen
+make[4]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/gio/gdbus-2.0/codegen'
+Making all in win32
+make[4]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/gio/win32'
+ cd ../.. && /bin/sh ./config.status gio/win32/Makefile depfiles
+config.status: creating gio/win32/Makefile
+config.status: executing depfiles commands
+make[4]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/gio/win32'
+make[4]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/gio/win32'
+  CC       libgiowin32_la-gwin32directorymonitor.lo
+gwin32directorymonitor.c: In function 'g_win32_directory_monitor_constructor':
+gwin32directorymonitor.c:186:12: warning: variable 'result' set but not used [-Wunused-but-set-variable]
+  CC       libgiowin32_la-gwinhttpvfs.lo
+In file included from gwinhttpfile.h:30:0,
+                 from gwinhttpvfs.c:33:
+gwinhttpvfs.h:31:0: warning: "_WIN32_WINNT" redefined [enabled by default]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/_mingw.h:252:0: note: this is the location of the previous definition
+  CC       libgiowin32_la-gwinhttpfile.lo
+In file included from gwinhttpfile.h:30:0,
+                 from gwinhttpfile.c:34:
+gwinhttpvfs.h:31:0: warning: "_WIN32_WINNT" redefined [enabled by default]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/_mingw.h:252:0: note: this is the location of the previous definition
+  CC       libgiowin32_la-gwinhttpfileinputstream.lo
+In file included from gwinhttpfile.h:30:0,
+                 from gwinhttpfileinputstream.h:30,
+                 from gwinhttpfileinputstream.c:31:
+gwinhttpvfs.h:31:0: warning: "_WIN32_WINNT" redefined [enabled by default]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/_mingw.h:252:0: note: this is the location of the previous definition
+  CC       libgiowin32_la-gwinhttpfileoutputstream.lo
+In file included from gwinhttpfile.h:30:0,
+                 from gwinhttpfileoutputstream.h:30,
+                 from gwinhttpfileoutputstream.c:31:
+gwinhttpvfs.h:31:0: warning: "_WIN32_WINNT" redefined [enabled by default]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/_mingw.h:252:0: note: this is the location of the previous definition
+  CCLD     libgiowin32.la
+make[4]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/gio/win32'
+Making all in .
+make[4]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/gio'
+  CC       libgio_2_0_la-gappinfo.lo
+  CC       libgio_2_0_la-gasynchelper.lo
+gasynchelper.c: In function '_g_win32_overlap_wait_result':
+gasynchelper.c:183:18: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+  CC       libgio_2_0_la-gasyncinitable.lo
+  CC       libgio_2_0_la-gasyncresult.lo
+  CC       libgio_2_0_la-gbufferedinputstream.lo
+  CC       libgio_2_0_la-gbufferedoutputstream.lo
+  CC       libgio_2_0_la-gcancellable.lo
+  CC       libgio_2_0_la-gcharsetconverter.lo
+  CC       libgio_2_0_la-gconverter.lo
+  CC       libgio_2_0_la-gconverterinputstream.lo
+  CC       libgio_2_0_la-gconverteroutputstream.lo
+  CC       libgio_2_0_la-gcredentials.lo
+In file included from gcredentials.c:40:0:
+gnetworkingprivate.h:26:0: warning: "_WIN32_WINNT" redefined [enabled by default]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/_mingw.h:252:0: note: this is the location of the previous definition
+gcredentials.c:97:2: warning: #warning Please add GCredentials support for your OS [-Wcpp]
+  CC       libgio_2_0_la-gdatainputstream.lo
+  CC       libgio_2_0_la-gdataoutputstream.lo
+  CC       libgio_2_0_la-gdrive.lo
+  CC       libgio_2_0_la-gdummyfile.lo
+  CC       libgio_2_0_la-gdummyproxyresolver.lo
+  CC       libgio_2_0_la-gdummytlsbackend.lo
+  CC       libgio_2_0_la-gemblem.lo
+  CC       libgio_2_0_la-gemblemedicon.lo
+  CC       libgio_2_0_la-gfile.lo
+  CC       libgio_2_0_la-gfileattribute.lo
+  CC       libgio_2_0_la-gfileenumerator.lo
+  CC       libgio_2_0_la-gfileicon.lo
+  CC       libgio_2_0_la-gfileinfo.lo
+  CC       libgio_2_0_la-gfileinputstream.lo
+  CC       libgio_2_0_la-gfilemonitor.lo
+  CC       libgio_2_0_la-gfilenamecompleter.lo
+  CC       libgio_2_0_la-gfileoutputstream.lo
+  CC       libgio_2_0_la-gfileiostream.lo
+  CC       libgio_2_0_la-gfilterinputstream.lo
+  CC       libgio_2_0_la-gfilteroutputstream.lo
+  CC       libgio_2_0_la-gicon.lo
+  CC       libgio_2_0_la-ginetaddress.lo
+In file included from ginetaddress.c:34:0:
+gnetworkingprivate.h:26:0: warning: "_WIN32_WINNT" redefined [enabled by default]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/_mingw.h:252:0: note: this is the location of the previous definition
+  CC       libgio_2_0_la-ginetaddressmask.lo
+  CC       libgio_2_0_la-ginetsocketaddress.lo
+In file included from ginetsocketaddress.c:30:0:
+gnetworkingprivate.h:26:0: warning: "_WIN32_WINNT" redefined [enabled by default]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/_mingw.h:252:0: note: this is the location of the previous definition
+  CC       libgio_2_0_la-ginitable.lo
+  CC       libgio_2_0_la-ginputstream.lo
+  CC       libgio_2_0_la-gioerror.lo
+  CC       libgio_2_0_la-giomodule.lo
+  CC       libgio_2_0_la-gioscheduler.lo
+  CC       libgio_2_0_la-giostream.lo
+  CC       libgio_2_0_la-gloadableicon.lo
+  CC       libgio_2_0_la-gmount.lo
+  CC       libgio_2_0_la-gmemoryinputstream.lo
+  CC       libgio_2_0_la-gmemoryoutputstream.lo
+  CC       libgio_2_0_la-gmountoperation.lo
+  CC       libgio_2_0_la-gnativevolumemonitor.lo
+  CC       libgio_2_0_la-gnetworkaddress.lo
+In file included from gnetworkaddress.c:32:0:
+gnetworkingprivate.h:26:0: warning: "_WIN32_WINNT" redefined [enabled by default]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/_mingw.h:252:0: note: this is the location of the previous definition
+  CC       libgio_2_0_la-gnetworkmonitor.lo
+  CC       libgio_2_0_la-gnetworkmonitorbase.lo
+  CC       libgio_2_0_la-gnetworkservice.lo
+In file included from gnetworkservice.c:34:0:
+gnetworkingprivate.h:26:0: warning: "_WIN32_WINNT" redefined [enabled by default]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/_mingw.h:252:0: note: this is the location of the previous definition
+  CC       libgio_2_0_la-goutputstream.lo
+  CC       libgio_2_0_la-gpermission.lo
+  CC       libgio_2_0_la-gpollableinputstream.lo
+  CC       libgio_2_0_la-gpollableoutputstream.lo
+  CC       libgio_2_0_la-gpollableutils.lo
+  CC       libgio_2_0_la-gpollfilemonitor.lo
+  CC       libgio_2_0_la-gproxyresolver.lo
+  CC       libgio_2_0_la-gresolver.lo
+In file included from gresolver.c:28:0:
+gnetworkingprivate.h:26:0: warning: "_WIN32_WINNT" redefined [enabled by default]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/_mingw.h:252:0: note: this is the location of the previous definition
+  CC       libgio_2_0_la-gresource.lo
+  CC       libgio_2_0_la-gresourcefile.lo
+  CC       libgio_2_0_la-gseekable.lo
+  CC       libgio_2_0_la-gsimpleasyncresult.lo
+  CC       libgio_2_0_la-gsimplepermission.lo
+  CC       libgio_2_0_la-gsocket.lo
+In file included from gsocket.c:62:0:
+gnetworkingprivate.h:26:0: warning: "_WIN32_WINNT" redefined [enabled by default]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/_mingw.h:252:0: note: this is the location of the previous definition
+gsocket.c: In function 'g_socket_details_from_fd':
+gsocket.c:334:3: warning: pointer targets in passing argument 5 of 'getsockopt' differ in signedness [-Wpointer-sign]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/winsock2.h:1003:34: note: expected 'int *' but argument is of type 'guint *'
+gsocket.c:379:32: warning: pointer targets in passing argument 3 of 'getsockname' differ in signedness [-Wpointer-sign]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/winsock2.h:1002:34: note: expected 'int *' but argument is of type 'guint *'
+gsocket.c:447:36: warning: pointer targets in passing argument 3 of 'getpeername' differ in signedness [-Wpointer-sign]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/winsock2.h:1001:34: note: expected 'int *' but argument is of type 'guint *'
+gsocket.c:453:5: warning: pointer targets in passing argument 5 of 'getsockopt' differ in signedness [-Wpointer-sign]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/winsock2.h:1003:34: note: expected 'int *' but argument is of type 'guint *'
+gsocket.c: In function 'g_socket_get_ttl':
+gsocket.c:1298:7: warning: pointer targets in passing argument 4 of 'getsockopt' differ in signedness [-Wpointer-sign]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/winsock2.h:1003:34: note: expected 'char *' but argument is of type 'guchar *'
+gsocket.c:1298:7: warning: pointer targets in passing argument 5 of 'getsockopt' differ in signedness [-Wpointer-sign]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/winsock2.h:1003:34: note: expected 'int *' but argument is of type 'guint *'
+gsocket.c:1305:7: warning: passing argument 4 of 'getsockopt' from incompatible pointer type [enabled by default]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/winsock2.h:1003:34: note: expected 'char *' but argument is of type 'guint *'
+gsocket.c:1305:7: warning: pointer targets in passing argument 5 of 'getsockopt' differ in signedness [-Wpointer-sign]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/winsock2.h:1003:34: note: expected 'int *' but argument is of type 'guint *'
+gsocket.c: In function 'g_socket_set_ttl':
+gsocket.c:1343:7: warning: pointer targets in passing argument 4 of 'setsockopt' differ in signedness [-Wpointer-sign]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/winsock2.h:1016:34: note: expected 'const char *' but argument is of type 'guchar *'
+gsocket.c:1348:7: warning: passing argument 4 of 'setsockopt' from incompatible pointer type [enabled by default]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/winsock2.h:1016:34: note: expected 'const char *' but argument is of type 'guint *'
+gsocket.c: In function 'g_socket_get_broadcast':
+gsocket.c:1385:24: warning: passing argument 4 of 'getsockopt' from incompatible pointer type [enabled by default]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/winsock2.h:1003:34: note: expected 'char *' but argument is of type 'guint *'
+gsocket.c:1385:24: warning: pointer targets in passing argument 5 of 'getsockopt' differ in signedness [-Wpointer-sign]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/winsock2.h:1003:34: note: expected 'int *' but argument is of type 'guint *'
+gsocket.c: In function 'g_socket_set_broadcast':
+gsocket.c:1421:10: warning: passing argument 4 of 'setsockopt' from incompatible pointer type [enabled by default]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/winsock2.h:1016:34: note: expected 'const char *' but argument is of type 'gint *'
+gsocket.c: In function 'g_socket_get_multicast_loopback':
+gsocket.c:1457:7: warning: passing argument 4 of 'getsockopt' from incompatible pointer type [enabled by default]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/winsock2.h:1003:34: note: expected 'char *' but argument is of type 'guint *'
+gsocket.c:1457:7: warning: pointer targets in passing argument 5 of 'getsockopt' differ in signedness [-Wpointer-sign]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/winsock2.h:1003:34: note: expected 'int *' but argument is of type 'guint *'
+gsocket.c:1463:7: warning: passing argument 4 of 'getsockopt' from incompatible pointer type [enabled by default]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/winsock2.h:1003:34: note: expected 'char *' but argument is of type 'guint *'
+gsocket.c:1463:7: warning: pointer targets in passing argument 5 of 'getsockopt' differ in signedness [-Wpointer-sign]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/winsock2.h:1003:34: note: expected 'int *' but argument is of type 'guint *'
+gsocket.c: In function 'g_socket_set_multicast_loopback':
+gsocket.c:1505:7: warning: pointer targets in passing argument 4 of 'setsockopt' differ in signedness [-Wpointer-sign]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/winsock2.h:1016:34: note: expected 'const char *' but argument is of type 'guchar *'
+gsocket.c:1512:7: warning: passing argument 4 of 'setsockopt' from incompatible pointer type [enabled by default]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/winsock2.h:1016:34: note: expected 'const char *' but argument is of type 'guint *'
+gsocket.c: In function 'g_socket_get_multicast_ttl':
+gsocket.c:1552:7: warning: pointer targets in passing argument 4 of 'getsockopt' differ in signedness [-Wpointer-sign]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/winsock2.h:1003:34: note: expected 'char *' but argument is of type 'guchar *'
+gsocket.c:1552:7: warning: pointer targets in passing argument 5 of 'getsockopt' differ in signedness [-Wpointer-sign]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/winsock2.h:1003:34: note: expected 'int *' but argument is of type 'guint *'
+gsocket.c:1559:7: warning: passing argument 4 of 'getsockopt' from incompatible pointer type [enabled by default]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/winsock2.h:1003:34: note: expected 'char *' but argument is of type 'guint *'
+gsocket.c:1559:7: warning: pointer targets in passing argument 5 of 'getsockopt' differ in signedness [-Wpointer-sign]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/winsock2.h:1003:34: note: expected 'int *' but argument is of type 'guint *'
+gsocket.c: In function 'g_socket_set_multicast_ttl':
+gsocket.c:1598:7: warning: pointer targets in passing argument 4 of 'setsockopt' differ in signedness [-Wpointer-sign]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/winsock2.h:1016:34: note: expected 'const char *' but argument is of type 'guchar *'
+gsocket.c:1603:7: warning: passing argument 4 of 'setsockopt' from incompatible pointer type [enabled by default]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/winsock2.h:1016:34: note: expected 'const char *' but argument is of type 'guint *'
+gsocket.c: In function 'g_socket_get_local_address':
+gsocket.c:1718:46: warning: pointer targets in passing argument 3 of 'getsockname' differ in signedness [-Wpointer-sign]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/winsock2.h:1002:34: note: expected 'int *' but argument is of type 'guint32 *'
+gsocket.c: In function 'g_socket_get_remote_address':
+gsocket.c:1761:50: warning: pointer targets in passing argument 3 of 'getpeername' differ in signedness [-Wpointer-sign]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/winsock2.h:1001:34: note: expected 'int *' but argument is of type 'guint32 *'
+gsocket.c: In function 'g_socket_multicast_group_operation':
+gsocket.c:1962:7: warning: passing argument 4 of 'setsockopt' from incompatible pointer type [enabled by default]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/winsock2.h:1016:34: note: expected 'const char *' but argument is of type 'struct ip_mreq *'
+gsocket.c:1978:7: warning: passing argument 4 of 'setsockopt' from incompatible pointer type [enabled by default]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/winsock2.h:1016:34: note: expected 'const char *' but argument is of type 'struct ipv6_mreq *'
+gsocket.c: In function 'g_socket_check_connect_result':
+gsocket.c:2342:3: warning: pointer targets in passing argument 5 of 'getsockopt' differ in signedness [-Wpointer-sign]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/winsock2.h:1003:34: note: expected 'int *' but argument is of type 'guint *'
+gsocket.c: In function 'g_socket_get_available_bytes':
+gsocket.c:2393:3: warning: passing argument 3 of 'ioctlsocket' from incompatible pointer type [enabled by default]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/winsock2.h:1000:34: note: expected 'u_long *' but argument is of type 'gint *'
+gsocket.c: In function 'update_condition':
+gsocket.c:3057:7: warning: passing argument 2 of 'recv' from incompatible pointer type [enabled by default]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/winsock2.h:1011:34: note: expected 'char *' but argument is of type 'int *'
+  CC       libgio_2_0_la-gsocketaddress.lo
+In file included from gsocketaddress.c:31:0:
+gnetworkingprivate.h:26:0: warning: "_WIN32_WINNT" redefined [enabled by default]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/_mingw.h:252:0: note: this is the location of the previous definition
+  CC       libgio_2_0_la-gsocketaddressenumerator.lo
+  CC       libgio_2_0_la-gsocketclient.lo
+  CC       libgio_2_0_la-gsocketconnectable.lo
+  CC       libgio_2_0_la-gsocketconnection.lo
+  CC       libgio_2_0_la-gsocketcontrolmessage.lo
+In file included from gsocketcontrolmessage.c:47:0:
+gnetworkingprivate.h:26:0: warning: "_WIN32_WINNT" redefined [enabled by default]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/_mingw.h:252:0: note: this is the location of the previous definition
+  CC       libgio_2_0_la-gsocketinputstream.lo
+  CC       libgio_2_0_la-gsocketlistener.lo
+  CC       libgio_2_0_la-gsocketoutputstream.lo
+  CC       libgio_2_0_la-gproxy.lo
+  CC       libgio_2_0_la-gproxyaddress.lo
+  CC       libgio_2_0_la-gproxyaddressenumerator.lo
+In file included from gproxyaddressenumerator.c:32:0:
+gnetworkingprivate.h:26:0: warning: "_WIN32_WINNT" redefined [enabled by default]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/_mingw.h:252:0: note: this is the location of the previous definition
+  CC       libgio_2_0_la-gsocketservice.lo
+  CC       libgio_2_0_la-gsrvtarget.lo
+  CC       libgio_2_0_la-gtcpconnection.lo
+  CC       libgio_2_0_la-gtcpwrapperconnection.lo
+  CC       libgio_2_0_la-gthreadedsocketservice.lo
+  CC       libgio_2_0_la-gthemedicon.lo
+  CC       libgio_2_0_la-gthreadedresolver.lo
+In file included from gthreadedresolver.c:31:0:
+gnetworkingprivate.h:26:0: warning: "_WIN32_WINNT" redefined [enabled by default]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/_mingw.h:252:0: note: this is the location of the previous definition
+  CC       libgio_2_0_la-gtlsbackend.lo
+  CC       libgio_2_0_la-gtlscertificate.lo
+  CC       libgio_2_0_la-gtlsclientconnection.lo
+  CC       libgio_2_0_la-gtlsconnection.lo
+  CC       libgio_2_0_la-gtlsdatabase.lo
+  CC       libgio_2_0_la-gtlsfiledatabase.lo
+  CC       libgio_2_0_la-gtlsinteraction.lo
+  CC       libgio_2_0_la-gtlspassword.lo
+  CC       libgio_2_0_la-gtlsserverconnection.lo
+  CC       libgio_2_0_la-gunionvolumemonitor.lo
+  CC       libgio_2_0_la-gvfs.lo
+  CC       libgio_2_0_la-gvolume.lo
+  CC       libgio_2_0_la-gvolumemonitor.lo
+  CC       libgio_2_0_la-gzlibcompressor.lo
+  CC       libgio_2_0_la-gzlibdecompressor.lo
+  CC       libgio_2_0_la-gioenumtypes.lo
+  CC       libgio_2_0_la-gwin32appinfo.lo
+  CC       libgio_2_0_la-gdbusdaemon.lo
+  CC       libgio_2_0_la-gdbus-daemon-generated.lo
+  CC       libgio_2_0_la-gcontenttype-win32.lo
+  CC       libgio_2_0_la-gwin32mount.lo
+  CC       libgio_2_0_la-gwin32volumemonitor.lo
+gwin32volumemonitor.c:38:0: warning: "_WIN32_WINNT" redefined [enabled by default]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/_mingw.h:252:0: note: this is the location of the previous definition
+gwin32volumemonitor.c: In function 'g_win32_volume_monitor_finalize':
+gwin32volumemonitor.c:58:24: warning: variable 'monitor' set but not used [-Wunused-but-set-variable]
+gwin32volumemonitor.c: In function 'get_mounts':
+gwin32volumemonitor.c:129:24: warning: variable 'monitor' set but not used [-Wunused-but-set-variable]
+gwin32volumemonitor.c: In function 'get_volumes':
+gwin32volumemonitor.c:157:24: warning: variable 'monitor' set but not used [-Wunused-but-set-variable]
+gwin32volumemonitor.c: In function 'get_connected_drives':
+gwin32volumemonitor.c:172:11: warning: unused variable 'wc_name' [-Wunused-variable]
+gwin32volumemonitor.c:171:11: warning: unused variable 'found' [-Wunused-variable]
+gwin32volumemonitor.c:170:11: warning: unused variable 'find_handle' [-Wunused-variable]
+gwin32volumemonitor.c:169:24: warning: variable 'monitor' set but not used [-Wunused-but-set-variable]
+  CC       libgio_2_0_la-gwin32inputstream.lo
+  CC       libgio_2_0_la-gwin32outputstream.lo
+  CC       libgio_2_0_la-gapplication.lo
+  CC       libgio_2_0_la-gapplicationcommandline.lo
+  CC       libgio_2_0_la-gapplicationimpl-dbus.lo
+  CC       libgio_2_0_la-gactiongroup.lo
+  CC       libgio_2_0_la-gactionmap.lo
+  CC       libgio_2_0_la-gsimpleactiongroup.lo
+  CC       libgio_2_0_la-gremoteactiongroup.lo
+  CC       libgio_2_0_la-gactiongroupexporter.lo
+  CC       libgio_2_0_la-gdbusactiongroup.lo
+  CC       libgio_2_0_la-gaction.lo
+  CC       libgio_2_0_la-gsimpleaction.lo
+  CC       libgio_2_0_la-gmenumodel.lo
+  CC       libgio_2_0_la-gmenu.lo
+  CC       libgio_2_0_la-gmenuexporter.lo
+  CC       libgio_2_0_la-gdbusmenumodel.lo
+  CC       libgio_2_0_la-gvdb-reader.lo
+  CC       libgio_2_0_la-gdelayedsettingsbackend.lo
+  CC       libgio_2_0_la-gkeyfilesettingsbackend.lo
+  CC       libgio_2_0_la-gmemorysettingsbackend.lo
+  CC       libgio_2_0_la-gnullsettingsbackend.lo
+  CC       libgio_2_0_la-gsettingsbackend.lo
+  CC       libgio_2_0_la-gsettingsschema.lo
+  CC       libgio_2_0_la-gsettings-mapping.lo
+  CC       libgio_2_0_la-gsettings.lo
+  CC       libgio_2_0_la-gregistrysettingsbackend.lo
+gregistrysettingsbackend.c:101:0: warning: "_WIN32_WINNT" redefined [enabled by default]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/_mingw.h:252:0: note: this is the location of the previous definition
+gregistrysettingsbackend.c: In function 'registry_cache_dump':
+gregistrysettingsbackend.c:516:69: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+gregistrysettingsbackend.c: In function 'watch_thread_handle_message':
+gregistrysettingsbackend.c:1486:18: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+gregistrysettingsbackend.c: In function 'watch_add_notify':
+gregistrysettingsbackend.c:1749:22: warning: variable 'result' set but not used [-Wunused-but-set-variable]
+gregistrysettingsbackend.c: At top level:
+gregistrysettingsbackend.c:500:1: warning: 'registry_cache_dump' defined but not used [-Wunused-function]
+  CC       libgio_2_0_la-gdbusutils.lo
+  CC       libgio_2_0_la-gdbusaddress.lo
+  CC       libgio_2_0_la-gdbusauthobserver.lo
+  CC       libgio_2_0_la-gdbusauth.lo
+gdbusauth.c: In function '_g_dbus_auth_run_server':
+gdbusauth.c:969:10: warning: variable 'byte' set but not used [-Wunused-but-set-variable]
+  CC       libgio_2_0_la-gdbusauthmechanism.lo
+  CC       libgio_2_0_la-gdbusauthmechanismanon.lo
+  CC       libgio_2_0_la-gdbusauthmechanismexternal.lo
+gdbusauthmechanismexternal.c: In function 'mechanism_client_initiate':
+gdbusauthmechanismexternal.c:355:2: warning: #warning Dont know how to send credentials on this OS. The EXTERNAL D-Bus authentication mechanism will not work. [-Wcpp]
+gdbusauthmechanismexternal.c:359:3: warning: 'initial_response' may be used uninitialized in this function [-Wuninitialized]
+  CC       libgio_2_0_la-gdbusauthmechanismsha1.lo
+gdbusauthmechanismsha1.c: In function 'ensure_keyring_directory':
+gdbusauthmechanismsha1.c:287:2: warning: #warning Please implement permission checking on this non-UNIX platform [-Wcpp]
+  CC       libgio_2_0_la-gdbuserror.lo
+  CC       libgio_2_0_la-gdbusconnection.lo
+  CC       libgio_2_0_la-gdbusmessage.lo
+gdbusmessage.c: In function 'g_dbus_message_copy':
+gdbusmessage.c:3278:2: warning: label 'out' defined but not used [-Wunused-label]
+  CC       libgio_2_0_la-gdbusnameowning.lo
+  CC       libgio_2_0_la-gdbusnamewatching.lo
+  CC       libgio_2_0_la-gdbusproxy.lo
+  CC       libgio_2_0_la-gdbusprivate.lo
+gdbusprivate.c: In function 'write_message_continue_writing':
+gdbusprivate.c:1109:2: warning: label 'out' defined but not used [-Wunused-label]
+gdbusprivate.c:985:23: warning: variable 'simple' set but not used [-Wunused-but-set-variable]
+gdbusprivate.c: At top level:
+gdbusprivate.c:967:1: warning: 'on_socket_ready' defined but not used [-Wunused-function]
+  CC       libgio_2_0_la-gdbusintrospection.lo
+  CC       libgio_2_0_la-gdbusmethodinvocation.lo
+  CC       libgio_2_0_la-gdbusserver.lo
+  CC       libgio_2_0_la-gdbusinterface.lo
+  CC       libgio_2_0_la-gdbusinterfaceskeleton.lo
+  CC       libgio_2_0_la-gdbusobject.lo
+  CC       libgio_2_0_la-gdbusobjectskeleton.lo
+  CC       libgio_2_0_la-gdbusobjectproxy.lo
+  CC       libgio_2_0_la-gdbusobjectmanager.lo
+  CC       libgio_2_0_la-gdbusobjectmanagerclient.lo
+  CC       libgio_2_0_la-gdbusobjectmanagerserver.lo
+  CC       libgio_2_0_la-gtestdbus.lo
+gtestdbus.c:48:0: warning: "_WIN32_WINNT" redefined [enabled by default]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/_mingw.h:252:0: note: this is the location of the previous definition
+  CC       libgio_2_0_la-glocaldirectorymonitor.lo
+glocaldirectorymonitor.c: In function 'mounts_changed':
+glocaldirectorymonitor.c:196:20: warning: variable 'mount' set but not used [-Wunused-but-set-variable]
+  CC       libgio_2_0_la-glocalfile.lo
+glocalfile.c:69:0: warning: "_WIN32_WINNT" redefined [enabled by default]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/_mingw.h:252:0: note: this is the location of the previous definition
+  CC       libgio_2_0_la-glocalfileenumerator.lo
+  CC       libgio_2_0_la-glocalfileinfo.lo
+  CC       libgio_2_0_la-glocalfileinputstream.lo
+  CC       libgio_2_0_la-glocalfilemonitor.lo
+  CC       libgio_2_0_la-glocalfileoutputstream.lo
+  CC       libgio_2_0_la-glocalfileiostream.lo
+  CC       libgio_2_0_la-glocalvfs.lo
+  CC       libgio_2_0_la-gsocks4proxy.lo
+  CC       libgio_2_0_la-gsocks4aproxy.lo
+  CC       libgio_2_0_la-gsocks5proxy.lo
+cd .. && /bin/sh ./config.status gio/gio.rc
+config.status: creating gio/gio.rc
+x86_64-w64-mingw32-windres gio.rc gio-win32-res.o
+  GEN      gio.def
+  CCLD     libgio-2.0.la
+libtool: link: warning: `/opt/lib/libffi.la' seems to be moved
+  CC       gio-querymodules.o
+  CCLD     gio-querymodules.exe
+  CC       gvdb-builder.o
+  CC       glib-compile-schemas.o
+  CCLD     glib-compile-schemas.exe
+  CC       glib-compile-resources.o
+  CCLD     glib-compile-resources.exe
+  CC       gsettings-tool.o
+  CCLD     gsettings.exe
+  CC       gdbus-tool.o
+  CCLD     gdbus.exe
+  CC       gresource-gresource-tool.o
+  CCLD     gresource.exe
+  GEN      gio-public-headers.txt
+make[4]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/gio'
+Making all in tests
+make[4]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/gio/tests'
+ cd ../.. && /bin/sh ./config.status gio/tests/Makefile depfiles
+config.status: creating gio/tests/Makefile
+config.status: executing depfiles commands
+make[4]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/gio/tests'
+make[4]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/gio/tests'
+  GEN      test_resources.c
+  GEN      test_resources2.c
+  GEN      test_resources2.h
+make  all-recursive
+make[5]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/gio/tests'
+Making all in gdbus-object-manager-example
+make[6]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/gio/tests/gdbus-object-manager-example'
+ cd ../../.. && /bin/sh ./config.status gio/tests/gdbus-object-manager-example/Makefile depfiles
+config.status: creating gio/tests/gdbus-object-manager-example/Makefile
+config.status: executing depfiles commands
+make[6]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/gio/tests/gdbus-object-manager-example'
+make[6]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/gio/tests/gdbus-object-manager-example'
+  GEN      gdbus-example-objectmanager-generated.h
+make  all-am
+make[7]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/gio/tests/gdbus-object-manager-example'
+  CC       gdbus-example-objectmanager-generated.lo
+  CCLD     libgdbus-example-objectmanager.la
+libtool: link: warning: `/opt/lib/libffi.la' seems to be moved
+libtool: link: warning: `/opt/lib/libffi.la' seems to be moved
+libtool: link: warning: `/opt/lib/libffi.la' seems to be moved
+make[7]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/gio/tests/gdbus-object-manager-example'
+make[6]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/gio/tests/gdbus-object-manager-example'
+make[6]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/gio/tests'
+  CC       resourceplugin.lo
+  GEN      plugin_resources.c
+  CC       plugin_resources.lo
+  CCLD     libresourceplugin.la
+libtool: link: warning: `/opt/lib/libffi.la' seems to be moved
+libtool: link: warning: `/opt/lib/libffi.la' seems to be moved
+libtool: link: warning: `/opt/lib/libffi.la' seems to be moved
+libtool: link: warning: undefined symbols not allowed in x86_64-w64-mingw32 shared libraries
+  CC       io-stream.o
+  CCLD     io-stream.exe
+  CC       memory-input-stream.o
+  CCLD     memory-input-stream.exe
+  CC       memory-output-stream.o
+  CCLD     memory-output-stream.exe
+  CC       readwrite.o
+  CCLD     readwrite.exe
+  CC       g-file.o
+  CCLD     g-file.exe
+  CC       g-file-info.o
+  CCLD     g-file-info.exe
+  CC       converter-stream.o
+  CCLD     converter-stream.exe
+  CC       data-input-stream.o
+  CCLD     data-input-stream.exe
+  CC       data-output-stream.o
+  CCLD     data-output-stream.exe
+  CC       g-icon.o
+  CCLD     g-icon.exe
+  CC       buffered-input-stream.o
+  CCLD     buffered-input-stream.exe
+  CC       buffered-output-stream.o
+  CCLD     buffered-output-stream.exe
+  CC       sleepy-stream.o
+  CCLD     sleepy-stream.exe
+  CC       filter-streams.o
+  CCLD     filter-streams.exe
+  CC       volumemonitor.o
+  CCLD     volumemonitor.exe
+  CC       simple-async-result.o
+  CCLD     simple-async-result.exe
+  CC       srvtarget.o
+  CCLD     srvtarget.exe
+  CC       contexts.o
+  CCLD     contexts.exe
+  CC       gsettings.o
+  CCLD     gsettings.exe
+  CC       gschema-compile.o
+  CCLD     gschema-compile.exe
+  CC       async-close-output-stream.o
+  CCLD     async-close-output-stream.exe
+  CC       gdbus-addresses.o
+  CCLD     gdbus-addresses.exe
+  CC       network-address.o
+  CCLD     network-address.exe
+  CC       gdbus-message.o
+  CCLD     gdbus-message.exe
+  CC       socket.o
+In file included from socket.c:33:0:
+../../gio/gnetworkingprivate.h:26:0: warning: "_WIN32_WINNT" redefined [enabled by default]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/_mingw.h:252:0: note: this is the location of the previous definition
+  CCLD     socket.exe
+  CC       pollable.o
+  CCLD     pollable.exe
+  CC       tls-certificate.o
+  CC       gtesttlsbackend.o
+  CCLD     tls-certificate.exe
+  CC       tls-interaction.o
+  CCLD     tls-interaction.exe
+  CC       cancellable.o
+  CCLD     cancellable.exe
+  CC       vfs.o
+  CCLD     vfs.exe
+  CC       network-monitor.o
+  CCLD     network-monitor.exe
+  CC       fileattributematcher.o
+  CCLD     fileattributematcher.exe
+  CC       resources.o
+  CC       test_resources.o
+  CC       test_resources2.o
+  GEN      test.gresource
+  CCLD     resources.exe
+  CC       proxy-test.o
+  CCLD     proxy-test.exe
+  CC       inet-address.o
+  CCLD     inet-address.exe
+  CC       permission.o
+  CCLD     permission.exe
+  CC       win32-streams.o
+  CCLD     win32-streams.exe
+  CC       resolver.o
+  CCLD     resolver.exe
+  CC       socket-server.o
+  CCLD     socket-server.exe
+  CC       socket-client.o
+  CC       gtlsconsoleinteraction.o
+  CCLD     socket-client.exe
+  CC       echo-server.o
+  CCLD     echo-server.exe
+  CC       httpd.o
+  CCLD     httpd.exe
+  CC       send-data.o
+  CCLD     send-data.exe
+  CC       filter-cat.o
+  CCLD     filter-cat.exe
+  CC       gdbus-example-export.o
+  CCLD     gdbus-example-export.exe
+  CC       gdbus-example-own-name.o
+  CCLD     gdbus-example-own-name.exe
+  CC       gdbus-example-watch-name.o
+  CCLD     gdbus-example-watch-name.exe
+  CC       gdbus-example-watch-proxy.o
+  CCLD     gdbus-example-watch-proxy.exe
+  CC       gdbus-example-server.o
+  CCLD     gdbus-example-server.exe
+  CC       gdbus-example-subtree.o
+  CCLD     gdbus-example-subtree.exe
+  CC       gdbus-example-peer.o
+  CCLD     gdbus-example-peer.exe
+  CC       gdbus-example-proxy-subclass.o
+  CCLD     gdbus-example-proxy-subclass.exe
+  CC       gdbus-connection-flush-helper.o
+  CCLD     gdbus-connection-flush-helper.exe
+  CC       appinfo-test.o
+appinfo-test.c: In function 'main':
+appinfo-test.c:13:3: warning: implicit declaration of function 'getpid' [-Wimplicit-function-declaration]
+  CCLD     appinfo-test.exe
+  CC       proxy.o
+  CCLD     proxy.exe
+  CC       gapplication-example-open.o
+  CCLD     gapplication-example-open.exe
+  CC       gapplication-example-cmdline.o
+  CCLD     gapplication-example-cmdline.exe
+  CC       gapplication-example-cmdline2.o
+  CCLD     gapplication-example-cmdline2.exe
+  CC       gapplication-example-cmdline3.o
+  CCLD     gapplication-example-cmdline3.exe
+  CC       gapplication-example-actions.o
+  CCLD     gapplication-example-actions.exe
+  CC       gapplication-example-dbushooks.o
+  CCLD     gapplication-example-dbushooks.exe
+  CC       gdbus-daemon.o
+  CC       gdbusdaemon.o
+  CC       gdbus-daemon-generated.o
+  CCLD     gdbus-daemon.exe
+/mingw/bin/msgfmt -o test.mo ./de.po; \
+	/bin/mkdir -p de/LC_MESSAGES; \
+	cp -f test.mo de/LC_MESSAGES
+make[6]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/gio/tests'
+make[5]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/gio/tests'
+make[4]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/gio/tests'
+make[3]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/gio'
+make[2]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/gio'
+Making all in po
+make[2]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/po'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/po'
+Making all in docs
+make[2]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/docs'
+Making all in reference
+make[3]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/docs/reference'
+Making all in glib
+make[4]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/docs/reference/glib'
+make[4]: Nothing to be done for `all'.
+make[4]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/docs/reference/glib'
+Making all in gobject
+make[4]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/docs/reference/gobject'
+make[4]: Nothing to be done for `all'.
+make[4]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/docs/reference/gobject'
+Making all in gio
+make[4]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/docs/reference/gio'
+Making all in gdbus-object-manager-example
+make[5]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/docs/reference/gio/gdbus-object-manager-example'
+make[5]: Nothing to be done for `all'.
+make[5]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/docs/reference/gio/gdbus-object-manager-example'
+make[5]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/docs/reference/gio'
+make[5]: Nothing to be done for `all-am'.
+make[5]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/docs/reference/gio'
+make[4]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/docs/reference/gio'
+make[4]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/docs/reference'
+make[4]: Nothing to be done for `all-am'.
+make[4]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/docs/reference'
+make[3]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/docs/reference'
+make[3]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/docs'
+make[3]: Nothing to be done for `all-am'.
+make[3]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/docs'
+make[2]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/docs'
+Making all in tests
+make[2]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/tests'
+Making all in gobject
+make[3]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/tests/gobject'
+  GEN      stamp-testmarshal.h
+  GEN      testmarshal.c
+make  all-am
+make[4]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/tests/gobject'
+  CC       testmarshal.lo
+  CC       testmodule.lo
+  CCLD     libtestgobject.la
+make[4]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/tests/gobject'
+make[3]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/tests/gobject'
+Making all in refcount
+make[3]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/tests/refcount'
+  CC       closures.o
+  CCLD     closures.exe
+  CC       objects.o
+  CCLD     objects.exe
+  CC       objects2.o
+  CCLD     objects2.exe
+  CC       properties.o
+  CCLD     properties.exe
+  CC       properties2.o
+  CCLD     properties2.exe
+  CC       properties3.o
+  CCLD     properties3.exe
+  CC       properties4.o
+  CCLD     properties4.exe
+  CC       signal1-signals.o
+  CCLD     signal1.exe
+  CC       signal2-signals.o
+  CCLD     signal2.exe
+  CC       signal3-signals.o
+  CCLD     signal3.exe
+  CC       signal4-signals.o
+  CCLD     signal4.exe
+make[3]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/tests/refcount'
+make[3]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/tests'
+  CC       libmoduletestplugin_a.lo
+  CCLD     libmoduletestplugin_a.la
+  CC       libmoduletestplugin_b.lo
+  CCLD     libmoduletestplugin_b.la
+  CC       testglib.o
+  CCLD     testglib.exe
+  CC       testgdate.o
+  CCLD     testgdate.exe
+  CC       testgdateparser.o
+  CCLD     testgdateparser.exe
+  CC       unicode-normalize.o
+  CCLD     unicode-normalize.exe
+  CC       unicode-collate.o
+  CCLD     unicode-collate.exe
+  CC       assert-msg-test.o
+  CCLD     assert-msg-test.exe
+  CC       datetime.o
+  CCLD     datetime.exe
+make[3]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/tests'
+make[2]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/tests'
+make[1]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3'

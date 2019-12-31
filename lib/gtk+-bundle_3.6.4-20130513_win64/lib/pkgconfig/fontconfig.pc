@@ -1,0 +1,16 @@
+prefix=/opt
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+sysconfdir=${prefix}/etc
+localstatedir=${prefix}/var
+PACKAGE=fontconfig
+confdir=${sysconfdir}/fonts
+cachedir=WINDOWSTEMPDIR_FONTCONFIG_CACHE
+
+Name: Fontconfig
+Description: Font configuration and customization library
+Version: 2.10.2
+Libs: -L${libdir} -lfontconfig
+Libs.private: -LC:/msys/1.0/opt/lib -lxml2   -LC:/msys/1.0/opt/lib -lfreetype  
+Cflags: -I${includedir}

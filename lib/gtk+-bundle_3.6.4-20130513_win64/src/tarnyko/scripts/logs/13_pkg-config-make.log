@@ -1,0 +1,22 @@
+make  all-recursive
+make[1]: Entering directory `/home/Administrateur/13_pkg-config/pkg-config-0.28'
+Making all in .
+make[2]: Entering directory `/home/Administrateur/13_pkg-config/pkg-config-0.28'
+  CC       pkg.o
+pkg.c: In function 'scan_dir':
+pkg.c:151:9: warning: assignment discards 'const' qualifier from pointer target type [enabled by default]
+pkg.c: In function 'verify_package':
+pkg.c:802:21: warning: unknown escape sequence: '\/' [enabled by default]
+pkg.c:802:21: warning: unknown escape sequence: '\/' [enabled by default]
+pkg.c:878:21: warning: unknown escape sequence: '\/' [enabled by default]
+pkg.c:878:21: warning: unknown escape sequence: '\/' [enabled by default]
+pkg.c:878:21: warning: unknown escape sequence: '\/' [enabled by default]
+  CC       parse.o
+  CC       main.o
+  CCLD     pkg-config.exe
+make[2]: Leaving directory `/home/Administrateur/13_pkg-config/pkg-config-0.28'
+Making all in check
+make[2]: Entering directory `/home/Administrateur/13_pkg-config/pkg-config-0.28/check'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/home/Administrateur/13_pkg-config/pkg-config-0.28/check'
+make[1]: Leaving directory `/home/Administrateur/13_pkg-config/pkg-config-0.28'

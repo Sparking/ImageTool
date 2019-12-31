@@ -1,0 +1,11 @@
+--- gtk+-3.6.4/gtk/Makefile.in     2013-03-06 22:20:54 +0000
++++ gtk+-3.6.4/gtk/Makefile.in     2013-01-07 10:56:34 +0000
+@@ -94,7 +94,7 @@
+ @HAVE_INTROSPECTION_TRUE@@USE_X11_TRUE@am__append_20 = xlib-2.0
+ @HAVE_INTROSPECTION_TRUE@am__append_21 = Gtk-3.0.gir
+ @HAVE_INTROSPECTION_TRUE@am__append_22 = $(gir_DATA) $(typelibs_DATA)
+-bin_PROGRAMS = gtk-query-immodules-3.0$(EXEEXT) gtk-launch$(EXEEXT) \
++bin_PROGRAMS = gtk-query-immodules-3.0$(EXEEXT) \
+ 	$(am__EXEEXT_1)
+ @BUILD_ICON_CACHE_TRUE@am__append_23 = gtk-update-icon-cache
+ subdir = gtk

@@ -1,0 +1,1351 @@
+Making install in po
+make[1]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/po'
+/bin/sh /home/Administrateur/51_gtk3/gtk+-3.6.4/build-aux/install-sh -d /opt/share; \
+	catalogs='af.gmo am.gmo ang.gmo ar.gmo as.gmo ast.gmo az.gmo az_IR.gmo be.gmo be@latin.gmo bg.gmo bn.gmo bn_IN.gmo br.gmo bs.gmo ca.gmo ca@valencia.gmo crh.gmo cs.gmo cy.gmo da.gmo de.gmo dz.gmo el.gmo en.gmo en_CA.gmo en_GB.gmo en@shaw.gmo eo.gmo es.gmo et.gmo eu.gmo fa.gmo fi.gmo fr.gmo ga.gmo gl.gmo gu.gmo he.gmo hi.gmo hr.gmo hu.gmo hy.gmo ia.gmo id.gmo io.gmo is.gmo it.gmo ja.gmo ka.gmo kg.gmo kk.gmo km.gmo kn.gmo ko.gmo ku.gmo ky.gmo lg.gmo li.gmo lt.gmo lv.gmo mai.gmo mi.gmo mk.gmo ml.gmo mn.gmo mr.gmo ms.gmo my.gmo nb.gmo nds.gmo ne.gmo nl.gmo nn.gmo nso.gmo oc.gmo or.gmo pa.gmo pl.gmo ps.gmo pt.gmo pt_BR.gmo ro.gmo ru.gmo rw.gmo si.gmo sk.gmo sl.gmo sq.gmo sr.gmo sr@ije.gmo sr@latin.gmo sv.gmo ta.gmo te.gmo th.gmo tk.gmo tr.gmo tt.gmo ug.gmo uk.gmo ur.gmo uz.gmo uz@cyrillic.gmo vi.gmo wa.gmo xh.gmo yi.gmo zh_CN.gmo zh_HK.gmo zh_TW.gmo'; \
+	for cat in $catalogs; do \
+	  cat=`basename $cat`; \
+	  case "$cat" in \
+	    *.gmo) destdir=/opt/share/locale;; \
+	    *)     destdir=/opt/lib/locale;; \
+	  esac; \
+	  lang=`echo $cat | sed 's/\.gmo$//'`; \
+	  dir=$destdir/$lang/LC_MESSAGES; \
+	  /bin/sh /home/Administrateur/51_gtk3/gtk+-3.6.4/build-aux/install-sh -d $dir; \
+	  if test -r $cat; then \
+	    /bin/install -c -m 644 $cat $dir/gtk30.mo; \
+	    echo "installing $cat as $dir/gtk30.mo"; \
+	  else \
+	    /bin/install -c -m 644 ./$cat $dir/gtk30.mo; \
+	    echo "installing ./$cat as" \
+		 "$dir/gtk30.mo"; \
+	  fi; \
+	  if test -r $cat.m; then \
+	    /bin/install -c -m 644 $cat.m $dir/gtk30.mo.m; \
+	    echo "installing $cat.m as $dir/gtk30.mo.m"; \
+	  else \
+	    if test -r ./$cat.m ; then \
+	      /bin/install -c -m 644 ./$cat.m \
+		$dir/gtk30.mo.m; \
+	      echo "installing ./$cat as" \
+		   "$dir/gtk30.mo.m"; \
+	    else \
+	      true; \
+	    fi; \
+	  fi; \
+	done
+installing af.gmo as /opt/share/locale/af/LC_MESSAGES/gtk30.mo
+installing am.gmo as /opt/share/locale/am/LC_MESSAGES/gtk30.mo
+installing ang.gmo as /opt/share/locale/ang/LC_MESSAGES/gtk30.mo
+installing ar.gmo as /opt/share/locale/ar/LC_MESSAGES/gtk30.mo
+installing as.gmo as /opt/share/locale/as/LC_MESSAGES/gtk30.mo
+installing ast.gmo as /opt/share/locale/ast/LC_MESSAGES/gtk30.mo
+installing az.gmo as /opt/share/locale/az/LC_MESSAGES/gtk30.mo
+installing az_IR.gmo as /opt/share/locale/az_IR/LC_MESSAGES/gtk30.mo
+installing be.gmo as /opt/share/locale/be/LC_MESSAGES/gtk30.mo
+installing be@latin.gmo as /opt/share/locale/be@latin/LC_MESSAGES/gtk30.mo
+installing bg.gmo as /opt/share/locale/bg/LC_MESSAGES/gtk30.mo
+installing bn.gmo as /opt/share/locale/bn/LC_MESSAGES/gtk30.mo
+installing bn_IN.gmo as /opt/share/locale/bn_IN/LC_MESSAGES/gtk30.mo
+installing br.gmo as /opt/share/locale/br/LC_MESSAGES/gtk30.mo
+installing bs.gmo as /opt/share/locale/bs/LC_MESSAGES/gtk30.mo
+installing ca.gmo as /opt/share/locale/ca/LC_MESSAGES/gtk30.mo
+installing ca@valencia.gmo as /opt/share/locale/ca@valencia/LC_MESSAGES/gtk30.mo
+installing crh.gmo as /opt/share/locale/crh/LC_MESSAGES/gtk30.mo
+installing cs.gmo as /opt/share/locale/cs/LC_MESSAGES/gtk30.mo
+installing cy.gmo as /opt/share/locale/cy/LC_MESSAGES/gtk30.mo
+installing da.gmo as /opt/share/locale/da/LC_MESSAGES/gtk30.mo
+installing de.gmo as /opt/share/locale/de/LC_MESSAGES/gtk30.mo
+installing dz.gmo as /opt/share/locale/dz/LC_MESSAGES/gtk30.mo
+installing el.gmo as /opt/share/locale/el/LC_MESSAGES/gtk30.mo
+installing en.gmo as /opt/share/locale/en/LC_MESSAGES/gtk30.mo
+installing en_CA.gmo as /opt/share/locale/en_CA/LC_MESSAGES/gtk30.mo
+installing en_GB.gmo as /opt/share/locale/en_GB/LC_MESSAGES/gtk30.mo
+installing en@shaw.gmo as /opt/share/locale/en@shaw/LC_MESSAGES/gtk30.mo
+installing eo.gmo as /opt/share/locale/eo/LC_MESSAGES/gtk30.mo
+installing es.gmo as /opt/share/locale/es/LC_MESSAGES/gtk30.mo
+installing et.gmo as /opt/share/locale/et/LC_MESSAGES/gtk30.mo
+installing eu.gmo as /opt/share/locale/eu/LC_MESSAGES/gtk30.mo
+installing fa.gmo as /opt/share/locale/fa/LC_MESSAGES/gtk30.mo
+installing fi.gmo as /opt/share/locale/fi/LC_MESSAGES/gtk30.mo
+installing fr.gmo as /opt/share/locale/fr/LC_MESSAGES/gtk30.mo
+installing ga.gmo as /opt/share/locale/ga/LC_MESSAGES/gtk30.mo
+installing gl.gmo as /opt/share/locale/gl/LC_MESSAGES/gtk30.mo
+installing gu.gmo as /opt/share/locale/gu/LC_MESSAGES/gtk30.mo
+installing he.gmo as /opt/share/locale/he/LC_MESSAGES/gtk30.mo
+installing hi.gmo as /opt/share/locale/hi/LC_MESSAGES/gtk30.mo
+installing hr.gmo as /opt/share/locale/hr/LC_MESSAGES/gtk30.mo
+installing hu.gmo as /opt/share/locale/hu/LC_MESSAGES/gtk30.mo
+installing hy.gmo as /opt/share/locale/hy/LC_MESSAGES/gtk30.mo
+installing ia.gmo as /opt/share/locale/ia/LC_MESSAGES/gtk30.mo
+installing id.gmo as /opt/share/locale/id/LC_MESSAGES/gtk30.mo
+installing io.gmo as /opt/share/locale/io/LC_MESSAGES/gtk30.mo
+installing is.gmo as /opt/share/locale/is/LC_MESSAGES/gtk30.mo
+installing it.gmo as /opt/share/locale/it/LC_MESSAGES/gtk30.mo
+installing ja.gmo as /opt/share/locale/ja/LC_MESSAGES/gtk30.mo
+installing ka.gmo as /opt/share/locale/ka/LC_MESSAGES/gtk30.mo
+installing kg.gmo as /opt/share/locale/kg/LC_MESSAGES/gtk30.mo
+installing kk.gmo as /opt/share/locale/kk/LC_MESSAGES/gtk30.mo
+installing km.gmo as /opt/share/locale/km/LC_MESSAGES/gtk30.mo
+installing kn.gmo as /opt/share/locale/kn/LC_MESSAGES/gtk30.mo
+installing ko.gmo as /opt/share/locale/ko/LC_MESSAGES/gtk30.mo
+installing ku.gmo as /opt/share/locale/ku/LC_MESSAGES/gtk30.mo
+installing ky.gmo as /opt/share/locale/ky/LC_MESSAGES/gtk30.mo
+installing lg.gmo as /opt/share/locale/lg/LC_MESSAGES/gtk30.mo
+installing li.gmo as /opt/share/locale/li/LC_MESSAGES/gtk30.mo
+installing lt.gmo as /opt/share/locale/lt/LC_MESSAGES/gtk30.mo
+installing lv.gmo as /opt/share/locale/lv/LC_MESSAGES/gtk30.mo
+installing mai.gmo as /opt/share/locale/mai/LC_MESSAGES/gtk30.mo
+installing mi.gmo as /opt/share/locale/mi/LC_MESSAGES/gtk30.mo
+installing mk.gmo as /opt/share/locale/mk/LC_MESSAGES/gtk30.mo
+installing ml.gmo as /opt/share/locale/ml/LC_MESSAGES/gtk30.mo
+installing mn.gmo as /opt/share/locale/mn/LC_MESSAGES/gtk30.mo
+installing mr.gmo as /opt/share/locale/mr/LC_MESSAGES/gtk30.mo
+installing ms.gmo as /opt/share/locale/ms/LC_MESSAGES/gtk30.mo
+installing my.gmo as /opt/share/locale/my/LC_MESSAGES/gtk30.mo
+installing nb.gmo as /opt/share/locale/nb/LC_MESSAGES/gtk30.mo
+installing nds.gmo as /opt/share/locale/nds/LC_MESSAGES/gtk30.mo
+installing ne.gmo as /opt/share/locale/ne/LC_MESSAGES/gtk30.mo
+installing nl.gmo as /opt/share/locale/nl/LC_MESSAGES/gtk30.mo
+installing nn.gmo as /opt/share/locale/nn/LC_MESSAGES/gtk30.mo
+installing nso.gmo as /opt/share/locale/nso/LC_MESSAGES/gtk30.mo
+installing oc.gmo as /opt/share/locale/oc/LC_MESSAGES/gtk30.mo
+installing or.gmo as /opt/share/locale/or/LC_MESSAGES/gtk30.mo
+installing pa.gmo as /opt/share/locale/pa/LC_MESSAGES/gtk30.mo
+installing pl.gmo as /opt/share/locale/pl/LC_MESSAGES/gtk30.mo
+installing ps.gmo as /opt/share/locale/ps/LC_MESSAGES/gtk30.mo
+installing pt.gmo as /opt/share/locale/pt/LC_MESSAGES/gtk30.mo
+installing pt_BR.gmo as /opt/share/locale/pt_BR/LC_MESSAGES/gtk30.mo
+installing ro.gmo as /opt/share/locale/ro/LC_MESSAGES/gtk30.mo
+installing ru.gmo as /opt/share/locale/ru/LC_MESSAGES/gtk30.mo
+installing rw.gmo as /opt/share/locale/rw/LC_MESSAGES/gtk30.mo
+installing si.gmo as /opt/share/locale/si/LC_MESSAGES/gtk30.mo
+installing sk.gmo as /opt/share/locale/sk/LC_MESSAGES/gtk30.mo
+installing sl.gmo as /opt/share/locale/sl/LC_MESSAGES/gtk30.mo
+installing sq.gmo as /opt/share/locale/sq/LC_MESSAGES/gtk30.mo
+installing sr.gmo as /opt/share/locale/sr/LC_MESSAGES/gtk30.mo
+installing sr@ije.gmo as /opt/share/locale/sr@ije/LC_MESSAGES/gtk30.mo
+installing sr@latin.gmo as /opt/share/locale/sr@latin/LC_MESSAGES/gtk30.mo
+installing sv.gmo as /opt/share/locale/sv/LC_MESSAGES/gtk30.mo
+installing ta.gmo as /opt/share/locale/ta/LC_MESSAGES/gtk30.mo
+installing te.gmo as /opt/share/locale/te/LC_MESSAGES/gtk30.mo
+installing th.gmo as /opt/share/locale/th/LC_MESSAGES/gtk30.mo
+installing tk.gmo as /opt/share/locale/tk/LC_MESSAGES/gtk30.mo
+installing tr.gmo as /opt/share/locale/tr/LC_MESSAGES/gtk30.mo
+installing tt.gmo as /opt/share/locale/tt/LC_MESSAGES/gtk30.mo
+installing ug.gmo as /opt/share/locale/ug/LC_MESSAGES/gtk30.mo
+installing uk.gmo as /opt/share/locale/uk/LC_MESSAGES/gtk30.mo
+installing ur.gmo as /opt/share/locale/ur/LC_MESSAGES/gtk30.mo
+installing uz.gmo as /opt/share/locale/uz/LC_MESSAGES/gtk30.mo
+installing uz@cyrillic.gmo as /opt/share/locale/uz@cyrillic/LC_MESSAGES/gtk30.mo
+installing vi.gmo as /opt/share/locale/vi/LC_MESSAGES/gtk30.mo
+installing wa.gmo as /opt/share/locale/wa/LC_MESSAGES/gtk30.mo
+installing xh.gmo as /opt/share/locale/xh/LC_MESSAGES/gtk30.mo
+installing yi.gmo as /opt/share/locale/yi/LC_MESSAGES/gtk30.mo
+installing zh_CN.gmo as /opt/share/locale/zh_CN/LC_MESSAGES/gtk30.mo
+installing zh_HK.gmo as /opt/share/locale/zh_HK/LC_MESSAGES/gtk30.mo
+installing zh_TW.gmo as /opt/share/locale/zh_TW/LC_MESSAGES/gtk30.mo
+if test "gtk+" = "glib"; then \
+	  /bin/sh /home/Administrateur/51_gtk3/gtk+-3.6.4/build-aux/install-sh -d /opt/share/glib-2.0/gettext/po; \
+	  /bin/install -c -m 644 ./Makefile.in.in \
+			  /opt/share/glib-2.0/gettext/po/Makefile.in.in; \
+	else \
+	  : ; \
+	fi
+make[1]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/po'
+Making install in po-properties
+make[1]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/po-properties'
+/bin/sh /home/Administrateur/51_gtk3/gtk+-3.6.4/build-aux/install-sh -d /opt/share; \
+	catalogs='af.gmo am.gmo ang.gmo ar.gmo as.gmo ast.gmo az.gmo az_IR.gmo be.gmo be@latin.gmo bg.gmo bn.gmo bn_IN.gmo br.gmo bs.gmo ca.gmo ca@valencia.gmo crh.gmo cs.gmo cy.gmo da.gmo de.gmo dz.gmo el.gmo en.gmo en_CA.gmo en_GB.gmo en@shaw.gmo eo.gmo es.gmo et.gmo eu.gmo fa.gmo fi.gmo fr.gmo ga.gmo gl.gmo gu.gmo he.gmo hi.gmo hr.gmo hu.gmo hy.gmo ia.gmo id.gmo io.gmo is.gmo it.gmo ja.gmo ka.gmo kg.gmo kk.gmo km.gmo kn.gmo ko.gmo ku.gmo ky.gmo lg.gmo li.gmo lt.gmo lv.gmo mai.gmo mi.gmo mk.gmo ml.gmo mn.gmo mr.gmo ms.gmo my.gmo nb.gmo nds.gmo ne.gmo nl.gmo nn.gmo nso.gmo oc.gmo or.gmo pa.gmo pl.gmo ps.gmo pt.gmo pt_BR.gmo ro.gmo ru.gmo rw.gmo si.gmo sk.gmo sl.gmo sq.gmo sr.gmo sr@ije.gmo sr@latin.gmo sv.gmo ta.gmo te.gmo th.gmo tk.gmo tr.gmo tt.gmo ug.gmo uk.gmo ur.gmo uz.gmo uz@cyrillic.gmo vi.gmo wa.gmo xh.gmo yi.gmo zh_CN.gmo zh_HK.gmo zh_TW.gmo'; \
+	for cat in $catalogs; do \
+	  cat=`basename $cat`; \
+	  case "$cat" in \
+	    *.gmo) destdir=/opt/share/locale;; \
+	    *)     destdir=/opt/lib/locale;; \
+	  esac; \
+	  lang=`echo $cat | sed 's/\.gmo$//'`; \
+	  dir=$destdir/$lang/LC_MESSAGES; \
+	  /bin/sh /home/Administrateur/51_gtk3/gtk+-3.6.4/build-aux/install-sh -d $dir; \
+	  if test -r $cat; then \
+	    /bin/install -c -m 644 $cat $dir/gtk30-properties.mo; \
+	    echo "installing $cat as $dir/gtk30-properties.mo"; \
+	  else \
+	    /bin/install -c -m 644 ./$cat $dir/gtk30-properties.mo; \
+	    echo "installing ./$cat as" \
+		 "$dir/gtk30-properties.mo"; \
+	  fi; \
+	  if test -r $cat.m; then \
+	    /bin/install -c -m 644 $cat.m $dir/gtk30-properties.mo.m; \
+	    echo "installing $cat.m as $dir/gtk30-properties.mo.m"; \
+	  else \
+	    if test -r ./$cat.m ; then \
+	      /bin/install -c -m 644 ./$cat.m \
+		$dir/gtk30-properties.mo.m; \
+	      echo "installing ./$cat as" \
+		   "$dir/gtk30-properties.mo.m"; \
+	    else \
+	      true; \
+	    fi; \
+	  fi; \
+	done
+installing af.gmo as /opt/share/locale/af/LC_MESSAGES/gtk30-properties.mo
+installing am.gmo as /opt/share/locale/am/LC_MESSAGES/gtk30-properties.mo
+installing ang.gmo as /opt/share/locale/ang/LC_MESSAGES/gtk30-properties.mo
+installing ar.gmo as /opt/share/locale/ar/LC_MESSAGES/gtk30-properties.mo
+installing as.gmo as /opt/share/locale/as/LC_MESSAGES/gtk30-properties.mo
+installing ast.gmo as /opt/share/locale/ast/LC_MESSAGES/gtk30-properties.mo
+installing az.gmo as /opt/share/locale/az/LC_MESSAGES/gtk30-properties.mo
+installing az_IR.gmo as /opt/share/locale/az_IR/LC_MESSAGES/gtk30-properties.mo
+installing be.gmo as /opt/share/locale/be/LC_MESSAGES/gtk30-properties.mo
+installing be@latin.gmo as /opt/share/locale/be@latin/LC_MESSAGES/gtk30-properties.mo
+installing bg.gmo as /opt/share/locale/bg/LC_MESSAGES/gtk30-properties.mo
+installing bn.gmo as /opt/share/locale/bn/LC_MESSAGES/gtk30-properties.mo
+installing bn_IN.gmo as /opt/share/locale/bn_IN/LC_MESSAGES/gtk30-properties.mo
+installing br.gmo as /opt/share/locale/br/LC_MESSAGES/gtk30-properties.mo
+installing bs.gmo as /opt/share/locale/bs/LC_MESSAGES/gtk30-properties.mo
+installing ca.gmo as /opt/share/locale/ca/LC_MESSAGES/gtk30-properties.mo
+installing ca@valencia.gmo as /opt/share/locale/ca@valencia/LC_MESSAGES/gtk30-properties.mo
+installing crh.gmo as /opt/share/locale/crh/LC_MESSAGES/gtk30-properties.mo
+installing cs.gmo as /opt/share/locale/cs/LC_MESSAGES/gtk30-properties.mo
+installing cy.gmo as /opt/share/locale/cy/LC_MESSAGES/gtk30-properties.mo
+installing da.gmo as /opt/share/locale/da/LC_MESSAGES/gtk30-properties.mo
+installing de.gmo as /opt/share/locale/de/LC_MESSAGES/gtk30-properties.mo
+installing dz.gmo as /opt/share/locale/dz/LC_MESSAGES/gtk30-properties.mo
+installing el.gmo as /opt/share/locale/el/LC_MESSAGES/gtk30-properties.mo
+installing en.gmo as /opt/share/locale/en/LC_MESSAGES/gtk30-properties.mo
+installing en_CA.gmo as /opt/share/locale/en_CA/LC_MESSAGES/gtk30-properties.mo
+installing en_GB.gmo as /opt/share/locale/en_GB/LC_MESSAGES/gtk30-properties.mo
+installing en@shaw.gmo as /opt/share/locale/en@shaw/LC_MESSAGES/gtk30-properties.mo
+installing eo.gmo as /opt/share/locale/eo/LC_MESSAGES/gtk30-properties.mo
+installing es.gmo as /opt/share/locale/es/LC_MESSAGES/gtk30-properties.mo
+installing et.gmo as /opt/share/locale/et/LC_MESSAGES/gtk30-properties.mo
+installing eu.gmo as /opt/share/locale/eu/LC_MESSAGES/gtk30-properties.mo
+installing fa.gmo as /opt/share/locale/fa/LC_MESSAGES/gtk30-properties.mo
+installing fi.gmo as /opt/share/locale/fi/LC_MESSAGES/gtk30-properties.mo
+installing fr.gmo as /opt/share/locale/fr/LC_MESSAGES/gtk30-properties.mo
+installing ga.gmo as /opt/share/locale/ga/LC_MESSAGES/gtk30-properties.mo
+installing gl.gmo as /opt/share/locale/gl/LC_MESSAGES/gtk30-properties.mo
+installing gu.gmo as /opt/share/locale/gu/LC_MESSAGES/gtk30-properties.mo
+installing he.gmo as /opt/share/locale/he/LC_MESSAGES/gtk30-properties.mo
+installing hi.gmo as /opt/share/locale/hi/LC_MESSAGES/gtk30-properties.mo
+installing hr.gmo as /opt/share/locale/hr/LC_MESSAGES/gtk30-properties.mo
+installing hu.gmo as /opt/share/locale/hu/LC_MESSAGES/gtk30-properties.mo
+installing hy.gmo as /opt/share/locale/hy/LC_MESSAGES/gtk30-properties.mo
+installing ia.gmo as /opt/share/locale/ia/LC_MESSAGES/gtk30-properties.mo
+installing id.gmo as /opt/share/locale/id/LC_MESSAGES/gtk30-properties.mo
+installing io.gmo as /opt/share/locale/io/LC_MESSAGES/gtk30-properties.mo
+installing is.gmo as /opt/share/locale/is/LC_MESSAGES/gtk30-properties.mo
+installing it.gmo as /opt/share/locale/it/LC_MESSAGES/gtk30-properties.mo
+installing ja.gmo as /opt/share/locale/ja/LC_MESSAGES/gtk30-properties.mo
+installing ka.gmo as /opt/share/locale/ka/LC_MESSAGES/gtk30-properties.mo
+installing kg.gmo as /opt/share/locale/kg/LC_MESSAGES/gtk30-properties.mo
+installing kk.gmo as /opt/share/locale/kk/LC_MESSAGES/gtk30-properties.mo
+installing km.gmo as /opt/share/locale/km/LC_MESSAGES/gtk30-properties.mo
+installing kn.gmo as /opt/share/locale/kn/LC_MESSAGES/gtk30-properties.mo
+installing ko.gmo as /opt/share/locale/ko/LC_MESSAGES/gtk30-properties.mo
+installing ku.gmo as /opt/share/locale/ku/LC_MESSAGES/gtk30-properties.mo
+installing ky.gmo as /opt/share/locale/ky/LC_MESSAGES/gtk30-properties.mo
+installing lg.gmo as /opt/share/locale/lg/LC_MESSAGES/gtk30-properties.mo
+installing li.gmo as /opt/share/locale/li/LC_MESSAGES/gtk30-properties.mo
+installing lt.gmo as /opt/share/locale/lt/LC_MESSAGES/gtk30-properties.mo
+installing lv.gmo as /opt/share/locale/lv/LC_MESSAGES/gtk30-properties.mo
+installing mai.gmo as /opt/share/locale/mai/LC_MESSAGES/gtk30-properties.mo
+installing mi.gmo as /opt/share/locale/mi/LC_MESSAGES/gtk30-properties.mo
+installing mk.gmo as /opt/share/locale/mk/LC_MESSAGES/gtk30-properties.mo
+installing ml.gmo as /opt/share/locale/ml/LC_MESSAGES/gtk30-properties.mo
+installing mn.gmo as /opt/share/locale/mn/LC_MESSAGES/gtk30-properties.mo
+installing mr.gmo as /opt/share/locale/mr/LC_MESSAGES/gtk30-properties.mo
+installing ms.gmo as /opt/share/locale/ms/LC_MESSAGES/gtk30-properties.mo
+installing my.gmo as /opt/share/locale/my/LC_MESSAGES/gtk30-properties.mo
+installing nb.gmo as /opt/share/locale/nb/LC_MESSAGES/gtk30-properties.mo
+installing nds.gmo as /opt/share/locale/nds/LC_MESSAGES/gtk30-properties.mo
+installing ne.gmo as /opt/share/locale/ne/LC_MESSAGES/gtk30-properties.mo
+installing nl.gmo as /opt/share/locale/nl/LC_MESSAGES/gtk30-properties.mo
+installing nn.gmo as /opt/share/locale/nn/LC_MESSAGES/gtk30-properties.mo
+installing nso.gmo as /opt/share/locale/nso/LC_MESSAGES/gtk30-properties.mo
+installing oc.gmo as /opt/share/locale/oc/LC_MESSAGES/gtk30-properties.mo
+installing or.gmo as /opt/share/locale/or/LC_MESSAGES/gtk30-properties.mo
+installing pa.gmo as /opt/share/locale/pa/LC_MESSAGES/gtk30-properties.mo
+installing pl.gmo as /opt/share/locale/pl/LC_MESSAGES/gtk30-properties.mo
+installing ps.gmo as /opt/share/locale/ps/LC_MESSAGES/gtk30-properties.mo
+installing pt.gmo as /opt/share/locale/pt/LC_MESSAGES/gtk30-properties.mo
+installing pt_BR.gmo as /opt/share/locale/pt_BR/LC_MESSAGES/gtk30-properties.mo
+installing ro.gmo as /opt/share/locale/ro/LC_MESSAGES/gtk30-properties.mo
+installing ru.gmo as /opt/share/locale/ru/LC_MESSAGES/gtk30-properties.mo
+installing rw.gmo as /opt/share/locale/rw/LC_MESSAGES/gtk30-properties.mo
+installing si.gmo as /opt/share/locale/si/LC_MESSAGES/gtk30-properties.mo
+installing sk.gmo as /opt/share/locale/sk/LC_MESSAGES/gtk30-properties.mo
+installing sl.gmo as /opt/share/locale/sl/LC_MESSAGES/gtk30-properties.mo
+installing sq.gmo as /opt/share/locale/sq/LC_MESSAGES/gtk30-properties.mo
+installing sr.gmo as /opt/share/locale/sr/LC_MESSAGES/gtk30-properties.mo
+installing sr@ije.gmo as /opt/share/locale/sr@ije/LC_MESSAGES/gtk30-properties.mo
+installing sr@latin.gmo as /opt/share/locale/sr@latin/LC_MESSAGES/gtk30-properties.mo
+installing sv.gmo as /opt/share/locale/sv/LC_MESSAGES/gtk30-properties.mo
+installing ta.gmo as /opt/share/locale/ta/LC_MESSAGES/gtk30-properties.mo
+installing te.gmo as /opt/share/locale/te/LC_MESSAGES/gtk30-properties.mo
+installing th.gmo as /opt/share/locale/th/LC_MESSAGES/gtk30-properties.mo
+installing tk.gmo as /opt/share/locale/tk/LC_MESSAGES/gtk30-properties.mo
+installing tr.gmo as /opt/share/locale/tr/LC_MESSAGES/gtk30-properties.mo
+installing tt.gmo as /opt/share/locale/tt/LC_MESSAGES/gtk30-properties.mo
+installing ug.gmo as /opt/share/locale/ug/LC_MESSAGES/gtk30-properties.mo
+installing uk.gmo as /opt/share/locale/uk/LC_MESSAGES/gtk30-properties.mo
+installing ur.gmo as /opt/share/locale/ur/LC_MESSAGES/gtk30-properties.mo
+installing uz.gmo as /opt/share/locale/uz/LC_MESSAGES/gtk30-properties.mo
+installing uz@cyrillic.gmo as /opt/share/locale/uz@cyrillic/LC_MESSAGES/gtk30-properties.mo
+installing vi.gmo as /opt/share/locale/vi/LC_MESSAGES/gtk30-properties.mo
+installing wa.gmo as /opt/share/locale/wa/LC_MESSAGES/gtk30-properties.mo
+installing xh.gmo as /opt/share/locale/xh/LC_MESSAGES/gtk30-properties.mo
+installing yi.gmo as /opt/share/locale/yi/LC_MESSAGES/gtk30-properties.mo
+installing zh_CN.gmo as /opt/share/locale/zh_CN/LC_MESSAGES/gtk30-properties.mo
+installing zh_HK.gmo as /opt/share/locale/zh_HK/LC_MESSAGES/gtk30-properties.mo
+installing zh_TW.gmo as /opt/share/locale/zh_TW/LC_MESSAGES/gtk30-properties.mo
+if test "gtk+" = "glib"; then \
+	  /bin/sh /home/Administrateur/51_gtk3/gtk+-3.6.4/build-aux/install-sh -d /opt/share/glib-2.0/gettext/po; \
+	  /bin/install -c -m 644 ./Makefile.in.in \
+			  /opt/share/glib-2.0/gettext/po/Makefile.in.in; \
+	else \
+	  : ; \
+	fi
+make[1]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/po-properties'
+Making install in gdk
+make[1]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/gdk'
+  GEN      gdkconfig.h
+make  install-recursive
+make[2]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/gdk'
+Making install in win32
+make[3]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/gdk/win32'
+Making install in rc
+make[4]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/gdk/win32/rc'
+make[5]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/gdk/win32/rc'
+make[5]: Nothing to be done for `install-exec-am'.
+make[5]: Nothing to be done for `install-data-am'.
+make[5]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/gdk/win32/rc'
+make[4]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/gdk/win32/rc'
+make[4]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/gdk/win32'
+make[5]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/gdk/win32'
+make[5]: Nothing to be done for `install-exec-am'.
+ /bin/mkdir -p '/opt/include/gtk-3.0/gdk'
+ /bin/install -c -m 644 gdkwin32.h '/opt/include/gtk-3.0/gdk'
+ /bin/mkdir -p '/opt/include/gtk-3.0/gdk/win32'
+ /bin/install -c -m 644 gdkwin32cursor.h gdkwin32display.h gdkwin32displaymanager.h gdkwin32dnd.h gdkwin32keys.h gdkwin32screen.h gdkwin32window.h '/opt/include/gtk-3.0/gdk/win32'
+make[5]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/gdk/win32'
+make[4]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/gdk/win32'
+make[3]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/gdk/win32'
+Making install in .
+make[3]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/gdk'
+  GEN      gdkconfig.h
+make[4]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/gdk'
+  GEN      gdkconfig.h
+ /bin/mkdir -p '/opt/lib'
+ /bin/sh ../libtool   --mode=install /bin/install -c   libgdk-3.la '/opt/lib'
+libtool: install: /bin/install -c .libs/libgdk-3.dll.a /opt/lib/libgdk-3.dll.a
+libtool: install: base_file=`basename libgdk-3.la`
+libtool: install:  dlpath=`/bin/sh 2>&1 -c '. .libs/'libgdk-3.la'i; echo libgdk-3-0.dll'`
+libtool: install:  dldir=/opt/lib/`dirname ../bin/libgdk-3-0.dll`
+libtool: install:  test -d /opt/lib/../bin || mkdir -p /opt/lib/../bin
+libtool: install:  /bin/install -c .libs/libgdk-3-0.dll /opt/lib/../bin/libgdk-3-0.dll
+libtool: install:  chmod a+x /opt/lib/../bin/libgdk-3-0.dll
+libtool: install:  if test -n '' && test -n 'x86_64-w64-mingw32-strip --strip-unneeded'; then eval 'x86_64-w64-mingw32-strip --strip-unneeded /opt/lib/../bin/libgdk-3-0.dll' || exit 0; fi
+libtool: install: /bin/install -c .libs/libgdk-3.lai /opt/lib/libgdk-3.la
+make  install-exec-hook
+make[5]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/gdk'
+make[5]: Nothing to be done for `install-exec-hook'.
+make[5]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/gdk'
+mkdir -p /opt/lib
+/bin/install -c ./gdk.def /opt/lib/gdk-win32-3.0.def
+ /bin/mkdir -p '/opt/include/gtk-3.0/gdk'
+ /bin/install -c -m 644 gdk.h gdkapplaunchcontext.h gdkcairo.h gdkcolor.h gdkcursor.h gdkdevice.h gdkdevicemanager.h gdkdisplay.h gdkdisplaymanager.h gdkdnd.h gdkevents.h gdkkeys.h gdkkeysyms.h gdkkeysyms-compat.h gdkmain.h gdkpango.h gdkpixbuf.h gdkprivate.h gdkproperty.h gdkrectangle.h gdkrgba.h gdkscreen.h gdkselection.h gdktestutils.h gdkthreads.h gdktypes.h gdkvisual.h gdkwindow.h gdkenumtypes.h gdkversionmacros.h '/opt/include/gtk-3.0/gdk'
+ /bin/mkdir -p '/opt/include/gtk-3.0/gdk'
+ /bin/install -c -m 644 gdkconfig.h '/opt/include/gtk-3.0/gdk'
+make[4]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/gdk'
+make[3]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/gdk'
+Making install in tests
+make[3]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/gdk/tests'
+make[4]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/gdk/tests'
+make[4]: Nothing to be done for `install-exec-am'.
+make[4]: Nothing to be done for `install-data-am'.
+make[4]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/gdk/tests'
+make[3]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/gdk/tests'
+make[2]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/gdk'
+make[1]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/gdk'
+Making install in gtk
+make[1]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/gtk'
+make  install-recursive
+make[2]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/gtk'
+Making install in a11y
+make[3]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/gtk/a11y'
+make[4]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/gtk/a11y'
+make[4]: Nothing to be done for `install-exec-am'.
+make[4]: Nothing to be done for `install-data-am'.
+make[4]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/gtk/a11y'
+make[3]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/gtk/a11y'
+Making install in .
+make[3]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/gtk'
+make[4]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/modules/input'
+make[4]: Nothing to be done for `included-modules'.
+make[4]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/modules/input'
+make[4]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/gtk'
+make[5]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/modules/input'
+make[5]: Nothing to be done for `included-modules'.
+make[5]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/modules/input'
+ /bin/mkdir -p '/opt/lib'
+ /bin/sh ../libtool   --mode=install /bin/install -c   libgtk-3.la '/opt/lib'
+libtool: install: /bin/install -c .libs/libgtk-3.dll.a /opt/lib/libgtk-3.dll.a
+libtool: install: base_file=`basename libgtk-3.la`
+libtool: install:  dlpath=`/bin/sh 2>&1 -c '. .libs/'libgtk-3.la'i; echo libgtk-3-0.dll'`
+libtool: install:  dldir=/opt/lib/`dirname ../bin/libgtk-3-0.dll`
+libtool: install:  test -d /opt/lib/../bin || mkdir -p /opt/lib/../bin
+libtool: install:  /bin/install -c .libs/libgtk-3-0.dll /opt/lib/../bin/libgtk-3-0.dll
+libtool: install:  chmod a+x /opt/lib/../bin/libgtk-3-0.dll
+libtool: install:  if test -n '' && test -n 'x86_64-w64-mingw32-strip --strip-unneeded'; then eval 'x86_64-w64-mingw32-strip --strip-unneeded /opt/lib/../bin/libgtk-3-0.dll' || exit 0; fi
+libtool: install: /bin/install -c .libs/libgtk-3.lai /opt/lib/libgtk-3.la
+ /bin/mkdir -p '/opt/bin'
+  /bin/sh ../libtool   --mode=install /bin/install -c gtk-query-immodules-3.0.exe gtk-update-icon-cache.exe '/opt/bin'
+libtool: install: /bin/install -c .libs/gtk-query-immodules-3.0.exe /opt/bin/gtk-query-immodules-3.0.exe
+libtool: install: /bin/install -c .libs/gtk-update-icon-cache.exe /opt/bin/gtk-update-icon-cache.exe
+ /bin/mkdir -p '/opt/bin'
+ /bin/install -c gtk-update-icon-cache.exe.manifest '/opt/bin'
+make  install-exec-hook
+make[5]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/gtk'
+make[5]: Nothing to be done for `install-exec-hook'.
+make[5]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/gtk'
+/bin/install -c ./gtk.def /opt/lib/gtk-win32-3.0.def
+/bin/mkdir -p /opt/share/themes/Default/gtk-3.0
+/bin/install -c -m 644 ./gtk-keys.css.default /opt/share/themes/Default/gtk-3.0/gtk-keys.css
+/bin/mkdir -p /opt/share/themes/Emacs/gtk-3.0
+/bin/install -c -m 644 ./gtk-keys.css.emacs /opt/share/themes/Emacs/gtk-3.0/gtk-keys.css
+ /bin/mkdir -p '/opt/include/gtk-3.0/gtk/deprecated'
+ /bin/install -c -m 644 deprecated/gtkcolorsel.h deprecated/gtkcolorseldialog.h deprecated/gtkfontsel.h deprecated/gtkhandlebox.h deprecated/gtkhbbox.h deprecated/gtkhbox.h deprecated/gtkhpaned.h deprecated/gtkhscale.h deprecated/gtkhscrollbar.h deprecated/gtkhseparator.h deprecated/gtkhsv.h deprecated/gtkstyle.h deprecated/gtkrc.h deprecated/gtktable.h deprecated/gtktearoffmenuitem.h deprecated/gtkvbbox.h deprecated/gtkvbox.h deprecated/gtkvscale.h deprecated/gtkvscrollbar.h deprecated/gtkvseparator.h deprecated/gtkvpaned.h '/opt/include/gtk-3.0/gtk/deprecated'
+ /bin/mkdir -p '/opt/include/gtk-3.0/gtk'
+ /bin/install -c -m 644 gtk.h gtkx.h gtkaboutdialog.h gtkaccelgroup.h gtkaccellabel.h gtkaccelmap.h gtkaccessible.h gtkactionable.h gtkaction.h gtkactiongroup.h gtkactivatable.h gtkadjustment.h gtkalignment.h gtkappchooser.h gtkappchooserbutton.h gtkappchooserdialog.h gtkappchooserwidget.h gtkapplication.h gtkapplicationwindow.h gtkarrow.h gtkaspectframe.h gtkassistant.h gtkbbox.h gtkbin.h gtkbindings.h gtkborder.h gtkbox.h gtkbuilder.h gtkbuildable.h gtkbutton.h gtkcalendar.h gtkcellarea.h gtkcellareacontext.h gtkcellareabox.h gtkcelleditable.h gtkcelllayout.h gtkcellrenderer.h gtkcellrendereraccel.h gtkcellrenderercombo.h gtkcellrendererpixbuf.h '/opt/include/gtk-3.0/gtk'
+ /bin/install -c -m 644 gtkcellrendererprogress.h gtkcellrendererspin.h gtkcellrendererspinner.h gtkcellrenderertext.h gtkcellrenderertoggle.h gtkcellview.h gtkcheckbutton.h gtkcheckmenuitem.h gtkclipboard.h gtkcolorbutton.h gtkcolorchooser.h gtkcolorchooserwidget.h gtkcolorchooserdialog.h gtkcolorutils.h gtkcombobox.h gtkcomboboxtext.h gtkcontainer.h gtkcssprovider.h gtkcsssection.h gtkdebug.h gtkdialog.h gtkdnd.h gtkdrawingarea.h gtkeditable.h gtkentry.h gtkentrybuffer.h gtkentrycompletion.h gtkenums.h gtkeventbox.h gtkexpander.h gtkfilechooser.h gtkfilechooserbutton.h gtkfilechooserdialog.h gtkfilechooserwidget.h gtkfilefilter.h gtkfixed.h gtkfontbutton.h gtkfontchooser.h gtkfontchooserdialog.h gtkfontchooserwidget.h '/opt/include/gtk-3.0/gtk'
+ /bin/install -c -m 644 gtkframe.h gtkgradient.h gtkgrid.h gtkiconfactory.h gtkicontheme.h gtkiconview.h gtkimage.h gtkimagemenuitem.h gtkimcontext.h gtkimcontextinfo.h gtkimcontextsimple.h gtkimmodule.h gtkimmulticontext.h gtkinfobar.h gtkinvisible.h gtklabel.h gtklayout.h gtklevelbar.h gtklinkbutton.h gtkliststore.h gtklockbutton.h gtkmain.h gtkmenu.h gtkmenubar.h gtkmenubutton.h gtkmenuitem.h gtkmenushell.h gtkmenutoolbutton.h gtkmessagedialog.h gtkmisc.h gtkmodules.h gtkmountoperation.h gtknotebook.h gtknumerableicon.h gtkoffscreenwindow.h gtkorientable.h gtkoverlay.h gtkpagesetup.h gtkpaned.h gtkpapersize.h '/opt/include/gtk-3.0/gtk'
+ /bin/install -c -m 644 gtkplug.h gtkprintcontext.h gtkprintoperation.h gtkprintoperationpreview.h gtkprintsettings.h gtkprogressbar.h gtkradioaction.h gtkradiobutton.h gtkradiomenuitem.h gtkradiotoolbutton.h gtkrange.h gtkrecentaction.h gtkrecentchooser.h gtkrecentchooserdialog.h gtkrecentchoosermenu.h gtkrecentchooserwidget.h gtkrecentfilter.h gtkrecentmanager.h gtkscale.h gtkscalebutton.h gtkscrollable.h gtkscrollbar.h gtkscrolledwindow.h gtksearchentry.h gtkselection.h gtkseparator.h gtkseparatormenuitem.h gtkseparatortoolitem.h gtksettings.h gtkshow.h gtksizegroup.h gtksizerequest.h gtksocket.h gtkspinbutton.h gtkspinner.h gtkstatusbar.h gtkstatusicon.h gtkstock.h gtkstylecontext.h gtkstyleproperties.h '/opt/include/gtk-3.0/gtk'
+ /bin/install -c -m 644 gtkstyleprovider.h gtkswitch.h gtksymboliccolor.h gtktestutils.h gtktextattributes.h gtktextbuffer.h gtktextbufferrichtext.h gtktextchild.h gtktextdisplay.h gtktextiter.h gtktextmark.h gtktexttag.h gtktexttagtable.h gtktextview.h gtkthemingengine.h gtktoggleaction.h gtktogglebutton.h gtktoggletoolbutton.h gtktoolbar.h gtktoolbutton.h gtktoolitem.h gtktoolitemgroup.h gtktoolpalette.h gtktoolshell.h gtktooltip.h gtktreednd.h gtktreemodel.h gtktreemodelfilter.h gtktreemodelsort.h gtktreeselection.h gtktreesortable.h gtktreestore.h gtktreeview.h gtktreeviewcolumn.h gtktypes.h gtkuimanager.h gtkviewport.h gtkvolumebutton.h gtkwidget.h gtkwidgetpath.h '/opt/include/gtk-3.0/gtk'
+ /bin/install -c -m 644 gtkwindow.h gtktextlayout.h gtktypebuiltins.h gtkversion.h '/opt/include/gtk-3.0/gtk'
+ /bin/mkdir -p '/opt/share/gtk-3.0'
+ /bin/install -c -m 644 gtkbuilder.rng '/opt/share/gtk-3.0'
+if test -n "org.gtk.Settings.FileChooser.gschema.xml org.gtk.Settings.ColorChooser.gschema.xml"; then \
+		test -z "/opt/share/glib-2.0/schemas" || /bin/mkdir -p "/opt/share/glib-2.0/schemas"; \
+		/bin/install -c -m 644 org.gtk.Settings.FileChooser.gschema.xml org.gtk.Settings.ColorChooser.gschema.xml "/opt/share/glib-2.0/schemas"; \
+		test -n "" || glib-compile-schemas /opt/share/glib-2.0/schemas; \
+	fi
+make[4]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/gtk'
+make[3]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/gtk'
+Making install in tests
+make[3]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/gtk/tests'
+make[4]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/gtk/tests'
+make[5]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/gtk/tests'
+make[5]: Nothing to be done for `install-exec-am'.
+make[5]: Nothing to be done for `install-data-am'.
+make[5]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/gtk/tests'
+make[4]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/gtk/tests'
+make[3]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/gtk/tests'
+make[2]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/gtk'
+make[1]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/gtk'
+Making install in libgail-util
+make[1]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/libgail-util'
+make[2]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/libgail-util'
+ /bin/mkdir -p '/opt/lib'
+ /bin/sh ../libtool   --mode=install /bin/install -c   libgailutil-3.la '/opt/lib'
+libtool: install: /bin/install -c .libs/libgailutil-3.dll.a /opt/lib/libgailutil-3.dll.a
+libtool: install: base_file=`basename libgailutil-3.la`
+libtool: install:  dlpath=`/bin/sh 2>&1 -c '. .libs/'libgailutil-3.la'i; echo libgailutil-3-0.dll'`
+libtool: install:  dldir=/opt/lib/`dirname ../bin/libgailutil-3-0.dll`
+libtool: install:  test -d /opt/lib/../bin || mkdir -p /opt/lib/../bin
+libtool: install:  /bin/install -c .libs/libgailutil-3-0.dll /opt/lib/../bin/libgailutil-3-0.dll
+libtool: install:  chmod a+x /opt/lib/../bin/libgailutil-3-0.dll
+libtool: install:  if test -n '' && test -n 'x86_64-w64-mingw32-strip --strip-unneeded'; then eval 'x86_64-w64-mingw32-strip --strip-unneeded /opt/lib/../bin/libgailutil-3-0.dll' || exit 0; fi
+libtool: install: /bin/install -c .libs/libgailutil-3.lai /opt/lib/libgailutil-3.la
+/bin/install -c ./gailutil.def /opt/lib
+ /bin/mkdir -p '/opt/include/gail-3.0/libgail-util'
+ /bin/install -c -m 644 gailmisc.h gailtextutil.h gail-util.h '/opt/include/gail-3.0/libgail-util'
+make[2]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/libgail-util'
+make[1]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/libgail-util'
+Making install in modules
+make[1]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/modules'
+Making install in input
+make[2]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/modules/input'
+make[3]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/modules/input'
+make[3]: Nothing to be done for `install-exec-am'.
+ /bin/mkdir -p '/opt/etc/gtk-3.0'
+ /bin/install -c -m 644 im-multipress.conf '/opt/etc/gtk-3.0'
+make  install-data-hook
+make[4]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/modules/input'
+  GEN      install-data-hook
+/bin/sh /home/Administrateur/51_gtk3/gtk+-3.6.4/build-aux/install-sh -d /opt/lib/gtk-3.0/3.0.0
+../../gtk/gtk-query-immodules-3.0 > /opt/lib/gtk-3.0/3.0.0/immodules.cache
+make[4]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/modules/input'
+make[3]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/modules/input'
+make[2]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/modules/input'
+Making install in engines
+make[2]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/modules/engines'
+make[3]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/modules/engines'
+make[4]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/modules/engines'
+make[4]: Nothing to be done for `install-exec-am'.
+make[4]: Nothing to be done for `install-data-am'.
+make[4]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/modules/engines'
+make[3]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/modules/engines'
+make[2]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/modules/engines'
+make[2]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/modules'
+make[3]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/modules'
+make[3]: Nothing to be done for `install-exec-am'.
+make[3]: Nothing to be done for `install-data-am'.
+make[3]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/modules'
+make[2]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/modules'
+make[1]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/modules'
+Making install in demos
+make[1]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/demos'
+Making install in gtk-demo
+make[2]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/demos/gtk-demo'
+make  install-am
+make[3]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/demos/gtk-demo'
+make[4]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/demos/gtk-demo'
+ /bin/mkdir -p '/opt/bin'
+  /bin/sh ../../libtool   --mode=install /bin/install -c gtk3-demo.exe gtk3-demo-application.exe '/opt/bin'
+libtool: install: /bin/install -c .libs/gtk3-demo.exe /opt/bin/gtk3-demo.exe
+libtool: install: /bin/install -c .libs/gtk3-demo-application.exe /opt/bin/gtk3-demo-application.exe
+ /bin/mkdir -p '/opt/share/gtk-3.0/demo'
+ /bin/install -c -m 644 application.c appwindow.c assistant.c builder.c button_box.c changedisplay.c clipboard.c colorsel.c combobox.c css_accordion.c css_basics.c css_multiplebgs.c css_pixbufs.c css_shadows.c dialog.c drawingarea.c editable_cells.c entry_buffer.c entry_completion.c expander.c hypertext.c iconview.c iconview_edit.c images.c infobar.c links.c list_store.c menus.c offscreen_window.c offscreen_window2.c overlay.c panes.c pickers.c pixbufs.c printing.c rotated_text.c search_entry.c sizegroup.c spinner.c stock_browser.c '/opt/share/gtk-3.0/demo'
+ /bin/install -c -m 644 textview.c textscroll.c theming_style_classes.c theming_custom_css.c toolpalette.c transparent.c tree_store.c ui_manager.c alphatest.png apple-red.png background.jpg floppybuddy.gif gnome-applets.png gnome-calendar.png gnome-fs-directory.png gnome-fs-regular.png gnome-foot.png gnome-gimp.png gnome-gmush.png gnome-gsame.png gnu-keys.png gtk-logo-rgb.gif application.ui menus.ui theming.ui gtk-logo-24.png gtk-logo-48.png css_accordion.css css_basics.css css_multiplebgs.css css_pixbufs.css css_shadows.css cssview.css fancy.css reset.css demo.ui '/opt/share/gtk-3.0/demo'
+if test -n "org.gtk.Demo.gschema.xml"; then \
+		test -z "/opt/share/glib-2.0/schemas" || /bin/mkdir -p "/opt/share/glib-2.0/schemas"; \
+		/bin/install -c -m 644 org.gtk.Demo.gschema.xml "/opt/share/glib-2.0/schemas"; \
+		test -n "" || glib-compile-schemas /opt/share/glib-2.0/schemas; \
+	fi
+make[4]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/demos/gtk-demo'
+make[3]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/demos/gtk-demo'
+make[2]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/demos/gtk-demo'
+Making install in widget-factory
+make[2]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/demos/widget-factory'
+make  install-am
+make[3]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/demos/widget-factory'
+make[4]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/demos/widget-factory'
+ /bin/mkdir -p '/opt/bin'
+  /bin/sh ../../libtool   --mode=install /bin/install -c gtk3-widget-factory.exe '/opt/bin'
+libtool: install: /bin/install -c .libs/gtk3-widget-factory.exe /opt/bin/gtk3-widget-factory.exe
+make[4]: Nothing to be done for `install-data-am'.
+make[4]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/demos/widget-factory'
+make[3]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/demos/widget-factory'
+make[2]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/demos/widget-factory'
+Making install in pixbuf-demo
+make[2]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/demos/pixbuf-demo'
+make[3]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/demos/pixbuf-demo'
+make[3]: Nothing to be done for `install-exec-am'.
+make[3]: Nothing to be done for `install-data-am'.
+make[3]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/demos/pixbuf-demo'
+make[2]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/demos/pixbuf-demo'
+make[2]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/demos'
+make[3]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/demos'
+make[3]: Nothing to be done for `install-exec-am'.
+make[3]: Nothing to be done for `install-data-am'.
+make[3]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/demos'
+make[2]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/demos'
+make[1]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/demos'
+Making install in tests
+make[1]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/tests'
+Making install in css
+make[2]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/tests/css'
+Making install in parser
+make[3]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/tests/css/parser'
+make[4]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/tests/css/parser'
+make[4]: Nothing to be done for `install-exec-am'.
+make[4]: Nothing to be done for `install-data-am'.
+make[4]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/tests/css/parser'
+make[3]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/tests/css/parser'
+make[3]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/tests/css'
+make[4]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/tests/css'
+make[4]: Nothing to be done for `install-exec-am'.
+make[4]: Nothing to be done for `install-data-am'.
+make[4]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/tests/css'
+make[3]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/tests/css'
+make[2]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/tests/css'
+Making install in reftests
+make[2]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/tests/reftests'
+make[3]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/tests/reftests'
+make[3]: Nothing to be done for `install-exec-am'.
+make[3]: Nothing to be done for `install-data-am'.
+make[3]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/tests/reftests'
+make[2]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/tests/reftests'
+Making install in a11y
+make[2]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/tests/a11y'
+make[3]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/tests/a11y'
+make[3]: Nothing to be done for `install-exec-am'.
+make[3]: Nothing to be done for `install-data-am'.
+make[3]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/tests/a11y'
+make[2]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/tests/a11y'
+Making install in visuals
+make[2]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/tests/visuals'
+make[3]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/tests/visuals'
+make[3]: Nothing to be done for `install-exec-am'.
+make[3]: Nothing to be done for `install-data-am'.
+make[3]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/tests/visuals'
+make[2]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/tests/visuals'
+make[2]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/tests'
+make[3]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/tests'
+make[3]: Nothing to be done for `install-exec-am'.
+make[3]: Nothing to be done for `install-data-am'.
+make[3]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/tests'
+make[2]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/tests'
+make[1]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/tests'
+Making install in perf
+make[1]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/perf'
+make  install-am
+make[2]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/perf'
+make[3]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/perf'
+make[3]: Nothing to be done for `install-exec-am'.
+make[3]: Nothing to be done for `install-data-am'.
+make[3]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/perf'
+make[2]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/perf'
+make[1]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/perf'
+Making install in examples
+make[1]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/examples'
+make[2]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/examples'
+make[2]: Nothing to be done for `install-exec-am'.
+make[2]: Nothing to be done for `install-data-am'.
+make[2]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/examples'
+make[1]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/examples'
+Making install in docs
+make[1]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/docs'
+Making install in reference
+make[2]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/docs/reference'
+Making install in gdk
+make[3]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/docs/reference/gdk'
+make[4]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/docs/reference/gdk'
+make[4]: Nothing to be done for `install-exec-am'.
+ /bin/install -c -m 644 ./html/GdkDevice.html
+ /bin/install -c -m 644 ./html/GdkDeviceManager.html
+ /bin/install -c -m 644 ./html/GdkDisplay.html
+ /bin/install -c -m 644 ./html/GdkDisplayManager.html
+ /bin/install -c -m 644 ./html/GdkScreen.html
+ /bin/install -c -m 644 ./html/X_cursor.png
+ /bin/install -c -m 644 ./html/annotation-glossary.html
+ /bin/install -c -m 644 ./html/api-index-3-0.html
+ /bin/install -c -m 644 ./html/api-index-3-2.html
+ /bin/install -c -m 644 ./html/api-index-3-4.html
+ /bin/install -c -m 644 ./html/api-index-3-6.html
+ /bin/install -c -m 644 ./html/api-index-deprecated.html
+ /bin/install -c -m 644 ./html/api-index-full.html
+ /bin/install -c -m 644 ./html/arrow.png
+ /bin/install -c -m 644 ./html/based_arrow_down.png
+ /bin/install -c -m 644 ./html/based_arrow_up.png
+ /bin/install -c -m 644 ./html/boat.png
+ /bin/install -c -m 644 ./html/bogosity.png
+ /bin/install -c -m 644 ./html/bottom_left_corner.png
+ /bin/install -c -m 644 ./html/bottom_right_corner.png
+ /bin/install -c -m 644 ./html/bottom_side.png
+ /bin/install -c -m 644 ./html/bottom_tee.png
+ /bin/install -c -m 644 ./html/box_spiral.png
+ /bin/install -c -m 644 ./html/center_ptr.png
+ /bin/install -c -m 644 ./html/circle.png
+ /bin/install -c -m 644 ./html/clock.png
+ /bin/install -c -m 644 ./html/coffee_mug.png
+ /bin/install -c -m 644 ./html/cross.png
+ /bin/install -c -m 644 ./html/cross_reverse.png
+ /bin/install -c -m 644 ./html/crosshair.png
+ /bin/install -c -m 644 ./html/diamond_cross.png
+ /bin/install -c -m 644 ./html/dot.png
+ /bin/install -c -m 644 ./html/dotbox.png
+ /bin/install -c -m 644 ./html/double_arrow.png
+ /bin/install -c -m 644 ./html/draft_large.png
+ /bin/install -c -m 644 ./html/draft_small.png
+ /bin/install -c -m 644 ./html/draped_box.png
+ /bin/install -c -m 644 ./html/exchange.png
+ /bin/install -c -m 644 ./html/fleur.png
+ /bin/install -c -m 644 ./html/gdk3-Application-launching.html
+ /bin/install -c -m 644 ./html/gdk3-Cairo-Interaction.html
+ /bin/install -c -m 644 ./html/gdk3-Colors.html
+ /bin/install -c -m 644 ./html/gdk3-Cursors.html
+ /bin/install -c -m 644 ./html/gdk3-Drag-and-Drop.html
+ /bin/install -c -m 644 ./html/gdk3-Event-Structures.html
+ /bin/install -c -m 644 ./html/gdk3-Events.html
+ /bin/install -c -m 644 ./html/gdk3-General.html
+ /bin/install -c -m 644 ./html/gdk3-Keyboard-Handling.html
+ /bin/install -c -m 644 ./html/gdk3-Pango-Interaction.html
+ /bin/install -c -m 644 ./html/gdk3-Pixbufs.html
+ /bin/install -c -m 644 ./html/gdk3-Points-Rectangles-and-Regions.html
+ /bin/install -c -m 644 ./html/gdk3-Properties-and-Atoms.html
+ /bin/install -c -m 644 ./html/gdk3-RGBA-Colors.html
+ /bin/install -c -m 644 ./html/gdk3-Selections.html
+ /bin/install -c -m 644 ./html/gdk3-Testing.html
+ /bin/install -c -m 644 ./html/gdk3-Threads.html
+ /bin/install -c -m 644 ./html/gdk3-Visuals.html
+ /bin/install -c -m 644 ./html/gdk3-Windows.html
+ /bin/install -c -m 644 ./html/gdk3-X-Window-System-Interaction.html
+ /bin/install -c -m 644 ./html/gdk3.devhelp2
+ /bin/install -c -m 644 ./html/gobbler.png
+ /bin/install -c -m 644 ./html/gumby.png
+ /bin/install -c -m 644 ./html/hand1.png
+ /bin/install -c -m 644 ./html/hand2.png
+ /bin/install -c -m 644 ./html/heart.png
+ /bin/install -c -m 644 ./html/home.png
+ /bin/install -c -m 644 ./html/icon.png
+ /bin/install -c -m 644 ./html/index.html
+ /bin/install -c -m 644 ./html/index.sgml
+ /bin/install -c -m 644 ./html/iron_cross.png
+ /bin/install -c -m 644 ./html/left.png
+ /bin/install -c -m 644 ./html/left_ptr.png
+ /bin/install -c -m 644 ./html/left_side.png
+ /bin/install -c -m 644 ./html/left_tee.png
+ /bin/install -c -m 644 ./html/leftbutton.png
+ /bin/install -c -m 644 ./html/ll_angle.png
+ /bin/install -c -m 644 ./html/lr_angle.png
+ /bin/install -c -m 644 ./html/man.png
+ /bin/install -c -m 644 ./html/middlebutton.png
+ /bin/install -c -m 644 ./html/mouse.png
+ /bin/install -c -m 644 ./html/pencil.png
+ /bin/install -c -m 644 ./html/pirate.png
+ /bin/install -c -m 644 ./html/plus.png
+ /bin/install -c -m 644 ./html/question_arrow.png
+ /bin/install -c -m 644 ./html/reference.html
+ /bin/install -c -m 644 ./html/right.png
+ /bin/install -c -m 644 ./html/right_ptr.png
+ /bin/install -c -m 644 ./html/right_side.png
+ /bin/install -c -m 644 ./html/right_tee.png
+ /bin/install -c -m 644 ./html/rightbutton.png
+ /bin/install -c -m 644 ./html/rotated-text.png
+ /bin/install -c -m 644 ./html/rtl_logo.png
+ /bin/install -c -m 644 ./html/sailboat.png
+ /bin/install -c -m 644 ./html/sb_down_arrow.png
+ /bin/install -c -m 644 ./html/sb_h_double_arrow.png
+ /bin/install -c -m 644 ./html/sb_left_arrow.png
+ /bin/install -c -m 644 ./html/sb_right_arrow.png
+ /bin/install -c -m 644 ./html/sb_up_arrow.png
+ /bin/install -c -m 644 ./html/sb_v_double_arrow.png
+ /bin/install -c -m 644 ./html/shuttle.png
+ /bin/install -c -m 644 ./html/sizing.png
+ /bin/install -c -m 644 ./html/spider.png
+ /bin/install -c -m 644 ./html/spraycan.png
+ /bin/install -c -m 644 ./html/star.png
+ /bin/install -c -m 644 ./html/style.css
+ /bin/install -c -m 644 ./html/target.png
+ /bin/install -c -m 644 ./html/tcross.png
+ /bin/install -c -m 644 ./html/top_left_arrow.png
+ /bin/install -c -m 644 ./html/top_left_corner.png
+ /bin/install -c -m 644 ./html/top_right_corner.png
+ /bin/install -c -m 644 ./html/top_side.png
+ /bin/install -c -m 644 ./html/top_tee.png
+ /bin/install -c -m 644 ./html/trek.png
+ /bin/install -c -m 644 ./html/ul_angle.png
+ /bin/install -c -m 644 ./html/umbrella.png
+ /bin/install -c -m 644 ./html/up.png
+ /bin/install -c -m 644 ./html/ur_angle.png
+ /bin/install -c -m 644 ./html/watch.png
+ /bin/install -c -m 644 ./html/xterm.png
+make[4]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/docs/reference/gdk'
+make[3]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/docs/reference/gdk'
+Making install in gtk
+make[3]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/docs/reference/gtk'
+make[4]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/docs/reference/gtk'
+make[4]: Nothing to be done for `install-exec-am'.
+ /bin/install -c -m 644 ./html/AbstractObjects.html
+ /bin/install -c -m 644 ./html/Actions.html
+ /bin/install -c -m 644 ./html/Application.html
+ /bin/install -c -m 644 ./html/ApplicationChoosing.html
+ /bin/install -c -m 644 ./html/Builder.html
+ /bin/install -c -m 644 ./html/ButtonWidgets.html
+ /bin/install -c -m 644 ./html/DisplayWidgets.html
+ /bin/install -c -m 644 ./html/GtkAboutDialog.html
+ /bin/install -c -m 644 ./html/GtkAccelLabel.html
+ /bin/install -c -m 644 ./html/GtkAccessible.html
+ /bin/install -c -m 644 ./html/GtkAction.html
+ /bin/install -c -m 644 ./html/GtkActionGroup.html
+ /bin/install -c -m 644 ./html/GtkActionable.html
+ /bin/install -c -m 644 ./html/GtkActivatable.html
+ /bin/install -c -m 644 ./html/GtkAdjustment.html
+ /bin/install -c -m 644 ./html/GtkAlignment.html
+ /bin/install -c -m 644 ./html/GtkAppChooser.html
+ /bin/install -c -m 644 ./html/GtkAppChooserButton.html
+ /bin/install -c -m 644 ./html/GtkAppChooserDialog.html
+ /bin/install -c -m 644 ./html/GtkAppChooserWidget.html
+ /bin/install -c -m 644 ./html/GtkApplication.html
+ /bin/install -c -m 644 ./html/GtkApplicationWindow.html
+ /bin/install -c -m 644 ./html/GtkArrow.html
+ /bin/install -c -m 644 ./html/GtkAspectFrame.html
+ /bin/install -c -m 644 ./html/GtkAssistant.html
+ /bin/install -c -m 644 ./html/GtkBin.html
+ /bin/install -c -m 644 ./html/GtkBox.html
+ /bin/install -c -m 644 ./html/GtkBuildable.html
+ /bin/install -c -m 644 ./html/GtkBuilder.html
+ /bin/install -c -m 644 ./html/GtkButton.html
+ /bin/install -c -m 644 ./html/GtkButtonBox.html
+ /bin/install -c -m 644 ./html/GtkCalendar.html
+ /bin/install -c -m 644 ./html/GtkCellArea.html
+ /bin/install -c -m 644 ./html/GtkCellAreaBox.html
+ /bin/install -c -m 644 ./html/GtkCellAreaContext.html
+ /bin/install -c -m 644 ./html/GtkCellEditable.html
+ /bin/install -c -m 644 ./html/GtkCellLayout.html
+ /bin/install -c -m 644 ./html/GtkCellRenderer.html
+ /bin/install -c -m 644 ./html/GtkCellRendererAccel.html
+ /bin/install -c -m 644 ./html/GtkCellRendererCombo.html
+ /bin/install -c -m 644 ./html/GtkCellRendererPixbuf.html
+ /bin/install -c -m 644 ./html/GtkCellRendererProgress.html
+ /bin/install -c -m 644 ./html/GtkCellRendererSpin.html
+ /bin/install -c -m 644 ./html/GtkCellRendererSpinner.html
+ /bin/install -c -m 644 ./html/GtkCellRendererText.html
+ /bin/install -c -m 644 ./html/GtkCellRendererToggle.html
+ /bin/install -c -m 644 ./html/GtkCellView.html
+ /bin/install -c -m 644 ./html/GtkCheckButton.html
+ /bin/install -c -m 644 ./html/GtkCheckMenuItem.html
+ /bin/install -c -m 644 ./html/GtkColorButton.html
+ /bin/install -c -m 644 ./html/GtkColorChooser.html
+ /bin/install -c -m 644 ./html/GtkColorChooserDialog.html
+ /bin/install -c -m 644 ./html/GtkColorChooserWidget.html
+ /bin/install -c -m 644 ./html/GtkColorSelection.html
+ /bin/install -c -m 644 ./html/GtkColorSelectionDialog.html
+ /bin/install -c -m 644 ./html/GtkComboBox.html
+ /bin/install -c -m 644 ./html/GtkComboBoxText.html
+ /bin/install -c -m 644 ./html/GtkContainer.html
+ /bin/install -c -m 644 ./html/GtkCssProvider.html
+ /bin/install -c -m 644 ./html/GtkDialog.html
+ /bin/install -c -m 644 ./html/GtkDrawingArea.html
+ /bin/install -c -m 644 ./html/GtkEditable.html
+ /bin/install -c -m 644 ./html/GtkEntry.html
+ /bin/install -c -m 644 ./html/GtkEntryBuffer.html
+ /bin/install -c -m 644 ./html/GtkEntryCompletion.html
+ /bin/install -c -m 644 ./html/GtkEventBox.html
+ /bin/install -c -m 644 ./html/GtkExpander.html
+ /bin/install -c -m 644 ./html/GtkFileChooser.html
+ /bin/install -c -m 644 ./html/GtkFileChooserButton.html
+ /bin/install -c -m 644 ./html/GtkFileChooserDialog.html
+ /bin/install -c -m 644 ./html/GtkFileChooserWidget.html
+ /bin/install -c -m 644 ./html/GtkFileFilter.html
+ /bin/install -c -m 644 ./html/GtkFixed.html
+ /bin/install -c -m 644 ./html/GtkFontButton.html
+ /bin/install -c -m 644 ./html/GtkFontChooser.html
+ /bin/install -c -m 644 ./html/GtkFontChooserDialog.html
+ /bin/install -c -m 644 ./html/GtkFontChooserWidget.html
+ /bin/install -c -m 644 ./html/GtkFontSelection.html
+ /bin/install -c -m 644 ./html/GtkFontSelectionDialog.html
+ /bin/install -c -m 644 ./html/GtkFrame.html
+ /bin/install -c -m 644 ./html/GtkGrid.html
+ /bin/install -c -m 644 ./html/GtkHBox.html
+ /bin/install -c -m 644 ./html/GtkHButtonBox.html
+ /bin/install -c -m 644 ./html/GtkHPaned.html
+ /bin/install -c -m 644 ./html/GtkHSV.html
+ /bin/install -c -m 644 ./html/GtkHScale.html
+ /bin/install -c -m 644 ./html/GtkHScrollbar.html
+ /bin/install -c -m 644 ./html/GtkHSeparator.html
+ /bin/install -c -m 644 ./html/GtkHandleBox.html
+ /bin/install -c -m 644 ./html/GtkIMContext.html
+ /bin/install -c -m 644 ./html/GtkIMContextSimple.html
+ /bin/install -c -m 644 ./html/GtkIMMulticontext.html
+ /bin/install -c -m 644 ./html/GtkIconTheme.html
+ /bin/install -c -m 644 ./html/GtkIconView.html
+ /bin/install -c -m 644 ./html/GtkImage.html
+ /bin/install -c -m 644 ./html/GtkImageMenuItem.html
+ /bin/install -c -m 644 ./html/GtkInfoBar.html
+ /bin/install -c -m 644 ./html/GtkInvisible.html
+ /bin/install -c -m 644 ./html/GtkLabel.html
+ /bin/install -c -m 644 ./html/GtkLayout.html
+ /bin/install -c -m 644 ./html/GtkLevelBar.html
+ /bin/install -c -m 644 ./html/GtkLinkButton.html
+ /bin/install -c -m 644 ./html/GtkListStore.html
+ /bin/install -c -m 644 ./html/GtkLockButton.html
+ /bin/install -c -m 644 ./html/GtkMenu.html
+ /bin/install -c -m 644 ./html/GtkMenuBar.html
+ /bin/install -c -m 644 ./html/GtkMenuButton.html
+ /bin/install -c -m 644 ./html/GtkMenuItem.html
+ /bin/install -c -m 644 ./html/GtkMenuShell.html
+ /bin/install -c -m 644 ./html/GtkMenuToolButton.html
+ /bin/install -c -m 644 ./html/GtkMessageDialog.html
+ /bin/install -c -m 644 ./html/GtkMisc.html
+ /bin/install -c -m 644 ./html/GtkNotebook.html
+ /bin/install -c -m 644 ./html/GtkNumerableIcon.html
+ /bin/install -c -m 644 ./html/GtkOffscreenWindow.html
+ /bin/install -c -m 644 ./html/GtkOverlay.html
+ /bin/install -c -m 644 ./html/GtkPageSetup.html
+ /bin/install -c -m 644 ./html/GtkPageSetupUnixDialog.html
+ /bin/install -c -m 644 ./html/GtkPaned.html
+ /bin/install -c -m 644 ./html/GtkPaperSize.html
+ /bin/install -c -m 644 ./html/GtkPlug.html
+ /bin/install -c -m 644 ./html/GtkPrintContext.html
+ /bin/install -c -m 644 ./html/GtkPrintJob.html
+ /bin/install -c -m 644 ./html/GtkPrintSettings.html
+ /bin/install -c -m 644 ./html/GtkPrintUnixDialog.html
+ /bin/install -c -m 644 ./html/GtkPrinter.html
+ /bin/install -c -m 644 ./html/GtkProgressBar.html
+ /bin/install -c -m 644 ./html/GtkRadioAction.html
+ /bin/install -c -m 644 ./html/GtkRadioButton.html
+ /bin/install -c -m 644 ./html/GtkRadioMenuItem.html
+ /bin/install -c -m 644 ./html/GtkRadioToolButton.html
+ /bin/install -c -m 644 ./html/GtkRange.html
+ /bin/install -c -m 644 ./html/GtkRecentAction.html
+ /bin/install -c -m 644 ./html/GtkRecentChooser.html
+ /bin/install -c -m 644 ./html/GtkRecentChooserDialog.html
+ /bin/install -c -m 644 ./html/GtkRecentChooserMenu.html
+ /bin/install -c -m 644 ./html/GtkRecentChooserWidget.html
+ /bin/install -c -m 644 ./html/GtkRecentFilter.html
+ /bin/install -c -m 644 ./html/GtkRecentManager.html
+ /bin/install -c -m 644 ./html/GtkScale.html
+ /bin/install -c -m 644 ./html/GtkScaleButton.html
+ /bin/install -c -m 644 ./html/GtkScrollable.html
+ /bin/install -c -m 644 ./html/GtkScrollbar.html
+ /bin/install -c -m 644 ./html/GtkScrolledWindow.html
+ /bin/install -c -m 644 ./html/GtkSearchEntry.html
+ /bin/install -c -m 644 ./html/GtkSeparator.html
+ /bin/install -c -m 644 ./html/GtkSeparatorMenuItem.html
+ /bin/install -c -m 644 ./html/GtkSeparatorToolItem.html
+ /bin/install -c -m 644 ./html/GtkSettings.html
+ /bin/install -c -m 644 ./html/GtkSizeGroup.html
+ /bin/install -c -m 644 ./html/GtkSocket.html
+ /bin/install -c -m 644 ./html/GtkSpinButton.html
+ /bin/install -c -m 644 ./html/GtkSpinner.html
+ /bin/install -c -m 644 ./html/GtkStatusIcon.html
+ /bin/install -c -m 644 ./html/GtkStatusbar.html
+ /bin/install -c -m 644 ./html/GtkStyle.html
+ /bin/install -c -m 644 ./html/GtkStyleContext.html
+ /bin/install -c -m 644 ./html/GtkStyleProvider.html
+ /bin/install -c -m 644 ./html/GtkSwitch.html
+ /bin/install -c -m 644 ./html/GtkTable.html
+ /bin/install -c -m 644 ./html/GtkTearoffMenuItem.html
+ /bin/install -c -m 644 ./html/GtkTextBuffer.html
+ /bin/install -c -m 644 ./html/GtkTextIter.html
+ /bin/install -c -m 644 ./html/GtkTextMark.html
+ /bin/install -c -m 644 ./html/GtkTextTag.html
+ /bin/install -c -m 644 ./html/GtkTextTagTable.html
+ /bin/install -c -m 644 ./html/GtkTextView.html
+ /bin/install -c -m 644 ./html/GtkThemingEngine.html
+ /bin/install -c -m 644 ./html/GtkToggleAction.html
+ /bin/install -c -m 644 ./html/GtkToggleButton.html
+ /bin/install -c -m 644 ./html/GtkToggleToolButton.html
+ /bin/install -c -m 644 ./html/GtkToolButton.html
+ /bin/install -c -m 644 ./html/GtkToolItem.html
+ /bin/install -c -m 644 ./html/GtkToolItemGroup.html
+ /bin/install -c -m 644 ./html/GtkToolPalette.html
+ /bin/install -c -m 644 ./html/GtkToolShell.html
+ /bin/install -c -m 644 ./html/GtkToolbar.html
+ /bin/install -c -m 644 ./html/GtkTooltip.html
+ /bin/install -c -m 644 ./html/GtkTreeModel.html
+ /bin/install -c -m 644 ./html/GtkTreeModelFilter.html
+ /bin/install -c -m 644 ./html/GtkTreeModelSort.html
+ /bin/install -c -m 644 ./html/GtkTreeSelection.html
+ /bin/install -c -m 644 ./html/GtkTreeSortable.html
+ /bin/install -c -m 644 ./html/GtkTreeStore.html
+ /bin/install -c -m 644 ./html/GtkTreeView.html
+ /bin/install -c -m 644 ./html/GtkTreeViewColumn.html
+ /bin/install -c -m 644 ./html/GtkUIManager.html
+ /bin/install -c -m 644 ./html/GtkVBox.html
+ /bin/install -c -m 644 ./html/GtkVButtonBox.html
+ /bin/install -c -m 644 ./html/GtkVPaned.html
+ /bin/install -c -m 644 ./html/GtkVScale.html
+ /bin/install -c -m 644 ./html/GtkVScrollbar.html
+ /bin/install -c -m 644 ./html/GtkVSeparator.html
+ /bin/install -c -m 644 ./html/GtkViewport.html
+ /bin/install -c -m 644 ./html/GtkVolumeButton.html
+ /bin/install -c -m 644 ./html/GtkWidget.html
+ /bin/install -c -m 644 ./html/GtkWindow.html
+ /bin/install -c -m 644 ./html/GtkWindowGroup.html
+ /bin/install -c -m 644 ./html/LayoutContainers.html
+ /bin/install -c -m 644 ./html/MenusAndCombos.html
+ /bin/install -c -m 644 ./html/MiscObjects.html
+ /bin/install -c -m 644 ./html/NumericEntry.html
+ /bin/install -c -m 644 ./html/Ornaments.html
+ /bin/install -c -m 644 ./html/PlugSocket.html
+ /bin/install -c -m 644 ./html/Printing.html
+ /bin/install -c -m 644 ./html/RecentDocuments.html
+ /bin/install -c -m 644 ./html/ScrollingWidgets.html
+ /bin/install -c -m 644 ./html/SelectorWidgets.html
+ /bin/install -c -m 644 ./html/TextWidget.html
+ /bin/install -c -m 644 ./html/TextWidgetObjects.html
+ /bin/install -c -m 644 ./html/TreeWidget.html
+ /bin/install -c -m 644 ./html/TreeWidgetObjects.html
+ /bin/install -c -m 644 ./html/WindowWidgets.html
+ /bin/install -c -m 644 ./html/aboutdialog.png
+ /bin/install -c -m 644 ./html/accel-label.png
+ /bin/install -c -m 644 ./html/annotation-glossary.html
+ /bin/install -c -m 644 ./html/api-index-3-0.html
+ /bin/install -c -m 644 ./html/api-index-3-2.html
+ /bin/install -c -m 644 ./html/api-index-3-4.html
+ /bin/install -c -m 644 ./html/api-index-3-6.html
+ /bin/install -c -m 644 ./html/api-index-deprecated.html
+ /bin/install -c -m 644 ./html/api-index-full.html
+ /bin/install -c -m 644 ./html/appchooserbutton.png
+ /bin/install -c -m 644 ./html/appchooserdialog.png
+ /bin/install -c -m 644 ./html/application-exit.png
+ /bin/install -c -m 644 ./html/arrows.png
+ /bin/install -c -m 644 ./html/assistant.png
+ /bin/install -c -m 644 ./html/background.png
+ /bin/install -c -m 644 ./html/bloatpad-gnome.png
+ /bin/install -c -m 644 ./html/bloatpad-osx.png
+ /bin/install -c -m 644 ./html/bloatpad-xfce.png
+ /bin/install -c -m 644 ./html/border1.png
+ /bin/install -c -m 644 ./html/border2.png
+ /bin/install -c -m 644 ./html/border3.png
+ /bin/install -c -m 644 ./html/box-expand.png
+ /bin/install -c -m 644 ./html/box-packing.png
+ /bin/install -c -m 644 ./html/button.png
+ /bin/install -c -m 644 ./html/ch02.html
+ /bin/install -c -m 644 ./html/ch03.html
+ /bin/install -c -m 644 ./html/ch24s02.html
+ /bin/install -c -m 644 ./html/ch26s02.html
+ /bin/install -c -m 644 ./html/ch28s02.html
+ /bin/install -c -m 644 ./html/ch28s03.html
+ /bin/install -c -m 644 ./html/chap-drawing-model.html
+ /bin/install -c -m 644 ./html/check-button.png
+ /bin/install -c -m 644 ./html/checklist-gdkeventexpose-region.html
+ /bin/install -c -m 644 ./html/checklist-modifiers.html
+ /bin/install -c -m 644 ./html/checklist-named-icons.html
+ /bin/install -c -m 644 ./html/checks.png
+ /bin/install -c -m 644 ./html/color-button.png
+ /bin/install -c -m 644 ./html/colorchooser.png
+ /bin/install -c -m 644 ./html/colorsel.png
+ /bin/install -c -m 644 ./html/combo-box-entry.png
+ /bin/install -c -m 644 ./html/combo-box.png
+ /bin/install -c -m 644 ./html/dialog-error.png
+ /bin/install -c -m 644 ./html/dialog-information.png
+ /bin/install -c -m 644 ./html/dialog-password.png
+ /bin/install -c -m 644 ./html/dialog-question.png
+ /bin/install -c -m 644 ./html/dialog-warning.png
+ /bin/install -c -m 644 ./html/document-new.png
+ /bin/install -c -m 644 ./html/document-open.png
+ /bin/install -c -m 644 ./html/document-print-preview.png
+ /bin/install -c -m 644 ./html/document-print.png
+ /bin/install -c -m 644 ./html/document-properties.png
+ /bin/install -c -m 644 ./html/document-revert-ltr.png
+ /bin/install -c -m 644 ./html/document-revert-rtl.png
+ /bin/install -c -m 644 ./html/document-save-as.png
+ /bin/install -c -m 644 ./html/document-save.png
+ /bin/install -c -m 644 ./html/down-center.png
+ /bin/install -c -m 644 ./html/down-end.png
+ /bin/install -c -m 644 ./html/down-start.png
+ /bin/install -c -m 644 ./html/drawing.png
+ /bin/install -c -m 644 ./html/drive-harddisk.png
+ /bin/install -c -m 644 ./html/ease-in-out.png
+ /bin/install -c -m 644 ./html/ease-in.png
+ /bin/install -c -m 644 ./html/ease-out.png
+ /bin/install -c -m 644 ./html/ease.png
+ /bin/install -c -m 644 ./html/edit-clear.png
+ /bin/install -c -m 644 ./html/edit-copy.png
+ /bin/install -c -m 644 ./html/edit-cut.png
+ /bin/install -c -m 644 ./html/edit-delete.png
+ /bin/install -c -m 644 ./html/edit-find-replace.png
+ /bin/install -c -m 644 ./html/edit-find.png
+ /bin/install -c -m 644 ./html/edit-paste.png
+ /bin/install -c -m 644 ./html/edit-redo-ltr.png
+ /bin/install -c -m 644 ./html/edit-redo-rtl.png
+ /bin/install -c -m 644 ./html/edit-select-all.png
+ /bin/install -c -m 644 ./html/edit-undo-ltr.png
+ /bin/install -c -m 644 ./html/edit-undo-rtl.png
+ /bin/install -c -m 644 ./html/entry.png
+ /bin/install -c -m 644 ./html/expanders.png
+ /bin/install -c -m 644 ./html/extensions.png
+ /bin/install -c -m 644 ./html/figure-hierarchical-drawing.png
+ /bin/install -c -m 644 ./html/figure-windowed-label.png
+ /bin/install -c -m 644 ./html/file-button.png
+ /bin/install -c -m 644 ./html/filechooser.png
+ /bin/install -c -m 644 ./html/focus.png
+ /bin/install -c -m 644 ./html/folder.png
+ /bin/install -c -m 644 ./html/font-button.png
+ /bin/install -c -m 644 ./html/fontchooser.png
+ /bin/install -c -m 644 ./html/fontsel.png
+ /bin/install -c -m 644 ./html/format-indent-less-ltr.png
+ /bin/install -c -m 644 ./html/format-indent-less-rtl.png
+ /bin/install -c -m 644 ./html/format-indent-more-ltr.png
+ /bin/install -c -m 644 ./html/format-indent-more-rtl.png
+ /bin/install -c -m 644 ./html/format-justify-center.png
+ /bin/install -c -m 644 ./html/format-justify-fill.png
+ /bin/install -c -m 644 ./html/format-justify-left.png
+ /bin/install -c -m 644 ./html/format-justify-right.png
+ /bin/install -c -m 644 ./html/format-text-bold.png
+ /bin/install -c -m 644 ./html/format-text-italic.png
+ /bin/install -c -m 644 ./html/format-text-strikethrough.png
+ /bin/install -c -m 644 ./html/format-text-underline.png
+ /bin/install -c -m 644 ./html/frame-gap.png
+ /bin/install -c -m 644 ./html/frame.png
+ /bin/install -c -m 644 ./html/frames.png
+ /bin/install -c -m 644 ./html/glossary.html
+ /bin/install -c -m 644 ./html/go-bottom.png
+ /bin/install -c -m 644 ./html/go-down.png
+ /bin/install -c -m 644 ./html/go-first-ltr.png
+ /bin/install -c -m 644 ./html/go-first-rtl.png
+ /bin/install -c -m 644 ./html/go-home.png
+ /bin/install -c -m 644 ./html/go-jump-ltr.png
+ /bin/install -c -m 644 ./html/go-jump-rtl.png
+ /bin/install -c -m 644 ./html/go-last-ltr.png
+ /bin/install -c -m 644 ./html/go-last-rtl.png
+ /bin/install -c -m 644 ./html/go-next-ltr.png
+ /bin/install -c -m 644 ./html/go-next-rtl.png
+ /bin/install -c -m 644 ./html/go-previous-ltr.png
+ /bin/install -c -m 644 ./html/go-previous-rtl.png
+ /bin/install -c -m 644 ./html/go-top.png
+ /bin/install -c -m 644 ./html/go-up.png
+ /bin/install -c -m 644 ./html/gradient1.png
+ /bin/install -c -m 644 ./html/gradient2.png
+ /bin/install -c -m 644 ./html/gradient3.png
+ /bin/install -c -m 644 ./html/gradient4.png
+ /bin/install -c -m 644 ./html/grid-packing.png
+ /bin/install -c -m 644 ./html/gtk-apply.png
+ /bin/install -c -m 644 ./html/gtk-broadway.html
+ /bin/install -c -m 644 ./html/gtk-building.html
+ /bin/install -c -m 644 ./html/gtk-cancel.png
+ /bin/install -c -m 644 ./html/gtk-caps-lock-warning.png
+ /bin/install -c -m 644 ./html/gtk-color-picker.png
+ /bin/install -c -m 644 ./html/gtk-compiling.html
+ /bin/install -c -m 644 ./html/gtk-connect.png
+ /bin/install -c -m 644 ./html/gtk-convert.png
+ /bin/install -c -m 644 ./html/gtk-disconnect.png
+ /bin/install -c -m 644 ./html/gtk-dnd-multiple.png
+ /bin/install -c -m 644 ./html/gtk-dnd.png
+ /bin/install -c -m 644 ./html/gtk-edit.png
+ /bin/install -c -m 644 ./html/gtk-font.png
+ /bin/install -c -m 644 ./html/gtk-getting-started.html
+ /bin/install -c -m 644 ./html/gtk-index.png
+ /bin/install -c -m 644 ./html/gtk-launch.html
+ /bin/install -c -m 644 ./html/gtk-migrating-2-to-3.html
+ /bin/install -c -m 644 ./html/gtk-migrating-GtkGrid.html
+ /bin/install -c -m 644 ./html/gtk-migrating-GtkStyleContext-bonus-points.html
+ /bin/install -c -m 644 ./html/gtk-migrating-GtkStyleContext-checklist.html
+ /bin/install -c -m 644 ./html/gtk-migrating-GtkStyleContext-css.html
+ /bin/install -c -m 644 ./html/gtk-migrating-GtkStyleContext-parser-extensions.html
+ /bin/install -c -m 644 ./html/gtk-migrating-GtkStyleContext-parsing.html
+ /bin/install -c -m 644 ./html/gtk-migrating-GtkStyleContext.html
+ /bin/install -c -m 644 ./html/gtk-migrating-checklist.html
+ /bin/install -c -m 644 ./html/gtk-migrating-smclient-GtkApplication.html
+ /bin/install -c -m 644 ./html/gtk-migrating-theme-GtkStyleContext-engines.html
+ /bin/install -c -m 644 ./html/gtk-migrating-unique-GtkApplication.html
+ /bin/install -c -m 644 ./html/gtk-no.png
+ /bin/install -c -m 644 ./html/gtk-ok.png
+ /bin/install -c -m 644 ./html/gtk-orientation-landscape.png
+ /bin/install -c -m 644 ./html/gtk-orientation-portrait.png
+ /bin/install -c -m 644 ./html/gtk-orientation-reverse-landscape.png
+ /bin/install -c -m 644 ./html/gtk-orientation-reverse-portrait.png
+ /bin/install -c -m 644 ./html/gtk-osx.html
+ /bin/install -c -m 644 ./html/gtk-page-setup.png
+ /bin/install -c -m 644 ./html/gtk-preferences.png
+ /bin/install -c -m 644 ./html/gtk-query-immodules-3.0.html
+ /bin/install -c -m 644 ./html/gtk-question-index.html
+ /bin/install -c -m 644 ./html/gtk-resources.html
+ /bin/install -c -m 644 ./html/gtk-running.html
+ /bin/install -c -m 644 ./html/gtk-select-color.png
+ /bin/install -c -m 644 ./html/gtk-undelete-ltr.png
+ /bin/install -c -m 644 ./html/gtk-undelete-rtl.png
+ /bin/install -c -m 644 ./html/gtk-update-icon-cache.html
+ /bin/install -c -m 644 ./html/gtk-windows.html
+ /bin/install -c -m 644 ./html/gtk-x11.html
+ /bin/install -c -m 644 ./html/gtk-yes.png
+ /bin/install -c -m 644 ./html/gtk.html
+ /bin/install -c -m 644 ./html/gtk3-Accelerator-Maps.html
+ /bin/install -c -m 644 ./html/gtk3-Bindings.html
+ /bin/install -c -m 644 ./html/gtk3-Clipboards.html
+ /bin/install -c -m 644 ./html/gtk3-Drag-and-Drop.html
+ /bin/install -c -m 644 ./html/gtk3-Feature-Test-Macros.html
+ /bin/install -c -m 644 ./html/gtk3-Filesystem-utilities.html
+ /bin/install -c -m 644 ./html/gtk3-General.html
+ /bin/install -c -m 644 ./html/gtk3-GtkGradient.html
+ /bin/install -c -m 644 ./html/gtk3-GtkStyleProperties.html
+ /bin/install -c -m 644 ./html/gtk3-GtkSymbolicColor.html
+ /bin/install -c -m 644 ./html/gtk3-GtkTreeView-drag-and-drop.html
+ /bin/install -c -m 644 ./html/gtk3-GtkWidgetPath.html
+ /bin/install -c -m 644 ./html/gtk3-High-level-Printing-API.html
+ /bin/install -c -m 644 ./html/gtk3-Keyboard-Accelerators.html
+ /bin/install -c -m 644 ./html/gtk3-Orientable.html
+ /bin/install -c -m 644 ./html/gtk3-Resource-Files.html
+ /bin/install -c -m 644 ./html/gtk3-Selections.html
+ /bin/install -c -m 644 ./html/gtk3-Standard-Enumerations.html
+ /bin/install -c -m 644 ./html/gtk3-Stock-Items.html
+ /bin/install -c -m 644 ./html/gtk3-Testing.html
+ /bin/install -c -m 644 ./html/gtk3-Themeable-Stock-Images.html
+ /bin/install -c -m 644 ./html/gtk3.devhelp2
+ /bin/install -c -m 644 ./html/gtkbase.html
+ /bin/install -c -m 644 ./html/gtkobjects.html
+ /bin/install -c -m 644 ./html/handles.png
+ /bin/install -c -m 644 ./html/hello-world.png
+ /bin/install -c -m 644 ./html/help-about.png
+ /bin/install -c -m 644 ./html/help-contents.png
+ /bin/install -c -m 644 ./html/home.png
+ /bin/install -c -m 644 ./html/icon-view.png
+ /bin/install -c -m 644 ./html/image-missing.png
+ /bin/install -c -m 644 ./html/image.png
+ /bin/install -c -m 644 ./html/index.html
+ /bin/install -c -m 644 ./html/index.sgml
+ /bin/install -c -m 644 ./html/label.png
+ /bin/install -c -m 644 ./html/layout-btlr.png
+ /bin/install -c -m 644 ./html/layout-btrl.png
+ /bin/install -c -m 644 ./html/layout-lrbt.png
+ /bin/install -c -m 644 ./html/layout-lrtb.png
+ /bin/install -c -m 644 ./html/layout-rlbt.png
+ /bin/install -c -m 644 ./html/layout-rltb.png
+ /bin/install -c -m 644 ./html/layout-tblr.png
+ /bin/install -c -m 644 ./html/layout-tbrl.png
+ /bin/install -c -m 644 ./html/left-center.png
+ /bin/install -c -m 644 ./html/left-end.png
+ /bin/install -c -m 644 ./html/left-start.png
+ /bin/install -c -m 644 ./html/left.png
+ /bin/install -c -m 644 ./html/levelbar.png
+ /bin/install -c -m 644 ./html/linear.png
+ /bin/install -c -m 644 ./html/link-button.png
+ /bin/install -c -m 644 ./html/list-add.png
+ /bin/install -c -m 644 ./html/list-and-tree.png
+ /bin/install -c -m 644 ./html/list-remove.png
+ /bin/install -c -m 644 ./html/lock-button.png
+ /bin/install -c -m 644 ./html/lockbutton-locked.png
+ /bin/install -c -m 644 ./html/lockbutton-sorry.png
+ /bin/install -c -m 644 ./html/lockbutton-unlocked.png
+ /bin/install -c -m 644 ./html/lockbutton.png
+ /bin/install -c -m 644 ./html/media-floppy.png
+ /bin/install -c -m 644 ./html/media-optical.png
+ /bin/install -c -m 644 ./html/media-playback-pause.png
+ /bin/install -c -m 644 ./html/media-playback-start-ltr.png
+ /bin/install -c -m 644 ./html/media-playback-start-rtl.png
+ /bin/install -c -m 644 ./html/media-playback-stop.png
+ /bin/install -c -m 644 ./html/media-record.png
+ /bin/install -c -m 644 ./html/media-seek-backward-ltr.png
+ /bin/install -c -m 644 ./html/media-seek-backward-rtl.png
+ /bin/install -c -m 644 ./html/media-seek-forward-ltr.png
+ /bin/install -c -m 644 ./html/media-seek-forward-rtl.png
+ /bin/install -c -m 644 ./html/media-skip-backward-ltr.png
+ /bin/install -c -m 644 ./html/media-skip-backward-rtl.png
+ /bin/install -c -m 644 ./html/media-skip-forward-ltr.png
+ /bin/install -c -m 644 ./html/media-skip-forward-rtl.png
+ /bin/install -c -m 644 ./html/menu-button.png
+ /bin/install -c -m 644 ./html/menubar.png
+ /bin/install -c -m 644 ./html/messagedialog.png
+ /bin/install -c -m 644 ./html/migrating.html
+ /bin/install -c -m 644 ./html/multiline-text.png
+ /bin/install -c -m 644 ./html/network-idle.png
+ /bin/install -c -m 644 ./html/notebook.png
+ /bin/install -c -m 644 ./html/numerableicon.png
+ /bin/install -c -m 644 ./html/numerableicon2.png
+ /bin/install -c -m 644 ./html/options.png
+ /bin/install -c -m 644 ./html/pagesetupdialog.png
+ /bin/install -c -m 644 ./html/panes.png
+ /bin/install -c -m 644 ./html/printdialog.png
+ /bin/install -c -m 644 ./html/printer-error.png
+ /bin/install -c -m 644 ./html/printer-info.png
+ /bin/install -c -m 644 ./html/printer-paused.png
+ /bin/install -c -m 644 ./html/printer-warning.png
+ /bin/install -c -m 644 ./html/process-stop.png
+ /bin/install -c -m 644 ./html/progressbar.png
+ /bin/install -c -m 644 ./html/pt06.html
+ /bin/install -c -m 644 ./html/radio-group.png
+ /bin/install -c -m 644 ./html/recentchooserdialog.png
+ /bin/install -c -m 644 ./html/right-center.png
+ /bin/install -c -m 644 ./html/right-end.png
+ /bin/install -c -m 644 ./html/right-start.png
+ /bin/install -c -m 644 ./html/right.png
+ /bin/install -c -m 644 ./html/scales.png
+ /bin/install -c -m 644 ./html/scrolledwindow.png
+ /bin/install -c -m 644 ./html/search-entry.png
+ /bin/install -c -m 644 ./html/separator.png
+ /bin/install -c -m 644 ./html/slices.png
+ /bin/install -c -m 644 ./html/sliders.png
+ /bin/install -c -m 644 ./html/spinbutton.png
+ /bin/install -c -m 644 ./html/spinner.png
+ /bin/install -c -m 644 ./html/statusbar.png
+ /bin/install -c -m 644 ./html/style.css
+ /bin/install -c -m 644 ./html/switch.png
+ /bin/install -c -m 644 ./html/system-run.png
+ /bin/install -c -m 644 ./html/text-x-generic.png
+ /bin/install -c -m 644 ./html/theming.html
+ /bin/install -c -m 644 ./html/toggle-button.png
+ /bin/install -c -m 644 ./html/toolbar.png
+ /bin/install -c -m 644 ./html/toolpalette.png
+ /bin/install -c -m 644 ./html/tools-check-spelling.png
+ /bin/install -c -m 644 ./html/tree-view-coordinates.png
+ /bin/install -c -m 644 ./html/up-center.png
+ /bin/install -c -m 644 ./html/up-end.png
+ /bin/install -c -m 644 ./html/up-start.png
+ /bin/install -c -m 644 ./html/up.png
+ /bin/install -c -m 644 ./html/view-fullscreen.png
+ /bin/install -c -m 644 ./html/view-refresh.png
+ /bin/install -c -m 644 ./html/view-restore.png
+ /bin/install -c -m 644 ./html/view-sort-ascending.png
+ /bin/install -c -m 644 ./html/view-sort-descending.png
+ /bin/install -c -m 644 ./html/volumebutton.png
+ /bin/install -c -m 644 ./html/widget-hvalign.png
+ /bin/install -c -m 644 ./html/window-close.png
+ /bin/install -c -m 644 ./html/window-default.png
+ /bin/install -c -m 644 ./html/window.png
+ /bin/install -c -m 644 ./html/zoom-fit-best.png
+ /bin/install -c -m 644 ./html/zoom-in.png
+ /bin/install -c -m 644 ./html/zoom-original.png
+ /bin/install -c -m 644 ./html/zoom-out.png
+ /bin/mkdir -p '/opt/share/man/man1'
+ /bin/install -c -m 644 gtk-query-immodules-3.0.1 gtk-update-icon-cache.1 gtk-launch.1 '/opt/share/man/man1'
+make[4]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/docs/reference/gtk'
+make[3]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/docs/reference/gtk'
+Making install in libgail-util
+make[3]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/docs/reference/libgail-util'
+make[4]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/docs/reference/libgail-util'
+make[4]: Nothing to be done for `install-exec-am'.
+ /bin/install -c -m 644 ./html/gail-libgail-util3-GailMisc.html
+ /bin/install -c -m 644 ./html/gail-libgail-util3-GailTextUtil.html
+ /bin/install -c -m 644 ./html/gail-libgail-util3.devhelp2
+ /bin/install -c -m 644 ./html/home.png
+ /bin/install -c -m 644 ./html/index.html
+ /bin/install -c -m 644 ./html/index.sgml
+ /bin/install -c -m 644 ./html/left.png
+ /bin/install -c -m 644 ./html/libgail-util-main.html
+ /bin/install -c -m 644 ./html/right.png
+ /bin/install -c -m 644 ./html/style.css
+ /bin/install -c -m 644 ./html/up.png
+make[4]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/docs/reference/libgail-util'
+make[3]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/docs/reference/libgail-util'
+make[3]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/docs/reference'
+make[4]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/docs/reference'
+make[4]: Nothing to be done for `install-exec-am'.
+make[4]: Nothing to be done for `install-data-am'.
+make[4]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/docs/reference'
+make[3]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/docs/reference'
+make[2]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/docs/reference'
+Making install in tools
+make[2]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/docs/tools'
+make[3]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/docs/tools'
+make[3]: Nothing to be done for `install-exec-am'.
+make[3]: Nothing to be done for `install-data-am'.
+make[3]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/docs/tools'
+make[2]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/docs/tools'
+make[2]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/docs'
+make[3]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/docs'
+make[3]: Nothing to be done for `install-exec-am'.
+make[3]: Nothing to be done for `install-data-am'.
+make[3]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/docs'
+make[2]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/docs'
+make[1]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/docs'
+Making install in m4macros
+make[1]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/m4macros'
+make[2]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/m4macros'
+make[2]: Nothing to be done for `install-exec-am'.
+ /bin/mkdir -p '/opt/share/aclocal'
+ /bin/install -c -m 644 gtk-3.0.m4 '/opt/share/aclocal'
+make[2]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/m4macros'
+make[1]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/m4macros'
+Making install in build
+make[1]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/build'
+Making install in win32
+make[2]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/build/win32'
+Making install in vs9
+make[3]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/build/win32/vs9'
+make[4]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/build/win32/vs9'
+make[4]: Nothing to be done for `install-exec-am'.
+make[4]: Nothing to be done for `install-data-am'.
+make[4]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/build/win32/vs9'
+make[3]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/build/win32/vs9'
+Making install in vs10
+make[3]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/build/win32/vs10'
+make[4]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/build/win32/vs10'
+make[4]: Nothing to be done for `install-exec-am'.
+make[4]: Nothing to be done for `install-data-am'.
+make[4]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/build/win32/vs10'
+make[3]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/build/win32/vs10'
+make[3]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/build/win32'
+make[4]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/build/win32'
+make[4]: Nothing to be done for `install-exec-am'.
+make[4]: Nothing to be done for `install-data-am'.
+make[4]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/build/win32'
+make[3]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/build/win32'
+make[2]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/build/win32'
+make[2]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/build'
+make[3]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/build'
+make[3]: Nothing to be done for `install-exec-am'.
+make[3]: Nothing to be done for `install-data-am'.
+make[3]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/build'
+make[2]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/build'
+make[1]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4/build'
+make[1]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4'
+make[2]: Entering directory `/home/Administrateur/51_gtk3/gtk+-3.6.4'
+make[2]: Nothing to be done for `install-exec-am'.
+ /bin/mkdir -p '/opt/lib/pkgconfig'
+ /bin/install -c -m 644 gdk-3.0.pc gtk+-3.0.pc gail-3.0.pc gtk+-win32-3.0.pc gdk-win32-3.0.pc '/opt/lib/pkgconfig'
+make[2]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4'
+make[1]: Leaving directory `/home/Administrateur/51_gtk3/gtk+-3.6.4'

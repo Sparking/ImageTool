@@ -1,0 +1,117 @@
+make  install-recursive
+make[1]: Entering directory `/home/Administrateur/62_librsvg/librsvg-2.36.4'
+Making install in .
+make[2]: Entering directory `/home/Administrateur/62_librsvg/librsvg-2.36.4'
+make[3]: Entering directory `/home/Administrateur/62_librsvg/librsvg-2.36.4'
+ /bin/mkdir -p '/opt/lib'
+ /bin/sh ./libtool   --mode=install /bin/install -c   librsvg-2.la '/opt/lib'
+libtool: install: /bin/install -c .libs/librsvg-2.dll.a /opt/lib/librsvg-2.dll.a
+libtool: install: base_file=`basename librsvg-2.la`
+libtool: install:  dlpath=`/bin/sh 2>&1 -c '. .libs/'librsvg-2.la'i; echo librsvg-2-2.dll'`
+libtool: install:  dldir=/opt/lib/`dirname ../bin/librsvg-2-2.dll`
+libtool: install:  test -d /opt/lib/../bin || mkdir -p /opt/lib/../bin
+libtool: install:  /bin/install -c .libs/librsvg-2-2.dll /opt/lib/../bin/librsvg-2-2.dll
+libtool: install:  chmod a+x /opt/lib/../bin/librsvg-2-2.dll
+libtool: install:  if test -n '' && test -n 'x86_64-w64-mingw32-strip --strip-unneeded'; then eval 'x86_64-w64-mingw32-strip --strip-unneeded /opt/lib/../bin/librsvg-2-2.dll' || exit 0; fi
+libtool: install: /bin/install -c .libs/librsvg-2.lai /opt/lib/librsvg-2.la
+libtool: install: /bin/install -c .libs/librsvg-2.a /opt/lib/librsvg-2.a
+libtool: install: chmod 644 /opt/lib/librsvg-2.a
+libtool: install: x86_64-w64-mingw32-ranlib /opt/lib/librsvg-2.a
+ /bin/mkdir -p '/opt/bin'
+  /bin/sh ./libtool   --mode=install /bin/install -c rsvg-convert.exe rsvg-view-3.exe '/opt/bin'
+libtool: install: /bin/install -c .libs/rsvg-convert.exe /opt/bin/rsvg-convert.exe
+libtool: install: /bin/install -c .libs/rsvg-view-3.exe /opt/bin/rsvg-view-3.exe
+ /bin/mkdir -p '/opt/include/librsvg-2.0/librsvg'
+ /bin/install -c -m 644 rsvg.h rsvg-cairo.h librsvg-features.h librsvg-enum-types.h '/opt/include/librsvg-2.0/librsvg'
+ /bin/mkdir -p '/opt/share/man/man1'
+ /bin/install -c -m 644 rsvg-convert.1 '/opt/share/man/man1'
+ /bin/mkdir -p '/opt/lib/pkgconfig'
+ /bin/install -c -m 644 librsvg-2.0.pc '/opt/lib/pkgconfig'
+make[3]: Leaving directory `/home/Administrateur/62_librsvg/librsvg-2.36.4'
+make[2]: Leaving directory `/home/Administrateur/62_librsvg/librsvg-2.36.4'
+Making install in gdk-pixbuf-loader
+make[2]: Entering directory `/home/Administrateur/62_librsvg/librsvg-2.36.4/gdk-pixbuf-loader'
+  GEN    gdk-pixbuf-loaders
+  CCLD   rsvg-loader.exe
+make[3]: Entering directory `/home/Administrateur/62_librsvg/librsvg-2.36.4/gdk-pixbuf-loader'
+make[3]: Nothing to be done for `install-exec-am'.
+ /bin/mkdir -p 'C:/msys/1.0/opt/lib/gdk-pixbuf-2.0/2.10.0/loaders'
+ /bin/sh ../libtool   --mode=install /bin/install -c   libpixbufloader-svg.la 'C:/msys/1.0/opt/lib/gdk-pixbuf-2.0/2.10.0/loaders'
+libtool: install: /bin/install -c .libs/libpixbufloader-svg.dll.a C:/msys/1.0/opt/lib/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-svg.dll.a
+libtool: install: base_file=`basename libpixbufloader-svg.la`
+libtool: install:  dlpath=`/bin/sh 2>&1 -c '. .libs/'libpixbufloader-svg.la'i; echo libpixbufloader-svg.dll'`
+libtool: install:  dldir=C:/msys/1.0/opt/lib/gdk-pixbuf-2.0/2.10.0/loaders/`dirname libpixbufloader-svg.dll`
+libtool: install:  test -d C:/msys/1.0/opt/lib/gdk-pixbuf-2.0/2.10.0/loaders/. || mkdir -p C:/msys/1.0/opt/lib/gdk-pixbuf-2.0/2.10.0/loaders/.
+libtool: install:  /bin/install -c .libs/libpixbufloader-svg.dll C:/msys/1.0/opt/lib/gdk-pixbuf-2.0/2.10.0/loaders/./libpixbufloader-svg.dll
+libtool: install:  chmod a+x C:/msys/1.0/opt/lib/gdk-pixbuf-2.0/2.10.0/loaders/./libpixbufloader-svg.dll
+libtool: install:  if test -n '' && test -n 'x86_64-w64-mingw32-strip --strip-unneeded'; then eval 'x86_64-w64-mingw32-strip --strip-unneeded C:/msys/1.0/opt/lib/gdk-pixbuf-2.0/2.10.0/loaders/./libpixbufloader-svg.dll' || exit 0; fi
+libtool: install: /bin/install -c .libs/libpixbufloader-svg.lai C:/msys/1.0/opt/lib/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-svg.la
+libtool: install: /bin/install -c .libs/libpixbufloader-svg.a C:/msys/1.0/opt/lib/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-svg.a
+libtool: install: chmod 644 C:/msys/1.0/opt/lib/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-svg.a
+libtool: install: x86_64-w64-mingw32-ranlib C:/msys/1.0/opt/lib/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-svg.a
+make  install-data-hook
+make[4]: Entering directory `/home/Administrateur/62_librsvg/librsvg-2.36.4/gdk-pixbuf-loader'
+if test -z ""; then \
+		/bin/sh /home/Administrateur/62_librsvg/librsvg-2.36.4/install-sh -d C:/msys/1.0/opt/lib/gdk-pixbuf-2.0/2.10.0 ; \
+		/opt/bin/gdk-pixbuf-query-loaders > C:/msys/1.0/opt/lib/gdk-pixbuf-2.0/2.10.0/loaders.cache ; \
+	fi
+make[4]: Leaving directory `/home/Administrateur/62_librsvg/librsvg-2.36.4/gdk-pixbuf-loader'
+make[3]: Leaving directory `/home/Administrateur/62_librsvg/librsvg-2.36.4/gdk-pixbuf-loader'
+make[2]: Leaving directory `/home/Administrateur/62_librsvg/librsvg-2.36.4/gdk-pixbuf-loader'
+Making install in tests
+make[2]: Entering directory `/home/Administrateur/62_librsvg/librsvg-2.36.4/tests'
+Making install in pdiff
+make[3]: Entering directory `/home/Administrateur/62_librsvg/librsvg-2.36.4/tests/pdiff'
+make[4]: Entering directory `/home/Administrateur/62_librsvg/librsvg-2.36.4/tests/pdiff'
+make[4]: Nothing to be done for `install-exec-am'.
+make[4]: Nothing to be done for `install-data-am'.
+make[4]: Leaving directory `/home/Administrateur/62_librsvg/librsvg-2.36.4/tests/pdiff'
+make[3]: Leaving directory `/home/Administrateur/62_librsvg/librsvg-2.36.4/tests/pdiff'
+Making install in .
+make[3]: Entering directory `/home/Administrateur/62_librsvg/librsvg-2.36.4/tests'
+make[4]: Entering directory `/home/Administrateur/62_librsvg/librsvg-2.36.4/tests'
+make[4]: Nothing to be done for `install-exec-am'.
+make[4]: Nothing to be done for `install-data-am'.
+make[4]: Leaving directory `/home/Administrateur/62_librsvg/librsvg-2.36.4/tests'
+make[3]: Leaving directory `/home/Administrateur/62_librsvg/librsvg-2.36.4/tests'
+make[2]: Leaving directory `/home/Administrateur/62_librsvg/librsvg-2.36.4/tests'
+Making install in tools
+make[2]: Entering directory `/home/Administrateur/62_librsvg/librsvg-2.36.4/tools'
+make[3]: Entering directory `/home/Administrateur/62_librsvg/librsvg-2.36.4/tools'
+make[3]: Nothing to be done for `install-exec-am'.
+make[3]: Nothing to be done for `install-data-am'.
+make[3]: Leaving directory `/home/Administrateur/62_librsvg/librsvg-2.36.4/tools'
+make[2]: Leaving directory `/home/Administrateur/62_librsvg/librsvg-2.36.4/tools'
+Making install in doc
+make[2]: Entering directory `/home/Administrateur/62_librsvg/librsvg-2.36.4/doc'
+make[3]: Entering directory `/home/Administrateur/62_librsvg/librsvg-2.36.4/doc'
+make[3]: Nothing to be done for `install-exec-am'.
+ /bin/install -c -m 644 ./html/RsvgHandle.html
+ /bin/install -c -m 644 ./html/annotation-glossary.html
+ /bin/install -c -m 644 ./html/api-index-2-14.html
+ /bin/install -c -m 644 ./html/api-index-2-22.html
+ /bin/install -c -m 644 ./html/api-index-2-32.html
+ /bin/install -c -m 644 ./html/api-index-2-36.html
+ /bin/install -c -m 644 ./html/api-index-2-4.html
+ /bin/install -c -m 644 ./html/api-index-2-8.html
+ /bin/install -c -m 644 ./html/api-index-2-9.html
+ /bin/install -c -m 644 ./html/api-index-deprecated.html
+ /bin/install -c -m 644 ./html/api-index-full.html
+ /bin/install -c -m 644 ./html/home.png
+ /bin/install -c -m 644 ./html/index.html
+ /bin/install -c -m 644 ./html/index.sgml
+ /bin/install -c -m 644 ./html/left.png
+ /bin/install -c -m 644 ./html/licence.html
+ /bin/install -c -m 644 ./html/object-tree.html
+ /bin/install -c -m 644 ./html/right.png
+ /bin/install -c -m 644 ./html/rsvg-Using-RSVG-with-GIO.html
+ /bin/install -c -m 644 ./html/rsvg-Using-RSVG-with-GdkPixbuf.html
+ /bin/install -c -m 644 ./html/rsvg-Using-RSVG-with-cairo.html
+ /bin/install -c -m 644 ./html/rsvg-Version-check-and-feature-tests.html
+ /bin/install -c -m 644 ./html/rsvg.devhelp2
+ /bin/install -c -m 644 ./html/rsvg.html
+ /bin/install -c -m 644 ./html/style.css
+ /bin/install -c -m 644 ./html/up.png
+make[3]: Leaving directory `/home/Administrateur/62_librsvg/librsvg-2.36.4/doc'
+make[2]: Leaving directory `/home/Administrateur/62_librsvg/librsvg-2.36.4/doc'
+make[1]: Leaving directory `/home/Administrateur/62_librsvg/librsvg-2.36.4'

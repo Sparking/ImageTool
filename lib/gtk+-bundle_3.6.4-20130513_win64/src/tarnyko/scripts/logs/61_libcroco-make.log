@@ -1,0 +1,855 @@
+make  all-recursive
+make[1]: Entering directory `/home/Administrateur/61_libcroco/libcroco-0.6.8'
+Making all in src
+make[2]: Entering directory `/home/Administrateur/61_libcroco/libcroco-0.6.8/src'
+  CC     libcroco_0_6_la-cr-utils.lo
+cr-utils.c: In function 'cr_utils_read_char_from_utf8_buf':
+cr-utils.c:432:16: warning: variable 'in_len' set but not used [-Wunused-but-set-variable]
+cr-utils.c: In function 'cr_utils_ucs1_to_utf8':
+cr-utils.c:896:23: warning: variable 'status' set but not used [-Wunused-but-set-variable]
+cr-utils.c: In function 'cr_utils_ucs1_str_to_utf8':
+cr-utils.c:954:16: warning: variable 'in_len' set but not used [-Wunused-but-set-variable]
+cr-utils.c: In function 'cr_utils_utf8_to_ucs1':
+cr-utils.c:1014:23: warning: variable 'status' set but not used [-Wunused-but-set-variable]
+  CC     libcroco_0_6_la-cr-input.lo
+cr-input.c: In function 'cr_input_peek_char':
+cr-input.c:769:18: warning: pointer targets in passing argument 4 of 'cr_utils_read_char_from_utf8_buf' differ in signedness [-Wpointer-sign]
+cr-utils.h:147:1: note: expected 'gulong *' but argument is of type 'glong *'
+  CC     libcroco_0_6_la-cr-enc-handler.lo
+cr-enc-handler.c: In function 'cr_enc_handler_resolve_enc_alias':
+cr-enc-handler.c:121:9: warning: pointer targets in passing argument 1 of 'g_strdup' differ in signedness [-Wpointer-sign]
+C:/msys/1.0/opt/include/glib-2.0/glib/gstrfuncs.h:187:22: note: expected 'const gchar *' but argument is of type 'const guchar *'
+cr-enc-handler.c:121:23: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+cr-enc-handler.c:122:9: warning: pointer targets in passing argument 1 of 'g_ascii_strup' differ in signedness [-Wpointer-sign]
+C:/msys/1.0/opt/include/glib-2.0/glib/gstrfuncs.h:167:23: note: expected 'const gchar *' but argument is of type 'guchar *'
+cr-enc-handler.c:125:17: warning: pointer targets in passing argument 2 of 'strcmp' differ in signedness [-Wpointer-sign]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/string.h:53:15: note: expected 'const char *' but argument is of type 'guchar *'
+  CC     libcroco_0_6_la-cr-num.lo
+cr-num.c: In function 'cr_num_to_string':
+cr-num.c:108:27: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+cr-num.c:110:27: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+cr-num.c:112:25: warning: pointer targets in passing argument 1 of 'g_ascii_dtostr' differ in signedness [-Wpointer-sign]
+C:/msys/1.0/opt/include/glib-2.0/glib/gstrfuncs.h:145:23: note: expected 'gchar *' but argument is of type 'guchar *'
+cr-num.c:196:17: warning: pointer targets in passing argument 1 of 'g_strconcat' differ in signedness [-Wpointer-sign]
+C:/msys/1.0/opt/include/glib-2.0/glib/gstrfuncs.h:196:22: note: expected 'const gchar *' but argument is of type 'guchar *'
+cr-num.c:196:24: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+  CC     libcroco_0_6_la-cr-rgb.lo
+cr-rgb.c: In function 'cr_rgb_to_string':
+cr-rgb.c:277:24: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+cr-rgb.c: In function 'cr_rgb_set_from_hex_str':
+cr-rgb.c:509:9: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/string.h:54:18: note: expected 'const char *' but argument is of type 'const guchar *'
+cr-rgb.c:524:9: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/string.h:54:18: note: expected 'const char *' but argument is of type 'const guchar *'
+cr-rgb.c: In function 'cr_rgb_set_from_term':
+cr-rgb.c:589:42: warning: pointer targets in passing argument 2 of 'cr_rgb_set_from_name' differ in signedness [-Wpointer-sign]
+cr-rgb.c:473:1: note: expected 'const guchar *' but argument is of type 'gchar *'
+cr-rgb.c:602:34: warning: pointer targets in passing argument 2 of 'cr_rgb_set_from_hex_str' differ in signedness [-Wpointer-sign]
+cr-rgb.c:501:1: note: expected 'const guchar *' but argument is of type 'gchar *'
+cr-rgb.c: In function 'cr_rgb_parse_from_buf':
+cr-rgb.c:658:2: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/string.h:54:18: note: expected 'const char *' but argument is of type 'const guchar *'
+  CC     libcroco_0_6_la-cr-token.lo
+  CC     libcroco_0_6_la-cr-tknzr.lo
+cr-tknzr.c: In function 'cr_tknzr_parse_nl':
+cr-tknzr.c:359:17: warning: pointer targets in passing argument 3 of 'cr_input_consume_chars' differ in signedness [-Wpointer-sign]
+cr-input.h:86:1: note: expected 'gulong *' but argument is of type 'glong *'
+cr-tknzr.c:366:17: warning: pointer targets in passing argument 3 of 'cr_input_consume_chars' differ in signedness [-Wpointer-sign]
+cr-input.h:86:1: note: expected 'gulong *' but argument is of type 'glong *'
+cr-tknzr.c: In function 'cr_tknzr_try_to_skip_spaces':
+cr-tknzr.c:414:25: warning: pointer targets in passing argument 2 of 'cr_input_consume_white_spaces' differ in signedness [-Wpointer-sign]
+cr-input.h:93:1: note: expected 'gulong *' but argument is of type 'glong *'
+cr-tknzr.c: In function 'cr_tknzr_parse_uri':
+cr-tknzr.c:1156:9: warning: pointer targets in passing argument 3 of 'cr_input_consume_chars' differ in signedness [-Wpointer-sign]
+cr-input.h:86:1: note: expected 'gulong *' but argument is of type 'glong *'
+cr-tknzr.c:1158:9: warning: pointer targets in passing argument 3 of 'cr_input_consume_chars' differ in signedness [-Wpointer-sign]
+cr-input.h:86:1: note: expected 'gulong *' but argument is of type 'glong *'
+cr-tknzr.c: In function 'cr_tknzr_parse_rgb':
+cr-tknzr.c:1269:17: warning: pointer targets in passing argument 3 of 'cr_input_consume_chars' differ in signedness [-Wpointer-sign]
+cr-input.h:86:1: note: expected 'gulong *' but argument is of type 'glong *'
+cr-tknzr.c:1271:17: warning: pointer targets in passing argument 3 of 'cr_input_consume_chars' differ in signedness [-Wpointer-sign]
+cr-input.h:86:1: note: expected 'gulong *' but argument is of type 'glong *'
+cr-tknzr.c:1289:17: warning: pointer targets in passing argument 3 of 'cr_input_consume_chars' differ in signedness [-Wpointer-sign]
+cr-input.h:86:1: note: expected 'gulong *' but argument is of type 'glong *'
+cr-tknzr.c:1304:25: warning: pointer targets in passing argument 3 of 'cr_input_consume_chars' differ in signedness [-Wpointer-sign]
+cr-input.h:86:1: note: expected 'gulong *' but argument is of type 'glong *'
+cr-tknzr.c: In function 'cr_tknzr_new_from_uri':
+cr-tknzr.c:1642:9: warning: pointer targets in passing argument 1 of 'cr_input_new_from_uri' differ in signedness [-Wpointer-sign]
+cr-input.h:67:1: note: expected 'const gchar *' but argument is of type 'const guchar *'
+cr-tknzr.c: In function 'cr_tknzr_consume_chars':
+cr-tknzr.c:1915:40: warning: pointer targets in passing argument 3 of 'cr_input_consume_chars' differ in signedness [-Wpointer-sign]
+cr-input.h:86:1: note: expected 'gulong *' but argument is of type 'glong *'
+cr-tknzr.c: In function 'cr_tknzr_get_next_token':
+cr-tknzr.c:2009:33: warning: pointer targets in passing argument 3 of 'cr_input_consume_chars' differ in signedness [-Wpointer-sign]
+cr-input.h:86:1: note: expected 'gulong *' but argument is of type 'glong *'
+cr-tknzr.c:2012:33: warning: pointer targets in passing argument 3 of 'cr_input_consume_chars' differ in signedness [-Wpointer-sign]
+cr-input.h:86:1: note: expected 'gulong *' but argument is of type 'glong *'
+cr-tknzr.c:2027:33: warning: pointer targets in passing argument 3 of 'cr_input_consume_chars' differ in signedness [-Wpointer-sign]
+cr-input.h:86:1: note: expected 'gulong *' but argument is of type 'glong *'
+cr-tknzr.c:2030:33: warning: pointer targets in passing argument 3 of 'cr_input_consume_chars' differ in signedness [-Wpointer-sign]
+cr-input.h:86:1: note: expected 'gulong *' but argument is of type 'glong *'
+cr-tknzr.c:2044:33: warning: pointer targets in passing argument 3 of 'cr_input_consume_chars' differ in signedness [-Wpointer-sign]
+cr-input.h:86:1: note: expected 'gulong *' but argument is of type 'glong *'
+cr-tknzr.c:2047:33: warning: pointer targets in passing argument 3 of 'cr_input_consume_chars' differ in signedness [-Wpointer-sign]
+cr-input.h:86:1: note: expected 'gulong *' but argument is of type 'glong *'
+cr-tknzr.c:2060:33: warning: pointer targets in passing argument 3 of 'cr_input_consume_chars' differ in signedness [-Wpointer-sign]
+cr-input.h:86:1: note: expected 'gulong *' but argument is of type 'glong *'
+cr-tknzr.c:2063:33: warning: pointer targets in passing argument 3 of 'cr_input_consume_chars' differ in signedness [-Wpointer-sign]
+cr-input.h:86:1: note: expected 'gulong *' but argument is of type 'glong *'
+cr-tknzr.c:2075:33: warning: pointer targets in passing argument 3 of 'cr_input_consume_chars' differ in signedness [-Wpointer-sign]
+cr-input.h:86:1: note: expected 'gulong *' but argument is of type 'glong *'
+cr-tknzr.c:2078:33: warning: pointer targets in passing argument 3 of 'cr_input_consume_chars' differ in signedness [-Wpointer-sign]
+cr-input.h:86:1: note: expected 'gulong *' but argument is of type 'glong *'
+cr-tknzr.c:2103:35: warning: declaration of 'str' shadows a previous local [-Wshadow]
+cr-tknzr.c:1965:19: warning: shadowed declaration is here [-Wshadow]
+cr-tknzr.c:2143:25: warning: pointer targets in passing argument 3 of 'cr_input_consume_chars' differ in signedness [-Wpointer-sign]
+cr-input.h:86:1: note: expected 'gulong *' but argument is of type 'glong *'
+cr-tknzr.c:2146:25: warning: pointer targets in passing argument 3 of 'cr_input_consume_chars' differ in signedness [-Wpointer-sign]
+cr-input.h:86:1: note: expected 'gulong *' but argument is of type 'glong *'
+cr-tknzr.c:2158:25: warning: pointer targets in passing argument 3 of 'cr_input_consume_chars' differ in signedness [-Wpointer-sign]
+cr-input.h:86:1: note: expected 'gulong *' but argument is of type 'glong *'
+cr-tknzr.c:2161:25: warning: pointer targets in passing argument 3 of 'cr_input_consume_chars' differ in signedness [-Wpointer-sign]
+cr-input.h:86:1: note: expected 'gulong *' but argument is of type 'glong *'
+cr-tknzr.c:2186:25: warning: pointer targets in passing argument 3 of 'cr_input_consume_chars' differ in signedness [-Wpointer-sign]
+cr-input.h:86:1: note: expected 'gulong *' but argument is of type 'glong *'
+cr-tknzr.c:2189:25: warning: pointer targets in passing argument 3 of 'cr_input_consume_chars' differ in signedness [-Wpointer-sign]
+cr-input.h:86:1: note: expected 'gulong *' but argument is of type 'glong *'
+cr-tknzr.c:2200:25: warning: pointer targets in passing argument 3 of 'cr_input_consume_chars' differ in signedness [-Wpointer-sign]
+cr-input.h:86:1: note: expected 'gulong *' but argument is of type 'glong *'
+cr-tknzr.c:2203:25: warning: pointer targets in passing argument 3 of 'cr_input_consume_chars' differ in signedness [-Wpointer-sign]
+cr-input.h:86:1: note: expected 'gulong *' but argument is of type 'glong *'
+cr-tknzr.c:2230:17: warning: pointer targets in passing argument 3 of 'cr_input_consume_chars' differ in signedness [-Wpointer-sign]
+cr-input.h:86:1: note: expected 'gulong *' but argument is of type 'glong *'
+cr-tknzr.c:2240:17: warning: pointer targets in passing argument 3 of 'cr_input_consume_chars' differ in signedness [-Wpointer-sign]
+cr-input.h:86:1: note: expected 'gulong *' but argument is of type 'glong *'
+cr-tknzr.c:2250:17: warning: pointer targets in passing argument 3 of 'cr_input_consume_chars' differ in signedness [-Wpointer-sign]
+cr-input.h:86:1: note: expected 'gulong *' but argument is of type 'glong *'
+cr-tknzr.c:2260:17: warning: pointer targets in passing argument 3 of 'cr_input_consume_chars' differ in signedness [-Wpointer-sign]
+cr-input.h:86:1: note: expected 'gulong *' but argument is of type 'glong *'
+cr-tknzr.c:2270:17: warning: pointer targets in passing argument 3 of 'cr_input_consume_chars' differ in signedness [-Wpointer-sign]
+cr-input.h:86:1: note: expected 'gulong *' but argument is of type 'glong *'
+cr-tknzr.c:2280:17: warning: pointer targets in passing argument 3 of 'cr_input_consume_chars' differ in signedness [-Wpointer-sign]
+cr-input.h:86:1: note: expected 'gulong *' but argument is of type 'glong *'
+cr-tknzr.c:2290:17: warning: pointer targets in passing argument 3 of 'cr_input_consume_chars' differ in signedness [-Wpointer-sign]
+cr-input.h:86:1: note: expected 'gulong *' but argument is of type 'glong *'
+cr-tknzr.c:2392:41: warning: pointer targets in passing argument 3 of 'cr_input_consume_chars' differ in signedness [-Wpointer-sign]
+cr-input.h:86:1: note: expected 'gulong *' but argument is of type 'glong *'
+cr-tknzr.c:2399:41: warning: pointer targets in passing argument 3 of 'cr_input_consume_chars' differ in signedness [-Wpointer-sign]
+cr-input.h:86:1: note: expected 'gulong *' but argument is of type 'glong *'
+cr-tknzr.c:2406:41: warning: pointer targets in passing argument 3 of 'cr_input_consume_chars' differ in signedness [-Wpointer-sign]
+cr-input.h:86:1: note: expected 'gulong *' but argument is of type 'glong *'
+cr-tknzr.c:2413:41: warning: pointer targets in passing argument 3 of 'cr_input_consume_chars' differ in signedness [-Wpointer-sign]
+cr-input.h:86:1: note: expected 'gulong *' but argument is of type 'glong *'
+cr-tknzr.c:2420:41: warning: pointer targets in passing argument 3 of 'cr_input_consume_chars' differ in signedness [-Wpointer-sign]
+cr-input.h:86:1: note: expected 'gulong *' but argument is of type 'glong *'
+cr-tknzr.c:2427:41: warning: pointer targets in passing argument 3 of 'cr_input_consume_chars' differ in signedness [-Wpointer-sign]
+cr-input.h:86:1: note: expected 'gulong *' but argument is of type 'glong *'
+cr-tknzr.c:2434:41: warning: pointer targets in passing argument 3 of 'cr_input_consume_chars' differ in signedness [-Wpointer-sign]
+cr-input.h:86:1: note: expected 'gulong *' but argument is of type 'glong *'
+cr-tknzr.c:2441:41: warning: pointer targets in passing argument 3 of 'cr_input_consume_chars' differ in signedness [-Wpointer-sign]
+cr-input.h:86:1: note: expected 'gulong *' but argument is of type 'glong *'
+cr-tknzr.c:2449:41: warning: pointer targets in passing argument 3 of 'cr_input_consume_chars' differ in signedness [-Wpointer-sign]
+cr-input.h:86:1: note: expected 'gulong *' but argument is of type 'glong *'
+cr-tknzr.c:2457:41: warning: pointer targets in passing argument 3 of 'cr_input_consume_chars' differ in signedness [-Wpointer-sign]
+cr-input.h:86:1: note: expected 'gulong *' but argument is of type 'glong *'
+cr-tknzr.c:2466:41: warning: pointer targets in passing argument 3 of 'cr_input_consume_chars' differ in signedness [-Wpointer-sign]
+cr-input.h:86:1: note: expected 'gulong *' but argument is of type 'glong *'
+cr-tknzr.c:2473:41: warning: pointer targets in passing argument 3 of 'cr_input_consume_chars' differ in signedness [-Wpointer-sign]
+cr-input.h:86:1: note: expected 'gulong *' but argument is of type 'glong *'
+cr-tknzr.c:2479:41: warning: pointer targets in passing argument 3 of 'cr_input_consume_chars' differ in signedness [-Wpointer-sign]
+cr-input.h:86:1: note: expected 'gulong *' but argument is of type 'glong *'
+cr-tknzr.c:2486:41: warning: pointer targets in passing argument 3 of 'cr_input_consume_chars' differ in signedness [-Wpointer-sign]
+cr-input.h:86:1: note: expected 'gulong *' but argument is of type 'glong *'
+cr-tknzr.c:2494:41: warning: pointer targets in passing argument 3 of 'cr_input_consume_chars' differ in signedness [-Wpointer-sign]
+cr-input.h:86:1: note: expected 'gulong *' but argument is of type 'glong *'
+cr-tknzr.c:2500:41: warning: pointer targets in passing argument 3 of 'cr_input_consume_chars' differ in signedness [-Wpointer-sign]
+cr-input.h:86:1: note: expected 'gulong *' but argument is of type 'glong *'
+cr-tknzr.c:2548:41: warning: pointer targets in passing argument 3 of 'cr_input_consume_chars' differ in signedness [-Wpointer-sign]
+cr-input.h:86:1: note: expected 'gulong *' but argument is of type 'glong *'
+  CC     libcroco_0_6_la-cr-term.lo
+cr-term.c: In function 'cr_term_parse_expression_from_buf':
+cr-term.c:115:9: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/string.h:54:18: note: expected 'const char *' but argument is of type 'const guchar *'
+cr-term.c: In function 'cr_term_to_string':
+cr-term.c:337:33: warning: pointer targets in passing argument 2 of 'g_string_append' differ in signedness [-Wpointer-sign]
+C:/msys/1.0/opt/include/glib-2.0/glib/gstring.h:71:14: note: expected 'const gchar *' but argument is of type 'guchar *'
+cr-term.c:346:41: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+cr-term.c:364:10: warning: pointer targets in passing argument 2 of 'g_string_append' differ in signedness [-Wpointer-sign]
+C:/msys/1.0/opt/include/glib-2.0/glib/gstring.h:71:14: note: expected 'const gchar *' but argument is of type 'guchar *'
+cr-term.c:379:41: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+cr-term.c:394:41: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+cr-term.c:400:33: warning: pointer targets in passing argument 2 of 'g_string_append' differ in signedness [-Wpointer-sign]
+C:/msys/1.0/opt/include/glib-2.0/glib/gstring.h:71:14: note: expected 'const gchar *' but argument is of type 'guchar *'
+cr-term.c:408:41: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+cr-term.c:429:41: warning: pointer targets in passing argument 2 of 'g_string_append' differ in signedness [-Wpointer-sign]
+C:/msys/1.0/opt/include/glib-2.0/glib/gstring.h:71:14: note: expected 'const gchar *' but argument is of type 'guchar *'
+cr-term.c:446:41: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+cr-term.c:467:24: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+cr-term.c: In function 'cr_term_one_to_string':
+cr-term.c:532:25: warning: pointer targets in passing argument 2 of 'g_string_append' differ in signedness [-Wpointer-sign]
+C:/msys/1.0/opt/include/glib-2.0/glib/gstring.h:71:14: note: expected 'const gchar *' but argument is of type 'guchar *'
+cr-term.c:541:33: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+cr-term.c:575:33: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+cr-term.c:590:33: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+cr-term.c:596:25: warning: pointer targets in passing argument 2 of 'g_string_append' differ in signedness [-Wpointer-sign]
+C:/msys/1.0/opt/include/glib-2.0/glib/gstring.h:71:14: note: expected 'const gchar *' but argument is of type 'guchar *'
+cr-term.c:604:33: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+cr-term.c:625:33: warning: pointer targets in passing argument 2 of 'g_string_append' differ in signedness [-Wpointer-sign]
+C:/msys/1.0/opt/include/glib-2.0/glib/gstring.h:71:14: note: expected 'const gchar *' but argument is of type 'guchar *'
+cr-term.c:642:33: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+cr-term.c:663:24: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+  CC     libcroco_0_6_la-cr-attr-sel.lo
+cr-attr-sel.c: In function 'cr_attr_sel_to_string':
+cr-attr-sel.c:126:30: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+cr-attr-sel.c:129:33: warning: pointer targets in passing argument 2 of 'g_string_append' differ in signedness [-Wpointer-sign]
+C:/msys/1.0/opt/include/glib-2.0/glib/gstring.h:71:14: note: expected 'const gchar *' but argument is of type 'guchar *'
+cr-attr-sel.c:138:31: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+cr-attr-sel.c:171:24: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+  CC     libcroco_0_6_la-cr-pseudo.lo
+cr-pseudo.c: In function 'cr_pseudo_to_string':
+cr-pseudo.c:71:22: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+cr-pseudo.c:75:25: warning: pointer targets in passing argument 2 of 'g_string_append' differ in signedness [-Wpointer-sign]
+C:/msys/1.0/opt/include/glib-2.0/glib/gstring.h:71:14: note: expected 'const gchar *' but argument is of type 'guchar *'
+cr-pseudo.c:86:22: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+cr-pseudo.c:90:29: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+cr-pseudo.c:100:33: warning: pointer targets in passing argument 2 of 'g_string_append' differ in signedness [-Wpointer-sign]
+C:/msys/1.0/opt/include/glib-2.0/glib/gstring.h:71:14: note: expected 'const gchar *' but argument is of type 'guchar *'
+cr-pseudo.c:110:24: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+  CC     libcroco_0_6_la-cr-additional-sel.lo
+cr-additional-sel.c: In function 'cr_additional_sel_to_string':
+cr-additional-sel.c:250:46: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+cr-additional-sel.c:270:46: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+cr-additional-sel.c:326:24: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+cr-additional-sel.c: In function 'cr_additional_sel_one_to_string':
+cr-additional-sel.c:350:30: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+cr-additional-sel.c:370:30: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+cr-additional-sel.c:425:24: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+  CC     libcroco_0_6_la-cr-simple-sel.lo
+cr-simple-sel.c: In function 'cr_simple_sel_to_string':
+cr-simple-sel.c:115:39: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-simple-sel.c:136:33: warning: pointer targets in passing argument 2 of 'g_string_append' differ in signedness [-Wpointer-sign]
+C:/msys/1.0/opt/include/glib-2.0/glib/gstring.h:71:14: note: expected 'const gchar *' but argument is of type 'guchar *'
+cr-simple-sel.c:147:33: warning: pointer targets in passing argument 2 of 'g_string_append' differ in signedness [-Wpointer-sign]
+C:/msys/1.0/opt/include/glib-2.0/glib/gstring.h:71:14: note: expected 'const gchar *' but argument is of type 'guchar *'
+cr-simple-sel.c:155:24: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+cr-simple-sel.c: In function 'cr_simple_sel_one_to_string':
+cr-simple-sel.c:174:31: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-simple-sel.c:197:24: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+  CC     libcroco_0_6_la-cr-selector.lo
+cr-selector.c: In function 'cr_selector_parse_from_buf':
+cr-selector.c:60:9: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/string.h:54:18: note: expected 'const char *' but argument is of type 'const guchar *'
+cr-selector.c: In function 'cr_selector_to_string':
+cr-selector.c:164:41: warning: pointer targets in passing argument 2 of 'g_string_append' differ in signedness [-Wpointer-sign]
+C:/msys/1.0/opt/include/glib-2.0/glib/gstring.h:71:14: note: expected 'const gchar *' but argument is of type 'guchar *'
+cr-selector.c:174:24: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+  CC     libcroco_0_6_la-cr-doc-handler.lo
+  CC     libcroco_0_6_la-cr-parser.lo
+cr-parser.c: In function 'cr_parser_error_set_msg':
+cr-parser.c:447:9: warning: pointer targets in passing argument 1 of 'g_strdup' differ in signedness [-Wpointer-sign]
+C:/msys/1.0/opt/include/glib-2.0/glib/gstrfuncs.h:187:22: note: expected 'const gchar *' but argument is of type 'const guchar *'
+cr-parser.c:447:21: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+cr-parser.c: In function 'cr_parser_parse_stylesheet_core':
+cr-parser.c:736:17: warning: pointer targets in passing argument 2 of 'cr_parser_push_error' differ in signedness [-Wpointer-sign]
+cr-parser.c:517:1: note: expected 'const guchar *' but argument is of type 'const char *'
+cr-parser.c: In function 'cr_parser_parse_simple_sels':
+cr-parser.c:1955:17: warning: declaration of 'status' shadows a previous local [-Wshadow]
+cr-parser.c:1932:23: warning: shadowed declaration is here [-Wshadow]
+cr-parser.c: In function 'cr_parser_parse_stylesheet':
+cr-parser.c:2706:17: warning: pointer targets in passing argument 2 of 'cr_parser_push_error' differ in signedness [-Wpointer-sign]
+cr-parser.c:517:1: note: expected 'const guchar *' but argument is of type 'const char *'
+cr-parser.c: In function 'cr_parser_parse_declaration':
+cr-parser.c:3190:9: warning: pointer targets in passing argument 2 of 'cr_parser_push_error' differ in signedness [-Wpointer-sign]
+cr-parser.c:517:1: note: expected 'const guchar *' but argument is of type 'const char *'
+cr-parser.c:3202:26: warning: pointer targets in passing argument 2 of 'cr_parser_push_error' differ in signedness [-Wpointer-sign]
+cr-parser.c:517:1: note: expected 'const guchar *' but argument is of type 'const char *'
+cr-parser.c:3210:9: warning: pointer targets in passing argument 2 of 'cr_parser_push_error' differ in signedness [-Wpointer-sign]
+cr-parser.c:517:1: note: expected 'const guchar *' but argument is of type 'const char *'
+cr-parser.c: In function 'cr_parser_parse_ruleset':
+cr-parser.c:3350:9: warning: pointer targets in passing argument 2 of 'cr_parser_push_error' differ in signedness [-Wpointer-sign]
+cr-parser.c:517:1: note: expected 'const guchar *' but argument is of type 'const char *'
+cr-parser.c:3414:9: warning: pointer targets in passing argument 2 of 'cr_parser_push_error' differ in signedness [-Wpointer-sign]
+cr-parser.c:517:1: note: expected 'const guchar *' but argument is of type 'const char *'
+cr-parser.c:3420:17: warning: declaration of 'status' shadows a previous local [-Wshadow]
+cr-parser.c:3329:23: warning: shadowed declaration is here [-Wshadow]
+cr-parser.c:3456:9: warning: pointer targets in passing argument 2 of 'cr_parser_push_error' differ in signedness [-Wpointer-sign]
+cr-parser.c:517:1: note: expected 'const guchar *' but argument is of type 'const char *'
+cr-parser.c: In function 'cr_parser_parse_import':
+cr-parser.c:3584:9: warning: declaration of 'status' shadows a previous local [-Wshadow]
+cr-parser.c:3548:23: warning: shadowed declaration is here [-Wshadow]
+cr-parser.c: In function 'cr_parser_parse_media':
+cr-parser.c:3748:17: warning: declaration of 'status' shadows a previous local [-Wshadow]
+cr-parser.c:3706:23: warning: shadowed declaration is here [-Wshadow]
+cr-parser.c: In function 'cr_parser_parse_font_face':
+cr-parser.c:4290:17: warning: declaration of 'status' shadows a previous local [-Wshadow]
+cr-parser.c:4218:23: warning: shadowed declaration is here [-Wshadow]
+  CC     libcroco_0_6_la-cr-declaration.lo
+cr-declaration.c: In function 'dump':
+cr-declaration.c:51:13: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+cr-declaration.c: In function 'cr_declaration_parse_from_buf':
+cr-declaration.c:133:9: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/string.h:54:18: note: expected 'const char *' but argument is of type 'const guchar *'
+cr-declaration.c: In function 'cr_declaration_parse_list_from_buf':
+cr-declaration.c:197:9: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/string.h:54:18: note: expected 'const char *' but argument is of type 'const guchar *'
+cr-declaration.c: In function 'cr_declaration_to_string':
+cr-declaration.c:514:7: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+cr-declaration.c:519:4: warning: pointer targets in passing argument 2 of 'g_string_append' differ in signedness [-Wpointer-sign]
+C:/msys/1.0/opt/include/glib-2.0/glib/gstring.h:71:14: note: expected 'const gchar *' but argument is of type 'guchar *'
+cr-declaration.c:542:24: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+cr-declaration.c:545:9: warning: pointer targets in return differ in signedness [-Wpointer-sign]
+cr-declaration.c:557:9: warning: pointer targets in return differ in signedness [-Wpointer-sign]
+cr-declaration.c: In function 'cr_declaration_list_to_string':
+cr-declaration.c:581:21: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+cr-declaration.c:589:24: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+cr-declaration.c: In function 'cr_declaration_list_to_string2':
+cr-declaration.c:620:21: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+cr-declaration.c:628:58: warning: pointer targets in passing argument 2 of 'g_string_append' differ in signedness [-Wpointer-sign]
+C:/msys/1.0/opt/include/glib-2.0/glib/gstring.h:71:14: note: expected 'const gchar *' but argument is of type 'guchar *'
+cr-declaration.c:635:58: warning: pointer targets in passing argument 2 of 'g_string_append' differ in signedness [-Wpointer-sign]
+C:/msys/1.0/opt/include/glib-2.0/glib/gstring.h:71:14: note: expected 'const gchar *' but argument is of type 'guchar *'
+cr-declaration.c:642:24: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+cr-declaration.c: In function 'cr_declaration_get_by_prop_name':
+cr-declaration.c:714:10: warning: pointer targets in passing argument 2 of 'strcmp' differ in signedness [-Wpointer-sign]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/string.h:53:15: note: expected 'const char *' but argument is of type 'const guchar *'
+  CC     libcroco_0_6_la-cr-statement.lo
+cr-statement.c: In function 'cr_statement_ruleset_to_string':
+cr-statement.c:603:25: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+cr-statement.c:614:25: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+cr-statement.c: In function 'cr_statement_font_face_rule_to_string':
+cr-statement.c:670:25: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+cr-statement.c: In function 'cr_statement_at_page_rule_to_string':
+cr-statement.c:773:21: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+cr-statement.c: In function 'cr_statement_media_rule_to_string':
+cr-statement.c:816:41: warning: declaration of 'str' shadows a previous local [-Wshadow]
+cr-statement.c:801:16: warning: shadowed declaration is here [-Wshadow]
+cr-statement.c:816:47: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-statement.c: In function 'cr_statement_import_rule_to_string':
+cr-statement.c:868:21: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+cr-statement.c:906:21: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+cr-statement.c:910:9: warning: pointer targets in return differ in signedness [-Wpointer-sign]
+cr-statement.c: In function 'cr_statement_does_buf_parses_against_core':
+cr-statement.c:938:9: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/string.h:54:18: note: expected 'const char *' but argument is of type 'const guchar *'
+cr-statement.c: In function 'cr_statement_ruleset_parse_from_buf':
+cr-statement.c:1058:9: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/string.h:54:18: note: expected 'const char *' but argument is of type 'const guchar *'
+cr-statement.c: In function 'cr_statement_at_media_rule_parse_from_buf':
+cr-statement.c:1195:9: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/string.h:54:18: note: expected 'const char *' but argument is of type 'const guchar *'
+cr-statement.c: In function 'cr_statement_at_import_rule_parse_from_buf':
+cr-statement.c:1381:9: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/string.h:54:18: note: expected 'const char *' but argument is of type 'const guchar *'
+cr-statement.c:1414:24: warning: variable 'cur' set but not used [-Wunused-but-set-variable]
+cr-statement.c: In function 'cr_statement_at_page_rule_parse_from_buf':
+cr-statement.c:1510:9: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/string.h:54:18: note: expected 'const char *' but argument is of type 'const guchar *'
+cr-statement.c: In function 'cr_statement_at_charset_rule_parse_from_buf':
+cr-statement.c:1626:9: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/string.h:54:18: note: expected 'const char *' but argument is of type 'const guchar *'
+cr-statement.c: In function 'cr_statement_font_face_rule_parse_from_buf':
+cr-statement.c:1723:9: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/string.h:54:18: note: expected 'const char *' but argument is of type 'const guchar *'
+cr-statement.c: In function 'cr_statement_dump_ruleset':
+cr-statement.c:2612:13: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+cr-statement.c: In function 'cr_statement_dump_charset':
+cr-statement.c:2662:13: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+cr-statement.c: In function 'cr_statement_dump_page':
+cr-statement.c:2690:13: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+  CC     libcroco_0_6_la-cr-stylesheet.lo
+  CC     libcroco_0_6_la-cr-cascade.lo
+cr-cascade.c: In function 'cr_cascade_get_sheet':
+cr-cascade.c:115:9: warning: comparison of unsigned expression >= 0 is always true [-Wtype-limits]
+cr-cascade.c: In function 'cr_cascade_set_sheet':
+cr-cascade.c:137:9: warning: comparison of unsigned expression >= 0 is always true [-Wtype-limits]
+  CC     libcroco_0_6_la-cr-om-parser.lo
+cr-om-parser.c: In function 'charset':
+cr-om-parser.c:308:19: warning: declaration of 'charset' shadows a global declaration [-Wshadow]
+cr-om-parser.c:302:1: warning: shadowed declaration is here [-Wshadow]
+cr-om-parser.c: In function 'end_page':
+cr-om-parser.c:381:22: warning: parameter 'a_page' set but not used [-Wunused-but-set-parameter]
+cr-om-parser.c:382:22: warning: parameter 'a_pseudo_page' set but not used [-Wunused-but-set-parameter]
+cr-om-parser.c: In function 'end_media':
+cr-om-parser.c:445:43: warning: parameter 'a_media_list' set but not used [-Wunused-but-set-parameter]
+cr-om-parser.c: In function 'import_style':
+cr-om-parser.c:480:26: warning: parameter 'a_uri_default_ns' set but not used [-Wunused-but-set-parameter]
+cr-om-parser.c: In function 'end_selector':
+cr-om-parser.c:558:51: warning: parameter 'a_selector_list' set but not used [-Wunused-but-set-parameter]
+  CC     libcroco_0_6_la-cr-style.lo
+cr-style.c:100:9: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-style.c:100:9: warning: (near initialization for 'gv_prop_table[0].name') [-Wpointer-sign]
+cr-style.c:101:9: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-style.c:101:9: warning: (near initialization for 'gv_prop_table[1].name') [-Wpointer-sign]
+cr-style.c:102:9: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-style.c:102:9: warning: (near initialization for 'gv_prop_table[2].name') [-Wpointer-sign]
+cr-style.c:103:9: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-style.c:103:9: warning: (near initialization for 'gv_prop_table[3].name') [-Wpointer-sign]
+cr-style.c:104:9: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-style.c:104:9: warning: (near initialization for 'gv_prop_table[4].name') [-Wpointer-sign]
+cr-style.c:105:9: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-style.c:105:9: warning: (near initialization for 'gv_prop_table[5].name') [-Wpointer-sign]
+cr-style.c:106:9: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-style.c:106:9: warning: (near initialization for 'gv_prop_table[6].name') [-Wpointer-sign]
+cr-style.c:107:9: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-style.c:107:9: warning: (near initialization for 'gv_prop_table[7].name') [-Wpointer-sign]
+cr-style.c:108:9: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-style.c:108:9: warning: (near initialization for 'gv_prop_table[8].name') [-Wpointer-sign]
+cr-style.c:109:9: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-style.c:109:9: warning: (near initialization for 'gv_prop_table[9].name') [-Wpointer-sign]
+cr-style.c:110:9: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-style.c:110:9: warning: (near initialization for 'gv_prop_table[10].name') [-Wpointer-sign]
+cr-style.c:111:9: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-style.c:111:9: warning: (near initialization for 'gv_prop_table[11].name') [-Wpointer-sign]
+cr-style.c:112:9: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-style.c:112:9: warning: (near initialization for 'gv_prop_table[12].name') [-Wpointer-sign]
+cr-style.c:113:9: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-style.c:113:9: warning: (near initialization for 'gv_prop_table[13].name') [-Wpointer-sign]
+cr-style.c:114:9: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-style.c:114:9: warning: (near initialization for 'gv_prop_table[14].name') [-Wpointer-sign]
+cr-style.c:115:9: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-style.c:115:9: warning: (near initialization for 'gv_prop_table[15].name') [-Wpointer-sign]
+cr-style.c:116:9: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-style.c:116:9: warning: (near initialization for 'gv_prop_table[16].name') [-Wpointer-sign]
+cr-style.c:117:9: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-style.c:117:9: warning: (near initialization for 'gv_prop_table[17].name') [-Wpointer-sign]
+cr-style.c:118:9: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-style.c:118:9: warning: (near initialization for 'gv_prop_table[18].name') [-Wpointer-sign]
+cr-style.c:119:9: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-style.c:119:9: warning: (near initialization for 'gv_prop_table[19].name') [-Wpointer-sign]
+cr-style.c:120:9: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-style.c:120:9: warning: (near initialization for 'gv_prop_table[20].name') [-Wpointer-sign]
+cr-style.c:121:9: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-style.c:121:9: warning: (near initialization for 'gv_prop_table[21].name') [-Wpointer-sign]
+cr-style.c:122:9: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-style.c:122:9: warning: (near initialization for 'gv_prop_table[22].name') [-Wpointer-sign]
+cr-style.c:123:9: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-style.c:123:9: warning: (near initialization for 'gv_prop_table[23].name') [-Wpointer-sign]
+cr-style.c:124:9: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-style.c:124:9: warning: (near initialization for 'gv_prop_table[24].name') [-Wpointer-sign]
+cr-style.c:125:9: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-style.c:125:9: warning: (near initialization for 'gv_prop_table[25].name') [-Wpointer-sign]
+cr-style.c:126:9: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-style.c:126:9: warning: (near initialization for 'gv_prop_table[26].name') [-Wpointer-sign]
+cr-style.c:127:9: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-style.c:127:9: warning: (near initialization for 'gv_prop_table[27].name') [-Wpointer-sign]
+cr-style.c:128:9: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-style.c:128:9: warning: (near initialization for 'gv_prop_table[28].name') [-Wpointer-sign]
+cr-style.c:129:9: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-style.c:129:9: warning: (near initialization for 'gv_prop_table[29].name') [-Wpointer-sign]
+cr-style.c:130:9: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-style.c:130:9: warning: (near initialization for 'gv_prop_table[30].name') [-Wpointer-sign]
+cr-style.c:131:9: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-style.c:131:9: warning: (near initialization for 'gv_prop_table[31].name') [-Wpointer-sign]
+cr-style.c:132:9: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-style.c:132:9: warning: (near initialization for 'gv_prop_table[32].name') [-Wpointer-sign]
+cr-style.c:133:9: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-style.c:133:9: warning: (near initialization for 'gv_prop_table[33].name') [-Wpointer-sign]
+cr-style.c:134:9: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-style.c:134:9: warning: (near initialization for 'gv_prop_table[34].name') [-Wpointer-sign]
+cr-style.c:135:9: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-style.c:135:9: warning: (near initialization for 'gv_prop_table[35].name') [-Wpointer-sign]
+cr-style.c:136:9: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-style.c:136:9: warning: (near initialization for 'gv_prop_table[36].name') [-Wpointer-sign]
+cr-style.c:137:9: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-style.c:137:9: warning: (near initialization for 'gv_prop_table[37].name') [-Wpointer-sign]
+cr-style.c:138:9: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-style.c:138:9: warning: (near initialization for 'gv_prop_table[38].name') [-Wpointer-sign]
+cr-style.c:139:9: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-style.c:139:9: warning: (near initialization for 'gv_prop_table[39].name') [-Wpointer-sign]
+cr-style.c:140:9: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-style.c:140:9: warning: (near initialization for 'gv_prop_table[40].name') [-Wpointer-sign]
+cr-style.c:141:9: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-style.c:141:9: warning: (near initialization for 'gv_prop_table[41].name') [-Wpointer-sign]
+cr-style.c:142:9: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-style.c:142:9: warning: (near initialization for 'gv_prop_table[42].name') [-Wpointer-sign]
+cr-style.c:143:2: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-style.c:143:2: warning: (near initialization for 'gv_prop_table[43].name') [-Wpointer-sign]
+cr-style.c: In function 'num_prop_code_to_string':
+cr-style.c:324:20: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+cr-style.c: In function 'rgb_prop_code_to_string':
+cr-style.c:348:20: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+cr-style.c: In function 'border_style_prop_code_to_string':
+cr-style.c:372:20: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+cr-style.c: In function 'set_prop_padding_x_from_value':
+cr-style.c:470:34: warning: pointer targets in passing argument 1 of 'strncmp' differ in signedness [-Wpointer-sign]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/string.h:76:15: note: expected 'const char *' but argument is of type 'guchar *'
+cr-style.c: In function 'set_prop_display_from_value':
+cr-style.c:815:17: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-style.c:815:17: warning: (near initialization for 'disp_vals_map[0].prop_name') [-Wpointer-sign]
+cr-style.c:816:17: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-style.c:816:17: warning: (near initialization for 'disp_vals_map[1].prop_name') [-Wpointer-sign]
+cr-style.c:817:17: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-style.c:817:17: warning: (near initialization for 'disp_vals_map[2].prop_name') [-Wpointer-sign]
+cr-style.c:818:17: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-style.c:818:17: warning: (near initialization for 'disp_vals_map[3].prop_name') [-Wpointer-sign]
+cr-style.c:819:17: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-style.c:819:17: warning: (near initialization for 'disp_vals_map[4].prop_name') [-Wpointer-sign]
+cr-style.c:820:17: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-style.c:820:17: warning: (near initialization for 'disp_vals_map[5].prop_name') [-Wpointer-sign]
+cr-style.c:821:17: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-style.c:821:17: warning: (near initialization for 'disp_vals_map[6].prop_name') [-Wpointer-sign]
+cr-style.c:822:17: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-style.c:822:17: warning: (near initialization for 'disp_vals_map[7].prop_name') [-Wpointer-sign]
+cr-style.c:823:17: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-style.c:823:17: warning: (near initialization for 'disp_vals_map[8].prop_name') [-Wpointer-sign]
+cr-style.c:824:17: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-style.c:824:17: warning: (near initialization for 'disp_vals_map[9].prop_name') [-Wpointer-sign]
+cr-style.c:825:17: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-style.c:825:17: warning: (near initialization for 'disp_vals_map[10].prop_name') [-Wpointer-sign]
+cr-style.c:826:17: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-style.c:826:17: warning: (near initialization for 'disp_vals_map[11].prop_name') [-Wpointer-sign]
+cr-style.c:827:17: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-style.c:827:17: warning: (near initialization for 'disp_vals_map[12].prop_name') [-Wpointer-sign]
+cr-style.c:828:17: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-style.c:828:17: warning: (near initialization for 'disp_vals_map[13].prop_name') [-Wpointer-sign]
+cr-style.c:829:17: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-style.c:829:17: warning: (near initialization for 'disp_vals_map[14].prop_name') [-Wpointer-sign]
+cr-style.c:830:17: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-style.c:830:17: warning: (near initialization for 'disp_vals_map[15].prop_name') [-Wpointer-sign]
+cr-style.c:831:17: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-style.c:831:17: warning: (near initialization for 'disp_vals_map[16].prop_name') [-Wpointer-sign]
+cr-style.c:851:38: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/string.h:54:18: note: expected 'const char *' but argument is of type 'const guchar * const'
+cr-style.c:851:38: warning: pointer targets in passing argument 1 of 'strncmp' differ in signedness [-Wpointer-sign]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/string.h:76:15: note: expected 'const char *' but argument is of type 'const guchar * const'
+cr-style.c: In function 'set_prop_position_from_value':
+cr-style.c:877:17: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-style.c:877:17: warning: (near initialization for 'position_vals_map[0].name') [-Wpointer-sign]
+cr-style.c:878:17: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-style.c:878:17: warning: (near initialization for 'position_vals_map[1].name') [-Wpointer-sign]
+cr-style.c:879:17: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-style.c:879:17: warning: (near initialization for 'position_vals_map[2].name') [-Wpointer-sign]
+cr-style.c:880:17: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-style.c:880:17: warning: (near initialization for 'position_vals_map[3].name') [-Wpointer-sign]
+cr-style.c:881:17: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+cr-style.c:881:17: warning: (near initialization for 'position_vals_map[4].name') [-Wpointer-sign]
+cr-style.c:902:55: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/string.h:54:18: note: expected 'const char *' but argument is of type 'const guchar * const'
+cr-style.c:902:55: warning: pointer targets in passing argument 1 of 'strncmp' differ in signedness [-Wpointer-sign]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/string.h:76:15: note: expected 'const char *' but argument is of type 'const guchar * const'
+cr-style.c:875:23: warning: variable 'status' set but not used [-Wunused-but-set-variable]
+cr-style.c: In function 'set_prop_border_x_color_from_value':
+cr-style.c:1123:34: warning: pointer targets in passing argument 2 of 'cr_rgb_set_from_name' differ in signedness [-Wpointer-sign]
+cr-rgb.h:78:15: note: expected 'const guchar *' but argument is of type 'gchar *'
+cr-style.c:1127:25: warning: pointer targets in passing argument 2 of 'cr_rgb_set_from_name' differ in signedness [-Wpointer-sign]
+cr-rgb.h:78:15: note: expected 'const guchar *' but argument is of type 'const char *'
+cr-style.c: In function 'set_prop_font_family_from_value':
+cr-style.c:1361:50: warning: pointer targets in passing argument 2 of 'cr_font_family_new' differ in signedness [-Wpointer-sign]
+cr-fonts.h:231:1: note: expected 'guchar *' but argument is of type 'gchar *'
+cr-style.c: In function 'cr_style_set_style_from_decl':
+cr-style.c:2027:17: warning: pointer targets in passing argument 1 of 'cr_style_get_prop_id' differ in signedness [-Wpointer-sign]
+cr-style.c:416:1: note: expected 'const guchar *' but argument is of type 'gchar *'
+cr-style.c: In function 'cr_style_to_string':
+cr-style.c:2749:17: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+  CC     libcroco_0_6_la-cr-sel-eng.lo
+cr-sel-eng.c: In function 'lang_pseudo_class_handler':
+cr-sel-eng.c:139:17: warning: pointer targets in passing argument 2 of 'xmlGetProp' differ in signedness [-Wpointer-sign]
+C:/msys/1.0/opt/include/libxml2/libxml/tree.h:984:3: note: expected 'const xmlChar *' but argument is of type 'const char *'
+cr-sel-eng.c:141:21: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/string.h:54:18: note: expected 'const char *' but argument is of type 'xmlChar *'
+cr-sel-eng.c: In function 'pseudo_class_add_sel_matches_node':
+cr-sel-eng.c:200:18: warning: pointer targets in passing argument 2 of 'cr_sel_eng_get_pseudo_class_selector_handler' differ in signedness [-Wpointer-sign]
+cr-sel-eng.h:76:15: note: expected 'guchar *' but argument is of type 'gchar *'
+cr-sel-eng.c: In function 'class_add_sel_matches_node':
+cr-sel-eng.c:227:9: warning: pointer targets in passing argument 2 of 'xmlHasProp' differ in signedness [-Wpointer-sign]
+C:/msys/1.0/opt/include/libxml2/libxml/tree.h:987:3: note: expected 'const xmlChar *' but argument is of type 'const char *'
+cr-sel-eng.c:228:17: warning: pointer targets in passing argument 2 of 'xmlGetProp' differ in signedness [-Wpointer-sign]
+C:/msys/1.0/opt/include/libxml2/libxml/tree.h:984:3: note: expected 'const xmlChar *' but argument is of type 'const char *'
+cr-sel-eng.c:237:39: warning: pointer targets in passing argument 1 of 'strncmp' differ in signedness [-Wpointer-sign]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/string.h:76:15: note: expected 'const char *' but argument is of type 'xmlChar *'
+cr-sel-eng.c: In function 'id_add_sel_matches_node':
+cr-sel-eng.c:281:9: warning: pointer targets in passing argument 2 of 'xmlHasProp' differ in signedness [-Wpointer-sign]
+C:/msys/1.0/opt/include/libxml2/libxml/tree.h:987:3: note: expected 'const xmlChar *' but argument is of type 'const char *'
+cr-sel-eng.c:282:17: warning: pointer targets in passing argument 2 of 'xmlGetProp' differ in signedness [-Wpointer-sign]
+C:/msys/1.0/opt/include/libxml2/libxml/tree.h:984:3: note: expected 'const xmlChar *' but argument is of type 'const char *'
+cr-sel-eng.c:283:17: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/string.h:54:18: note: expected 'const char *' but argument is of type 'xmlChar *'
+cr-sel-eng.c: In function 'attr_add_sel_matches_node':
+cr-sel-eng.c:323:42: warning: pointer targets in passing argument 2 of 'xmlHasProp' differ in signedness [-Wpointer-sign]
+C:/msys/1.0/opt/include/libxml2/libxml/tree.h:987:3: note: expected 'const xmlChar *' but argument is of type 'gchar *'
+cr-sel-eng.c:341:38: warning: pointer targets in passing argument 2 of 'xmlHasProp' differ in signedness [-Wpointer-sign]
+C:/msys/1.0/opt/include/libxml2/libxml/tree.h:987:3: note: expected 'const xmlChar *' but argument is of type 'gchar *'
+cr-sel-eng.c:346:42: warning: pointer targets in passing argument 2 of 'xmlGetProp' differ in signedness [-Wpointer-sign]
+C:/msys/1.0/opt/include/libxml2/libxml/tree.h:984:3: note: expected 'const xmlChar *' but argument is of type 'gchar *'
+cr-sel-eng.c:351:38: warning: pointer targets in passing argument 1 of 'strcmp' differ in signedness [-Wpointer-sign]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/string.h:53:15: note: expected 'const char *' but argument is of type 'xmlChar *'
+cr-sel-eng.c:369:38: warning: pointer targets in passing argument 2 of 'xmlHasProp' differ in signedness [-Wpointer-sign]
+C:/msys/1.0/opt/include/libxml2/libxml/tree.h:987:3: note: expected 'const xmlChar *' but argument is of type 'gchar *'
+cr-sel-eng.c:373:42: warning: pointer targets in passing argument 2 of 'xmlGetProp' differ in signedness [-Wpointer-sign]
+C:/msys/1.0/opt/include/libxml2/libxml/tree.h:984:3: note: expected 'const xmlChar *' but argument is of type 'gchar *'
+cr-sel-eng.c:407:46: warning: pointer targets in passing argument 1 of 'strncmp' differ in signedness [-Wpointer-sign]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/string.h:76:15: note: expected 'const char *' but argument is of type 'xmlChar *'
+cr-sel-eng.c:432:38: warning: pointer targets in passing argument 2 of 'xmlHasProp' differ in signedness [-Wpointer-sign]
+C:/msys/1.0/opt/include/libxml2/libxml/tree.h:987:3: note: expected 'const xmlChar *' but argument is of type 'gchar *'
+cr-sel-eng.c:436:42: warning: pointer targets in passing argument 2 of 'xmlGetProp' differ in signedness [-Wpointer-sign]
+C:/msys/1.0/opt/include/libxml2/libxml/tree.h:984:3: note: expected 'const xmlChar *' but argument is of type 'gchar *'
+cr-sel-eng.c:455:46: warning: pointer targets in passing argument 1 of 'g_strstr_len' differ in signedness [-Wpointer-sign]
+C:/msys/1.0/opt/include/glib-2.0/glib/gstrfuncs.h:115:23: note: expected 'const gchar *' but argument is of type 'xmlChar *'
+cr-sel-eng.c: In function 'sel_matches_node_real':
+cr-sel-eng.c:656:35: warning: pointer targets in passing argument 2 of 'strcmp' differ in signedness [-Wpointer-sign]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/string.h:53:15: note: expected 'const char *' but argument is of type 'const xmlChar *'
+cr-sel-eng.c: In function 'cr_sel_eng_register_pseudo_class_sel_handler':
+cr-sel-eng.c:1183:9: warning: pointer targets in passing argument 1 of 'g_strdup' differ in signedness [-Wpointer-sign]
+C:/msys/1.0/opt/include/glib-2.0/glib/gstrfuncs.h:187:22: note: expected 'const gchar *' but argument is of type 'guchar *'
+cr-sel-eng.c:1183:29: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+cr-sel-eng.c: In function 'cr_sel_eng_unregister_pseudo_class_sel_handler':
+cr-sel-eng.c:1209:17: warning: pointer targets in passing argument 1 of 'strcmp' differ in signedness [-Wpointer-sign]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/string.h:53:15: note: expected 'const char *' but argument is of type 'guchar *'
+cr-sel-eng.c:1209:17: warning: pointer targets in passing argument 2 of 'strcmp' differ in signedness [-Wpointer-sign]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/string.h:53:15: note: expected 'const char *' but argument is of type 'guchar *'
+cr-sel-eng.c: In function 'cr_sel_eng_get_pseudo_class_selector_handler':
+cr-sel-eng.c:1282:17: warning: pointer targets in passing argument 1 of 'strcmp' differ in signedness [-Wpointer-sign]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/string.h:53:15: note: expected 'const char *' but argument is of type 'guchar *'
+cr-sel-eng.c:1282:17: warning: pointer targets in passing argument 2 of 'strcmp' differ in signedness [-Wpointer-sign]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/string.h:53:15: note: expected 'const char *' but argument is of type 'guchar *'
+  CC     libcroco_0_6_la-cr-fonts.lo
+cr-fonts.c: In function 'cr_font_family_to_string_real':
+cr-fonts.c:81:25: warning: pointer targets in passing argument 2 of 'g_string_append' differ in signedness [-Wpointer-sign]
+C:/msys/1.0/opt/include/glib-2.0/glib/gstring.h:71:14: note: expected 'const gchar *' but argument is of type 'const guchar *'
+cr-fonts.c: In function 'cr_font_family_to_string':
+cr-fonts.c:190:24: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+cr-fonts.c:199:24: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+cr-fonts.c: In function 'cr_font_size_set_predefined_absolute_font_size':
+cr-fonts.c:423:9: warning: comparison of unsigned expression >= 0 is always true [-Wtype-limits]
+cr-fonts.c:423:9: warning: comparison between 'enum CRPredefinedAbsoluteFontSize' and 'enum CRFontSizeType' [-Wenum-compare]
+cr-fonts.c:423:9: warning: comparison between 'enum CRPredefinedAbsoluteFontSize' and 'enum CRFontSizeType' [-Wenum-compare]
+cr-fonts.c: In function 'cr_font_size_set_relative_font_size':
+cr-fonts.c:445:9: warning: comparison of unsigned expression >= 0 is always true [-Wtype-limits]
+cr-fonts.c: In function 'cr_font_size_set_absolute_font_size':
+cr-fonts.c:468:9: warning: comparison of unsigned expression >= 0 is always true [-Wtype-limits]
+cr-fonts.c: In function 'cr_font_size_to_string':
+cr-fonts.c:532:21: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+cr-fonts.c: In function 'cr_font_size_get_smaller_predefined_font_size':
+cr-fonts.c:560:9: warning: comparison of unsigned expression >= 0 is always true [-Wtype-limits]
+cr-fonts.c: In function 'cr_font_size_get_larger_predefined_font_size':
+cr-fonts.c:613:9: warning: comparison of unsigned expression >= 0 is always true [-Wtype-limits]
+cr-fonts.c: In function 'cr_font_size_is_predefined_absolute_font_size':
+cr-fonts.c:662:13: warning: comparison of unsigned expression >= 0 is always true [-Wtype-limits]
+cr-fonts.c: In function 'cr_font_size_adjust_to_string':
+cr-fonts.c:692:29: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+  CC     libcroco_0_6_la-cr-prop-list.lo
+  CC     libcroco_0_6_la-cr-parsing-location.lo
+  CC     libcroco_0_6_la-cr-string.lo
+  CCLD   libcroco-0.6.la
+make[2]: Leaving directory `/home/Administrateur/61_libcroco/libcroco-0.6.8/src'
+Making all in csslint
+make[2]: Entering directory `/home/Administrateur/61_libcroco/libcroco-0.6.8/csslint'
+  CC     csslint.o
+csslint.c: In function 'evaluate_selectors':
+csslint.c:334:25: warning: pointer targets in passing argument 1 of 'cr_om_parser_simply_parse_file' differ in signedness [-Wpointer-sign]
+../src/cr-om-parser.h:61:15: note: expected 'const guchar *' but argument is of type 'gchar *'
+csslint.c:341:25: warning: pointer targets in passing argument 1 of 'cr_om_parser_simply_parse_file' differ in signedness [-Wpointer-sign]
+../src/cr-om-parser.h:61:15: note: expected 'const guchar *' but argument is of type 'gchar *'
+csslint.c:348:25: warning: pointer targets in passing argument 1 of 'cr_om_parser_simply_parse_file' differ in signedness [-Wpointer-sign]
+../src/cr-om-parser.h:61:15: note: expected 'const guchar *' but argument is of type 'gchar *'
+csslint.c:370:9: warning: pointer targets in passing argument 1 of 'xmlXPathEvalExpression' differ in signedness [-Wpointer-sign]
+C:/msys/1.0/opt/include/libxml2/libxml/xpath.h:514:7: note: expected 'const xmlChar *' but argument is of type 'gchar *'
+csslint.c:323:23: warning: variable 'status' set but not used [-Wunused-but-set-variable]
+csslint.c: In function 'dump_location_annotated_simple_sel':
+csslint.c:739:14: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+csslint.c:772:22: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+csslint.c: In function 'property':
+csslint.c:851:29: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+csslint.c:884:21: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+csslint.c: In function 'main':
+csslint.c:973:25: warning: pointer targets in passing argument 1 of 'cssom_parse' differ in signedness [-Wpointer-sign]
+csslint.c:243:1: note: expected 'guchar *' but argument is of type 'gchar *'
+csslint.c:978:33: warning: pointer targets in passing argument 1 of 'sac_parse_and_display_locations' differ in signedness [-Wpointer-sign]
+csslint.c:902:1: note: expected 'guchar *' but argument is of type 'gchar *'
+csslint.c:950:23: warning: variable 'status' set but not used [-Wunused-but-set-variable]
+  CCLD   csslint-0.6.exe
+./.libs/lt-csslint-0.6.c: In function 'lt_debugprintf':
+./.libs/lt-csslint-0.6.c:592:7: warning: function might be possible candidate for 'ms_printf' format attribute [-Wmissing-format-attribute]
+./.libs/lt-csslint-0.6.c: In function 'lt_error_core':
+./.libs/lt-csslint-0.6.c:603:3: warning: function might be possible candidate for 'ms_printf' format attribute [-Wmissing-format-attribute]
+make[2]: Leaving directory `/home/Administrateur/61_libcroco/libcroco-0.6.8/csslint'
+Making all in docs
+make[2]: Entering directory `/home/Administrateur/61_libcroco/libcroco-0.6.8/docs'
+Making all in examples
+make[3]: Entering directory `/home/Administrateur/61_libcroco/libcroco-0.6.8/docs/examples'
+make[3]: Nothing to be done for `all'.
+make[3]: Leaving directory `/home/Administrateur/61_libcroco/libcroco-0.6.8/docs/examples'
+Making all in reference
+make[3]: Entering directory `/home/Administrateur/61_libcroco/libcroco-0.6.8/docs/reference'
+make[3]: Nothing to be done for `all'.
+make[3]: Leaving directory `/home/Administrateur/61_libcroco/libcroco-0.6.8/docs/reference'
+make[3]: Entering directory `/home/Administrateur/61_libcroco/libcroco-0.6.8/docs'
+make[3]: Nothing to be done for `all-am'.
+make[3]: Leaving directory `/home/Administrateur/61_libcroco/libcroco-0.6.8/docs'
+make[2]: Leaving directory `/home/Administrateur/61_libcroco/libcroco-0.6.8/docs'
+Making all in tests
+make[2]: Entering directory `/home/Administrateur/61_libcroco/libcroco-0.6.8/tests'
+Making all in test-inputs
+make[3]: Entering directory `/home/Administrateur/61_libcroco/libcroco-0.6.8/tests/test-inputs'
+make[3]: Nothing to be done for `all'.
+make[3]: Leaving directory `/home/Administrateur/61_libcroco/libcroco-0.6.8/tests/test-inputs'
+Making all in test-output-refs
+make[3]: Entering directory `/home/Administrateur/61_libcroco/libcroco-0.6.8/tests/test-output-refs'
+make[3]: Nothing to be done for `all'.
+make[3]: Leaving directory `/home/Administrateur/61_libcroco/libcroco-0.6.8/tests/test-output-refs'
+make[3]: Entering directory `/home/Administrateur/61_libcroco/libcroco-0.6.8/tests'
+  CC     test0-main.o
+test0-main.c: In function 'test_cr_input_read_byte':
+test0-main.c:148:9: warning: pointer targets in passing argument 1 of 'cr_input_new_from_uri' differ in signedness [-Wpointer-sign]
+../src/cr-input.h:67:1: note: expected 'const gchar *' but argument is of type 'guchar *'
+test0-main.c: In function 'main':
+test0-main.c:200:9: warning: pointer targets in passing argument 1 of 'test_cr_input_read_byte' differ in signedness [-Wpointer-sign]
+test0-main.c:139:1: note: expected 'guchar *' but argument is of type 'gchar *'
+  CCLD   test0.exe
+./.libs/lt-test0.c: In function 'lt_debugprintf':
+./.libs/lt-test0.c:592:7: warning: function might be possible candidate for 'ms_printf' format attribute [-Wmissing-format-attribute]
+./.libs/lt-test0.c: In function 'lt_error_core':
+./.libs/lt-test0.c:603:3: warning: function might be possible candidate for 'ms_printf' format attribute [-Wmissing-format-attribute]
+  CC     test1-main.o
+test1-main.c: In function 'test_cr_input_read_char':
+test1-main.c:143:9: warning: pointer targets in passing argument 1 of 'cr_input_new_from_uri' differ in signedness [-Wpointer-sign]
+../src/cr-input.h:67:1: note: expected 'const gchar *' but argument is of type 'guchar *'
+test1-main.c: In function 'main':
+test1-main.c:194:9: warning: pointer targets in passing argument 1 of 'test_cr_input_read_char' differ in signedness [-Wpointer-sign]
+test1-main.c:135:1: note: expected 'guchar *' but argument is of type 'gchar *'
+  CCLD   test1.exe
+./.libs/lt-test1.c: In function 'lt_debugprintf':
+./.libs/lt-test1.c:592:7: warning: function might be possible candidate for 'ms_printf' format attribute [-Wmissing-format-attribute]
+./.libs/lt-test1.c: In function 'lt_error_core':
+./.libs/lt-test1.c:603:3: warning: function might be possible candidate for 'ms_printf' format attribute [-Wmissing-format-attribute]
+  CC     test2-main.o
+test2-main.c: In function 'test_import_style':
+test2-main.c:128:41: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+test2-main.c:144:39: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+test2-main.c:110:31: warning: parameter 'a_uri' set but not used [-Wunused-but-set-parameter]
+test2-main.c: In function 'test_namespace_declaration':
+test2-main.c:171:24: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+test2-main.c:181:21: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+test2-main.c: In function 'test_comment':
+test2-main.c:205:25: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+test2-main.c: In function 'test_property':
+test2-main.c:266:32: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+test2-main.c: In function 'test_start_media':
+test2-main.c:325:32: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+test2-main.c: In function 'test_end_media':
+test2-main.c:356:32: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+test2-main.c: In function 'test_start_page':
+test2-main.c:386:22: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+test2-main.c:389:29: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+test2-main.c: In function 'test_end_page':
+test2-main.c:422:22: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+test2-main.c:425:29: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+test2-main.c: In function 'test_ignorable_at_rule':
+test2-main.c:457:22: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+test2-main.c: In function 'main':
+test2-main.c:554:9: warning: pointer targets in passing argument 1 of 'test_cr_parser_parse' differ in signedness [-Wpointer-sign]
+test2-main.c:500:1: note: expected 'guchar *' but argument is of type 'gchar *'
+  CC     cr-test-utils.o
+  CCLD   test2.exe
+./.libs/lt-test2.c: In function 'lt_debugprintf':
+./.libs/lt-test2.c:592:7: warning: function might be possible candidate for 'ms_printf' format attribute [-Wmissing-format-attribute]
+./.libs/lt-test2.c: In function 'lt_error_core':
+./.libs/lt-test2.c:603:3: warning: function might be possible candidate for 'ms_printf' format attribute [-Wmissing-format-attribute]
+  CC     test3-main.o
+test3-main.c: In function 'test_import_style':
+test3-main.c:124:41: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+test3-main.c:136:39: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+test3-main.c:106:53: warning: parameter 'a_uri' set but not used [-Wunused-but-set-parameter]
+test3-main.c: In function 'test_namespace_declaration':
+test3-main.c:162:24: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+test3-main.c:172:21: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+test3-main.c: In function 'test_comment':
+test3-main.c:197:25: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+test3-main.c: In function 'test_property':
+test3-main.c:254:32: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+test3-main.c: In function 'test_start_media':
+test3-main.c:310:32: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+test3-main.c: In function 'test_end_media':
+test3-main.c:339:32: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+test3-main.c: In function 'test_start_page':
+test3-main.c:367:22: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+test3-main.c:370:29: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+test3-main.c: In function 'test_end_page':
+test3-main.c:402:22: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+test3-main.c:405:29: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+test3-main.c: In function 'test_ignorable_at_rule':
+test3-main.c:437:22: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+test3-main.c: In function 'main':
+test3-main.c:535:9: warning: pointer targets in passing argument 1 of 'test_cr_parser_parse' differ in signedness [-Wpointer-sign]
+test3-main.c:480:1: note: expected 'guchar *' but argument is of type 'gchar *'
+  CCLD   test3.exe
+./.libs/lt-test3.c: In function 'lt_debugprintf':
+./.libs/lt-test3.c:592:7: warning: function might be possible candidate for 'ms_printf' format attribute [-Wmissing-format-attribute]
+./.libs/lt-test3.c: In function 'lt_error_core':
+./.libs/lt-test3.c:603:3: warning: function might be possible candidate for 'ms_printf' format attribute [-Wmissing-format-attribute]
+  CC     test4-main.o
+test4-main.c:35:29: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+test4-main.c:37:29: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+test4-main.c:39:34: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+test4-main.c:41:32: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+test4-main.c:44:9: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+test4-main.c:46:32: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+test4-main.c:48:35: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+test4-main.c:51:9: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+test4-main.c:55:34: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+test4-main.c: In function 'test_cr_declaration_parse':
+test4-main.c:175:17: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+test4-main.c: In function 'test_cr_declaration_parse_list':
+test4-main.c:203:25: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+test4-main.c: In function 'main':
+test4-main.c:429:9: warning: pointer targets in passing argument 1 of 'test_cr_parser_parse' differ in signedness [-Wpointer-sign]
+test4-main.c:110:1: note: expected 'guchar *' but argument is of type 'gchar *'
+  CCLD   test4.exe
+./.libs/lt-test4.c: In function 'lt_debugprintf':
+./.libs/lt-test4.c:592:7: warning: function might be possible candidate for 'ms_printf' format attribute [-Wmissing-format-attribute]
+./.libs/lt-test4.c: In function 'lt_error_core':
+./.libs/lt-test4.c:603:3: warning: function might be possible candidate for 'ms_printf' format attribute [-Wmissing-format-attribute]
+  CC     test5-main.o
+test5-main.c:35:9: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+test5-main.c: In function 'test_sel_eng':
+test5-main.c:163:9: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/string.h:54:18: note: expected 'const char *' but argument is of type 'const guchar *'
+test5-main.c:163:9: warning: pointer targets in passing argument 1 of 'xmlParseMemory' differ in signedness [-Wpointer-sign]
+C:/msys/1.0/opt/include/libxml2/libxml/parser.h:845:3: note: expected 'const char *' but argument is of type 'const guchar *'
+test5-main.c: In function 'main':
+test5-main.c:245:9: warning: pointer targets in passing argument 1 of 'test_sel_eng' differ in signedness [-Wpointer-sign]
+test5-main.c:144:1: note: expected 'guchar *' but argument is of type 'gchar *'
+  CCLD   test5.exe
+./.libs/lt-test5.c: In function 'lt_debugprintf':
+./.libs/lt-test5.c:592:7: warning: function might be possible candidate for 'ms_printf' format attribute [-Wmissing-format-attribute]
+./.libs/lt-test5.c: In function 'lt_error_core':
+./.libs/lt-test5.c:603:3: warning: function might be possible candidate for 'ms_printf' format attribute [-Wmissing-format-attribute]
+  CC     test6-main.o
+test6-main.c:34:9: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+test6-main.c: In function 'test_cr_parser_parse':
+test6-main.c:57:42: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/string.h:54:18: note: expected 'const char *' but argument is of type 'const guchar *'
+  CCLD   test6.exe
+./.libs/lt-test6.c: In function 'lt_debugprintf':
+./.libs/lt-test6.c:592:7: warning: function might be possible candidate for 'ms_printf' format attribute [-Wmissing-format-attribute]
+./.libs/lt-test6.c: In function 'lt_error_core':
+./.libs/lt-test6.c:603:3: warning: function might be possible candidate for 'ms_printf' format attribute [-Wmissing-format-attribute]
+make[3]: Leaving directory `/home/Administrateur/61_libcroco/libcroco-0.6.8/tests'
+make[2]: Leaving directory `/home/Administrateur/61_libcroco/libcroco-0.6.8/tests'
+Making all in build
+make[2]: Entering directory `/home/Administrateur/61_libcroco/libcroco-0.6.8/build'
+Making all in win32
+make[3]: Entering directory `/home/Administrateur/61_libcroco/libcroco-0.6.8/build/win32'
+Making all in vs9
+make[4]: Entering directory `/home/Administrateur/61_libcroco/libcroco-0.6.8/build/win32/vs9'
+make[4]: Nothing to be done for `all'.
+make[4]: Leaving directory `/home/Administrateur/61_libcroco/libcroco-0.6.8/build/win32/vs9'
+Making all in vs10
+make[4]: Entering directory `/home/Administrateur/61_libcroco/libcroco-0.6.8/build/win32/vs10'
+make[4]: Nothing to be done for `all'.
+make[4]: Leaving directory `/home/Administrateur/61_libcroco/libcroco-0.6.8/build/win32/vs10'
+make[4]: Entering directory `/home/Administrateur/61_libcroco/libcroco-0.6.8/build/win32'
+make[4]: Nothing to be done for `all-am'.
+make[4]: Leaving directory `/home/Administrateur/61_libcroco/libcroco-0.6.8/build/win32'
+make[3]: Leaving directory `/home/Administrateur/61_libcroco/libcroco-0.6.8/build/win32'
+make[3]: Entering directory `/home/Administrateur/61_libcroco/libcroco-0.6.8/build'
+make[3]: Nothing to be done for `all-am'.
+make[3]: Leaving directory `/home/Administrateur/61_libcroco/libcroco-0.6.8/build'
+make[2]: Leaving directory `/home/Administrateur/61_libcroco/libcroco-0.6.8/build'
+make[2]: Entering directory `/home/Administrateur/61_libcroco/libcroco-0.6.8'
+cp croco-config croco-0.6-config
+cp libcroco.pc libcroco-0.6.pc
+cp libcroco.pc libcroco-0.6-uninstalled.pc
+cp croco-config croco-0.6-config-uninstalled
+make[2]: Leaving directory `/home/Administrateur/61_libcroco/libcroco-0.6.8'
+make[1]: Leaving directory `/home/Administrateur/61_libcroco/libcroco-0.6.8'

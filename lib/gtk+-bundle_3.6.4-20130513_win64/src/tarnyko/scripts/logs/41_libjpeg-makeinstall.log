@@ -1,0 +1,29 @@
+make[1]: Entering directory `/home/Administrateur/41_libjpeg/jpeg-9'
+ /bin/mkdir -p '/opt/lib'
+ /bin/sh ./libtool   --mode=install /bin/install -c   libjpeg.la '/opt/lib'
+libtool: install: /bin/install -c .libs/libjpeg.dll.a /opt/lib/libjpeg.dll.a
+libtool: install: base_file=`basename libjpeg.la`
+libtool: install:  dlpath=`/bin/sh 2>&1 -c '. .libs/'libjpeg.la'i; echo libjpeg-9.dll'`
+libtool: install:  dldir=/opt/lib/`dirname ../bin/libjpeg-9.dll`
+libtool: install:  test -d /opt/lib/../bin || mkdir -p /opt/lib/../bin
+libtool: install:  /bin/install -c .libs/libjpeg-9.dll /opt/lib/../bin/libjpeg-9.dll
+libtool: install:  chmod a+x /opt/lib/../bin/libjpeg-9.dll
+libtool: install:  if test -n '' && test -n 'x86_64-w64-mingw32-strip --strip-unneeded'; then eval 'x86_64-w64-mingw32-strip --strip-unneeded /opt/lib/../bin/libjpeg-9.dll' || exit 0; fi
+libtool: install: /bin/install -c .libs/libjpeg.lai /opt/lib/libjpeg.la
+libtool: install: /bin/install -c .libs/libjpeg.a /opt/lib/libjpeg.a
+libtool: install: chmod 644 /opt/lib/libjpeg.a
+libtool: install: x86_64-w64-mingw32-ranlib /opt/lib/libjpeg.a
+ /bin/mkdir -p '/opt/bin'
+  /bin/sh ./libtool   --mode=install /bin/install -c cjpeg.exe djpeg.exe jpegtran.exe rdjpgcom.exe wrjpgcom.exe '/opt/bin'
+libtool: install: /bin/install -c .libs/cjpeg.exe /opt/bin/cjpeg.exe
+libtool: install: /bin/install -c .libs/djpeg.exe /opt/bin/djpeg.exe
+libtool: install: /bin/install -c .libs/jpegtran.exe /opt/bin/jpegtran.exe
+libtool: install: /bin/install -c .libs/rdjpgcom.exe /opt/bin/rdjpgcom.exe
+libtool: install: /bin/install -c .libs/wrjpgcom.exe /opt/bin/wrjpgcom.exe
+/bin/sh /home/Administrateur/41_libjpeg/jpeg-9/install-sh -d /opt/include
+/bin/install -c -m 644 jconfig.h /opt/include/jconfig.h
+ /bin/mkdir -p '/opt/include'
+ /bin/install -c -m 644 jerror.h jmorecfg.h jpeglib.h '/opt/include'
+ /bin/mkdir -p '/opt/share/man/man1'
+ /bin/install -c -m 644 cjpeg.1 djpeg.1 jpegtran.1 rdjpgcom.1 wrjpgcom.1 '/opt/share/man/man1'
+make[1]: Leaving directory `/home/Administrateur/41_libjpeg/jpeg-9'

@@ -1,0 +1,70 @@
+make[1]: Entering directory `/home/Administrateur/31_libpng/libpng-1.5.14'
+ /bin/mkdir -p '/opt/bin'
+ /bin/install -c libpng15-config '/opt/bin'
+ /bin/mkdir -p '/opt/lib'
+ /bin/sh ./libtool   --mode=install /bin/install -c   libpng15.la '/opt/lib'
+libtool: install: /bin/install -c .libs/libpng15.dll.a /opt/lib/libpng15.dll.a
+libtool: install: base_file=`basename libpng15.la`
+libtool: install:  dlpath=`/bin/sh 2>&1 -c '. .libs/'libpng15.la'i; echo libpng15-15.dll'`
+libtool: install:  dldir=/opt/lib/`dirname ../bin/libpng15-15.dll`
+libtool: install:  test -d /opt/lib/../bin || mkdir -p /opt/lib/../bin
+libtool: install:  /bin/install -c .libs/libpng15-15.dll /opt/lib/../bin/libpng15-15.dll
+libtool: install:  chmod a+x /opt/lib/../bin/libpng15-15.dll
+libtool: install:  if test -n '' && test -n 'x86_64-w64-mingw32-strip --strip-unneeded'; then eval 'x86_64-w64-mingw32-strip --strip-unneeded /opt/lib/../bin/libpng15-15.dll' || exit 0; fi
+libtool: install: /bin/install -c .libs/libpng15.lai /opt/lib/libpng15.la
+libtool: install: /bin/install -c .libs/libpng15.a /opt/lib/libpng15.a
+libtool: install: chmod 644 /opt/lib/libpng15.a
+libtool: install: x86_64-w64-mingw32-ranlib /opt/lib/libpng15.a
+make  install-exec-hook
+make[2]: Entering directory `/home/Administrateur/31_libpng/libpng-1.5.14'
+cd '/opt/bin'; rm -f libpng-config
+cd '/opt/bin';\
+	   ln -s libpng15-config libpng-config
++ cd /opt/lib
++ for ext in a la so so.15.14 sl dylib dll.a
++ rm -f libpng.a
++ test -f libpng15.a
++ ln -s libpng15.a libpng.a
++ for ext in a la so so.15.14 sl dylib dll.a
++ rm -f libpng.la
++ test -f libpng15.la
++ ln -s libpng15.la libpng.la
++ for ext in a la so so.15.14 sl dylib dll.a
++ rm -f libpng.so
++ test -f libpng15.so
++ for ext in a la so so.15.14 sl dylib dll.a
++ rm -f libpng.so.15.14
++ test -f libpng15.so.15.14
++ for ext in a la so so.15.14 sl dylib dll.a
++ rm -f libpng.sl
++ test -f libpng15.sl
++ for ext in a la so so.15.14 sl dylib dll.a
++ rm -f libpng.dylib
++ test -f libpng15.dylib
++ for ext in a la so so.15.14 sl dylib dll.a
++ rm -f libpng.dll.a
++ test -f libpng15.dll.a
++ ln -s libpng15.dll.a libpng.dll.a
+make[2]: Leaving directory `/home/Administrateur/31_libpng/libpng-1.5.14'
+ /bin/mkdir -p '/opt/share/man/man3'
+ /bin/install -c -m 644 libpng.3 libpngpf.3 '/opt/share/man/man3'
+ /bin/mkdir -p '/opt/share/man/man5'
+ /bin/install -c -m 644 png.5 '/opt/share/man/man5'
+ /bin/mkdir -p '/opt/include/libpng15'
+ /bin/install -c -m 644 pnglibconf.h '/opt/include/libpng15'
+ /bin/mkdir -p '/opt/lib/pkgconfig'
+ /bin/install -c -m 644 libpng15.pc '/opt/lib/pkgconfig'
+ /bin/mkdir -p '/opt/include/libpng15'
+ /bin/install -c -m 644 png.h pngconf.h '/opt/include/libpng15'
+make  install-data-hook
+make[2]: Entering directory `/home/Administrateur/31_libpng/libpng-1.5.14'
+cd '/opt/include'; rm -f png.h pngconf.h pnglibconf.h
+cd '/opt/include'; ln -s libpng15/png.h png.h
+cd '/opt/include'; ln -s libpng15/pngconf.h \
+		pngconf.h
+cd '/opt/include'; ln -s libpng15/pnglibconf.h \
+		pnglibconf.h
+cd '/opt/lib/pkgconfig'; rm -f libpng.pc
+cd '/opt/lib/pkgconfig'; ln -s libpng15.pc libpng.pc
+make[2]: Leaving directory `/home/Administrateur/31_libpng/libpng-1.5.14'
+make[1]: Leaving directory `/home/Administrateur/31_libpng/libpng-1.5.14'

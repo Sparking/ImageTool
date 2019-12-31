@@ -1,0 +1,177 @@
+Making install in src
+make[1]: Entering directory `/home/Administrateur/42_libjasper/jasper-1.900.1/src'
+Making install in libjasper
+make[2]: Entering directory `/home/Administrateur/42_libjasper/jasper-1.900.1/src/libjasper'
+Making install in include
+make[3]: Entering directory `/home/Administrateur/42_libjasper/jasper-1.900.1/src/libjasper/include'
+Making install in jasper
+make[4]: Entering directory `/home/Administrateur/42_libjasper/jasper-1.900.1/src/libjasper/include/jasper'
+make[5]: Entering directory `/home/Administrateur/42_libjasper/jasper-1.900.1/src/libjasper/include/jasper'
+make[5]: Nothing to be done for `install-exec-am'.
+test -z "/opt/include/jasper" || mkdir -p -- "/opt/include/jasper"
+ /bin/install -c -m 644 'jasper.h' '/opt/include/jasper/jasper.h'
+ /bin/install -c -m 644 'jas_config.h' '/opt/include/jasper/jas_config.h'
+ /bin/install -c -m 644 'jas_config2.h' '/opt/include/jasper/jas_config2.h'
+ /bin/install -c -m 644 'jas_cm.h' '/opt/include/jasper/jas_cm.h'
+ /bin/install -c -m 644 'jas_fix.h' '/opt/include/jasper/jas_fix.h'
+ /bin/install -c -m 644 'jas_debug.h' '/opt/include/jasper/jas_debug.h'
+ /bin/install -c -m 644 'jas_getopt.h' '/opt/include/jasper/jas_getopt.h'
+ /bin/install -c -m 644 'jas_icc.h' '/opt/include/jasper/jas_icc.h'
+ /bin/install -c -m 644 'jas_image.h' '/opt/include/jasper/jas_image.h'
+ /bin/install -c -m 644 'jas_init.h' '/opt/include/jasper/jas_init.h'
+ /bin/install -c -m 644 'jas_malloc.h' '/opt/include/jasper/jas_malloc.h'
+ /bin/install -c -m 644 'jas_math.h' '/opt/include/jasper/jas_math.h'
+ /bin/install -c -m 644 'jas_seq.h' '/opt/include/jasper/jas_seq.h'
+ /bin/install -c -m 644 'jas_stream.h' '/opt/include/jasper/jas_stream.h'
+ /bin/install -c -m 644 'jas_string.h' '/opt/include/jasper/jas_string.h'
+ /bin/install -c -m 644 'jas_tmr.h' '/opt/include/jasper/jas_tmr.h'
+ /bin/install -c -m 644 'jas_tvp.h' '/opt/include/jasper/jas_tvp.h'
+ /bin/install -c -m 644 'jas_types.h' '/opt/include/jasper/jas_types.h'
+ /bin/install -c -m 644 'jas_version.h' '/opt/include/jasper/jas_version.h'
+make[5]: Leaving directory `/home/Administrateur/42_libjasper/jasper-1.900.1/src/libjasper/include/jasper'
+make[4]: Leaving directory `/home/Administrateur/42_libjasper/jasper-1.900.1/src/libjasper/include/jasper'
+make[4]: Entering directory `/home/Administrateur/42_libjasper/jasper-1.900.1/src/libjasper/include'
+make[5]: Entering directory `/home/Administrateur/42_libjasper/jasper-1.900.1/src/libjasper/include'
+make[5]: Nothing to be done for `install-exec-am'.
+make[5]: Nothing to be done for `install-data-am'.
+make[5]: Leaving directory `/home/Administrateur/42_libjasper/jasper-1.900.1/src/libjasper/include'
+make[4]: Leaving directory `/home/Administrateur/42_libjasper/jasper-1.900.1/src/libjasper/include'
+make[3]: Leaving directory `/home/Administrateur/42_libjasper/jasper-1.900.1/src/libjasper/include'
+Making install in base
+make[3]: Entering directory `/home/Administrateur/42_libjasper/jasper-1.900.1/src/libjasper/base'
+make[4]: Entering directory `/home/Administrateur/42_libjasper/jasper-1.900.1/src/libjasper/base'
+make[4]: Nothing to be done for `install-exec-am'.
+make[4]: Nothing to be done for `install-data-am'.
+make[4]: Leaving directory `/home/Administrateur/42_libjasper/jasper-1.900.1/src/libjasper/base'
+make[3]: Leaving directory `/home/Administrateur/42_libjasper/jasper-1.900.1/src/libjasper/base'
+Making install in bmp
+make[3]: Entering directory `/home/Administrateur/42_libjasper/jasper-1.900.1/src/libjasper/bmp'
+make[4]: Entering directory `/home/Administrateur/42_libjasper/jasper-1.900.1/src/libjasper/bmp'
+make[4]: Nothing to be done for `install-exec-am'.
+make[4]: Nothing to be done for `install-data-am'.
+make[4]: Leaving directory `/home/Administrateur/42_libjasper/jasper-1.900.1/src/libjasper/bmp'
+make[3]: Leaving directory `/home/Administrateur/42_libjasper/jasper-1.900.1/src/libjasper/bmp'
+Making install in jp2
+make[3]: Entering directory `/home/Administrateur/42_libjasper/jasper-1.900.1/src/libjasper/jp2'
+make[4]: Entering directory `/home/Administrateur/42_libjasper/jasper-1.900.1/src/libjasper/jp2'
+make[4]: Nothing to be done for `install-exec-am'.
+make[4]: Nothing to be done for `install-data-am'.
+make[4]: Leaving directory `/home/Administrateur/42_libjasper/jasper-1.900.1/src/libjasper/jp2'
+make[3]: Leaving directory `/home/Administrateur/42_libjasper/jasper-1.900.1/src/libjasper/jp2'
+Making install in jpc
+make[3]: Entering directory `/home/Administrateur/42_libjasper/jasper-1.900.1/src/libjasper/jpc'
+make[4]: Entering directory `/home/Administrateur/42_libjasper/jasper-1.900.1/src/libjasper/jpc'
+make[4]: Nothing to be done for `install-exec-am'.
+make[4]: Nothing to be done for `install-data-am'.
+make[4]: Leaving directory `/home/Administrateur/42_libjasper/jasper-1.900.1/src/libjasper/jpc'
+make[3]: Leaving directory `/home/Administrateur/42_libjasper/jasper-1.900.1/src/libjasper/jpc'
+Making install in jpg
+make[3]: Entering directory `/home/Administrateur/42_libjasper/jasper-1.900.1/src/libjasper/jpg'
+make[4]: Entering directory `/home/Administrateur/42_libjasper/jasper-1.900.1/src/libjasper/jpg'
+make[4]: Nothing to be done for `install-exec-am'.
+make[4]: Nothing to be done for `install-data-am'.
+make[4]: Leaving directory `/home/Administrateur/42_libjasper/jasper-1.900.1/src/libjasper/jpg'
+make[3]: Leaving directory `/home/Administrateur/42_libjasper/jasper-1.900.1/src/libjasper/jpg'
+Making install in mif
+make[3]: Entering directory `/home/Administrateur/42_libjasper/jasper-1.900.1/src/libjasper/mif'
+make[4]: Entering directory `/home/Administrateur/42_libjasper/jasper-1.900.1/src/libjasper/mif'
+make[4]: Nothing to be done for `install-exec-am'.
+make[4]: Nothing to be done for `install-data-am'.
+make[4]: Leaving directory `/home/Administrateur/42_libjasper/jasper-1.900.1/src/libjasper/mif'
+make[3]: Leaving directory `/home/Administrateur/42_libjasper/jasper-1.900.1/src/libjasper/mif'
+Making install in pgx
+make[3]: Entering directory `/home/Administrateur/42_libjasper/jasper-1.900.1/src/libjasper/pgx'
+make[4]: Entering directory `/home/Administrateur/42_libjasper/jasper-1.900.1/src/libjasper/pgx'
+make[4]: Nothing to be done for `install-exec-am'.
+make[4]: Nothing to be done for `install-data-am'.
+make[4]: Leaving directory `/home/Administrateur/42_libjasper/jasper-1.900.1/src/libjasper/pgx'
+make[3]: Leaving directory `/home/Administrateur/42_libjasper/jasper-1.900.1/src/libjasper/pgx'
+Making install in pnm
+make[3]: Entering directory `/home/Administrateur/42_libjasper/jasper-1.900.1/src/libjasper/pnm'
+make[4]: Entering directory `/home/Administrateur/42_libjasper/jasper-1.900.1/src/libjasper/pnm'
+make[4]: Nothing to be done for `install-exec-am'.
+make[4]: Nothing to be done for `install-data-am'.
+make[4]: Leaving directory `/home/Administrateur/42_libjasper/jasper-1.900.1/src/libjasper/pnm'
+make[3]: Leaving directory `/home/Administrateur/42_libjasper/jasper-1.900.1/src/libjasper/pnm'
+Making install in ras
+make[3]: Entering directory `/home/Administrateur/42_libjasper/jasper-1.900.1/src/libjasper/ras'
+make[4]: Entering directory `/home/Administrateur/42_libjasper/jasper-1.900.1/src/libjasper/ras'
+make[4]: Nothing to be done for `install-exec-am'.
+make[4]: Nothing to be done for `install-data-am'.
+make[4]: Leaving directory `/home/Administrateur/42_libjasper/jasper-1.900.1/src/libjasper/ras'
+make[3]: Leaving directory `/home/Administrateur/42_libjasper/jasper-1.900.1/src/libjasper/ras'
+make[3]: Entering directory `/home/Administrateur/42_libjasper/jasper-1.900.1/src/libjasper'
+make[4]: Entering directory `/home/Administrateur/42_libjasper/jasper-1.900.1/src/libjasper'
+test -z "/opt/lib" || mkdir -p -- "/opt/lib"
+ /bin/sh ../../libtool --mode=install /bin/install -c  'libjasper.la' '/opt/lib/libjasper.la'
+/bin/install -c .libs/libjasper.dll.a /opt/lib/libjasper.dll.a
+base_file=`basename ${file}`
+ dlpath=`/bin/sh 2>&1 -c '. .libs/'${base_file}'i;echo $dlname'`
+ dldir=/opt/lib/`dirname $dlpath`
+ test -d $dldir || mkdir -p $dldir
+ /bin/install -c .libs/libjasper-1.dll $dldir/libjasper-1.dll
+ chmod a+x $dldir/libjasper-1.dll
+/bin/install -c .libs/libjasper.lai /opt/lib/libjasper.la
+/bin/install -c .libs/libjasper.a /opt/lib/libjasper.a
+chmod 644 /opt/lib/libjasper.a
+ranlib /opt/lib/libjasper.a
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /opt/lib
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the `-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the `PATH' environment variable
+     during execution
+   - add LIBDIR to the `LD_RUN_PATH' environment variable
+     during linking
+   - use the `-LLIBDIR' linker flag
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+make[4]: Nothing to be done for `install-data-am'.
+make[4]: Leaving directory `/home/Administrateur/42_libjasper/jasper-1.900.1/src/libjasper'
+make[3]: Leaving directory `/home/Administrateur/42_libjasper/jasper-1.900.1/src/libjasper'
+make[2]: Leaving directory `/home/Administrateur/42_libjasper/jasper-1.900.1/src/libjasper'
+Making install in appl
+make[2]: Entering directory `/home/Administrateur/42_libjasper/jasper-1.900.1/src/appl'
+make[3]: Entering directory `/home/Administrateur/42_libjasper/jasper-1.900.1/src/appl'
+test -z "/opt/bin" || mkdir -p -- "/opt/bin"
+  /bin/sh ../../libtool --mode=install /bin/install -c 'jasper.exe' '/opt/bin/jasper.exe'
+/bin/install -c .libs/jasper.exe /opt/bin/jasper.exe
+  /bin/sh ../../libtool --mode=install /bin/install -c 'imgcmp.exe' '/opt/bin/imgcmp.exe'
+/bin/install -c .libs/imgcmp.exe /opt/bin/imgcmp.exe
+  /bin/sh ../../libtool --mode=install /bin/install -c 'imginfo.exe' '/opt/bin/imginfo.exe'
+/bin/install -c .libs/imginfo.exe /opt/bin/imginfo.exe
+  /bin/sh ../../libtool --mode=install /bin/install -c 'tmrdemo.exe' '/opt/bin/tmrdemo.exe'
+/bin/install -c .libs/tmrdemo.exe /opt/bin/tmrdemo.exe
+test -z "/opt/man/man1" || mkdir -p -- "/opt/man/man1"
+ /bin/install -c -m 644 './imgcmp.1' '/opt/man/man1/imgcmp.1'
+ /bin/install -c -m 644 './imginfo.1' '/opt/man/man1/imginfo.1'
+ /bin/install -c -m 644 './jasper.1' '/opt/man/man1/jasper.1'
+ /bin/install -c -m 644 './jiv.1' '/opt/man/man1/jiv.1'
+make[3]: Leaving directory `/home/Administrateur/42_libjasper/jasper-1.900.1/src/appl'
+make[2]: Leaving directory `/home/Administrateur/42_libjasper/jasper-1.900.1/src/appl'
+Making install in msvc
+make[2]: Entering directory `/home/Administrateur/42_libjasper/jasper-1.900.1/src/msvc'
+make[3]: Entering directory `/home/Administrateur/42_libjasper/jasper-1.900.1/src/msvc'
+make[3]: Nothing to be done for `install-exec-am'.
+make[3]: Nothing to be done for `install-data-am'.
+make[3]: Leaving directory `/home/Administrateur/42_libjasper/jasper-1.900.1/src/msvc'
+make[2]: Leaving directory `/home/Administrateur/42_libjasper/jasper-1.900.1/src/msvc'
+make[2]: Entering directory `/home/Administrateur/42_libjasper/jasper-1.900.1/src'
+make[3]: Entering directory `/home/Administrateur/42_libjasper/jasper-1.900.1/src'
+make[3]: Nothing to be done for `install-exec-am'.
+make[3]: Nothing to be done for `install-data-am'.
+make[3]: Leaving directory `/home/Administrateur/42_libjasper/jasper-1.900.1/src'
+make[2]: Leaving directory `/home/Administrateur/42_libjasper/jasper-1.900.1/src'
+make[1]: Leaving directory `/home/Administrateur/42_libjasper/jasper-1.900.1/src'
+make[1]: Entering directory `/home/Administrateur/42_libjasper/jasper-1.900.1'
+make[2]: Entering directory `/home/Administrateur/42_libjasper/jasper-1.900.1'
+make[2]: Nothing to be done for `install-exec-am'.
+make[2]: Nothing to be done for `install-data-am'.
+make[2]: Leaving directory `/home/Administrateur/42_libjasper/jasper-1.900.1'
+make[1]: Leaving directory `/home/Administrateur/42_libjasper/jasper-1.900.1'

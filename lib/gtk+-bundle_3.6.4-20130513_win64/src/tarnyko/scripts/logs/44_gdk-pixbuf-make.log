@@ -1,0 +1,176 @@
+make  all-recursive
+make[1]: Entering directory `/home/Administrateur/44_gdk-pixbuf/gdk-pixbuf-2.26.5'
+Making all in gdk-pixbuf
+make[2]: Entering directory `/home/Administrateur/44_gdk-pixbuf/gdk-pixbuf-2.26.5/gdk-pixbuf'
+  GEN      s-enum-types-h
+  GEN      stamp-gdk-pixbuf-marshal.h
+make  all-recursive
+make[3]: Entering directory `/home/Administrateur/44_gdk-pixbuf/gdk-pixbuf-2.26.5/gdk-pixbuf'
+Making all in pixops
+make[4]: Entering directory `/home/Administrateur/44_gdk-pixbuf/gdk-pixbuf-2.26.5/gdk-pixbuf/pixops'
+  CC       pixops.lo
+  CCLD     libpixops.la
+  CC       timescale.o
+  CCLD     timescale.exe
+make[4]: Leaving directory `/home/Administrateur/44_gdk-pixbuf/gdk-pixbuf-2.26.5/gdk-pixbuf/pixops'
+make[4]: Entering directory `/home/Administrateur/44_gdk-pixbuf/gdk-pixbuf-2.26.5/gdk-pixbuf'
+  CC       gdk-pixbuf.lo
+  CC       gdk-pixbuf-animation.lo
+  CC       gdk-pixbuf-data.lo
+  CC       gdk-pixbuf-io.lo
+  CC       gdk-pixbuf-loader.lo
+  CC       gdk-pixbuf-scale.lo
+  CC       gdk-pixbuf-simple-anim.lo
+  CC       gdk-pixbuf-scaled-anim.lo
+  CC       gdk-pixbuf-util.lo
+  CC       gdk-pixdata.lo
+  CC       gdk-pixbuf-enum-types.lo
+  CC       io-ani.lo
+  CC       io-ani-animation.lo
+  CCLD     libstatic-pixbufloader-ani.la
+  CC       io-icns.lo
+  CCLD     libstatic-pixbufloader-icns.la
+  CC       io-pcx.lo
+  CCLD     libstatic-pixbufloader-pcx.la
+  CC       io-ras.lo
+  CCLD     libstatic-pixbufloader-ras.la
+  CC       io-tga.lo
+  CCLD     libstatic-pixbufloader-tga.la
+  CC       io-png.lo
+  CCLD     libstatic-pixbufloader-png.la
+  CC       io-pnm.lo
+  CCLD     libstatic-pixbufloader-pnm.la
+  CC       io-wbmp.lo
+  CCLD     libstatic-pixbufloader-wbmp.la
+  CC       io-xbm.lo
+  CCLD     libstatic-pixbufloader-xbm.la
+  CC       io-xpm.lo
+  CCLD     libstatic-pixbufloader-xpm.la
+  CC       io-qtif.lo
+  CCLD     libstatic-pixbufloader-qtif.la
+  CC       io-gdip-bmp.lo
+io-gdip-bmp.c: In function '_gdk_pixbuf__gdip_bmp_fill_info':
+io-gdip-bmp.c:82:21: warning: assignment discards 'const' qualifier from pointer target type [enabled by default]
+  CCLD     libstatic-pixbufloader-gdip-bmp.la
+  CC       io-gdip-emf.lo
+io-gdip-emf.c: In function '_gdk_pixbuf__gdip_emf_fill_info':
+io-gdip-emf.c:59:21: warning: assignment discards 'const' qualifier from pointer target type [enabled by default]
+  CCLD     libstatic-pixbufloader-gdip-emf.la
+  CC       io-gdip-gif.lo
+io-gdip-gif.c: In function '_gdk_pixbuf__gdip_gif_fill_info':
+io-gdip-gif.c:80:21: warning: assignment discards 'const' qualifier from pointer target type [enabled by default]
+  CCLD     libstatic-pixbufloader-gdip-gif.la
+  CC       io-gdip-utils.lo
+io-gdip-utils.c: In function 'gdip_buffer_to_bitmap':
+io-gdip-utils.c:285:3: warning: pointer targets in passing argument 1 of 'gdip_buffer_to_hglobal' differ in signedness [-Wpointer-sign]
+io-gdip-utils.c:147:1: note: expected 'const gchar *' but argument is of type 'guint8 *'
+io-gdip-utils.c: In function 'gdip_buffer_to_image':
+io-gdip-utils.c:325:3: warning: pointer targets in passing argument 1 of 'gdip_buffer_to_hglobal' differ in signedness [-Wpointer-sign]
+io-gdip-utils.c:147:1: note: expected 'const gchar *' but argument is of type 'guint8 *'
+io-gdip-utils.c: In function 'gdk_pixbuf__gdip_image_load_animation':
+io-gdip-utils.c:851:7: warning: pointer targets in passing argument 2 of 'gdk_pixbuf__gdip_image_load_increment' differ in signedness [-Wpointer-sign]
+io-gdip-utils.c:587:1: note: expected 'const guchar *' but argument is of type 'char *'
+  CC       io-gdip-animation.lo
+  CC       io-gdip-ico.lo
+io-gdip-ico.c: In function '_gdk_pixbuf__gdip_ico_fill_info':
+io-gdip-ico.c:59:21: warning: assignment discards 'const' qualifier from pointer target type [enabled by default]
+  CCLD     libstatic-pixbufloader-gdip-ico.la
+  CC       io-gdip-jpeg.lo
+io-gdip-jpeg.c: In function '_gdk_pixbuf__gdip_jpeg_fill_info':
+io-gdip-jpeg.c:136:21: warning: assignment discards 'const' qualifier from pointer target type [enabled by default]
+  CCLD     libstatic-pixbufloader-gdip-jpeg.la
+  CC       io-gdip-tiff.lo
+  CCLD     libstatic-pixbufloader-gdip-tiff.la
+  CC       io-gdip-wmf.lo
+io-gdip-wmf.c: In function '_gdk_pixbuf__gdip_wmf_fill_info':
+io-gdip-wmf.c:58:21: warning: assignment discards 'const' qualifier from pointer target type [enabled by default]
+  CCLD     libstatic-pixbufloader-gdip-wmf.la
+  CC       io-pixdata.lo
+  CCLD     libstatic-pixbufloader-pixdata.la
+  GEN      gdk_pixbuf-win32-res.o
+  GEN      libgdiplus.dll.a
+  CCLD     libgdk_pixbuf-2.0.la
+  CC       gdk-pixbuf-csource.o
+  CCLD     gdk-pixbuf-csource.exe
+  CC       gdk-pixbuf-pixdata.o
+  CCLD     gdk-pixbuf-pixdata.exe
+  CC       queryloaders.o
+  CCLD     gdk-pixbuf-query-loaders.exe
+  CC       test-gdk-pixbuf.o
+  CCLD     test-gdk-pixbuf.exe
+LOADERS=`echo libpixbufloader-*.la` ; \
+	if test "x$LOADERS" != 'xlibpixbufloader-*.la' ; then \
+          echo "Writing a loaders.cache file to use when running examples before installing gdk-pixbuf."; \
+	  ../gdk-pixbuf/gdk-pixbuf-query-loaders $LOADERS > ./loaders.cache ;\
+	else \
+          echo "No dynamic modules found; will use only static modules for uninstalled example programs."; \
+	  touch loaders.cache; \
+	fi
+No dynamic modules found; will use only static modules for uninstalled example programs.
+make[4]: Leaving directory `/home/Administrateur/44_gdk-pixbuf/gdk-pixbuf-2.26.5/gdk-pixbuf'
+make[3]: Leaving directory `/home/Administrateur/44_gdk-pixbuf/gdk-pixbuf-2.26.5/gdk-pixbuf'
+make[2]: Leaving directory `/home/Administrateur/44_gdk-pixbuf/gdk-pixbuf-2.26.5/gdk-pixbuf'
+Making all in po
+make[2]: Entering directory `/home/Administrateur/44_gdk-pixbuf/gdk-pixbuf-2.26.5/po'
+make[2]: Leaving directory `/home/Administrateur/44_gdk-pixbuf/gdk-pixbuf-2.26.5/po'
+Making all in docs
+make[2]: Entering directory `/home/Administrateur/44_gdk-pixbuf/gdk-pixbuf-2.26.5/docs'
+Making all in reference
+make[3]: Entering directory `/home/Administrateur/44_gdk-pixbuf/gdk-pixbuf-2.26.5/docs/reference'
+Making all in gdk-pixbuf
+make[4]: Entering directory `/home/Administrateur/44_gdk-pixbuf/gdk-pixbuf-2.26.5/docs/reference/gdk-pixbuf'
+make[4]: Nothing to be done for `all'.
+make[4]: Leaving directory `/home/Administrateur/44_gdk-pixbuf/gdk-pixbuf-2.26.5/docs/reference/gdk-pixbuf'
+make[4]: Entering directory `/home/Administrateur/44_gdk-pixbuf/gdk-pixbuf-2.26.5/docs/reference'
+make[4]: Nothing to be done for `all-am'.
+make[4]: Leaving directory `/home/Administrateur/44_gdk-pixbuf/gdk-pixbuf-2.26.5/docs/reference'
+make[3]: Leaving directory `/home/Administrateur/44_gdk-pixbuf/gdk-pixbuf-2.26.5/docs/reference'
+make[3]: Entering directory `/home/Administrateur/44_gdk-pixbuf/gdk-pixbuf-2.26.5/docs'
+make[3]: Nothing to be done for `all-am'.
+make[3]: Leaving directory `/home/Administrateur/44_gdk-pixbuf/gdk-pixbuf-2.26.5/docs'
+make[2]: Leaving directory `/home/Administrateur/44_gdk-pixbuf/gdk-pixbuf-2.26.5/docs'
+Making all in tests
+make[2]: Entering directory `/home/Administrateur/44_gdk-pixbuf/gdk-pixbuf-2.26.5/tests'
+  CC       pixbuf-read.o
+  CCLD     pixbuf-read.exe
+  CC       pixbuf-lowmem.o
+  CCLD     pixbuf-lowmem.exe
+  CC       pixbuf-randomly-modified.o
+  CCLD     pixbuf-randomly-modified.exe
+  CC       pixbuf-random.o
+  CCLD     pixbuf-random.exe
+  CC       pixbuf-threads.o
+pixbuf-threads.c: In function 'main':
+pixbuf-threads.c:93:5: warning: 'g_thread_init' is deprecated (declared at C:/msys/1.0/opt/include/glib-2.0/glib/deprecated/gthread.h:259) [-Wdeprecated-declarations]
+  CCLD     pixbuf-threads.exe
+make[2]: Leaving directory `/home/Administrateur/44_gdk-pixbuf/gdk-pixbuf-2.26.5/tests'
+Making all in contrib
+make[2]: Entering directory `/home/Administrateur/44_gdk-pixbuf/gdk-pixbuf-2.26.5/contrib'
+make[3]: Entering directory `/home/Administrateur/44_gdk-pixbuf/gdk-pixbuf-2.26.5/contrib'
+make[3]: Nothing to be done for `all-am'.
+make[3]: Leaving directory `/home/Administrateur/44_gdk-pixbuf/gdk-pixbuf-2.26.5/contrib'
+make[2]: Leaving directory `/home/Administrateur/44_gdk-pixbuf/gdk-pixbuf-2.26.5/contrib'
+Making all in build
+make[2]: Entering directory `/home/Administrateur/44_gdk-pixbuf/gdk-pixbuf-2.26.5/build'
+Making all in win32
+make[3]: Entering directory `/home/Administrateur/44_gdk-pixbuf/gdk-pixbuf-2.26.5/build/win32'
+Making all in vs9
+make[4]: Entering directory `/home/Administrateur/44_gdk-pixbuf/gdk-pixbuf-2.26.5/build/win32/vs9'
+make[4]: Nothing to be done for `all'.
+make[4]: Leaving directory `/home/Administrateur/44_gdk-pixbuf/gdk-pixbuf-2.26.5/build/win32/vs9'
+Making all in vs10
+make[4]: Entering directory `/home/Administrateur/44_gdk-pixbuf/gdk-pixbuf-2.26.5/build/win32/vs10'
+make[4]: Nothing to be done for `all'.
+make[4]: Leaving directory `/home/Administrateur/44_gdk-pixbuf/gdk-pixbuf-2.26.5/build/win32/vs10'
+make[4]: Entering directory `/home/Administrateur/44_gdk-pixbuf/gdk-pixbuf-2.26.5/build/win32'
+make[4]: Nothing to be done for `all-am'.
+make[4]: Leaving directory `/home/Administrateur/44_gdk-pixbuf/gdk-pixbuf-2.26.5/build/win32'
+make[3]: Leaving directory `/home/Administrateur/44_gdk-pixbuf/gdk-pixbuf-2.26.5/build/win32'
+make[3]: Entering directory `/home/Administrateur/44_gdk-pixbuf/gdk-pixbuf-2.26.5/build'
+make[3]: Nothing to be done for `all-am'.
+make[3]: Leaving directory `/home/Administrateur/44_gdk-pixbuf/gdk-pixbuf-2.26.5/build'
+make[2]: Leaving directory `/home/Administrateur/44_gdk-pixbuf/gdk-pixbuf-2.26.5/build'
+make[2]: Entering directory `/home/Administrateur/44_gdk-pixbuf/gdk-pixbuf-2.26.5'
+make[2]: Nothing to be done for `all-am'.
+make[2]: Leaving directory `/home/Administrateur/44_gdk-pixbuf/gdk-pixbuf-2.26.5'
+make[1]: Leaving directory `/home/Administrateur/44_gdk-pixbuf/gdk-pixbuf-2.26.5'

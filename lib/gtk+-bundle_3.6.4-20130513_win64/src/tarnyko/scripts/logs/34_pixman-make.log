@@ -1,0 +1,212 @@
+make  all-recursive
+make[1]: Entering directory `/home/Administrateur/34_pixman/pixman-0.26.0'
+Making all in pixman
+make[2]: Entering directory `/home/Administrateur/34_pixman/pixman-0.26.0/pixman'
+make  all-am
+make[3]: Entering directory `/home/Administrateur/34_pixman/pixman-0.26.0/pixman'
+  CC     pixman.lo
+  CC     pixman-access.lo
+  CC     pixman-access-accessors.lo
+  CC     pixman-bits-image.lo
+  CC     pixman-combine32.lo
+  CC     pixman-combine64.lo
+  CC     pixman-conical-gradient.lo
+  CC     pixman-cpu.lo
+  CC     pixman-edge.lo
+  CC     pixman-edge-accessors.lo
+  CC     pixman-fast-path.lo
+pixman-fast-path.c: In function 'fetch_24':
+pixman-fast-path.c:38:10: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+pixman-fast-path.c: In function 'store_24':
+pixman-fast-path.c:60:10: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+  CC     pixman-general.lo
+  CC     pixman-gradient-walker.lo
+  CC     pixman-image.lo
+  CC     pixman-implementation.lo
+  CC     pixman-linear-gradient.lo
+  CC     pixman-matrix.lo
+  CC     pixman-noop.lo
+  CC     pixman-radial-gradient.lo
+  CC     pixman-region16.lo
+  CC     pixman-region32.lo
+  CC     pixman-solid-fill.lo
+  CC     pixman-timer.lo
+  CC     pixman-trap.lo
+  CC     pixman-utils.lo
+pixman-utils.c:44:1: warning: 'thread' attribute directive ignored [-Wattributes]
+  CC     libpixman_sse2_la-pixman-sse2.lo
+pixman-sse2.c: In function 'core_combine_over_u_sse2_mask':
+pixman-sse2.c:553:18: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+pixman-sse2.c: In function 'core_combine_over_u_sse2_no_mask':
+pixman-sse2.c:638:18: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+pixman-sse2.c: In function 'sse2_combine_over_reverse_u':
+pixman-sse2.c:730:13: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+pixman-sse2.c: In function 'sse2_combine_in_u':
+pixman-sse2.c:817:18: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+pixman-sse2.c: In function 'sse2_combine_in_reverse_u':
+pixman-sse2.c:878:18: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+pixman-sse2.c: In function 'sse2_combine_out_reverse_u':
+pixman-sse2.c:934:18: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+pixman-sse2.c: In function 'sse2_combine_out_u':
+pixman-sse2.c:1003:18: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+pixman-sse2.c: In function 'sse2_combine_atop_u':
+pixman-sse2.c:1090:18: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+pixman-sse2.c: In function 'sse2_combine_atop_reverse_u':
+pixman-sse2.c:1174:18: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+pixman-sse2.c: In function 'sse2_combine_xor_u':
+pixman-sse2.c:1262:18: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+pixman-sse2.c: In function 'sse2_combine_add_u':
+pixman-sse2.c:1334:17: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+pixman-sse2.c: In function 'sse2_combine_saturate_u':
+pixman-sse2.c:1407:17: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+pixman-sse2.c: In function 'sse2_combine_src_ca':
+pixman-sse2.c:1495:17: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+pixman-sse2.c: In function 'sse2_combine_over_ca':
+pixman-sse2.c:1563:17: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+pixman-sse2.c: In function 'sse2_combine_over_reverse_ca':
+pixman-sse2.c:1639:17: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+pixman-sse2.c: In function 'sse2_combine_in_ca':
+pixman-sse2.c:1704:17: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+pixman-sse2.c: In function 'sse2_combine_in_reverse_ca':
+pixman-sse2.c:1779:17: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+pixman-sse2.c: In function 'sse2_combine_out_ca':
+pixman-sse2.c:1852:17: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+pixman-sse2.c: In function 'sse2_combine_out_reverse_ca':
+pixman-sse2.c:1928:17: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+pixman-sse2.c: In function 'sse2_combine_atop_ca':
+pixman-sse2.c:2025:17: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+pixman-sse2.c: In function 'sse2_combine_atop_reverse_ca':
+pixman-sse2.c:2118:17: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+pixman-sse2.c: In function 'sse2_combine_xor_ca':
+pixman-sse2.c:2214:17: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+pixman-sse2.c: In function 'sse2_combine_add_ca':
+pixman-sse2.c:2290:17: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+pixman-sse2.c: In function 'sse2_composite_over_n_8888':
+pixman-sse2.c:2391:14: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+pixman-sse2.c: In function 'sse2_composite_over_n_0565':
+pixman-sse2.c:2460:14: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+pixman-sse2.c: In function 'sse2_composite_add_n_8888_8888_ca':
+pixman-sse2.c:2545:14: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+pixman-sse2.c: In function 'sse2_composite_over_n_8888_8888_ca':
+pixman-sse2.c:2659:14: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+pixman-sse2.c: In function 'sse2_composite_over_8888_n_8888':
+pixman-sse2.c:2763:14: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+pixman-sse2.c: In function 'sse2_composite_src_x888_8888':
+pixman-sse2.c:2858:14: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+pixman-sse2.c: In function 'sse2_composite_over_x888_n_8888':
+pixman-sse2.c:2925:14: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+pixman-sse2.c: In function 'sse2_composite_over_8888_0565':
+pixman-sse2.c:3051:10: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+pixman-sse2.c: In function 'sse2_composite_over_n_8_8888':
+pixman-sse2.c:3157:14: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+pixman-sse2.c: In function 'pixman_fill_sse2':
+pixman-sse2.c:3294:17: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+pixman-sse2.c:3301:20: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+pixman-sse2.c:3308:20: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+pixman-sse2.c: In function 'sse2_composite_src_n_8_8888':
+pixman-sse2.c:3427:14: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+pixman-sse2.c: In function 'sse2_composite_over_n_8_0565':
+pixman-sse2.c:3543:14: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+pixman-sse2.c: In function 'sse2_composite_over_pixbuf_0565':
+pixman-sse2.c:3667:14: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+pixman-sse2.c: In function 'sse2_composite_over_pixbuf_8888':
+pixman-sse2.c:3776:14: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+pixman-sse2.c: In function 'sse2_composite_over_n_8888_0565_ca':
+pixman-sse2.c:3879:15: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+pixman-sse2.c: In function 'sse2_composite_in_n_8_8':
+pixman-sse2.c:4005:15: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+pixman-sse2.c: In function 'sse2_composite_in_n_8':
+pixman-sse2.c:4098:15: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+pixman-sse2.c: In function 'sse2_composite_in_8_8':
+pixman-sse2.c:4167:15: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+pixman-sse2.c: In function 'sse2_composite_add_n_8_8':
+pixman-sse2.c:4244:15: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+pixman-sse2.c: In function 'sse2_composite_add_n_8':
+pixman-sse2.c:4336:15: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+pixman-sse2.c: In function 'sse2_composite_add_8_8':
+pixman-sse2.c:4396:14: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+pixman-sse2.c: In function 'pixman_blt_sse2':
+pixman-sse2.c:4503:20: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+pixman-sse2.c:4511:20: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+pixman-sse2.c: In function 'sse2_composite_over_x888_8_8888':
+pixman-sse2.c:4619:21: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+pixman-sse2.c: In function 'sse2_composite_over_8888_8_8888':
+pixman-sse2.c:4743:21: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+pixman-sse2.c: In function 'sse2_composite_over_reverse_n_8888':
+pixman-sse2.c:4882:14: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+pixman-sse2.c: In function 'sse2_composite_over_8888_8888_8888':
+pixman-sse2.c:4967:21: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+pixman-sse2.c: In function 'scaled_nearest_scanline_sse2_8888_8888_OVER':
+pixman-sse2.c:5095:18: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+pixman-sse2.c: In function 'scaled_nearest_scanline_sse2_8888_n_8888_OVER':
+pixman-sse2.c:5198:17: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+pixman-sse2.c: In function 'scaled_bilinear_scanline_sse2_8888_8888_OVER':
+pixman-sse2.c:5415:18: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+pixman-sse2.c: In function 'scaled_bilinear_scanline_sse2_8888_8_8888_OVER':
+pixman-sse2.c:5516:18: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+pixman-sse2.c: In function 'sse2_fetch_x8r8g8b8':
+pixman-sse2.c:5843:18: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+pixman-sse2.c: In function 'sse2_fetch_r5g6b5':
+pixman-sse2.c:5879:18: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+pixman-sse2.c: In function 'sse2_fetch_a8':
+pixman-sse2.c:5925:19: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+  CCLD   libpixman-sse2.la
+  CCLD   libpixman-1.la
+make[3]: Leaving directory `/home/Administrateur/34_pixman/pixman-0.26.0/pixman'
+make[2]: Leaving directory `/home/Administrateur/34_pixman/pixman-0.26.0/pixman'
+Making all in demos
+make[2]: Entering directory `/home/Administrateur/34_pixman/pixman-0.26.0/demos'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/home/Administrateur/34_pixman/pixman-0.26.0/demos'
+Making all in test
+make[2]: Entering directory `/home/Administrateur/34_pixman/pixman-0.26.0/test'
+  CC     utils.lo
+utils.c:598:1: warning: 'on_alarm' defined but not used [-Wunused-function]
+  CCLD   libutils.la
+  CC     a1-trap-test.o
+  CCLD   a1-trap-test.exe
+  CC     pdf-op-test.o
+  CCLD   pdf-op-test.exe
+  CC     region-test.o
+  CCLD   region-test.exe
+  CC     region-translate-test.o
+  CCLD   region-translate-test.exe
+  CC     fetch-test.o
+  CCLD   fetch-test.exe
+  CC     oob-test.o
+  CCLD   oob-test.exe
+  CC     trap-crasher.o
+  CCLD   trap-crasher.exe
+  CC     alpha-loop.o
+  CCLD   alpha-loop.exe
+  CC     scaling-crash-test.o
+  CCLD   scaling-crash-test.exe
+  CC     scaling-helpers-test.o
+  CCLD   scaling-helpers-test.exe
+  CC     gradient-crash-test.o
+  CCLD   gradient-crash-test.exe
+  CC     region-contains-test.o
+  CCLD   region-contains-test.exe
+  CC     alphamap.o
+  CCLD   alphamap.exe
+  CC     stress-test.o
+  CCLD   stress-test.exe
+  CC     composite-traps-test.o
+  CCLD   composite-traps-test.exe
+  CC     blitters-test.o
+  CCLD   blitters-test.exe
+  CC     scaling-test.o
+  CCLD   scaling-test.exe
+  CC     affine-test.o
+  CCLD   affine-test.exe
+  CC     composite.o
+  CCLD   composite.exe
+  CC     lowlevel-blt-bench.o
+lowlevel-blt-bench.c: In function 'bench_L':
+lowlevel-blt-bench.c:151:18: warning: variable 'qx' set but not used [-Wunused-but-set-variable]
+  CCLD   lowlevel-blt-bench.exe
+make[2]: Leaving directory `/home/Administrateur/34_pixman/pixman-0.26.0/test'
+make[2]: Entering directory `/home/Administrateur/34_pixman/pixman-0.26.0'
+make[2]: Nothing to be done for `all-am'.
+make[2]: Leaving directory `/home/Administrateur/34_pixman/pixman-0.26.0'
+make[1]: Leaving directory `/home/Administrateur/34_pixman/pixman-0.26.0'

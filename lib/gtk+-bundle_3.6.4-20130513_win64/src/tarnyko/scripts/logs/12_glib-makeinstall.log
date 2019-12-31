@@ -1,0 +1,1016 @@
+Making install in .
+make[1]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3'
+make[2]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3'
+ /bin/mkdir -p '/opt/bin'
+ /bin/install -c glib-gettextize '/opt/bin'
+ /bin/mkdir -p '/opt/share/glib-2.0/gettext'
+ /bin/install -c mkinstalldirs '/opt/share/glib-2.0/gettext'
+ /bin/mkdir -p '/opt/lib/pkgconfig'
+ /bin/install -c -m 644 glib-2.0.pc gobject-2.0.pc gmodule-2.0.pc gmodule-export-2.0.pc gmodule-no-export-2.0.pc gthread-2.0.pc gio-2.0.pc gio-windows-2.0.pc '/opt/lib/pkgconfig'
+make[2]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3'
+make[1]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3'
+Making install in m4macros
+make[1]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/m4macros'
+make[2]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/m4macros'
+make[2]: Nothing to be done for `install-exec-am'.
+ /bin/mkdir -p '/opt/share/aclocal'
+ /bin/install -c -m 644 glib-2.0.m4 glib-gettext.m4 gsettings.m4 '/opt/share/aclocal'
+make[2]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/m4macros'
+make[1]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/m4macros'
+Making install in glib
+make[1]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/glib'
+make  install-recursive
+make[2]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/glib'
+Making install in libcharset
+make[3]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/glib/libcharset'
+make[4]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/glib/libcharset'
+/bin/sh ../../mkinstalldirs /opt/lib
+if test -f /opt/lib/charset.alias; then \
+	  sed -f ref-add.sed /opt/lib/charset.alias > /opt/lib/charset.tmp ; \
+	  /bin/install -c -m 644 /opt/lib/charset.tmp /opt/lib/charset.alias ; \
+	  rm -f /opt/lib/charset.tmp ; \
+	else \
+	  if test no = no; then \
+	    sed -f ref-add.sed charset.alias > /opt/lib/charset.tmp ; \
+	    /bin/install -c -m 644 /opt/lib/charset.tmp /opt/lib/charset.alias ; \
+	    rm -f /opt/lib/charset.tmp ; \
+	  fi ; \
+	fi
+make[4]: Nothing to be done for `install-data-am'.
+make[4]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/glib/libcharset'
+make[3]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/glib/libcharset'
+Making install in gnulib
+make[3]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/glib/gnulib'
+make[4]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/glib/gnulib'
+make[4]: Nothing to be done for `install-exec-am'.
+make[4]: Nothing to be done for `install-data-am'.
+make[4]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/glib/gnulib'
+make[3]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/glib/gnulib'
+Making install in pcre
+make[3]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/glib/pcre'
+make[4]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/glib/pcre'
+make[4]: Nothing to be done for `install-exec-am'.
+make[4]: Nothing to be done for `install-data-am'.
+make[4]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/glib/pcre'
+make[3]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/glib/pcre'
+Making install in update-pcre
+make[3]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/glib/update-pcre'
+make[4]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/glib/update-pcre'
+make[4]: Nothing to be done for `install-exec-am'.
+make[4]: Nothing to be done for `install-data-am'.
+make[4]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/glib/update-pcre'
+make[3]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/glib/update-pcre'
+Making install in .
+make[3]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/glib'
+make[4]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/glib'
+ /bin/mkdir -p '/opt/lib'
+ /bin/sh ../libtool   --mode=install /bin/install -c   libglib-2.0.la '/opt/lib'
+libtool: install: /bin/install -c .libs/libglib-2.0.dll.a /opt/lib/libglib-2.0.dll.a
+libtool: install: base_file=`basename libglib-2.0.la`
+libtool: install:  dlpath=`/bin/sh 2>&1 -c '. .libs/'libglib-2.0.la'i; echo libglib-2.0-0.dll'`
+libtool: install:  dldir=/opt/lib/`dirname ../bin/libglib-2.0-0.dll`
+libtool: install:  test -d /opt/lib/../bin || mkdir -p /opt/lib/../bin
+libtool: install:  /bin/install -c .libs/libglib-2.0-0.dll /opt/lib/../bin/libglib-2.0-0.dll
+libtool: install:  chmod a+x /opt/lib/../bin/libglib-2.0-0.dll
+libtool: install:  if test -n '' && test -n 'x86_64-w64-mingw32-strip --strip-unneeded'; then eval 'x86_64-w64-mingw32-strip --strip-unneeded /opt/lib/../bin/libglib-2.0-0.dll' || exit 0; fi
+libtool: install: /bin/install -c .libs/libglib-2.0.lai /opt/lib/libglib-2.0.la
+ /bin/mkdir -p '/opt/bin'
+  /bin/sh ../libtool   --mode=install /bin/install -c gspawn-win64-helper.exe gspawn-win64-helper-console.exe '/opt/bin'
+libtool: install: /bin/install -c .libs/gspawn-win64-helper.exe /opt/bin/gspawn-win64-helper.exe
+libtool: install: /bin/install -c .libs/gspawn-win64-helper-console.exe /opt/bin/gspawn-win64-helper-console.exe
+ /bin/mkdir -p '/opt/lib/glib-2.0/include'
+ /bin/install -c -m 644 glibconfig.h '/opt/lib/glib-2.0/include'
+make  install-exec-hook
+make[5]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/glib'
+make[5]: Nothing to be done for `install-exec-hook'.
+make[5]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/glib'
+/bin/install -c ./glib.def /opt/lib/glib-2.0.def
+ /bin/mkdir -p '/opt/include/glib-2.0/glib/deprecated'
+ /bin/install -c -m 644 deprecated/gallocator.h deprecated/gcache.h deprecated/gcompletion.h deprecated/gmain.h deprecated/grel.h deprecated/gthread.h '/opt/include/glib-2.0/glib/deprecated'
+ /bin/mkdir -p '/opt/share/glib-2.0/gdb'
+ /bin/install -c glib.py '/opt/share/glib-2.0/gdb'
+ /bin/mkdir -p '/opt/include/glib-2.0'
+ /bin/install -c -m 644 glib-unix.h glib-object.h glib.h '/opt/include/glib-2.0'
+ /bin/mkdir -p '/opt/include/glib-2.0/glib'
+ /bin/install -c -m 644 galloca.h garray.h gasyncqueue.h gatomic.h gbacktrace.h gbase64.h gbitlock.h gbookmarkfile.h gbytes.h gcharset.h gchecksum.h gconvert.h gdataset.h gdate.h gdatetime.h gdir.h genviron.h gerror.h gfileutils.h ggettext.h ghash.h ghmac.h ghook.h ghostutils.h gi18n.h gi18n-lib.h giochannel.h gkeyfile.h glist.h gmacros.h gmain.h gmappedfile.h gmarkup.h gmem.h gmessages.h gnode.h goption.h gpattern.h gpoll.h gprimes.h '/opt/include/glib-2.0/glib'
+ /bin/install -c -m 644 gqsort.h gquark.h gqueue.h grand.h gregex.h gscanner.h gsequence.h gshell.h gslice.h gslist.h gspawn.h gstdio.h gstrfuncs.h gtestutils.h gstring.h gstringchunk.h gthread.h gthreadpool.h gtimer.h gtimezone.h gtrashstack.h gtree.h gtypes.h gunicode.h gurifuncs.h gutils.h gvarianttype.h gvariant.h gversion.h gversionmacros.h gwin32.h gprintf.h '/opt/include/glib-2.0/glib'
+make  install-data-hook
+make[5]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/glib'
+  GEN      libglib-gdb.py
+mkdir -p /opt/share/gdb/auto-load
+/bin/install -c ./libglib-gdb.py /opt/share/gdb/auto-load/libglib-2.0.so.0.3400.3-gdb.py
+make[5]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/glib'
+make[4]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/glib'
+make[3]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/glib'
+Making install in tests
+make[3]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/glib/tests'
+make[4]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/glib/tests'
+make[4]: Nothing to be done for `install-exec-am'.
+make[4]: Nothing to be done for `install-data-am'.
+make[4]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/glib/tests'
+make[3]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/glib/tests'
+make[2]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/glib'
+make[1]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/glib'
+Making install in gmodule
+make[1]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/gmodule'
+make  install-am
+make[2]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/gmodule'
+make[3]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/gmodule'
+ /bin/mkdir -p '/opt/lib'
+ /bin/sh ../libtool   --mode=install /bin/install -c   libgmodule-2.0.la '/opt/lib'
+libtool: install: /bin/install -c .libs/libgmodule-2.0.dll.a /opt/lib/libgmodule-2.0.dll.a
+libtool: install: base_file=`basename libgmodule-2.0.la`
+libtool: install:  dlpath=`/bin/sh 2>&1 -c '. .libs/'libgmodule-2.0.la'i; echo libgmodule-2.0-0.dll'`
+libtool: install:  dldir=/opt/lib/`dirname ../bin/libgmodule-2.0-0.dll`
+libtool: install:  test -d /opt/lib/../bin || mkdir -p /opt/lib/../bin
+libtool: install:  /bin/install -c .libs/libgmodule-2.0-0.dll /opt/lib/../bin/libgmodule-2.0-0.dll
+libtool: install:  chmod a+x /opt/lib/../bin/libgmodule-2.0-0.dll
+libtool: install:  if test -n '' && test -n 'x86_64-w64-mingw32-strip --strip-unneeded'; then eval 'x86_64-w64-mingw32-strip --strip-unneeded /opt/lib/../bin/libgmodule-2.0-0.dll' || exit 0; fi
+libtool: install: /bin/install -c .libs/libgmodule-2.0.lai /opt/lib/libgmodule-2.0.la
+/bin/install -c ./gmodule.def /opt/lib/gmodule-2.0.def
+ /bin/mkdir -p '/opt/include/glib-2.0'
+ /bin/install -c -m 644 gmodule.h '/opt/include/glib-2.0'
+make  install-data-hook
+make[4]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/gmodule'
+make[4]: Nothing to be done for `install-data-hook'.
+make[4]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/gmodule'
+make[3]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/gmodule'
+make[2]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/gmodule'
+make[1]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/gmodule'
+Making install in gthread
+make[1]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/gthread'
+make[2]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/gthread'
+ /bin/mkdir -p '/opt/lib'
+ /bin/sh ../libtool   --mode=install /bin/install -c   libgthread-2.0.la '/opt/lib'
+libtool: install: /bin/install -c .libs/libgthread-2.0.dll.a /opt/lib/libgthread-2.0.dll.a
+libtool: install: base_file=`basename libgthread-2.0.la`
+libtool: install:  dlpath=`/bin/sh 2>&1 -c '. .libs/'libgthread-2.0.la'i; echo libgthread-2.0-0.dll'`
+libtool: install:  dldir=/opt/lib/`dirname ../bin/libgthread-2.0-0.dll`
+libtool: install:  test -d /opt/lib/../bin || mkdir -p /opt/lib/../bin
+libtool: install:  /bin/install -c .libs/libgthread-2.0-0.dll /opt/lib/../bin/libgthread-2.0-0.dll
+libtool: install:  chmod a+x /opt/lib/../bin/libgthread-2.0-0.dll
+libtool: install:  if test -n '' && test -n 'x86_64-w64-mingw32-strip --strip-unneeded'; then eval 'x86_64-w64-mingw32-strip --strip-unneeded /opt/lib/../bin/libgthread-2.0-0.dll' || exit 0; fi
+libtool: install: /bin/install -c .libs/libgthread-2.0.lai /opt/lib/libgthread-2.0.la
+/bin/install -c ./gthread.def /opt/lib/gthread-2.0.def
+make  install-data-hook
+make[3]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/gthread'
+make[3]: Nothing to be done for `install-data-hook'.
+make[3]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/gthread'
+make[2]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/gthread'
+make[1]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/gthread'
+Making install in gobject
+make[1]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/gobject'
+make  install-recursive
+make[2]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/gobject'
+Making install in .
+make[3]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/gobject'
+make[4]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/gobject'
+ /bin/mkdir -p '/opt/lib'
+ /bin/sh ../libtool   --mode=install /bin/install -c   libgobject-2.0.la '/opt/lib'
+libtool: install: /bin/install -c .libs/libgobject-2.0.dll.a /opt/lib/libgobject-2.0.dll.a
+libtool: install: base_file=`basename libgobject-2.0.la`
+libtool: install:  dlpath=`/bin/sh 2>&1 -c '. .libs/'libgobject-2.0.la'i; echo libgobject-2.0-0.dll'`
+libtool: install:  dldir=/opt/lib/`dirname ../bin/libgobject-2.0-0.dll`
+libtool: install:  test -d /opt/lib/../bin || mkdir -p /opt/lib/../bin
+libtool: install:  /bin/install -c .libs/libgobject-2.0-0.dll /opt/lib/../bin/libgobject-2.0-0.dll
+libtool: install:  chmod a+x /opt/lib/../bin/libgobject-2.0-0.dll
+libtool: install:  if test -n '' && test -n 'x86_64-w64-mingw32-strip --strip-unneeded'; then eval 'x86_64-w64-mingw32-strip --strip-unneeded /opt/lib/../bin/libgobject-2.0-0.dll' || exit 0; fi
+libtool: install: /bin/install -c .libs/libgobject-2.0.lai /opt/lib/libgobject-2.0.la
+ /bin/mkdir -p '/opt/bin'
+  /bin/sh ../libtool   --mode=install /bin/install -c gobject-query.exe glib-genmarshal.exe '/opt/bin'
+libtool: install: /bin/install -c .libs/gobject-query.exe /opt/bin/gobject-query.exe
+libtool: install: /bin/install -c .libs/glib-genmarshal.exe /opt/bin/glib-genmarshal.exe
+ /bin/mkdir -p '/opt/bin'
+ /bin/install -c glib-mkenums '/opt/bin'
+/bin/install -c ./gobject.def /opt/lib/gobject-2.0.def
+ /bin/mkdir -p '/opt/share/glib-2.0/gdb'
+ /bin/install -c gobject.py '/opt/share/glib-2.0/gdb'
+ /bin/mkdir -p '/opt/include/glib-2.0/gobject'
+ /bin/install -c -m 644 glib-types.h gbinding.h gboxed.h gclosure.h genums.h gmarshal.h gobject.h gparam.h gparamspecs.h gsignal.h gsourceclosure.h gtype.h gtypemodule.h gtypeplugin.h gvalue.h gvaluearray.h gvaluecollector.h gvaluetypes.h gobjectnotifyqueue.c '/opt/include/glib-2.0/gobject'
+make  install-data-hook
+make[5]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/gobject'
+  GEN      libgobject-gdb.py
+mkdir -p /opt/share/gdb/auto-load/
+/bin/install -c ./libgobject-gdb.py /opt/share/gdb/auto-load//libgobject-2.0.so.0.3400.3-gdb.py
+make[5]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/gobject'
+make[4]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/gobject'
+make[3]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/gobject'
+Making install in tests
+make[3]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/gobject/tests'
+make  install-am
+make[4]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/gobject/tests'
+make[5]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/gobject/tests'
+make[5]: Nothing to be done for `install-exec-am'.
+make[5]: Nothing to be done for `install-data-am'.
+make[5]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/gobject/tests'
+make[4]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/gobject/tests'
+make[3]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/gobject/tests'
+make[2]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/gobject'
+make[1]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/gobject'
+Making install in gio
+make[1]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/gio'
+make  install-recursive
+make[2]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/gio'
+Making install in gdbus-2.0/codegen
+make[3]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/gio/gdbus-2.0/codegen'
+make[4]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/gio/gdbus-2.0/codegen'
+ /bin/mkdir -p '/opt/bin'
+ /bin/install -c gdbus-codegen '/opt/bin'
+ /bin/mkdir -p '/opt/lib/gdbus-2.0/codegen'
+ /bin/install -c -m 644 __init__.py codegen.py codegen_main.py codegen_docbook.py config.py dbustypes.py parser.py utils.py '/opt/lib/gdbus-2.0/codegen'
+Byte-compiling python modules...
+
+Byte-compiling python modules (optimized versions) ...
+
+make[4]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/gio/gdbus-2.0/codegen'
+make[3]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/gio/gdbus-2.0/codegen'
+Making install in win32
+make[3]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/gio/win32'
+make[4]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/gio/win32'
+make[4]: Nothing to be done for `install-exec-am'.
+make[4]: Nothing to be done for `install-data-am'.
+make[4]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/gio/win32'
+make[3]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/gio/win32'
+Making install in .
+make[3]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/gio'
+make[4]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/gio'
+ /bin/mkdir -p '/opt/lib'
+ /bin/sh ../libtool   --mode=install /bin/install -c   libgio-2.0.la '/opt/lib'
+libtool: install: /bin/install -c .libs/libgio-2.0.dll.a /opt/lib/libgio-2.0.dll.a
+libtool: install: base_file=`basename libgio-2.0.la`
+libtool: install:  dlpath=`/bin/sh 2>&1 -c '. .libs/'libgio-2.0.la'i; echo libgio-2.0-0.dll'`
+libtool: install:  dldir=/opt/lib/`dirname ../bin/libgio-2.0-0.dll`
+libtool: install:  test -d /opt/lib/../bin || mkdir -p /opt/lib/../bin
+libtool: install:  /bin/install -c .libs/libgio-2.0-0.dll /opt/lib/../bin/libgio-2.0-0.dll
+libtool: install:  chmod a+x /opt/lib/../bin/libgio-2.0-0.dll
+libtool: install:  if test -n '' && test -n 'x86_64-w64-mingw32-strip --strip-unneeded'; then eval 'x86_64-w64-mingw32-strip --strip-unneeded /opt/lib/../bin/libgio-2.0-0.dll' || exit 0; fi
+libtool: install: /bin/install -c .libs/libgio-2.0.lai /opt/lib/libgio-2.0.la
+ /bin/mkdir -p '/opt/bin'
+  /bin/sh ../libtool   --mode=install /bin/install -c gio-querymodules.exe glib-compile-schemas.exe glib-compile-resources.exe gsettings.exe gdbus.exe gresource.exe '/opt/bin'
+libtool: install: /bin/install -c .libs/gio-querymodules.exe /opt/bin/gio-querymodules.exe
+libtool: install: /bin/install -c .libs/glib-compile-schemas.exe /opt/bin/glib-compile-schemas.exe
+libtool: install: /bin/install -c .libs/glib-compile-resources.exe /opt/bin/glib-compile-resources.exe
+libtool: install: /bin/install -c .libs/gsettings.exe /opt/bin/gsettings.exe
+libtool: install: /bin/install -c .libs/gdbus.exe /opt/bin/gdbus.exe
+libtool: install: /bin/install -c .libs/gresource.exe /opt/bin/gresource.exe
+ /bin/mkdir -p '/opt/share/bash-completion/completions'
+ /bin/install -c -m 644 completion/gdbus completion/gsettings completion/gresource '/opt/share/bash-completion/completions'
+/bin/install -c ./gio.def /opt/lib/gio-2.0.def
+/bin/sh ../mkinstalldirs /opt/lib/gio/modules
+mkdir -p -- /opt/lib/gio/modules
+ /bin/mkdir -p '/opt/share/glib-2.0/schemas'
+ /bin/install -c -m 644 gschema.dtd '/opt/share/glib-2.0/schemas'
+ /bin/mkdir -p '/opt/include/glib-2.0/gio/'
+ /bin/install -c -m 644 gappinfo.h gasyncinitable.h gasyncresult.h gbufferedinputstream.h gbufferedoutputstream.h gcancellable.h gcontenttype.h gcharsetconverter.h gconverter.h gconverterinputstream.h gconverteroutputstream.h gdatainputstream.h gdataoutputstream.h gdrive.h gemblem.h gemblemedicon.h gfile.h gfileattribute.h gfileenumerator.h gfileicon.h gfileinfo.h gfileinputstream.h gfilemonitor.h gfilenamecompleter.h gfileoutputstream.h gfileiostream.h gfilterinputstream.h gfilteroutputstream.h gicon.h ginetaddress.h ginetaddressmask.h ginetsocketaddress.h ginputstream.h ginitable.h gio.h giotypes.h gioenums.h gioerror.h giomodule.h gioscheduler.h '/opt/include/glib-2.0/gio/'
+ /bin/install -c -m 644 giostream.h gloadableicon.h gmount.h gmemoryinputstream.h gmemoryoutputstream.h gmountoperation.h gnativevolumemonitor.h gnetworkaddress.h gnetworkmonitor.h gnetworkservice.h goutputstream.h gpermission.h gpollableinputstream.h gpollableoutputstream.h gpollableutils.h gproxyaddress.h gproxy.h gproxyaddressenumerator.h gproxyresolver.h gresolver.h gresource.h gseekable.h gsimpleasyncresult.h gsimplepermission.h gsocket.h gsocketaddress.h gsocketaddressenumerator.h gsocketclient.h gsocketconnectable.h gsocketconnection.h gsocketcontrolmessage.h gsocketlistener.h gsocketservice.h gsrvtarget.h gtcpconnection.h gtcpwrapperconnection.h gthreadedsocketservice.h gthemedicon.h gtlsbackend.h gtlscertificate.h '/opt/include/glib-2.0/gio/'
+ /bin/install -c -m 644 gtlsclientconnection.h gtlsconnection.h gtlsdatabase.h gtlsfiledatabase.h gtlsinteraction.h gtlspassword.h gtlsserverconnection.h gvfs.h gvolume.h gvolumemonitor.h gzlibcompressor.h gzlibdecompressor.h gapplication.h gapplicationcommandline.h gactiongroup.h gactionmap.h gsimpleactiongroup.h gremoteactiongroup.h gactiongroupexporter.h gdbusactiongroup.h gaction.h gsimpleaction.h gmenumodel.h gmenu.h gmenuexporter.h gdbusmenumodel.h gsettingsbackend.h gsettingsschema.h gsettings.h gdbusauthobserver.h gcredentials.h gdbusutils.h gdbuserror.h gdbusaddress.h gdbusconnection.h gdbusmessage.h gdbusnameowning.h gdbusnamewatching.h gdbusproxy.h gdbusintrospection.h '/opt/include/glib-2.0/gio/'
+ /bin/install -c -m 644 gdbusmethodinvocation.h gdbusserver.h gdbusinterface.h gdbusinterfaceskeleton.h gdbusobject.h gdbusobjectskeleton.h gdbusobjectproxy.h gdbusobjectmanager.h gdbusobjectmanagerclient.h gdbusobjectmanagerserver.h gtestdbus.h gioenumtypes.h '/opt/include/glib-2.0/gio/'
+ /bin/mkdir -p '/opt/include/gio-win32-2.0/gio'
+ /bin/install -c -m 644 gwin32inputstream.h gwin32outputstream.h '/opt/include/gio-win32-2.0/gio'
+make  install-data-hook
+make[5]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/gio'
+make[5]: Nothing to be done for `install-data-hook'.
+make[5]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/gio'
+make[4]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/gio'
+make[3]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/gio'
+Making install in tests
+make[3]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/gio/tests'
+make  install-recursive
+make[4]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/gio/tests'
+Making install in gdbus-object-manager-example
+make[5]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/gio/tests/gdbus-object-manager-example'
+make  install-am
+make[6]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/gio/tests/gdbus-object-manager-example'
+make[7]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/gio/tests/gdbus-object-manager-example'
+make[7]: Nothing to be done for `install-exec-am'.
+make[7]: Nothing to be done for `install-data-am'.
+make[7]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/gio/tests/gdbus-object-manager-example'
+make[6]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/gio/tests/gdbus-object-manager-example'
+make[5]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/gio/tests/gdbus-object-manager-example'
+make[5]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/gio/tests'
+make[6]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/gio/tests'
+make[6]: Nothing to be done for `install-exec-am'.
+make[6]: Nothing to be done for `install-data-am'.
+make[6]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/gio/tests'
+make[5]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/gio/tests'
+make[4]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/gio/tests'
+make[3]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/gio/tests'
+make[2]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/gio'
+make[1]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/gio'
+Making install in po
+make[1]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/po'
+if test -r ".././mkinstalldirs"; then \
+	  .././mkinstalldirs /opt/share; \
+	else \
+	  /bin/sh ../mkinstalldirs /opt/share; \
+	fi
+mkdir -p -- /opt/share/locale/af/LC_MESSAGES
+installing af.gmo as /opt/share/locale/af/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/am/LC_MESSAGES
+installing am.gmo as /opt/share/locale/am/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/ar/LC_MESSAGES
+installing ar.gmo as /opt/share/locale/ar/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/as/LC_MESSAGES
+installing as.gmo as /opt/share/locale/as/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/ast/LC_MESSAGES
+installing ast.gmo as /opt/share/locale/ast/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/az/LC_MESSAGES
+installing az.gmo as /opt/share/locale/az/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/be/LC_MESSAGES
+installing be.gmo as /opt/share/locale/be/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/be@latin/LC_MESSAGES
+installing be@latin.gmo as /opt/share/locale/be@latin/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/bg/LC_MESSAGES
+installing bg.gmo as /opt/share/locale/bg/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/bn/LC_MESSAGES
+installing bn.gmo as /opt/share/locale/bn/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/bn_IN/LC_MESSAGES
+installing bn_IN.gmo as /opt/share/locale/bn_IN/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/bs/LC_MESSAGES
+installing bs.gmo as /opt/share/locale/bs/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/ca/LC_MESSAGES
+installing ca.gmo as /opt/share/locale/ca/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/ca@valencia/LC_MESSAGES
+installing ca@valencia.gmo as /opt/share/locale/ca@valencia/LC_MESSAGES/glib20.mo
+installing cs.gmo as /opt/share/locale/cs/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/cy/LC_MESSAGES
+installing cy.gmo as /opt/share/locale/cy/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/da/LC_MESSAGES
+installing da.gmo as /opt/share/locale/da/LC_MESSAGES/glib20.mo
+installing de.gmo as /opt/share/locale/de/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/dz/LC_MESSAGES
+installing dz.gmo as /opt/share/locale/dz/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/el/LC_MESSAGES
+installing el.gmo as /opt/share/locale/el/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/en_CA/LC_MESSAGES
+installing en_CA.gmo as /opt/share/locale/en_CA/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/en_GB/LC_MESSAGES
+installing en_GB.gmo as /opt/share/locale/en_GB/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/en@shaw/LC_MESSAGES
+installing en@shaw.gmo as /opt/share/locale/en@shaw/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/eo/LC_MESSAGES
+installing eo.gmo as /opt/share/locale/eo/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/es/LC_MESSAGES
+installing es.gmo as /opt/share/locale/es/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/et/LC_MESSAGES
+installing et.gmo as /opt/share/locale/et/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/eu/LC_MESSAGES
+installing eu.gmo as /opt/share/locale/eu/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/fa/LC_MESSAGES
+installing fa.gmo as /opt/share/locale/fa/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/fi/LC_MESSAGES
+installing fi.gmo as /opt/share/locale/fi/LC_MESSAGES/glib20.mo
+installing fr.gmo as /opt/share/locale/fr/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/ga/LC_MESSAGES
+installing ga.gmo as /opt/share/locale/ga/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/gl/LC_MESSAGES
+installing gl.gmo as /opt/share/locale/gl/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/gu/LC_MESSAGES
+installing gu.gmo as /opt/share/locale/gu/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/he/LC_MESSAGES
+installing he.gmo as /opt/share/locale/he/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/hi/LC_MESSAGES
+installing hi.gmo as /opt/share/locale/hi/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/hr/LC_MESSAGES
+installing hr.gmo as /opt/share/locale/hr/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/hu/LC_MESSAGES
+installing hu.gmo as /opt/share/locale/hu/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/hy/LC_MESSAGES
+installing hy.gmo as /opt/share/locale/hy/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/id/LC_MESSAGES
+installing id.gmo as /opt/share/locale/id/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/is/LC_MESSAGES
+installing is.gmo as /opt/share/locale/is/LC_MESSAGES/glib20.mo
+installing it.gmo as /opt/share/locale/it/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/ja/LC_MESSAGES
+installing ja.gmo as /opt/share/locale/ja/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/ka/LC_MESSAGES
+installing ka.gmo as /opt/share/locale/ka/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/kk/LC_MESSAGES
+installing kk.gmo as /opt/share/locale/kk/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/kn/LC_MESSAGES
+installing kn.gmo as /opt/share/locale/kn/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/ko/LC_MESSAGES
+installing ko.gmo as /opt/share/locale/ko/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/ku/LC_MESSAGES
+installing ku.gmo as /opt/share/locale/ku/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/lt/LC_MESSAGES
+installing lt.gmo as /opt/share/locale/lt/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/lv/LC_MESSAGES
+installing lv.gmo as /opt/share/locale/lv/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/mai/LC_MESSAGES
+installing mai.gmo as /opt/share/locale/mai/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/mg/LC_MESSAGES
+installing mg.gmo as /opt/share/locale/mg/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/mk/LC_MESSAGES
+installing mk.gmo as /opt/share/locale/mk/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/ml/LC_MESSAGES
+installing ml.gmo as /opt/share/locale/ml/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/mn/LC_MESSAGES
+installing mn.gmo as /opt/share/locale/mn/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/mr/LC_MESSAGES
+installing mr.gmo as /opt/share/locale/mr/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/ms/LC_MESSAGES
+installing ms.gmo as /opt/share/locale/ms/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/nb/LC_MESSAGES
+installing nb.gmo as /opt/share/locale/nb/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/nds/LC_MESSAGES
+installing nds.gmo as /opt/share/locale/nds/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/ne/LC_MESSAGES
+installing ne.gmo as /opt/share/locale/ne/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/nl/LC_MESSAGES
+installing nl.gmo as /opt/share/locale/nl/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/nn/LC_MESSAGES
+installing nn.gmo as /opt/share/locale/nn/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/oc/LC_MESSAGES
+installing oc.gmo as /opt/share/locale/oc/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/or/LC_MESSAGES
+installing or.gmo as /opt/share/locale/or/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/pa/LC_MESSAGES
+installing pa.gmo as /opt/share/locale/pa/LC_MESSAGES/glib20.mo
+installing pl.gmo as /opt/share/locale/pl/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/ps/LC_MESSAGES
+installing ps.gmo as /opt/share/locale/ps/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/pt/LC_MESSAGES
+installing pt.gmo as /opt/share/locale/pt/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/pt_BR/LC_MESSAGES
+installing pt_BR.gmo as /opt/share/locale/pt_BR/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/ro/LC_MESSAGES
+installing ro.gmo as /opt/share/locale/ro/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/ru/LC_MESSAGES
+installing ru.gmo as /opt/share/locale/ru/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/rw/LC_MESSAGES
+installing rw.gmo as /opt/share/locale/rw/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/si/LC_MESSAGES
+installing si.gmo as /opt/share/locale/si/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/sk/LC_MESSAGES
+installing sk.gmo as /opt/share/locale/sk/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/sl/LC_MESSAGES
+installing sl.gmo as /opt/share/locale/sl/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/sq/LC_MESSAGES
+installing sq.gmo as /opt/share/locale/sq/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/sr/LC_MESSAGES
+installing sr.gmo as /opt/share/locale/sr/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/sr@latin/LC_MESSAGES
+installing sr@latin.gmo as /opt/share/locale/sr@latin/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/sr@ije/LC_MESSAGES
+installing sr@ije.gmo as /opt/share/locale/sr@ije/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/sv/LC_MESSAGES
+installing sv.gmo as /opt/share/locale/sv/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/ta/LC_MESSAGES
+installing ta.gmo as /opt/share/locale/ta/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/te/LC_MESSAGES
+installing te.gmo as /opt/share/locale/te/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/th/LC_MESSAGES
+installing th.gmo as /opt/share/locale/th/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/tl/LC_MESSAGES
+installing tl.gmo as /opt/share/locale/tl/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/tr/LC_MESSAGES
+installing tr.gmo as /opt/share/locale/tr/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/ug/LC_MESSAGES
+installing ug.gmo as /opt/share/locale/ug/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/tt/LC_MESSAGES
+installing tt.gmo as /opt/share/locale/tt/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/uk/LC_MESSAGES
+installing uk.gmo as /opt/share/locale/uk/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/vi/LC_MESSAGES
+installing vi.gmo as /opt/share/locale/vi/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/wa/LC_MESSAGES
+installing wa.gmo as /opt/share/locale/wa/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/xh/LC_MESSAGES
+installing xh.gmo as /opt/share/locale/xh/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/yi/LC_MESSAGES
+installing yi.gmo as /opt/share/locale/yi/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/zh_CN/LC_MESSAGES
+installing zh_CN.gmo as /opt/share/locale/zh_CN/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/zh_HK/LC_MESSAGES
+installing zh_HK.gmo as /opt/share/locale/zh_HK/LC_MESSAGES/glib20.mo
+mkdir -p -- /opt/share/locale/zh_TW/LC_MESSAGES
+installing zh_TW.gmo as /opt/share/locale/zh_TW/LC_MESSAGES/glib20.mo
+if test "glib" = "glib"; then \
+	  if test -r ".././mkinstalldirs"; then \
+	    .././mkinstalldirs /opt/share/glib-2.0/gettext/po; \
+	  else \
+	    /bin/sh ../mkinstalldirs /opt/share/glib-2.0/gettext/po; \
+	  fi; \
+	  /bin/install -c -m 644 ./Makefile.in.in \
+			  /opt/share/glib-2.0/gettext/po/Makefile.in.in; \
+	else \
+	  : ; \
+	fi
+mkdir -p -- /opt/share/glib-2.0/gettext/po
+make[1]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/po'
+Making install in docs
+make[1]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/docs'
+Making install in reference
+make[2]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/docs/reference'
+Making install in glib
+make[3]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/docs/reference/glib'
+make[4]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/docs/reference/glib'
+make[4]: Nothing to be done for `install-exec-am'.
+mkdir -p -- /opt/share/gtk-doc/html/glib
+ /bin/install -c -m 644 ./html/annotation-glossary.html
+ /bin/install -c -m 644 ./html/api-index-2-10.html
+ /bin/install -c -m 644 ./html/api-index-2-12.html
+ /bin/install -c -m 644 ./html/api-index-2-14.html
+ /bin/install -c -m 644 ./html/api-index-2-16.html
+ /bin/install -c -m 644 ./html/api-index-2-18.html
+ /bin/install -c -m 644 ./html/api-index-2-2.html
+ /bin/install -c -m 644 ./html/api-index-2-20.html
+ /bin/install -c -m 644 ./html/api-index-2-22.html
+ /bin/install -c -m 644 ./html/api-index-2-24.html
+ /bin/install -c -m 644 ./html/api-index-2-26.html
+ /bin/install -c -m 644 ./html/api-index-2-28.html
+ /bin/install -c -m 644 ./html/api-index-2-30.html
+ /bin/install -c -m 644 ./html/api-index-2-32.html
+ /bin/install -c -m 644 ./html/api-index-2-34.html
+ /bin/install -c -m 644 ./html/api-index-2-4.html
+ /bin/install -c -m 644 ./html/api-index-2-6.html
+ /bin/install -c -m 644 ./html/api-index-2-8.html
+ /bin/install -c -m 644 ./html/api-index-deprecated.html
+ /bin/install -c -m 644 ./html/api-index-full.html
+ /bin/install -c -m 644 ./html/deprecated.html
+ /bin/install -c -m 644 ./html/file-name-encodings.png
+ /bin/install -c -m 644 ./html/glib-Arrays.html
+ /bin/install -c -m 644 ./html/glib-Asynchronous-Queues.html
+ /bin/install -c -m 644 ./html/glib-Atomic-Operations.html
+ /bin/install -c -m 644 ./html/glib-Automatic-String-Completion.html
+ /bin/install -c -m 644 ./html/glib-Balanced-Binary-Trees.html
+ /bin/install -c -m 644 ./html/glib-Base64-Encoding.html
+ /bin/install -c -m 644 ./html/glib-Basic-Types.html
+ /bin/install -c -m 644 ./html/glib-Bookmark-file-parser.html
+ /bin/install -c -m 644 ./html/glib-Byte-Arrays.html
+ /bin/install -c -m 644 ./html/glib-Byte-Order-Macros.html
+ /bin/install -c -m 644 ./html/glib-Caches.html
+ /bin/install -c -m 644 ./html/glib-Character-Set-Conversion.html
+ /bin/install -c -m 644 ./html/glib-Commandline-option-parser.html
+ /bin/install -c -m 644 ./html/glib-Data-Checksums.html
+ /bin/install -c -m 644 ./html/glib-Data-HMACs.html
+ /bin/install -c -m 644 ./html/glib-Datasets.html
+ /bin/install -c -m 644 ./html/glib-Date-and-Time-Functions.html
+ /bin/install -c -m 644 ./html/glib-Deprecated-Thread-APIs.html
+ /bin/install -c -m 644 ./html/glib-Double-ended-Queues.html
+ /bin/install -c -m 644 ./html/glib-Doubly-Linked-Lists.html
+ /bin/install -c -m 644 ./html/glib-Dynamic-Loading-of-Modules.html
+ /bin/install -c -m 644 ./html/glib-Error-Reporting.html
+ /bin/install -c -m 644 ./html/glib-File-Utilities.html
+ /bin/install -c -m 644 ./html/glib-GDateTime.html
+ /bin/install -c -m 644 ./html/glib-GTimeZone.html
+ /bin/install -c -m 644 ./html/glib-GVariant.html
+ /bin/install -c -m 644 ./html/glib-GVariantType.html
+ /bin/install -c -m 644 ./html/glib-Glob-style-pattern-matching.html
+ /bin/install -c -m 644 ./html/glib-Hash-Tables.html
+ /bin/install -c -m 644 ./html/glib-Hook-Functions.html
+ /bin/install -c -m 644 ./html/glib-Hostname-Utilities.html
+ /bin/install -c -m 644 ./html/glib-I18N.html
+ /bin/install -c -m 644 ./html/glib-IO-Channels.html
+ /bin/install -c -m 644 ./html/glib-Key-value-file-parser.html
+ /bin/install -c -m 644 ./html/glib-Keyed-Data-Lists.html
+ /bin/install -c -m 644 ./html/glib-Lexical-Scanner.html
+ /bin/install -c -m 644 ./html/glib-Memory-Allocation.html
+ /bin/install -c -m 644 ./html/glib-Memory-Slices.html
+ /bin/install -c -m 644 ./html/glib-Message-Logging.html
+ /bin/install -c -m 644 ./html/glib-Miscellaneous-Macros.html
+ /bin/install -c -m 644 ./html/glib-Miscellaneous-Utility-Functions.html
+ /bin/install -c -m 644 ./html/glib-N-ary-Trees.html
+ /bin/install -c -m 644 ./html/glib-Numerical-Definitions.html
+ /bin/install -c -m 644 ./html/glib-Perl-compatible-regular-expressions.html
+ /bin/install -c -m 644 ./html/glib-Pointer-Arrays.html
+ /bin/install -c -m 644 ./html/glib-Quarks.html
+ /bin/install -c -m 644 ./html/glib-Random-Numbers.html
+ /bin/install -c -m 644 ./html/glib-Relations-and-Tuples.html
+ /bin/install -c -m 644 ./html/glib-Sequences.html
+ /bin/install -c -m 644 ./html/glib-Shell-related-Utilities.html
+ /bin/install -c -m 644 ./html/glib-Simple-XML-Subset-Parser.html
+ /bin/install -c -m 644 ./html/glib-Singly-Linked-Lists.html
+ /bin/install -c -m 644 ./html/glib-Spawning-Processes.html
+ /bin/install -c -m 644 ./html/glib-Standard-Macros.html
+ /bin/install -c -m 644 ./html/glib-String-Chunks.html
+ /bin/install -c -m 644 ./html/glib-String-Utility-Functions.html
+ /bin/install -c -m 644 ./html/glib-Strings.html
+ /bin/install -c -m 644 ./html/glib-Testing.html
+ /bin/install -c -m 644 ./html/glib-The-Main-Event-Loop.html
+ /bin/install -c -m 644 ./html/glib-Thread-Pools.html
+ /bin/install -c -m 644 ./html/glib-Threads.html
+ /bin/install -c -m 644 ./html/glib-Timers.html
+ /bin/install -c -m 644 ./html/glib-Trash-Stacks.html
+ /bin/install -c -m 644 ./html/glib-Type-Conversion-Macros.html
+ /bin/install -c -m 644 ./html/glib-UNIX-specific-utilities-and-integration.html
+ /bin/install -c -m 644 ./html/glib-URI-Functions.html
+ /bin/install -c -m 644 ./html/glib-Unicode-Manipulation.html
+ /bin/install -c -m 644 ./html/glib-Version-Information.html
+ /bin/install -c -m 644 ./html/glib-Warnings-and-Assertions.html
+ /bin/install -c -m 644 ./html/glib-Windows-Compatibility-Functions.html
+ /bin/install -c -m 644 ./html/glib-building.html
+ /bin/install -c -m 644 ./html/glib-changes.html
+ /bin/install -c -m 644 ./html/glib-compiling.html
+ /bin/install -c -m 644 ./html/glib-core.html
+ /bin/install -c -m 644 ./html/glib-cross-compiling.html
+ /bin/install -c -m 644 ./html/glib-data-types.html
+ /bin/install -c -m 644 ./html/glib-fundamentals.html
+ /bin/install -c -m 644 ./html/glib-gettextize.html
+ /bin/install -c -m 644 ./html/glib-programming.html
+ /bin/install -c -m 644 ./html/glib-regex-syntax.html
+ /bin/install -c -m 644 ./html/glib-resources.html
+ /bin/install -c -m 644 ./html/glib-running.html
+ /bin/install -c -m 644 ./html/glib-utilities.html
+ /bin/install -c -m 644 ./html/glib.devhelp2
+ /bin/install -c -m 644 ./html/glib.html
+ /bin/install -c -m 644 ./html/gtester-report.html
+ /bin/install -c -m 644 ./html/gtester.html
+ /bin/install -c -m 644 ./html/gvariant-format-strings.html
+ /bin/install -c -m 644 ./html/gvariant-text.html
+ /bin/install -c -m 644 ./html/home.png
+ /bin/install -c -m 644 ./html/index.html
+ /bin/install -c -m 644 ./html/index.sgml
+ /bin/install -c -m 644 ./html/left.png
+ /bin/install -c -m 644 ./html/mainloop-states.gif
+ /bin/install -c -m 644 ./html/right.png
+ /bin/install -c -m 644 ./html/style.css
+ /bin/install -c -m 644 ./html/tools.html
+ /bin/install -c -m 644 ./html/up.png
+make[4]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/docs/reference/glib'
+make[3]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/docs/reference/glib'
+Making install in gobject
+make[3]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/docs/reference/gobject'
+make[4]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/docs/reference/gobject'
+make[4]: Nothing to be done for `install-exec-am'.
+mkdir -p -- /opt/share/gtk-doc/html/gobject
+ /bin/install -c -m 644 ./html/GBinding.html
+ /bin/install -c -m 644 ./html/GTypeModule.html
+ /bin/install -c -m 644 ./html/GTypePlugin.html
+ /bin/install -c -m 644 ./html/annotation-glossary.html
+ /bin/install -c -m 644 ./html/api-index-2-10.html
+ /bin/install -c -m 644 ./html/api-index-2-12.html
+ /bin/install -c -m 644 ./html/api-index-2-14.html
+ /bin/install -c -m 644 ./html/api-index-2-18.html
+ /bin/install -c -m 644 ./html/api-index-2-2.html
+ /bin/install -c -m 644 ./html/api-index-2-22.html
+ /bin/install -c -m 644 ./html/api-index-2-24.html
+ /bin/install -c -m 644 ./html/api-index-2-26.html
+ /bin/install -c -m 644 ./html/api-index-2-28.html
+ /bin/install -c -m 644 ./html/api-index-2-30.html
+ /bin/install -c -m 644 ./html/api-index-2-32.html
+ /bin/install -c -m 644 ./html/api-index-2-34.html
+ /bin/install -c -m 644 ./html/api-index-2-4.html
+ /bin/install -c -m 644 ./html/api-index-2-6.html
+ /bin/install -c -m 644 ./html/api-index-2-8.html
+ /bin/install -c -m 644 ./html/api-index-deprecated.html
+ /bin/install -c -m 644 ./html/api-index-full.html
+ /bin/install -c -m 644 ./html/ch01s02.html
+ /bin/install -c -m 644 ./html/chapter-gobject.html
+ /bin/install -c -m 644 ./html/chapter-gtype.html
+ /bin/install -c -m 644 ./html/chapter-intro.html
+ /bin/install -c -m 644 ./html/chapter-signal.html
+ /bin/install -c -m 644 ./html/glib-genmarshal.html
+ /bin/install -c -m 644 ./html/glib-mkenums.html
+ /bin/install -c -m 644 ./html/glue.png
+ /bin/install -c -m 644 ./html/gobject-Boxed-Types.html
+ /bin/install -c -m 644 ./html/gobject-Closures.html
+ /bin/install -c -m 644 ./html/gobject-Enumeration-and-Flag-Types.html
+ /bin/install -c -m 644 ./html/gobject-GParamSpec.html
+ /bin/install -c -m 644 ./html/gobject-Generic-values.html
+ /bin/install -c -m 644 ./html/gobject-Signals.html
+ /bin/install -c -m 644 ./html/gobject-Standard-Parameter-and-Value-Types.html
+ /bin/install -c -m 644 ./html/gobject-The-Base-Object-Type.html
+ /bin/install -c -m 644 ./html/gobject-Type-Information.html
+ /bin/install -c -m 644 ./html/gobject-Value-arrays.html
+ /bin/install -c -m 644 ./html/gobject-Varargs-Value-Collection.html
+ /bin/install -c -m 644 ./html/gobject-memory.html
+ /bin/install -c -m 644 ./html/gobject-properties.html
+ /bin/install -c -m 644 ./html/gobject-query.html
+ /bin/install -c -m 644 ./html/gobject.devhelp2
+ /bin/install -c -m 644 ./html/gtype-conventions.html
+ /bin/install -c -m 644 ./html/gtype-instantiable-classed.html
+ /bin/install -c -m 644 ./html/gtype-non-instantiable-classed.html
+ /bin/install -c -m 644 ./html/gtype-non-instantiable.html
+ /bin/install -c -m 644 ./html/home.png
+ /bin/install -c -m 644 ./html/howto-gobject-chainup.html
+ /bin/install -c -m 644 ./html/howto-gobject-code.html
+ /bin/install -c -m 644 ./html/howto-gobject-construction.html
+ /bin/install -c -m 644 ./html/howto-gobject-destruction.html
+ /bin/install -c -m 644 ./html/howto-gobject-methods.html
+ /bin/install -c -m 644 ./html/howto-gobject.html
+ /bin/install -c -m 644 ./html/howto-interface-implement.html
+ /bin/install -c -m 644 ./html/howto-interface-override.html
+ /bin/install -c -m 644 ./html/howto-interface-prerequisite.html
+ /bin/install -c -m 644 ./html/howto-interface-properties.html
+ /bin/install -c -m 644 ./html/howto-interface.html
+ /bin/install -c -m 644 ./html/howto-signals.html
+ /bin/install -c -m 644 ./html/index.html
+ /bin/install -c -m 644 ./html/index.sgml
+ /bin/install -c -m 644 ./html/left.png
+ /bin/install -c -m 644 ./html/pr01.html
+ /bin/install -c -m 644 ./html/pt01.html
+ /bin/install -c -m 644 ./html/pt02.html
+ /bin/install -c -m 644 ./html/pt03.html
+ /bin/install -c -m 644 ./html/right.png
+ /bin/install -c -m 644 ./html/rn01.html
+ /bin/install -c -m 644 ./html/rn02.html
+ /bin/install -c -m 644 ./html/signal.html
+ /bin/install -c -m 644 ./html/style.css
+ /bin/install -c -m 644 ./html/tools-ginspector.html
+ /bin/install -c -m 644 ./html/tools-gob.html
+ /bin/install -c -m 644 ./html/tools-gtkdoc.html
+ /bin/install -c -m 644 ./html/tools-refdb.html
+ /bin/install -c -m 644 ./html/tools-vala.html
+ /bin/install -c -m 644 ./html/up.png
+make[4]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/docs/reference/gobject'
+make[3]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/docs/reference/gobject'
+Making install in gio
+make[3]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/docs/reference/gio'
+Making install in gdbus-object-manager-example
+make[4]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/docs/reference/gio/gdbus-object-manager-example'
+make[5]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/docs/reference/gio/gdbus-object-manager-example'
+make[5]: Nothing to be done for `install-exec-am'.
+mkdir -p -- /opt/share/gtk-doc/html/gdbus-object-manager-example
+ /bin/install -c -m 644 ./html/ExampleAnimal.html
+ /bin/install -c -m 644 ./html/ExampleCat.html
+ /bin/install -c -m 644 ./html/ExampleObject.html
+ /bin/install -c -m 644 ./html/ExampleObjectManagerClient.html
+ /bin/install -c -m 644 ./html/ch01.html
+ /bin/install -c -m 644 ./html/gdbus-object-manager-example.devhelp2
+ /bin/install -c -m 644 ./html/home.png
+ /bin/install -c -m 644 ./html/index.html
+ /bin/install -c -m 644 ./html/index.sgml
+ /bin/install -c -m 644 ./html/left.png
+ /bin/install -c -m 644 ./html/pt01.html
+ /bin/install -c -m 644 ./html/right.png
+ /bin/install -c -m 644 ./html/style.css
+ /bin/install -c -m 644 ./html/up.png
+make  install-data-hook
+make[6]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/docs/reference/gio/gdbus-object-manager-example'
+rm -rf /opt/share/gtk-doc/html/gdbus-object-manager-example
+make[6]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/docs/reference/gio/gdbus-object-manager-example'
+make[5]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/docs/reference/gio/gdbus-object-manager-example'
+make[4]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/docs/reference/gio/gdbus-object-manager-example'
+make[4]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/docs/reference/gio'
+make[5]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/docs/reference/gio'
+make[5]: Nothing to be done for `install-exec-am'.
+mkdir -p -- /opt/share/gtk-doc/html/gio
+ /bin/install -c -m 644 ./html/ExampleAnimal.html
+ /bin/install -c -m 644 ./html/ExampleCat.html
+ /bin/install -c -m 644 ./html/ExampleObject.html
+ /bin/install -c -m 644 ./html/ExampleObjectManagerClient.html
+ /bin/install -c -m 644 ./html/GAction.html
+ /bin/install -c -m 644 ./html/GActionGroup.html
+ /bin/install -c -m 644 ./html/GActionMap.html
+ /bin/install -c -m 644 ./html/GAppInfo.html
+ /bin/install -c -m 644 ./html/GApplication.html
+ /bin/install -c -m 644 ./html/GApplicationCommandLine.html
+ /bin/install -c -m 644 ./html/GAsyncInitable.html
+ /bin/install -c -m 644 ./html/GAsyncResult.html
+ /bin/install -c -m 644 ./html/GBufferedInputStream.html
+ /bin/install -c -m 644 ./html/GBufferedOutputStream.html
+ /bin/install -c -m 644 ./html/GCancellable.html
+ /bin/install -c -m 644 ./html/GCharsetConverter.html
+ /bin/install -c -m 644 ./html/GConverter.html
+ /bin/install -c -m 644 ./html/GCredentials.html
+ /bin/install -c -m 644 ./html/GDBusActionGroup.html
+ /bin/install -c -m 644 ./html/GDBusAuthObserver.html
+ /bin/install -c -m 644 ./html/GDBusConnection.html
+ /bin/install -c -m 644 ./html/GDBusInterface.html
+ /bin/install -c -m 644 ./html/GDBusInterfaceSkeleton.html
+ /bin/install -c -m 644 ./html/GDBusMenuModel.html
+ /bin/install -c -m 644 ./html/GDBusMessage.html
+ /bin/install -c -m 644 ./html/GDBusMethodInvocation.html
+ /bin/install -c -m 644 ./html/GDBusObject.html
+ /bin/install -c -m 644 ./html/GDBusObjectManager.html
+ /bin/install -c -m 644 ./html/GDBusObjectManagerClient.html
+ /bin/install -c -m 644 ./html/GDBusObjectManagerServer.html
+ /bin/install -c -m 644 ./html/GDBusObjectProxy.html
+ /bin/install -c -m 644 ./html/GDBusObjectSkeleton.html
+ /bin/install -c -m 644 ./html/GDBusProxy.html
+ /bin/install -c -m 644 ./html/GDBusServer.html
+ /bin/install -c -m 644 ./html/GDataInputStream.html
+ /bin/install -c -m 644 ./html/GDataOutputStream.html
+ /bin/install -c -m 644 ./html/GDrive.html
+ /bin/install -c -m 644 ./html/GEmblem.html
+ /bin/install -c -m 644 ./html/GEmblemedIcon.html
+ /bin/install -c -m 644 ./html/GFile.html
+ /bin/install -c -m 644 ./html/GFileDescriptorBased.html
+ /bin/install -c -m 644 ./html/GFileEnumerator.html
+ /bin/install -c -m 644 ./html/GFileIOStream.html
+ /bin/install -c -m 644 ./html/GFileIcon.html
+ /bin/install -c -m 644 ./html/GFileInfo.html
+ /bin/install -c -m 644 ./html/GFileInputStream.html
+ /bin/install -c -m 644 ./html/GFileMonitor.html
+ /bin/install -c -m 644 ./html/GFileOutputStream.html
+ /bin/install -c -m 644 ./html/GFilenameCompleter.html
+ /bin/install -c -m 644 ./html/GFilterInputStream.html
+ /bin/install -c -m 644 ./html/GFilterOutputStream.html
+ /bin/install -c -m 644 ./html/GIOModule.html
+ /bin/install -c -m 644 ./html/GIOStream.html
+ /bin/install -c -m 644 ./html/GIcon.html
+ /bin/install -c -m 644 ./html/GInetAddress.html
+ /bin/install -c -m 644 ./html/GInetSocketAddress.html
+ /bin/install -c -m 644 ./html/GInitable.html
+ /bin/install -c -m 644 ./html/GInputStream.html
+ /bin/install -c -m 644 ./html/GLoadableIcon.html
+ /bin/install -c -m 644 ./html/GMemoryInputStream.html
+ /bin/install -c -m 644 ./html/GMemoryOutputStream.html
+ /bin/install -c -m 644 ./html/GMenu.html
+ /bin/install -c -m 644 ./html/GMenuModel.html
+ /bin/install -c -m 644 ./html/GMount.html
+ /bin/install -c -m 644 ./html/GMountOperation.html
+ /bin/install -c -m 644 ./html/GNetworkAddress.html
+ /bin/install -c -m 644 ./html/GNetworkMonitor.html
+ /bin/install -c -m 644 ./html/GNetworkService.html
+ /bin/install -c -m 644 ./html/GOutputStream.html
+ /bin/install -c -m 644 ./html/GPermission.html
+ /bin/install -c -m 644 ./html/GPollableInputStream.html
+ /bin/install -c -m 644 ./html/GPollableOutputStream.html
+ /bin/install -c -m 644 ./html/GProxy.html
+ /bin/install -c -m 644 ./html/GProxyAddress.html
+ /bin/install -c -m 644 ./html/GProxyResolver.html
+ /bin/install -c -m 644 ./html/GRemoteActionGroup.html
+ /bin/install -c -m 644 ./html/GResolver.html
+ /bin/install -c -m 644 ./html/GSeekable.html
+ /bin/install -c -m 644 ./html/GSettings.html
+ /bin/install -c -m 644 ./html/GSettingsBackend.html
+ /bin/install -c -m 644 ./html/GSimpleAction.html
+ /bin/install -c -m 644 ./html/GSimpleActionGroup.html
+ /bin/install -c -m 644 ./html/GSimpleAsyncResult.html
+ /bin/install -c -m 644 ./html/GSimplePermission.html
+ /bin/install -c -m 644 ./html/GSocket.html
+ /bin/install -c -m 644 ./html/GSocketAddress.html
+ /bin/install -c -m 644 ./html/GSocketClient.html
+ /bin/install -c -m 644 ./html/GSocketConnectable.html
+ /bin/install -c -m 644 ./html/GSocketConnection.html
+ /bin/install -c -m 644 ./html/GSocketControlMessage.html
+ /bin/install -c -m 644 ./html/GSocketListener.html
+ /bin/install -c -m 644 ./html/GSocketService.html
+ /bin/install -c -m 644 ./html/GSrvTarget.html
+ /bin/install -c -m 644 ./html/GTcpConnection.html
+ /bin/install -c -m 644 ./html/GTcpWrapperConnection.html
+ /bin/install -c -m 644 ./html/GTestDBus.html
+ /bin/install -c -m 644 ./html/GThemedIcon.html
+ /bin/install -c -m 644 ./html/GThreadedSocketService.html
+ /bin/install -c -m 644 ./html/GTlsBackend.html
+ /bin/install -c -m 644 ./html/GTlsCertificate.html
+ /bin/install -c -m 644 ./html/GTlsClientConnection.html
+ /bin/install -c -m 644 ./html/GTlsConnection.html
+ /bin/install -c -m 644 ./html/GTlsDatabase.html
+ /bin/install -c -m 644 ./html/GTlsFileDatabase.html
+ /bin/install -c -m 644 ./html/GTlsInteraction.html
+ /bin/install -c -m 644 ./html/GTlsPassword.html
+ /bin/install -c -m 644 ./html/GTlsServerConnection.html
+ /bin/install -c -m 644 ./html/GUnixConnection.html
+ /bin/install -c -m 644 ./html/GUnixCredentialsMessage.html
+ /bin/install -c -m 644 ./html/GUnixFDList.html
+ /bin/install -c -m 644 ./html/GUnixFDMessage.html
+ /bin/install -c -m 644 ./html/GUnixInputStream.html
+ /bin/install -c -m 644 ./html/GUnixOutputStream.html
+ /bin/install -c -m 644 ./html/GUnixSocketAddress.html
+ /bin/install -c -m 644 ./html/GVfs.html
+ /bin/install -c -m 644 ./html/GVolume.html
+ /bin/install -c -m 644 ./html/GVolumeMonitor.html
+ /bin/install -c -m 644 ./html/GZlibCompressor.html
+ /bin/install -c -m 644 ./html/GZlibDecompressor.html
+ /bin/install -c -m 644 ./html/annotation-glossary.html
+ /bin/install -c -m 644 ./html/api-index-2-18.html
+ /bin/install -c -m 644 ./html/api-index-2-20.html
+ /bin/install -c -m 644 ./html/api-index-2-22.html
+ /bin/install -c -m 644 ./html/api-index-2-24.html
+ /bin/install -c -m 644 ./html/api-index-2-26.html
+ /bin/install -c -m 644 ./html/api-index-2-28.html
+ /bin/install -c -m 644 ./html/api-index-2-30.html
+ /bin/install -c -m 644 ./html/api-index-2-32.html
+ /bin/install -c -m 644 ./html/api-index-2-34.html
+ /bin/install -c -m 644 ./html/api-index-deprecated.html
+ /bin/install -c -m 644 ./html/api-index-full.html
+ /bin/install -c -m 644 ./html/application.html
+ /bin/install -c -m 644 ./html/async.html
+ /bin/install -c -m 644 ./html/ch01.html
+ /bin/install -c -m 644 ./html/ch02.html
+ /bin/install -c -m 644 ./html/ch03.html
+ /bin/install -c -m 644 ./html/ch29.html
+ /bin/install -c -m 644 ./html/ch30.html
+ /bin/install -c -m 644 ./html/ch30s02.html
+ /bin/install -c -m 644 ./html/ch30s03.html
+ /bin/install -c -m 644 ./html/ch31.html
+ /bin/install -c -m 644 ./html/ch31s02.html
+ /bin/install -c -m 644 ./html/ch31s03.html
+ /bin/install -c -m 644 ./html/ch31s04.html
+ /bin/install -c -m 644 ./html/ch31s05.html
+ /bin/install -c -m 644 ./html/ch31s06.html
+ /bin/install -c -m 644 ./html/ch31s07.html
+ /bin/install -c -m 644 ./html/ch32.html
+ /bin/install -c -m 644 ./html/ch32s02.html
+ /bin/install -c -m 644 ./html/ch32s03.html
+ /bin/install -c -m 644 ./html/ch32s04.html
+ /bin/install -c -m 644 ./html/ch32s05.html
+ /bin/install -c -m 644 ./html/conversion.html
+ /bin/install -c -m 644 ./html/extending-gio.html
+ /bin/install -c -m 644 ./html/extending.html
+ /bin/install -c -m 644 ./html/failable_initialization.html
+ /bin/install -c -m 644 ./html/file_mon.html
+ /bin/install -c -m 644 ./html/file_ops.html
+ /bin/install -c -m 644 ./html/gdbus-codegen.html
+ /bin/install -c -m 644 ./html/gdbus-convenience.html
+ /bin/install -c -m 644 ./html/gdbus-lowlevel.html
+ /bin/install -c -m 644 ./html/gdbus-org.gtk.GDBus.Example.ObjectManager.Animal.html
+ /bin/install -c -m 644 ./html/gdbus-org.gtk.GDBus.Example.ObjectManager.Cat.html
+ /bin/install -c -m 644 ./html/gdbus.html
+ /bin/install -c -m 644 ./html/gio-D-Bus-Addresses.html
+ /bin/install -c -m 644 ./html/gio-D-Bus-Introspection-Data.html
+ /bin/install -c -m 644 ./html/gio-D-Bus-Utilities.html
+ /bin/install -c -m 644 ./html/gio-Desktop-file-based-GAppInfo.html
+ /bin/install -c -m 644 ./html/gio-Extension-Points.html
+ /bin/install -c -m 644 ./html/gio-GActionGroup-exporter.html
+ /bin/install -c -m 644 ./html/gio-GContentType.html
+ /bin/install -c -m 644 ./html/gio-GConverterInputstream.html
+ /bin/install -c -m 644 ./html/gio-GConverterOutputstream.html
+ /bin/install -c -m 644 ./html/gio-GDBusError.html
+ /bin/install -c -m 644 ./html/gio-GFileAttribute.html
+ /bin/install -c -m 644 ./html/gio-GIOError.html
+ /bin/install -c -m 644 ./html/gio-GIOScheduler.html
+ /bin/install -c -m 644 ./html/gio-GInetAddressMask.html
+ /bin/install -c -m 644 ./html/gio-GMenuModel-exporter.html
+ /bin/install -c -m 644 ./html/gio-GResource.html
+ /bin/install -c -m 644 ./html/gio-GSettingsSchema-GSettingsSchemaSource.html
+ /bin/install -c -m 644 ./html/gio-GWin32InputStream.html
+ /bin/install -c -m 644 ./html/gio-GWin32OutputStream.html
+ /bin/install -c -m 644 ./html/gio-Owning-Bus-Names.html
+ /bin/install -c -m 644 ./html/gio-TLS-Overview.html
+ /bin/install -c -m 644 ./html/gio-Unix-Mounts.html
+ /bin/install -c -m 644 ./html/gio-Watching-Bus-Names.html
+ /bin/install -c -m 644 ./html/gio-gpollableutils.html
+ /bin/install -c -m 644 ./html/gio-hierarchy.html
+ /bin/install -c -m 644 ./html/gio-querymodules.html
+ /bin/install -c -m 644 ./html/gio.devhelp2
+ /bin/install -c -m 644 ./html/glib-compile-resources.html
+ /bin/install -c -m 644 ./html/glib-compile-schemas.html
+ /bin/install -c -m 644 ./html/gresource-tool.html
+ /bin/install -c -m 644 ./html/gsettings-tool.html
+ /bin/install -c -m 644 ./html/gvfs-overview.png
+ /bin/install -c -m 644 ./html/highlevel-socket.html
+ /bin/install -c -m 644 ./html/home.png
+ /bin/install -c -m 644 ./html/icons.html
+ /bin/install -c -m 644 ./html/index.html
+ /bin/install -c -m 644 ./html/index.sgml
+ /bin/install -c -m 644 ./html/left.png
+ /bin/install -c -m 644 ./html/menu-example.png
+ /bin/install -c -m 644 ./html/menu-model.png
+ /bin/install -c -m 644 ./html/migrating.html
+ /bin/install -c -m 644 ./html/networking.html
+ /bin/install -c -m 644 ./html/permissions.html
+ /bin/install -c -m 644 ./html/pt01.html
+ /bin/install -c -m 644 ./html/pt02.html
+ /bin/install -c -m 644 ./html/resolver.html
+ /bin/install -c -m 644 ./html/resources.html
+ /bin/install -c -m 644 ./html/right.png
+ /bin/install -c -m 644 ./html/running-gio-apps.html
+ /bin/install -c -m 644 ./html/settings.html
+ /bin/install -c -m 644 ./html/streaming.html
+ /bin/install -c -m 644 ./html/style.css
+ /bin/install -c -m 644 ./html/testing.html
+ /bin/install -c -m 644 ./html/tls.html
+ /bin/install -c -m 644 ./html/tools.html
+ /bin/install -c -m 644 ./html/types.html
+ /bin/install -c -m 644 ./html/up.png
+ /bin/install -c -m 644 ./html/utils.html
+ /bin/install -c -m 644 ./html/volume_mon.html
+make[5]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/docs/reference/gio'
+make[4]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/docs/reference/gio'
+make[3]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/docs/reference/gio'
+make[3]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/docs/reference'
+make[4]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/docs/reference'
+make[4]: Nothing to be done for `install-exec-am'.
+make[4]: Nothing to be done for `install-data-am'.
+make[4]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/docs/reference'
+make[3]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/docs/reference'
+make[2]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/docs/reference'
+make[2]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/docs'
+make[3]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/docs'
+make[3]: Nothing to be done for `install-exec-am'.
+make[3]: Nothing to be done for `install-data-am'.
+make[3]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/docs'
+make[2]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/docs'
+make[1]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/docs'
+Making install in tests
+make[1]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/tests'
+Making install in gobject
+make[2]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/tests/gobject'
+make  install-am
+make[3]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/tests/gobject'
+make[4]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/tests/gobject'
+make[4]: Nothing to be done for `install-exec-am'.
+make[4]: Nothing to be done for `install-data-am'.
+make[4]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/tests/gobject'
+make[3]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/tests/gobject'
+make[2]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/tests/gobject'
+Making install in refcount
+make[2]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/tests/refcount'
+make[3]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/tests/refcount'
+make[3]: Nothing to be done for `install-exec-am'.
+make[3]: Nothing to be done for `install-data-am'.
+make[3]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/tests/refcount'
+make[2]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/tests/refcount'
+make[2]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/tests'
+make[3]: Entering directory `/home/Administrateur/12_glib/glib-2.34.3/tests'
+make[3]: Nothing to be done for `install-exec-am'.
+make[3]: Nothing to be done for `install-data-am'.
+make[3]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/tests'
+make[2]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/tests'
+make[1]: Leaving directory `/home/Administrateur/12_glib/glib-2.34.3/tests'

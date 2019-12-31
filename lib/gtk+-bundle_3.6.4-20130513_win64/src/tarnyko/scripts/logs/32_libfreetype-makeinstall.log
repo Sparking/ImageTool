@@ -1,0 +1,47 @@
+./builds/unix/mkinstalldirs /opt/lib                               \
+                         /opt/lib/pkgconfig                     \
+                         /opt/include/freetype2/freetype/config \
+                         /opt/include/freetype2/freetype/cache  \
+                         /opt/bin                               \
+                         /opt/share/aclocal
+mkdir -p -- /opt/include/freetype2/freetype/config /opt/include/freetype2/freetype/cache /opt/bin /opt/share/aclocal
+./builds/unix/libtool --mode=install /bin/install -c                             \
+                                  /home/Administrateur/32_libfreetype/freetype-2.4.11/objs/libfreetype.la /opt/lib
+libtool: install: /bin/install -c /home/Administrateur/32_libfreetype/freetype-2.4.11/objs/.libs/libfreetype.dll.a /opt/lib/libfreetype.dll.a
+libtool: install: base_file=`basename /home/Administrateur/32_libfreetype/freetype-2.4.11/objs/libfreetype.la`
+libtool: install:  dlpath=`/bin/sh 2>&1 -c '. /home/Administrateur/32_libfreetype/freetype-2.4.11/objs/.libs/'libfreetype.la'i; echo libfreetype-6.dll'`
+libtool: install:  dldir=/opt/lib/`dirname ../bin/libfreetype-6.dll`
+libtool: install:  test -d /opt/lib/../bin || mkdir -p /opt/lib/../bin
+libtool: install:  /bin/install -c /home/Administrateur/32_libfreetype/freetype-2.4.11/objs/.libs/libfreetype-6.dll /opt/lib/../bin/libfreetype-6.dll
+libtool: install:  chmod a+x /opt/lib/../bin/libfreetype-6.dll
+libtool: install:  if test -n '' && test -n 'x86_64-w64-mingw32-strip --strip-unneeded'; then eval 'x86_64-w64-mingw32-strip --strip-unneeded /opt/lib/../bin/libfreetype-6.dll' || exit 0; fi
+libtool: install: /bin/install -c /home/Administrateur/32_libfreetype/freetype-2.4.11/objs/.libs/libfreetype.lai /opt/lib/libfreetype.la
+libtool: install: /bin/install -c /home/Administrateur/32_libfreetype/freetype-2.4.11/objs/.libs/libfreetype.a /opt/lib/libfreetype.a
+libtool: install: chmod 644 /opt/lib/libfreetype.a
+libtool: install: x86_64-w64-mingw32-ranlib /opt/lib/libfreetype.a
+for P in /home/Administrateur/32_libfreetype/freetype-2.4.11/include/freetype/freetype.h /home/Administrateur/32_libfreetype/freetype-2.4.11/include/freetype/ftadvanc.h /home/Administrateur/32_libfreetype/freetype-2.4.11/include/freetype/ftautoh.h /home/Administrateur/32_libfreetype/freetype-2.4.11/include/freetype/ftbbox.h /home/Administrateur/32_libfreetype/freetype-2.4.11/include/freetype/ftbdf.h /home/Administrateur/32_libfreetype/freetype-2.4.11/include/freetype/ftbitmap.h /home/Administrateur/32_libfreetype/freetype-2.4.11/include/freetype/ftbzip2.h /home/Administrateur/32_libfreetype/freetype-2.4.11/include/freetype/ftcache.h /home/Administrateur/32_libfreetype/freetype-2.4.11/include/freetype/ftchapters.h /home/Administrateur/32_libfreetype/freetype-2.4.11/include/freetype/ftcid.h /home/Administrateur/32_libfreetype/freetype-2.4.11/include/freetype/fterrdef.h /home/Administrateur/32_libfreetype/freetype-2.4.11/include/freetype/fterrors.h /home/Administrateur/32_libfreetype/freetype-2.4.11/include/freetype/ftgasp.h /home/Administrateur/32_libfreetype/freetype-2.4.11/include/freetype/ftglyph.h /home/Administrateur/32_libfreetype/freetype-2.4.11/include/freetype/ftgxval.h /home/Administrateur/32_libfreetype/freetype-2.4.11/include/freetype/ftgzip.h /home/Administrateur/32_libfreetype/freetype-2.4.11/include/freetype/ftimage.h /home/Administrateur/32_libfreetype/freetype-2.4.11/include/freetype/ftincrem.h /home/Administrateur/32_libfreetype/freetype-2.4.11/include/freetype/ftlcdfil.h /home/Administrateur/32_libfreetype/freetype-2.4.11/include/freetype/ftlist.h /home/Administrateur/32_libfreetype/freetype-2.4.11/include/freetype/ftlzw.h /home/Administrateur/32_libfreetype/freetype-2.4.11/include/freetype/ftmac.h /home/Administrateur/32_libfreetype/freetype-2.4.11/include/freetype/ftmm.h /home/Administrateur/32_libfreetype/freetype-2.4.11/include/freetype/ftmodapi.h /home/Administrateur/32_libfreetype/freetype-2.4.11/include/freetype/ftmoderr.h /home/Administrateur/32_libfreetype/freetype-2.4.11/include/freetype/ftotval.h /home/Administrateur/32_libfreetype/freetype-2.4.11/include/freetype/ftoutln.h /home/Administrateur/32_libfreetype/freetype-2.4.11/include/freetype/ftpfr.h /home/Administrateur/32_libfreetype/freetype-2.4.11/include/freetype/ftrender.h /home/Administrateur/32_libfreetype/freetype-2.4.11/include/freetype/ftsizes.h /home/Administrateur/32_libfreetype/freetype-2.4.11/include/freetype/ftsnames.h /home/Administrateur/32_libfreetype/freetype-2.4.11/include/freetype/ftstroke.h /home/Administrateur/32_libfreetype/freetype-2.4.11/include/freetype/ftsynth.h /home/Administrateur/32_libfreetype/freetype-2.4.11/include/freetype/ftsystem.h /home/Administrateur/32_libfreetype/freetype-2.4.11/include/freetype/fttrigon.h /home/Administrateur/32_libfreetype/freetype-2.4.11/include/freetype/fttypes.h /home/Administrateur/32_libfreetype/freetype-2.4.11/include/freetype/ftwinfnt.h /home/Administrateur/32_libfreetype/freetype-2.4.11/include/freetype/ftxf86.h /home/Administrateur/32_libfreetype/freetype-2.4.11/include/freetype/t1tables.h /home/Administrateur/32_libfreetype/freetype-2.4.11/include/freetype/ttnameid.h /home/Administrateur/32_libfreetype/freetype-2.4.11/include/freetype/tttables.h /home/Administrateur/32_libfreetype/freetype-2.4.11/include/freetype/tttags.h /home/Administrateur/32_libfreetype/freetype-2.4.11/include/freetype/ttunpat.h ; do                           \
+          /bin/install -c -m 644                                    \
+            $P /opt/include/freetype2/freetype ; \
+        done
+for P in /home/Administrateur/32_libfreetype/freetype-2.4.11/include/freetype/config/ftconfig.h /home/Administrateur/32_libfreetype/freetype-2.4.11/include/freetype/config/ftheader.h /home/Administrateur/32_libfreetype/freetype-2.4.11/include/freetype/config/ftmodule.h /home/Administrateur/32_libfreetype/freetype-2.4.11/include/freetype/config/ftoption.h /home/Administrateur/32_libfreetype/freetype-2.4.11/include/freetype/config/ftstdlib.h  /home/Administrateur/32_libfreetype/freetype-2.4.11/objs/ftmodule.h  ; do                                  \
+          /bin/install -c -m 644                                           \
+            $P /opt/include/freetype2/freetype/config ; \
+        done
+rm -f /opt/include/freetype2/freetype/cache/*
+rmdir /opt/include/freetype2/freetype/cache
+rm -f /opt/include/freetype2/freetype/internal/*
+rmdir /opt/include/freetype2/freetype/internal
+rmdir: /opt/include/freetype2/freetype/internal: No such file or directory
+make: [install] Error 1 (ignored)
+/bin/install -c -m 644 ./builds/unix/ft2unix.h \
+          /opt/include/ft2build.h
+/bin/install -c -m 644 ./builds/unix/ftconfig.h                        \
+          /opt/include/freetype2/freetype/config/ftconfig.h
+/bin/install -c -m 644 /home/Administrateur/32_libfreetype/freetype-2.4.11/objs/ftmodule.h                          \
+          /opt/include/freetype2/freetype/config/ftmodule.h
+/bin/install -c -m 755 ./builds/unix/freetype-config \
+          /opt/bin/freetype-config
+/bin/install -c -m 644 ./builds/unix/freetype2.m4 \
+          /opt/share/aclocal/freetype2.m4
+/bin/install -c -m 644 ./builds/unix/freetype2.pc \
+          /opt/lib/pkgconfig/freetype2.pc

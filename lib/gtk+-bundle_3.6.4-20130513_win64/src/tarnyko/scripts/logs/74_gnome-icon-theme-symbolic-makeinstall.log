@@ -1,0 +1,38 @@
+Making install in src
+make[1]: Entering directory `/home/Administrateur/74_gnome-icon-theme-symbolic/gnome-icon-theme-symbolic-3.6.2/src'
+if test "x.." != "x.."; then \
+		cp -a ../gnome ../gnome; \
+	fi
+make[2]: Entering directory `/home/Administrateur/74_gnome-icon-theme-symbolic/gnome-icon-theme-symbolic-3.6.2/src'
+make[2]: Nothing to be done for `install-exec-am'.
+for size in ; do \
+		for file in `cd ../gnome/$size; find . -name "*.png"`; do \
+			context="`dirname $file`"; \
+			/bin/mkdir -p /opt/share/icons/gnome/$size/$context; \
+			/bin/sh /home/Administrateur/74_gnome-icon-theme-symbolic/gnome-icon-theme-symbolic-3.6.2/install-sh -c -m 644 ../gnome/$size/$file /opt/share/icons/gnome/$size/$file; \
+		done; \
+	done
+for file in `cd ../gnome/scalable; find . -name "*.svg"`; do \
+		context="`dirname $file`"; \
+		/bin/mkdir -p /opt/share/icons/gnome/scalable/$context; \
+		/bin/sh /home/Administrateur/74_gnome-icon-theme-symbolic/gnome-icon-theme-symbolic-3.6.2/install-sh -c -m 644 ../gnome/scalable/$file /opt/share/icons/gnome/scalable/$file; \
+	done
+make[2]: Leaving directory `/home/Administrateur/74_gnome-icon-theme-symbolic/gnome-icon-theme-symbolic-3.6.2/src'
+make[1]: Leaving directory `/home/Administrateur/74_gnome-icon-theme-symbolic/gnome-icon-theme-symbolic-3.6.2/src'
+make[1]: Entering directory `/home/Administrateur/74_gnome-icon-theme-symbolic/gnome-icon-theme-symbolic-3.6.2'
+make[2]: Entering directory `/home/Administrateur/74_gnome-icon-theme-symbolic/gnome-icon-theme-symbolic-3.6.2'
+make[2]: Nothing to be done for `install-exec-am'.
+if [ -h /opt/share/icons/gnome ]; then \
+		rm -f /opt/share/icons/gnome; \
+	fi
+if [ -d /opt/share/icons/gnome ]; then \
+		touch /opt/share/icons/gnome; \
+	fi
+make  install-data-hook
+make[3]: Entering directory `/home/Administrateur/74_gnome-icon-theme-symbolic/gnome-icon-theme-symbolic-3.6.2'
+if test -z "" ; then \
+		/opt/bin/gtk-update-icon-cache -q /opt/share/icons/gnome; \
+	fi
+make[3]: Leaving directory `/home/Administrateur/74_gnome-icon-theme-symbolic/gnome-icon-theme-symbolic-3.6.2'
+make[2]: Leaving directory `/home/Administrateur/74_gnome-icon-theme-symbolic/gnome-icon-theme-symbolic-3.6.2'
+make[1]: Leaving directory `/home/Administrateur/74_gnome-icon-theme-symbolic/gnome-icon-theme-symbolic-3.6.2'

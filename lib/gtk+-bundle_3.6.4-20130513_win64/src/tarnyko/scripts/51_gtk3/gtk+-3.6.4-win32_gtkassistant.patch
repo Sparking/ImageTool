@@ -1,0 +1,11 @@
+--- gtk+-3.6.4/gtk/gtk-win32-base.css	2012-11-19 14:32:20 +0000
++++ gtk+-3.6.4/gtk/gtk-win32-base.css	2013-03-20 14:02:04 +0000
+@@ -791,7 +791,7 @@
+ /* Assistant */
+ 
+ GtkAssistant .sidebar .highlight {
+-    background-color: blue;
++    background-color: gray;
+     font: bold;
+ }
+ 

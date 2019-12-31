@@ -1,0 +1,171 @@
+Making install in src
+make[1]: Entering directory `/home/Administrateur/2_xz/xz-5.0.4/src'
+Making install in liblzma
+make[2]: Entering directory `/home/Administrateur/2_xz/xz-5.0.4/src/liblzma'
+Making install in api
+make[3]: Entering directory `/home/Administrateur/2_xz/xz-5.0.4/src/liblzma/api'
+make[4]: Entering directory `/home/Administrateur/2_xz/xz-5.0.4/src/liblzma/api'
+make[4]: Nothing to be done for `install-exec-am'.
+ /bin/mkdir -p '/opt/include'
+ /bin/mkdir -p '/opt/include/lzma'
+ /bin/install -c -m 644  lzma/base.h lzma/bcj.h lzma/block.h lzma/check.h lzma/container.h lzma/delta.h lzma/filter.h lzma/hardware.h lzma/index.h lzma/index_hash.h lzma/lzma.h lzma/stream_flags.h lzma/version.h lzma/vli.h '/opt/include/lzma'
+ /bin/install -c -m 644  lzma.h '/opt/include/.'
+make[4]: Leaving directory `/home/Administrateur/2_xz/xz-5.0.4/src/liblzma/api'
+make[3]: Leaving directory `/home/Administrateur/2_xz/xz-5.0.4/src/liblzma/api'
+make[3]: Entering directory `/home/Administrateur/2_xz/xz-5.0.4/src/liblzma'
+make[4]: Entering directory `/home/Administrateur/2_xz/xz-5.0.4/src/liblzma'
+ /bin/mkdir -p '/opt/lib'
+ /bin/sh ../../libtool   --mode=install /bin/install -c   liblzma.la '/opt/lib'
+libtool: install: /bin/install -c .libs/liblzma.dll.a /opt/lib/liblzma.dll.a
+libtool: install: base_file=`basename liblzma.la`
+libtool: install:  dlpath=`/bin/sh 2>&1 -c '. .libs/'liblzma.la'i; echo liblzma-5.dll'`
+libtool: install:  dldir=/opt/lib/`dirname ../bin/liblzma-5.dll`
+libtool: install:  test -d /opt/lib/../bin || mkdir -p /opt/lib/../bin
+libtool: install:  /bin/install -c .libs/liblzma-5.dll /opt/lib/../bin/liblzma-5.dll
+libtool: install:  chmod a+x /opt/lib/../bin/liblzma-5.dll
+libtool: install:  if test -n '' && test -n 'x86_64-w64-mingw32-strip --strip-unneeded'; then eval 'x86_64-w64-mingw32-strip --strip-unneeded /opt/lib/../bin/liblzma-5.dll' || exit 0; fi
+libtool: install: /bin/install -c .libs/liblzma.lai /opt/lib/liblzma.la
+libtool: install: /bin/install -c .libs/liblzma.a /opt/lib/liblzma.a
+libtool: install: chmod 644 /opt/lib/liblzma.a
+libtool: install: x86_64-w64-mingw32-ranlib /opt/lib/liblzma.a
+ /bin/mkdir -p '/opt/share/doc/xz'
+ /bin/install -c -m 644 liblzma.def '/opt/share/doc/xz'
+ /bin/mkdir -p '/opt/lib/pkgconfig'
+ /bin/install -c -m 644 liblzma.pc '/opt/lib/pkgconfig'
+make[4]: Leaving directory `/home/Administrateur/2_xz/xz-5.0.4/src/liblzma'
+make[3]: Leaving directory `/home/Administrateur/2_xz/xz-5.0.4/src/liblzma'
+make[2]: Leaving directory `/home/Administrateur/2_xz/xz-5.0.4/src/liblzma'
+Making install in xzdec
+make[2]: Entering directory `/home/Administrateur/2_xz/xz-5.0.4/src/xzdec'
+make[3]: Entering directory `/home/Administrateur/2_xz/xz-5.0.4/src/xzdec'
+ /bin/mkdir -p '/opt/bin'
+  /bin/sh ../../libtool   --mode=install /bin/install -c xzdec.exe lzmadec.exe '/opt/bin'
+libtool: install: /bin/install -c .libs/xzdec.exe /opt/bin/xzdec.exe
+libtool: install: /bin/install -c .libs/lzmadec.exe /opt/bin/lzmadec.exe
+ /bin/mkdir -p '/opt/share/man/man1'
+ /bin/install -c -m 644 xzdec.1 '/opt/share/man/man1'
+make  install-data-hook
+make[4]: Entering directory `/home/Administrateur/2_xz/xz-5.0.4/src/xzdec'
+cd /opt/share/man/man1 && \
+	target=`echo xzdec | sed 's,x,x,'` && \
+	link=`echo lzmadec | sed 's,x,x,'` && \
+	rm -f $link.1 && \
+	ln -s $target.1 $link.1
+make[4]: Leaving directory `/home/Administrateur/2_xz/xz-5.0.4/src/xzdec'
+make[3]: Leaving directory `/home/Administrateur/2_xz/xz-5.0.4/src/xzdec'
+make[2]: Leaving directory `/home/Administrateur/2_xz/xz-5.0.4/src/xzdec'
+Making install in xz
+make[2]: Entering directory `/home/Administrateur/2_xz/xz-5.0.4/src/xz'
+make[3]: Entering directory `/home/Administrateur/2_xz/xz-5.0.4/src/xz'
+ /bin/mkdir -p '/opt/bin'
+  /bin/sh ../../libtool   --mode=install /bin/install -c xz.exe '/opt/bin'
+libtool: install: /bin/install -c .libs/xz.exe /opt/bin/xz.exe
+make  install-exec-hook
+make[4]: Entering directory `/home/Administrateur/2_xz/xz-5.0.4/src/xz'
+cd /opt/bin && \
+	target=`echo xz | sed 's,x,x,'`.exe && \
+	for name in unxz xzcat lzma unlzma lzcat; do \
+		link=`echo $name | sed 's,x,x,'`.exe && \
+		rm -f $link && \
+		ln -s $target $link; \
+	done
+make[4]: Leaving directory `/home/Administrateur/2_xz/xz-5.0.4/src/xz'
+ /bin/mkdir -p '/opt/share/man/man1'
+ /bin/install -c -m 644 xz.1 '/opt/share/man/man1'
+make  install-data-hook
+make[4]: Entering directory `/home/Administrateur/2_xz/xz-5.0.4/src/xz'
+cd /opt/share/man/man1 && \
+	target=`echo xz | sed 's,x,x,'` && \
+	for name in unxz xzcat lzma unlzma lzcat; do \
+		link=`echo $name | sed 's,x,x,'` && \
+		rm -f $link.1 && \
+		ln -s $target.1 $link.1; \
+	done
+make[4]: Leaving directory `/home/Administrateur/2_xz/xz-5.0.4/src/xz'
+make[3]: Leaving directory `/home/Administrateur/2_xz/xz-5.0.4/src/xz'
+make[2]: Leaving directory `/home/Administrateur/2_xz/xz-5.0.4/src/xz'
+Making install in lzmainfo
+make[2]: Entering directory `/home/Administrateur/2_xz/xz-5.0.4/src/lzmainfo'
+make[3]: Entering directory `/home/Administrateur/2_xz/xz-5.0.4/src/lzmainfo'
+ /bin/mkdir -p '/opt/bin'
+  /bin/sh ../../libtool   --mode=install /bin/install -c lzmainfo.exe '/opt/bin'
+libtool: install: /bin/install -c .libs/lzmainfo.exe /opt/bin/lzmainfo.exe
+ /bin/mkdir -p '/opt/share/man/man1'
+ /bin/install -c -m 644 lzmainfo.1 '/opt/share/man/man1'
+make[3]: Leaving directory `/home/Administrateur/2_xz/xz-5.0.4/src/lzmainfo'
+make[2]: Leaving directory `/home/Administrateur/2_xz/xz-5.0.4/src/lzmainfo'
+Making install in scripts
+make[2]: Entering directory `/home/Administrateur/2_xz/xz-5.0.4/src/scripts'
+make[3]: Entering directory `/home/Administrateur/2_xz/xz-5.0.4/src/scripts'
+ /bin/mkdir -p '/opt/bin'
+ /bin/install -c xzdiff xzgrep xzmore xzless '/opt/bin'
+make  install-exec-hook
+make[4]: Entering directory `/home/Administrateur/2_xz/xz-5.0.4/src/scripts'
+cd /opt/bin && \
+	for pair in xzdiff-xzcmp xzgrep-xzegrep xzgrep-xzfgrep xzdiff-lzdiff xzdiff-lzcmp xzgrep-lzgrep xzgrep-lzegrep xzgrep-lzfgrep xzmore-lzmore xzless-lzless; do \
+		target=`echo $pair | sed 's/-.*$//' | sed 's,x,x,'` && \
+		link=`echo $pair | sed 's/^.*-//' | sed 's,x,x,'` && \
+		rm -f $link && \
+		ln -s $target $link; \
+	done
+make[4]: Leaving directory `/home/Administrateur/2_xz/xz-5.0.4/src/scripts'
+ /bin/mkdir -p '/opt/share/man/man1'
+ /bin/install -c -m 644 xzdiff.1 xzgrep.1 xzmore.1 xzless.1 '/opt/share/man/man1'
+make  install-data-hook
+make[4]: Entering directory `/home/Administrateur/2_xz/xz-5.0.4/src/scripts'
+cd /opt/share/man/man1 && \
+	for pair in xzdiff-xzcmp xzgrep-xzegrep xzgrep-xzfgrep xzdiff-lzdiff xzdiff-lzcmp xzgrep-lzgrep xzgrep-lzegrep xzgrep-lzfgrep xzmore-lzmore xzless-lzless; do \
+		target=`echo $pair | sed 's/-.*$//' | sed 's,x,x,'` && \
+		link=`echo $pair | sed 's/^.*-//' | sed 's,x,x,'` && \
+		rm -f $link.1 && \
+		ln -s $target.1 $link.1; \
+	done
+make[4]: Leaving directory `/home/Administrateur/2_xz/xz-5.0.4/src/scripts'
+make[3]: Leaving directory `/home/Administrateur/2_xz/xz-5.0.4/src/scripts'
+make[2]: Leaving directory `/home/Administrateur/2_xz/xz-5.0.4/src/scripts'
+make[2]: Entering directory `/home/Administrateur/2_xz/xz-5.0.4/src'
+make[3]: Entering directory `/home/Administrateur/2_xz/xz-5.0.4/src'
+make[3]: Nothing to be done for `install-exec-am'.
+make[3]: Nothing to be done for `install-data-am'.
+make[3]: Leaving directory `/home/Administrateur/2_xz/xz-5.0.4/src'
+make[2]: Leaving directory `/home/Administrateur/2_xz/xz-5.0.4/src'
+make[1]: Leaving directory `/home/Administrateur/2_xz/xz-5.0.4/src'
+Making install in po
+make[1]: Entering directory `/home/Administrateur/2_xz/xz-5.0.4/po'
+/bin/mkdir -p /opt/share
+installing cs.gmo as /opt/share/locale/cs/LC_MESSAGES/xz.mo
+installing de.gmo as /opt/share/locale/de/LC_MESSAGES/xz.mo
+installing fr.gmo as /opt/share/locale/fr/LC_MESSAGES/xz.mo
+installing it.gmo as /opt/share/locale/it/LC_MESSAGES/xz.mo
+installing pl.gmo as /opt/share/locale/pl/LC_MESSAGES/xz.mo
+if test "xz" = "gettext-tools"; then \
+	  /bin/mkdir -p /opt/share/gettext/po; \
+	  for file in Makefile.in.in remove-potcdate.sin quot.sed boldquot.sed en@quot.header en@boldquot.header insert-header.sin Rules-quot   Makevars.template; do \
+	    /bin/install -c -m 644 ./$file \
+			    /opt/share/gettext/po/$file; \
+	  done; \
+	  for file in Makevars; do \
+	    rm -f /opt/share/gettext/po/$file; \
+	  done; \
+	else \
+	  : ; \
+	fi
+make[1]: Leaving directory `/home/Administrateur/2_xz/xz-5.0.4/po'
+Making install in tests
+make[1]: Entering directory `/home/Administrateur/2_xz/xz-5.0.4/tests'
+make[2]: Entering directory `/home/Administrateur/2_xz/xz-5.0.4/tests'
+make[2]: Nothing to be done for `install-exec-am'.
+make[2]: Nothing to be done for `install-data-am'.
+make[2]: Leaving directory `/home/Administrateur/2_xz/xz-5.0.4/tests'
+make[1]: Leaving directory `/home/Administrateur/2_xz/xz-5.0.4/tests'
+make[1]: Entering directory `/home/Administrateur/2_xz/xz-5.0.4'
+make[2]: Entering directory `/home/Administrateur/2_xz/xz-5.0.4'
+make[2]: Nothing to be done for `install-exec-am'.
+ /bin/mkdir -p '/opt/share/doc/xz'
+ /bin/install -c -m 644 AUTHORS COPYING COPYING.GPLv2 NEWS README THANKS TODO doc/faq.txt doc/history.txt doc/xz-file-format.txt doc/lzma-file-format.txt '/opt/share/doc/xz'
+ /bin/mkdir -p '/opt/share/doc/xz/examples'
+ /bin/install -c -m 644 doc/examples/00_README.txt doc/examples/01_compress_easy.c doc/examples/02_decompress.c doc/examples/03_compress_custom.c doc/examples/Makefile '/opt/share/doc/xz/examples'
+ /bin/mkdir -p '/opt/share/doc/xz/examples_old'
+ /bin/install -c -m 644 doc/examples_old/xz_pipe_comp.c doc/examples_old/xz_pipe_decomp.c '/opt/share/doc/xz/examples_old'
+make[2]: Leaving directory `/home/Administrateur/2_xz/xz-5.0.4'
+make[1]: Leaving directory `/home/Administrateur/2_xz/xz-5.0.4'

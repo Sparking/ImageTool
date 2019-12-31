@@ -1,0 +1,118 @@
+Making install in include
+make[1]: Entering directory `/home/Administrateur/3_libxml2/libxml2-2.8.0/include'
+Making install in libxml
+make[2]: Entering directory `/home/Administrateur/3_libxml2/libxml2-2.8.0/include/libxml'
+make[3]: Entering directory `/home/Administrateur/3_libxml2/libxml2-2.8.0/include/libxml'
+make[3]: Nothing to be done for `install-exec-am'.
+test -z "/opt/include/libxml2/libxml" || /bin/mkdir -p "/opt/include/libxml2/libxml"
+ /bin/install -c -m 644 SAX.h entities.h encoding.h parser.h parserInternals.h xmlerror.h HTMLparser.h HTMLtree.h debugXML.h tree.h list.h hash.h xpath.h xpathInternals.h xpointer.h xinclude.h xmlIO.h xmlmemory.h nanohttp.h nanoftp.h uri.h valid.h xlink.h xmlversion.h DOCBparser.h catalog.h threads.h globals.h c14n.h xmlautomata.h xmlregexp.h xmlmodule.h xmlschemas.h schemasInternals.h xmlschemastypes.h xmlstring.h xmlunicode.h xmlreader.h relaxng.h dict.h '/opt/include/libxml2/libxml'
+ /bin/install -c -m 644 SAX2.h xmlexports.h xmlwriter.h chvalid.h pattern.h xmlsave.h schematron.h '/opt/include/libxml2/libxml'
+make[3]: Leaving directory `/home/Administrateur/3_libxml2/libxml2-2.8.0/include/libxml'
+make[2]: Leaving directory `/home/Administrateur/3_libxml2/libxml2-2.8.0/include/libxml'
+make[2]: Entering directory `/home/Administrateur/3_libxml2/libxml2-2.8.0/include'
+make[3]: Entering directory `/home/Administrateur/3_libxml2/libxml2-2.8.0/include'
+make[3]: Nothing to be done for `install-exec-am'.
+make[3]: Nothing to be done for `install-data-am'.
+make[3]: Leaving directory `/home/Administrateur/3_libxml2/libxml2-2.8.0/include'
+make[2]: Leaving directory `/home/Administrateur/3_libxml2/libxml2-2.8.0/include'
+make[1]: Leaving directory `/home/Administrateur/3_libxml2/libxml2-2.8.0/include'
+Making install in .
+make[1]: Entering directory `/home/Administrateur/3_libxml2/libxml2-2.8.0'
+make[2]: Entering directory `/home/Administrateur/3_libxml2/libxml2-2.8.0'
+test -z "/opt/lib" || /bin/mkdir -p "/opt/lib"
+ /bin/sh ./libtool   --mode=install /bin/install -c   libxml2.la '/opt/lib'
+libtool: install: /bin/install -c .libs/libxml2.dll.a /opt/lib/libxml2.dll.a
+libtool: install: base_file=`basename libxml2.la`
+libtool: install:  dlpath=`/bin/sh 2>&1 -c '. .libs/'libxml2.la'i; echo libxml2-2.dll'`
+libtool: install:  dldir=/opt/lib/`dirname ../bin/libxml2-2.dll`
+libtool: install:  test -d /opt/lib/../bin || mkdir -p /opt/lib/../bin
+libtool: install:  /bin/install -c .libs/libxml2-2.dll /opt/lib/../bin/libxml2-2.dll
+libtool: install:  chmod a+x /opt/lib/../bin/libxml2-2.dll
+libtool: install:  if test -n '' && test -n 'x86_64-w64-mingw32-strip --strip-unneeded'; then eval 'x86_64-w64-mingw32-strip --strip-unneeded /opt/lib/../bin/libxml2-2.dll' || exit 0; fi
+libtool: install: /bin/install -c .libs/libxml2.lai /opt/lib/libxml2.la
+libtool: install: /bin/install -c .libs/libxml2.a /opt/lib/libxml2.a
+libtool: install: chmod 644 /opt/lib/libxml2.a
+libtool: install: x86_64-w64-mingw32-ranlib /opt/lib/libxml2.a
+test -z "/opt/bin" || /bin/mkdir -p "/opt/bin"
+  /bin/sh ./libtool   --mode=install /bin/install -c xmllint.exe xmlcatalog.exe '/opt/bin'
+libtool: install: /bin/install -c .libs/xmllint.exe /opt/bin/xmllint.exe
+libtool: install: /bin/install -c .libs/xmlcatalog.exe /opt/bin/xmlcatalog.exe
+test -z "/opt/bin" || /bin/mkdir -p "/opt/bin"
+ /bin/install -c xml2-config '/opt/bin'
+test -z "/opt/lib" || /bin/mkdir -p "/opt/lib"
+ /bin/install -c -m 644 xml2Conf.sh '/opt/lib'
+/bin/mkdir -p /opt/share/doc/libxml2-2.8.0
+/bin/install -c -m 0644 ./Copyright /opt/share/doc/libxml2-2.8.0
+/bin/mkdir -p /opt/share/doc/libxml2-2.8.0/examples
+/bin/install -c -m 0644 ./xmllint.c /opt/share/doc/libxml2-2.8.0/examples
+/bin/install -c -m 0644 ./testSAX.c /opt/share/doc/libxml2-2.8.0/examples
+/bin/install -c -m 0644 ./testHTML.c /opt/share/doc/libxml2-2.8.0/examples
+/bin/install -c -m 0644 ./testXPath.c /opt/share/doc/libxml2-2.8.0/examples
+test -z "/opt/share/aclocal" || /bin/mkdir -p "/opt/share/aclocal"
+ /bin/install -c -m 644 libxml.m4 '/opt/share/aclocal'
+test -z "/opt/share/man/man1" || /bin/mkdir -p "/opt/share/man/man1"
+ /bin/install -c -m 644 xml2-config.1 '/opt/share/man/man1'
+test -z "/opt/share/man/man3" || /bin/mkdir -p "/opt/share/man/man3"
+ /bin/install -c -m 644 libxml.3 '/opt/share/man/man3'
+test -z "/opt/lib/pkgconfig" || /bin/mkdir -p "/opt/lib/pkgconfig"
+ /bin/install -c -m 644 libxml-2.0.pc '/opt/lib/pkgconfig'
+make[2]: Leaving directory `/home/Administrateur/3_libxml2/libxml2-2.8.0'
+make[1]: Leaving directory `/home/Administrateur/3_libxml2/libxml2-2.8.0'
+Making install in doc
+make[1]: Entering directory `/home/Administrateur/3_libxml2/libxml2-2.8.0/doc'
+Making install in devhelp
+make[2]: Entering directory `/home/Administrateur/3_libxml2/libxml2-2.8.0/doc/devhelp'
+make[3]: Entering directory `/home/Administrateur/3_libxml2/libxml2-2.8.0/doc/devhelp'
+make[3]: Nothing to be done for `install-exec-am'.
+/bin/mkdir -p /opt/share/gtk-doc/html/libxml2
+/bin/install -c -m 0644 ./libxml2.devhelp /opt/share/gtk-doc/html/libxml2
+/bin/install -c -m 0644 ./home.png ./left.png ./right.png ./up.png ./style.css /opt/share/gtk-doc/html/libxml2
+/bin/install -c -m 0644 ./index.html ./general.html ./libxml2-c14n.html ./libxml2-catalog.html ./libxml2-chvalid.html ./libxml2-debugXML.html ./libxml2-dict.html ./libxml2-DOCBparser.html ./libxml2-encoding.html ./libxml2-entities.html ./libxml2-globals.html ./libxml2-hash.html ./libxml2-HTMLparser.html ./libxml2-HTMLtree.html ./libxml2-list.html ./libxml2-nanoftp.html ./libxml2-nanohttp.html ./libxml2-parser.html ./libxml2-parserInternals.html ./libxml2-pattern.html ./libxml2-relaxng.html ./libxml2-SAX2.html ./libxml2-SAX.html ./libxml2-schemasInternals.html ./libxml2-schematron.html ./libxml2-threads.html ./libxml2-tree.html ./libxml2-uri.html ./libxml2-valid.html ./libxml2-xinclude.html ./libxml2-xlink.html ./libxml2-xmlautomata.html ./libxml2-xmlerror.html ./libxml2-xmlexports.html ./libxml2-xmlIO.html ./libxml2-xmlmemory.html ./libxml2-xmlmodule.html ./libxml2-xmlreader.html ./libxml2-xmlregexp.html ./libxml2-xmlsave.html ./libxml2-xmlschemas.html ./libxml2-xmlschemastypes.html ./libxml2-xmlstring.html ./libxml2-xmlunicode.html ./libxml2-xmlversion.html ./libxml2-xmlwriter.html ./libxml2-xpath.html ./libxml2-xpathInternals.html ./libxml2-xpointer.html /opt/share/gtk-doc/html/libxml2
+make[3]: Leaving directory `/home/Administrateur/3_libxml2/libxml2-2.8.0/doc/devhelp'
+make[2]: Leaving directory `/home/Administrateur/3_libxml2/libxml2-2.8.0/doc/devhelp'
+Making install in examples
+make[2]: Entering directory `/home/Administrateur/3_libxml2/libxml2-2.8.0/doc/examples'
+make[3]: Entering directory `/home/Administrateur/3_libxml2/libxml2-2.8.0/doc/examples'
+make[3]: Nothing to be done for `install-exec-am'.
+/bin/mkdir -p /opt/share/doc/libxml2-2.8.0/html
+/bin/install -c -m 0644 ./*.html ./*.c ./*.xml ./*.xsl ./*.res /opt/share/doc/libxml2-2.8.0/html
+/bin/install: cannot stat `./*.html': No such file or directory
+make[3]: [install-data-local] Error 1 (ignored)
+make[3]: Leaving directory `/home/Administrateur/3_libxml2/libxml2-2.8.0/doc/examples'
+make[2]: Leaving directory `/home/Administrateur/3_libxml2/libxml2-2.8.0/doc/examples'
+make[2]: Entering directory `/home/Administrateur/3_libxml2/libxml2-2.8.0/doc'
+make[3]: Entering directory `/home/Administrateur/3_libxml2/libxml2-2.8.0/doc'
+make[3]: Nothing to be done for `install-exec-am'.
+/bin/mkdir -p /opt/share/doc/libxml2-2.8.0/html
+/bin/install -c -m 0644 ./xml.html ./encoding.html ./FAQ.html ./structure.gif ./DOM.gif ./smallfootonly.gif ./redhat.gif ./libxml.gif ./w3c.png ./Libxml2-Logo-180x168.gif ./Libxml2-Logo-90x34.gif /opt/share/doc/libxml2-2.8.0/html
+/bin/mkdir -p /opt/share/doc/libxml2-2.8.0/html/html
+/bin/install -c -m 0644 ./html/*.html /opt/share/doc/libxml2-2.8.0/html/html
+/bin/install -c -m 0644 ./html/*.png /opt/share/doc/libxml2-2.8.0/html/html
+/bin/mkdir -p /opt/share/doc/libxml2-2.8.0/html/tutorial
+/bin/install -c -m 0644 ./tutorial/*.* \
+		/opt/share/doc/libxml2-2.8.0/html/tutorial
+/bin/mkdir -p /opt/share/doc/libxml2-2.8.0/html/tutorial/images
+/bin/install -c -m 0644 ./tutorial/images/*.* \
+		/opt/share/doc/libxml2-2.8.0/html/tutorial/images
+/bin/mkdir -p /opt/share/doc/libxml2-2.8.0/html/tutorial/images/callouts
+/bin/install -c -m 0644 ./tutorial/images/callouts/*.* \
+		/opt/share/doc/libxml2-2.8.0/html/tutorial/images/callouts
+test -z "/opt/share/man/man1" || /bin/mkdir -p "/opt/share/man/man1"
+ /bin/install -c -m 644 xmllint.1 xmlcatalog.1 '/opt/share/man/man1'
+make[3]: Leaving directory `/home/Administrateur/3_libxml2/libxml2-2.8.0/doc'
+make[2]: Leaving directory `/home/Administrateur/3_libxml2/libxml2-2.8.0/doc'
+make[1]: Leaving directory `/home/Administrateur/3_libxml2/libxml2-2.8.0/doc'
+Making install in example
+make[1]: Entering directory `/home/Administrateur/3_libxml2/libxml2-2.8.0/example'
+make[2]: Entering directory `/home/Administrateur/3_libxml2/libxml2-2.8.0/example'
+make[2]: Nothing to be done for `install-exec-am'.
+make[2]: Nothing to be done for `install-data-am'.
+make[2]: Leaving directory `/home/Administrateur/3_libxml2/libxml2-2.8.0/example'
+make[1]: Leaving directory `/home/Administrateur/3_libxml2/libxml2-2.8.0/example'
+Making install in xstc
+make[1]: Entering directory `/home/Administrateur/3_libxml2/libxml2-2.8.0/xstc'
+make[2]: Entering directory `/home/Administrateur/3_libxml2/libxml2-2.8.0/xstc'
+make[2]: Nothing to be done for `install-exec-am'.
+make[2]: Nothing to be done for `install-data-am'.
+make[2]: Leaving directory `/home/Administrateur/3_libxml2/libxml2-2.8.0/xstc'
+make[1]: Leaving directory `/home/Administrateur/3_libxml2/libxml2-2.8.0/xstc'

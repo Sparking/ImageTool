@@ -1,0 +1,340 @@
+make  all-recursive
+make[1]: Entering directory `/home/Administrateur/3_libxml2/libxml2-2.8.0'
+Making all in include
+make[2]: Entering directory `/home/Administrateur/3_libxml2/libxml2-2.8.0/include'
+Making all in libxml
+make[3]: Entering directory `/home/Administrateur/3_libxml2/libxml2-2.8.0/include/libxml'
+make[3]: Nothing to be done for `all'.
+make[3]: Leaving directory `/home/Administrateur/3_libxml2/libxml2-2.8.0/include/libxml'
+make[3]: Entering directory `/home/Administrateur/3_libxml2/libxml2-2.8.0/include'
+make[3]: Nothing to be done for `all-am'.
+make[3]: Leaving directory `/home/Administrateur/3_libxml2/libxml2-2.8.0/include'
+make[2]: Leaving directory `/home/Administrateur/3_libxml2/libxml2-2.8.0/include'
+Making all in .
+make[2]: Entering directory `/home/Administrateur/3_libxml2/libxml2-2.8.0'
+  CC     SAX.lo
+  CC     entities.lo
+  CC     encoding.lo
+  CC     error.lo
+  CC     parserInternals.lo
+  CC     parser.lo
+In file included from C:/msys/1.0/opt/include/lzma.h:281:0,
+                 from parser.c:83:
+C:/msys/1.0/opt/include/lzma/base.h:218:30: warning: comma at end of enumerator list [-pedantic]
+parser.c: In function 'xmlAddSpecialAttr':
+parser.c:1253:22: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+parser.c: In function 'xmlCleanSpecialAttrCallback':
+parser.c:1272:10: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+parser.c: In function 'nameNsPush':
+parser.c:1784:43: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+parser.c: In function 'xmlParseAttribute2':
+parser.c:8756:22: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+parser.c: In function 'xmlParseTryOrFinish':
+parser.c:11173:16: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+parser.c: In function 'xmlParseInNodeContext':
+parser.c:13084:9: warning: pointer targets in passing argument 1 of 'xmlFindCharEncodingHandler' differ in signedness [-Wpointer-sign]
+./include/libxml/encoding.h:175:2: note: expected 'const char *' but argument is of type 'const xmlChar *'
+  CC     tree.lo
+  CC     hash.lo
+  CC     list.lo
+  CC     xmlIO.lo
+In file included from C:/msys/1.0/opt/include/lzma.h:281:0,
+                 from xmlIO.c:39:
+C:/msys/1.0/opt/include/lzma/base.h:218:30: warning: comma at end of enumerator list [-pedantic]
+xmlIO.c:63:0: warning: "stat" redefined [enabled by default]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/sys/stat.h:258:0: note: this is the location of the previous definition
+In file included from ./include/libxml/nanoftp.h:20:0,
+                 from xmlIO.c:92:
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/winsock2.h:15:2: warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+xmlIO.c: In function 'xmlFdRead':
+xmlIO.c:811:22: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+xmlIO.c: In function 'xmlFdWrite':
+xmlIO.c:832:20: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+xmlIO.c: In function 'xmlFdClose':
+xmlIO.c:850:23: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+xmlIO.c: In function 'xmlParserInputBufferCreateFd':
+xmlIO.c:2945:24: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+xmlIO.c: In function 'xmlParserInputBufferCreateMem':
+xmlIO.c:2967:9: warning: declaration of 'errcode' shadows a global declaration [-Wshadow]
+xmlIO.c: In function 'xmlOutputBufferCreateFd':
+xmlIO.c:3051:24: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  CC     xmlmemory.lo
+xmlmemory.c: In function 'xmlMemFree':
+xmlmemory.c:466:33: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+  CC     uri.lo
+uri.c: In function 'xmlCanonicPath':
+uri.c:2544:14: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+uri.c:2553:4: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+uri.c:2554:2: warning: pointer targets in passing argument 1 of 'strncpy' differ in signedness [-Wpointer-sign]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/string.h:79:9: note: expected 'char * __restrict__' but argument is of type 'xmlChar *'
+uri.c:2554:2: warning: pointer targets in passing argument 2 of 'strncpy' differ in signedness [-Wpointer-sign]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/string.h:79:9: note: expected 'const char * __restrict__' but argument is of type 'const xmlChar *'
+uri.c:2556:12: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+uri.c:2561:4: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+uri.c:2475:9: warning: unused variable 'i' [-Wunused-variable]
+  CC     valid.lo
+  CC     xlink.lo
+  CC     HTMLparser.lo
+  CC     HTMLtree.lo
+  CC     debugXML.lo
+  CC     xpath.lo
+xpath.c: In function 'xmlXPathOrderDocElems':
+xpath.c:2849:21: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+xpath.c: In function 'xmlXPathCmpNodes':
+xpath.c:2941:7: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+xpath.c:2942:7: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+xpath.c:2946:9: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+xpath.c:2947:9: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+xpath.c:3004:7: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+xpath.c:3005:7: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+xpath.c:3009:9: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+xpath.c:3010:9: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+xpath.c: In function 'xmlXPathCmpNodesExt':
+xpath.c:3055:12: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+xpath.c:3056:12: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+xpath.c:3059:14: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+xpath.c:3060:14: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+xpath.c:3105:9: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+xpath.c:3155:9: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+xpath.c:3228:7: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+xpath.c:3229:7: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+xpath.c:3232:9: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+xpath.c:3233:9: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+xpath.c:3296:7: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+xpath.c:3297:7: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+xpath.c:3300:9: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+xpath.c:3301:9: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+xpath.c: In function 'xmlXPathRegisterFuncNS':
+xpath.c:4800:5: warning: ISO C forbids passing argument 4 of 'xmlHashAddEntry2' between function pointer and 'void *' [-pedantic]
+./include/libxml/hash.h:128:4: note: expected 'void *' but argument is of type 'xmlXPathFunction'
+xpath.c: In function 'xmlXPathFunctionLookupNS':
+xpath.c:4881:24: warning: ISO C forbids assignment between function pointer and 'void *' [-pedantic]
+xpath.c: In function 'xmlXPathCompOpEval':
+xpath.c:13456:41: warning: ISO C forbids assignment between function pointer and 'void *' [-pedantic]
+xpath.c:13483:31: warning: ISO C forbids assignment between function pointer and 'void *' [-pedantic]
+xpath.c: At top level:
+trionan.c:218:1: warning: 'trio_is_negative' defined but not used [-Wunused-function]
+  CC     xpointer.lo
+  CC     xinclude.lo
+  CC     nanohttp.lo
+In file included from ./include/wsockcompat.h:12:0,
+                 from nanohttp.c:81:
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/winsock2.h:15:2: warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+nanohttp.c: In function 'xmlNanoHTTPConnectAttempt':
+nanohttp.c:992:9: warning: pointer targets in passing argument 5 of 'getsockopt' differ in signedness [-Wpointer-sign]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/winsock2.h:1003:34: note: expected 'int *' but argument is of type 'unsigned int *'
+nanohttp.c: In function 'xmlNanoHTTPConnectHost':
+nanohttp.c:1039:9: warning: unused variable 'i' [-Wunused-variable]
+nanohttp.c:1032:20: warning: unused variable 'ia' [-Wunused-variable]
+nanohttp.c:1030:21: warning: unused variable 'h' [-Wunused-variable]
+  CC     nanoftp.lo
+In file included from ./include/libxml/nanoftp.h:20:0,
+                 from nanoftp.c:69:
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/winsock2.h:15:2: warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+nanoftp.c: In function 'xmlNanoFTPGetConnection':
+nanoftp.c:1471:43: warning: pointer targets in passing argument 3 of 'getsockname' differ in signedness [-Wpointer-sign]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/winsock2.h:1002:34: note: expected 'int *' but argument is of type 'unsigned int *'
+nanoftp.c:1484:43: warning: pointer targets in passing argument 3 of 'getsockname' differ in signedness [-Wpointer-sign]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/winsock2.h:1002:34: note: expected 'int *' but argument is of type 'unsigned int *'
+  CC     DOCBparser.lo
+  CC     catalog.lo
+catalog.c: In function 'xmlLoadCatalogs':
+catalog.c:3248:9: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/string.h:54:18: note: expected 'const char *' but argument is of type 'xmlChar *'
+  CC     globals.lo
+  CC     threads.lo
+threads.c: In function '__xmlGlobalInitMutexLock':
+threads.c:459:9: warning: passing argument 1 of '_InterlockedCompareExchangePointer' from incompatible pointer type [enabled by default]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/winbase.h:981:18: note: expected 'void * volatile*' but argument is of type 'struct _RTL_CRITICAL_SECTION * volatile*'
+threads.c: In function 'xmlOnceInit':
+threads.c:959:9: warning: pointer targets in passing argument 1 of '_InterlockedIncrement' differ in signedness [-Wpointer-sign]
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/winnt.h:1969:37: note: expected 'volatile LONG *' but argument is of type 'DWORD *'
+threads.c: At top level:
+threads.c:1001:1: warning: no previous prototype for 'DllMain' [-Wmissing-prototypes]
+threads.c: In function 'DllMain':
+threads.c:1001:19: warning: unused parameter 'hinstDLL' [-Wunused-parameter]
+threads.c:1001:53: warning: unused parameter 'lpvReserved' [-Wunused-parameter]
+  CC     c14n.lo
+  CC     xmlstring.lo
+  CC     xmlregexp.lo
+  CC     xmlschemas.lo
+  CC     xmlschemastypes.lo
+  CC     xmlunicode.lo
+  CC     xmlreader.lo
+  CC     relaxng.lo
+relaxng.c: In function 'xmlRelaxNGComputeInterleaves':
+relaxng.c:4403:44: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+relaxng.c:4411:48: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+relaxng.c:4415:48: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+relaxng.c:4422:48: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+relaxng.c:4426:48: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+relaxng.c: In function 'xmlRelaxNGValidateInterleave':
+relaxng.c:9367:22: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+  CC     dict.lo
+  CC     SAX2.lo
+  CC     xmlwriter.lo
+  CC     legacy.lo
+  CC     chvalid.lo
+  CC     pattern.lo
+  CC     xmlsave.lo
+  CC     xmlmodule.lo
+xmlmodule.c: In function 'xmlModulePlatformSymbol':
+xmlmodule.c:329:13: warning: ISO C forbids assignment between function pointer and 'void *' [-pedantic]
+  CC     schematron.lo
+  CC     xzlib.lo
+In file included from C:/msys/1.0/opt/include/lzma.h:281:0,
+                 from xzlib.c:37:
+C:/msys/1.0/opt/include/lzma/base.h:218:30: warning: comma at end of enumerator list [-pedantic]
+  CCLD   libxml2.la
+  CC     testdso.lo
+  CCLD   testdso.la
+  CC     xmllint.o
+xmllint.c:31:0: warning: "_WINSOCKAPI_" redefined [enabled by default]
+config.h:296:0: note: this is the location of the previous definition
+In file included from ./include/wsockcompat.h:12:0,
+                 from xmllint.c:32:
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/winsock2.h:15:2: warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+  CCLD   xmllint.exe
+  CC     xmlcatalog.o
+  CCLD   xmlcatalog.exe
+  CC     testSchemas.o
+  CCLD   testSchemas.exe
+  CC     testRelax.o
+  CCLD   testRelax.exe
+  CC     testSAX.o
+  CCLD   testSAX.exe
+  CC     testHTML.o
+  CCLD   testHTML.exe
+  CC     testXPath.o
+  CCLD   testXPath.exe
+  CC     testURI.o
+  CCLD   testURI.exe
+  CC     testThreadsWin32.o
+testThreadsWin32.c:21:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+testThreadsWin32.c:22:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+testThreadsWin32.c:23:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+testThreadsWin32.c:24:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+testThreadsWin32.c:25:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+testThreadsWin32.c:26:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+testThreadsWin32.c:27:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+testThreadsWin32.c: In function 'thread_specific_data':
+testThreadsWin32.c:81:10: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+testThreadsWin32.c:82:13: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+testThreadsWin32.c: At top level:
+testThreadsWin32.c:86:1: warning: function declaration isn't a prototype [-Wstrict-prototypes]
+testThreadsWin32.c: In function 'main':
+testThreadsWin32.c:132:25: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+  CCLD   testThreads.exe
+  CC     testC14N.o
+  CCLD   testC14N.exe
+  CC     testAutomata.o
+  CCLD   testAutomata.exe
+  CC     testRegexp.o
+  CCLD   testRegexp.exe
+  CC     testReader.o
+  CCLD   testReader.exe
+  CC     testapi.o
+In file included from ./include/libxml/nanoftp.h:20:0,
+                 from testapi.c:180:
+c:\msys\1.0\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.6.3/../../../../x86_64-w64-mingw32/include/winsock2.h:15:2: warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+testapi.c:18015:25: warning: 'gen_xmlSchematronPtr' defined but not used [-Wunused-function]
+testapi.c:18018:13: warning: 'des_xmlSchematronPtr' defined but not used [-Wunused-function]
+testapi.c:18035:35: warning: 'gen_xmlSchematronParserCtxtPtr' defined but not used [-Wunused-function]
+testapi.c:18038:13: warning: 'des_xmlSchematronParserCtxtPtr' defined but not used [-Wunused-function]
+testapi.c:34265:27: warning: 'gen_xmlSAXHandlerPtr_ptr' defined but not used [-Wunused-function]
+testapi.c:34268:13: warning: 'des_xmlSAXHandlerPtr_ptr' defined but not used [-Wunused-function]
+  CCLD   testapi.exe
+  CC     testModule.o
+  CCLD   testModule.exe
+  CC     runtest.o
+runtest.c: In function 'glob':
+runtest.c:121:42: warning: unused parameter 'flags' [-Wunused-parameter]
+runtest.c:122:21: warning: unused parameter 'errfunc' [-Wunused-parameter]
+runtest.c: In function 'win32_thread_specific_data':
+runtest.c:4006:12: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+runtest.c: In function 'testThread':
+runtest.c:4058:31: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+  CCLD   runtest.exe
+  CC     runsuite.o
+  CCLD   runsuite.exe
+  CC     testchar.o
+  CCLD   testchar.exe
+  CC     testdict.o
+testdict.c: In function 'run_test2':
+testdict.c:155:20: warning: variable 'tmp' set but not used [-Wunused-but-set-variable]
+testdict.c: In function 'run_test1':
+testdict.c:318:20: warning: variable 'tmp' set but not used [-Wunused-but-set-variable]
+  CCLD   testdict.exe
+  CC     runxmlconf.o
+  CCLD   runxmlconf.exe
+  CC     testrecurse.o
+testrecurse.c: In function 'glob':
+testrecurse.c:75:42: warning: unused parameter 'flags' [-Wunused-parameter]
+testrecurse.c:76:21: warning: unused parameter 'errfunc' [-Wunused-parameter]
+testrecurse.c: In function 'recursiveDetectTest':
+testrecurse.c:690:9: warning: variable 'mem' set but not used [-Wunused-but-set-variable]
+testrecurse.c: In function 'notRecursiveDetectTest':
+testrecurse.c:731:9: warning: variable 'mem' set but not used [-Wunused-but-set-variable]
+  CCLD   testrecurse.exe
+sed -e 's?\@XML_LIBDIR\@?-L/opt/lib?g' \
+	    -e 's?\@XML_INCLUDEDIR\@?-I/opt/include/libxml2?g' \
+	    -e 's?\@VERSION\@?2.8.0?g' \
+	    -e 's?\@XML_LIBS\@?-lxml2 -lz   -liconv  ?g' \
+	       < ./xml2Conf.sh.in > xml2Conf.tmp \
+	&& mv xml2Conf.tmp xml2Conf.sh
+make[2]: Leaving directory `/home/Administrateur/3_libxml2/libxml2-2.8.0'
+Making all in doc
+make[2]: Entering directory `/home/Administrateur/3_libxml2/libxml2-2.8.0/doc'
+Making all in devhelp
+make[3]: Entering directory `/home/Administrateur/3_libxml2/libxml2-2.8.0/doc/devhelp'
+make[3]: Nothing to be done for `all'.
+make[3]: Leaving directory `/home/Administrateur/3_libxml2/libxml2-2.8.0/doc/devhelp'
+Making all in examples
+make[3]: Entering directory `/home/Administrateur/3_libxml2/libxml2-2.8.0/doc/examples'
+  CC     xpath2.o
+  CCLD   xpath2.exe
+  CC     reader1.o
+  CCLD   reader1.exe
+  CC     reader4.o
+  CCLD   reader4.exe
+  CC     parse2.o
+  CCLD   parse2.exe
+  CC     reader2.o
+  CCLD   reader2.exe
+  CC     parse3.o
+  CCLD   parse3.exe
+  CC     reader3.o
+  CCLD   reader3.exe
+  CC     tree2.o
+tree2.c: In function 'main':
+tree2.c:30:15: warning: variable 'dtd' set but not used [-Wunused-but-set-variable]
+  CCLD   tree2.exe
+  CC     parse4.o
+  CCLD   parse4.exe
+  CC     io2.o
+  CCLD   io2.exe
+  CC     testWriter.o
+  CCLD   testWriter.exe
+  CC     io1.o
+  CCLD   io1.exe
+  CC     xpath1.o
+  CCLD   xpath1.exe
+  CC     parse1.o
+  CCLD   parse1.exe
+  CC     tree1.o
+  CCLD   tree1.exe
+make[3]: Leaving directory `/home/Administrateur/3_libxml2/libxml2-2.8.0/doc/examples'
+make[3]: Entering directory `/home/Administrateur/3_libxml2/libxml2-2.8.0/doc'
+make[3]: Nothing to be done for `all-am'.
+make[3]: Leaving directory `/home/Administrateur/3_libxml2/libxml2-2.8.0/doc'
+make[2]: Leaving directory `/home/Administrateur/3_libxml2/libxml2-2.8.0/doc'
+Making all in example
+make[2]: Entering directory `/home/Administrateur/3_libxml2/libxml2-2.8.0/example'
+  CC     gjobread.o
+  CCLD   gjobread.exe
+make[2]: Leaving directory `/home/Administrateur/3_libxml2/libxml2-2.8.0/example'
+Making all in xstc
+make[2]: Entering directory `/home/Administrateur/3_libxml2/libxml2-2.8.0/xstc'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/home/Administrateur/3_libxml2/libxml2-2.8.0/xstc'
+make[1]: Leaving directory `/home/Administrateur/3_libxml2/libxml2-2.8.0'

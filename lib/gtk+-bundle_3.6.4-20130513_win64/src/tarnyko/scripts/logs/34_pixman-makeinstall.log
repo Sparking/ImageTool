@@ -1,0 +1,45 @@
+Making install in pixman
+make[1]: Entering directory `/home/Administrateur/34_pixman/pixman-0.26.0/pixman'
+make  install-am
+make[2]: Entering directory `/home/Administrateur/34_pixman/pixman-0.26.0/pixman'
+make[3]: Entering directory `/home/Administrateur/34_pixman/pixman-0.26.0/pixman'
+test -z "/opt/lib" || /bin/mkdir -p "/opt/lib"
+ /bin/sh ../libtool   --mode=install /bin/install -c   libpixman-1.la '/opt/lib'
+libtool: install: /bin/install -c .libs/libpixman-1.dll.a /opt/lib/libpixman-1.dll.a
+libtool: install: base_file=`basename libpixman-1.la`
+libtool: install:  dlpath=`/bin/sh 2>&1 -c '. .libs/'libpixman-1.la'i; echo libpixman-1-0.dll'`
+libtool: install:  dldir=/opt/lib/`dirname ../bin/libpixman-1-0.dll`
+libtool: install:  test -d /opt/lib/../bin || mkdir -p /opt/lib/../bin
+libtool: install:  /bin/install -c .libs/libpixman-1-0.dll /opt/lib/../bin/libpixman-1-0.dll
+libtool: install:  chmod a+x /opt/lib/../bin/libpixman-1-0.dll
+libtool: install:  if test -n '' && test -n 'x86_64-w64-mingw32-strip --strip-unneeded'; then eval 'x86_64-w64-mingw32-strip --strip-unneeded /opt/lib/../bin/libpixman-1-0.dll' || exit 0; fi
+libtool: install: /bin/install -c .libs/libpixman-1.lai /opt/lib/libpixman-1.la
+libtool: install: /bin/install -c .libs/libpixman-1.a /opt/lib/libpixman-1.a
+libtool: install: chmod 644 /opt/lib/libpixman-1.a
+libtool: install: x86_64-w64-mingw32-ranlib /opt/lib/libpixman-1.a
+test -z "/opt/include/pixman-1" || /bin/mkdir -p "/opt/include/pixman-1"
+ /bin/install -c -m 644 pixman.h pixman-version.h '/opt/include/pixman-1'
+make[3]: Leaving directory `/home/Administrateur/34_pixman/pixman-0.26.0/pixman'
+make[2]: Leaving directory `/home/Administrateur/34_pixman/pixman-0.26.0/pixman'
+make[1]: Leaving directory `/home/Administrateur/34_pixman/pixman-0.26.0/pixman'
+Making install in demos
+make[1]: Entering directory `/home/Administrateur/34_pixman/pixman-0.26.0/demos'
+make[2]: Entering directory `/home/Administrateur/34_pixman/pixman-0.26.0/demos'
+make[2]: Nothing to be done for `install-exec-am'.
+make[2]: Nothing to be done for `install-data-am'.
+make[2]: Leaving directory `/home/Administrateur/34_pixman/pixman-0.26.0/demos'
+make[1]: Leaving directory `/home/Administrateur/34_pixman/pixman-0.26.0/demos'
+Making install in test
+make[1]: Entering directory `/home/Administrateur/34_pixman/pixman-0.26.0/test'
+make[2]: Entering directory `/home/Administrateur/34_pixman/pixman-0.26.0/test'
+make[2]: Nothing to be done for `install-exec-am'.
+make[2]: Nothing to be done for `install-data-am'.
+make[2]: Leaving directory `/home/Administrateur/34_pixman/pixman-0.26.0/test'
+make[1]: Leaving directory `/home/Administrateur/34_pixman/pixman-0.26.0/test'
+make[1]: Entering directory `/home/Administrateur/34_pixman/pixman-0.26.0'
+make[2]: Entering directory `/home/Administrateur/34_pixman/pixman-0.26.0'
+make[2]: Nothing to be done for `install-exec-am'.
+test -z "/opt/lib/pkgconfig" || /bin/mkdir -p "/opt/lib/pkgconfig"
+ /bin/install -c -m 644 pixman-1.pc '/opt/lib/pkgconfig'
+make[2]: Leaving directory `/home/Administrateur/34_pixman/pixman-0.26.0'
+make[1]: Leaving directory `/home/Administrateur/34_pixman/pixman-0.26.0'
