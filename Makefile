@@ -11,8 +11,8 @@ LDFLAGS  := -Wl,--as-needed -Wl,-gc-section -L$(CURDIR)
 LIBS     :=
 
 ifeq ($(OS),Windows_NT)
-CPPFLAGS += -I$(CURDIR)/lib/gcc/include -I$(CURDIR)/lib/gcc/opencv/include
-LDFLAGS  += -L$(CURDIR)/lib/gcc/lib
+CPPFLAGS += -I$(CURDIR)/lib/gtk+-bundle_3.6.4-20130513_win64/include
+LDFLAGS  += -L$(CURDIR)/lib/gtk+-bundle_3.6.4-20130513_win64/lib
 else
 CPPFLAGS += -D_GNU_SOURCE
 endif
@@ -69,10 +69,10 @@ CPPFLAGS += -I$(CURDIR)/lib/iniparser
 LIBS     += -liniparser
 
 ifeq ($(OS),Windows_NT)
-LIBS += -lpng.dll -lz.dll -lopencv_world411.dll
-DLL_LIBS := zlib1.dll libpng16-16.dll libopencv_world411.dll opencv_videoio_ffmpeg411_64.dll
+LIBS += -ljpeg.dll -lpng.dll -lz.dll
+DLL_LIBS := libjpeg-9.dll libpng15-15.dll zlib1.dll
 else
-LIBS += -lz -lpng `pkg-config --libs opencv`
+LIBS += -ljpeg -lpng -lz
 DLL_LIBS :=
 endif
 
@@ -108,9 +108,9 @@ all: $(OUT)
 $(OUT): $(USER_OBJ) $(COMMON_LIB) $(IMAGE_LIB) $(QR_DECODE_LIB) $(INIPARSER_LIB) $(DLL_LIBS)
 	$(call link_objects,$@,$(USER_OBJ))
 ifeq ($(OS), Windows_NT)
-%.dll: $(CURDIR)/lib/gcc/lib/%.dll
+%.dll: $(CURDIR)/lib/gtk+-bundle_3.6.4-20130513_win64/bin/%.dll
 	@echo COPY	$@
-	@copy $(subst /,\, $<) $@ > .$@.copy.tmp
+	@copy "$(subst /,\,$<)" $@ > .$@.copy.tmp
 	@del .$@.copy.tmp
 endif
 # build objects
