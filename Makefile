@@ -76,7 +76,7 @@ LIBS += -ljpeg -lpng -lz
 DLL_LIBS :=
 endif
 
-LIBS += -lqrencode -ljpeg -lm
+LIBS += -lm
 
 USER_SRC := demo.cc
 USER_OBJ := $(patsubst %.cc,%.o,$(USER_SRC))
