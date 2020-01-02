@@ -48,17 +48,15 @@
 #define ID_TOOL_TRANSFORM_ROTATE        32771
 #define ID_QR_FIND_PM                   32772
 #define ID_SHOW_RFEDGES                 32773
-#define ID_32774                        32774
-#define ID_EDGETEST                     32775
-#define ID_32776                        32776
-#define ID_DOTCODE_TEST                 32777
+#define ID_EDGETEST                     32774
+#define ID_DOTCODE_TEST                 32775
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        312
-#define _APS_NEXT_COMMAND_VALUE         32778
+#define _APS_NEXT_COMMAND_VALUE         32776
 #define _APS_NEXT_CONTROL_VALUE         1015
 #define _APS_NEXT_SYMED_VALUE           312
 #endif

@@ -441,22 +441,23 @@ bool dotcode_checkdot_with_ref(const struct image *img, const int ref_rfet,
     return pt->score >= 4;
 }
 
-bool dotcode_checkdot(const struct image *img, const int ref_rfet,
+bool dotcode_checkdot(const struct image *img, const bool isblack,
         struct dotcode_point *pt, struct point *coordinate)
 {
+    int ref_rfet;
+
     if (img == NULL || pt == NULL || coordinate == NULL) {
         return false;
     }
 
+    ref_rfet = isblack ? IMAGE_RFEDGE_TYPE_RAISE : IMAGE_RFEDGE_TYPE_FALL;
     if (!dotcode_detect_point_get_vertical_width(img, coordinate, ref_rfet, &pt->center, &pt->nh)) {
         return false;
     }
 
-    if (coordinate->y != pt->center.y) {
-        coordinate->y = pt->center.y;
-        if (!dotcode_detect_point_get_hori_width(img, coordinate, ref_rfet, &pt->center, &pt->nw)) {
-            return false;
-        }
+    coordinate->y = pt->center.y;
+    if (!dotcode_detect_point_get_hori_width(img, coordinate, ref_rfet, &pt->center, &pt->nw)) {
+        return false;
     }
 
     if (!dotcode_judge_width(pt->nh, pt->nw)) {
@@ -479,12 +480,7 @@ bool dotcode_checkdot(const struct image *img, const int ref_rfet,
         return false;
     }
 
-    if (pt->nw > pt->nh) {
-        pt->nh = pt->nw;
-    } else {
-        pt->nw = pt->nh;
-    }
-    pt->isblack = (ref_rfet == IMAGE_RFEDGE_TYPE_RAISE);
+    pt->isblack = isblack;
 
     return true;
 }
@@ -790,20 +786,22 @@ static bool dotcode_gooddot_search_vertline(const struct image *img,
         if (nedge < 3)
             break;
 
+        dotcode_get_edge_pos_in_pt2pt(&sr[0], &sr[1], &pt, edges[1].dpos);
+        ushow_ptWidth(1, pt.x, pt.y, GREENCOLOR, 1);
+        dotcode_get_edge_pos_in_pt2pt(&sr[0], &sr[1], &pt, edges[2].dpos);
+        ushow_ptWidth(1, pt.x, pt.y, YELLOWCOLOR, 1);
         dotcode_get_edge_pos_in_pt2pt(&sr[0], &sr[1], &pt,
             (edges[2].dpos_256x + edges[1].dpos_256x + 256) >> 9);
-        ushow_ptWidth(1, pt.x, pt.y, YELLOWCOLOR, 1);
+        //ushow_ptWidth(1, pt.x, pt.y, YELLOWCOLOR, 1);
 
         if (!dotcode_checkdot_with_ref(img, ref->dot.isblack ? IMAGE_RFEDGE_TYPE_RAISE : IMAGE_RFEDGE_TYPE_FALL, &dpt, &pt, &ref->dot))
             break;
 
-        ushow_ptWidth(1, dpt.center.x, dpt.center.y, REDCOLOR, 1);
+        //ushow_ptWidth(1, dpt.center.x, dpt.center.y, REDCOLOR, 1);
         get_line_dirpos(&sr[0], &dpt.center, &dpt.center, dpt.nw << 2, &pt);
         memcpy(&sr[0], &dpt.center, sizeof(struct point));
         memcpy(&sr[1], &pt, sizeof(struct point));
     } while (1);
-
-    ushow_ptWidth(1, dpt.center.x, dpt.center.y, YELLOWCOLOR, 2);
 
     return true;
 }
@@ -839,7 +837,7 @@ static bool dotcode_extend_vertline(const struct image *img, struct dotcode_line
     return true;
 }
 
-unsigned int dotcode_detect_point(const struct image *img,
+unsigned int dotcode_detect_point1(const struct image *img,
         struct dotcode_point *pdtp, const unsigned int ndtp)
 {
     unsigned int i, j, off;
@@ -892,6 +890,7 @@ unsigned int dotcode_detect_point(const struct image *img,
             if (!dotcode_extend_vertline(img, list_entry(lineset.line45.next, struct dotcode_line_node, node)))
                 continue;
 
+            break;
             if (off < (pt.nh >> 1))
                 off = (pt.nh >> 1);
 
@@ -915,4 +914,74 @@ unsigned int dotcode_detect_point(const struct image *img,
     dotcode_rb_point_clean(&dtp_root);
 
     return dtp_size;
+}
+
+unsigned int dotcode_detect_point(const struct image *img,
+    struct dotcode_point *pdtp, const unsigned int ndtp)
+{
+    int nedge;
+    struct dotcode_point pt;
+    struct point center = { 437, 127 };
+    struct image_raise_fall_edge edges[1000];
+
+    if (img == NULL || pdtp == NULL || ndtp == 0)
+        return 0;
+
+    if (!dotcode_checkdot(img, IMAGE_RFEDGE_TYPE_RAISE, &pt, &center))
+        return 0;
+
+    if (pt.nw <= 6)
+        return 0;
+
+    pt.score = 4;
+    ushow_ptWidth(1, pt.center.x, pt.center.y, GREENCOLOR, 1);
+
+    struct point x, end = { 0, img->height - 1 };
+    center = pt.center;
+    while (end.x < img->width) {
+        ++end.x;
+
+        nedge = image_find_raise_fall_edges_pt2pt(img, &center, &end, edges, 1000);
+        const int color[] = { REDCOLOR, GREENCOLOR };
+        for (int i = 0; i < nedge; ++i) {
+            dotcode_get_edge_pos_in_pt2pt(&center, &end, &x, edges[i].dpos);
+            ushow_pt(1, x.x, x.y, color[i & 2]);
+        }
+    }
+
+    end.x = img->width - 1;
+    while (end.y > 0) {
+        --end.y;
+
+        nedge = image_find_raise_fall_edges_pt2pt(img, &center, &end, edges, 1000);
+        const int color[] = { REDCOLOR, GREENCOLOR };
+        for (int i = 0; i < nedge; ++i) {
+            dotcode_get_edge_pos_in_pt2pt(&center, &end, &x, edges[i].dpos);
+            ushow_pt(1, x.x, x.y, color[i & 2]);
+        }
+    }
+
+    end.y = 0;
+    while (end.x > 0) {
+        --end.x;
+
+        nedge = image_find_raise_fall_edges_pt2pt(img, &center, &end, edges, 1000);
+        const int color[] = { REDCOLOR, GREENCOLOR };
+        for (int i = 0; i < nedge; ++i) {
+            dotcode_get_edge_pos_in_pt2pt(&center, &end, &x, edges[i].dpos);
+            ushow_pt(1, x.x, x.y, color[i & 2]);
+        }
+    }
+
+    end.x = 0;
+    while (end.y++ < img->height - 1) {
+
+        nedge = image_find_raise_fall_edges_pt2pt(img, &center, &end, edges, 1000);
+        const int color[] = { REDCOLOR, GREENCOLOR };
+        for (int i = 0; i < nedge; ++i) {
+            dotcode_get_edge_pos_in_pt2pt(&center, &end, &x, edges[i].dpos);
+            ushow_pt(1, x.x, x.y, color[i & 2]);
+        }
+    }
+    return 0;
 }

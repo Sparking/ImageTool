@@ -243,9 +243,7 @@ IDR_POPUP_EDIT MENU
 BEGIN
     POPUP "±‡º≠"
     BEGIN
-        MENUITEM "ºÙ«–(&T)\tCtrl+X",              ID_EDIT_CUT
-        MENUITEM "∏¥÷∆(&C)\tCtrl+C",              ID_EDIT_COPY
-        MENUITEM "’≥Ã˘(&P)\tCtrl+V",              ID_EDIT_PASTE
+        MENUITEM "Dotcode≤‚ ‘",                   ID_DOTCODE_TEST
     END
 END
 
