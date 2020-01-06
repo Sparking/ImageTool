@@ -685,10 +685,10 @@ static bool dotcode_gooddot_search_line45(const struct image *img, const struct 
         if ((int)fabs(last_secpt.x - curpt.center.x) <= 5 && (int)fabs(last_secpt.y - curpt.center.y) <= 5)
             continue;
 
+        ndpt = 2;
         memcpy(&last_secpt, &curpt.center, sizeof(last_secpt));
         memcpy(&dpt[0], pdtp, sizeof(dpt[0]));
         memcpy(&dpt[1], &curpt, sizeof(dpt[0]));
-        ndpt = 2;
         min_len = (int)points_distance(&pdtp->center, &curpt.center);
         do {
             get_line_dirpos(&dpt[ndpt - 2].center, &dpt[ndpt - 1].center, &dpt[ndpt - 1].center,
@@ -758,18 +758,11 @@ static bool dotcode_gooddot_search_vertline(const struct image *img,
         if (nedge < 3)
             break;
 
-        get_pos_in_pt2pt(&sr[0], &sr[1], &pt, edges[1].dpos);
-        ushow_ptWidth(1, pt.x, pt.y, GREENCOLOR, 1);
-        get_pos_in_pt2pt(&sr[0], &sr[1], &pt, edges[2].dpos);
-        ushow_ptWidth(1, pt.x, pt.y, YELLOWCOLOR, 1);
-        get_pos_in_pt2pt(&sr[0], &sr[1], &pt,
-            (edges[2].dpos_256x + edges[1].dpos_256x + 256) >> 9);
-        //ushow_ptWidth(1, pt.x, pt.y, YELLOWCOLOR, 1);
-
+        get_pos_in_pt2pt(&sr[0], &sr[1], &pt, (edges[2].dpos_256x + edges[1].dpos_256x + 256) >> 9);
         if (!dotcode_checkdot_with_ref(img, ref->dot.isblack ? IMAGE_RFEDGE_TYPE_RAISE : IMAGE_RFEDGE_TYPE_FALL, &dpt, &pt, &ref->dot))
             break;
 
-        //ushow_ptWidth(1, dpt.center.x, dpt.center.y, REDCOLOR, 1);
+        ushow_ptWidth(1, dpt.center.x, dpt.center.y, PINKCOLOR, 1);
         get_line_dirpos(&sr[0], &dpt.center, &dpt.center, dpt.nw << 2, &pt);
         memcpy(&sr[0], &dpt.center, sizeof(struct point));
         memcpy(&sr[1], &pt, sizeof(struct point));
@@ -809,7 +802,7 @@ static bool dotcode_extend_vertline(const struct image *img, struct dotcode_line
     return true;
 }
 
-unsigned int dotcode_detect_point1(const struct image *img,
+unsigned int dotcode_detect_point(const struct image *img,
         struct dotcode_point *pdtp, const unsigned int ndtp)
 {
     unsigned int i, j, off;
@@ -847,7 +840,7 @@ unsigned int dotcode_detect_point1(const struct image *img,
             edge_start.x = (rfe_hori[i - 1].dpos_256x + ((pt.nw + 1) >> 1) + 128) >> 8;
             pt.nw = (pt.nw + 128) >> 8;
             edge_start.y = j;
-            if (!dotcode_checkdot(img, rfe_hori[i].type, &pt, &edge_start))
+            if (!dotcode_checkdot(img, rfe_hori[i].type == IMAGE_RFEDGE_TYPE_RAISE ? true : false, &pt, &edge_start))
                 continue;
 
             if (pt.nw <= 6)
@@ -888,12 +881,12 @@ unsigned int dotcode_detect_point1(const struct image *img,
     return dtp_size;
 }
 
-unsigned int dotcode_detect_point(const struct image *img,
+unsigned int dotcode_detect_point_test(const struct image *img,
     struct dotcode_point *pdtp, const unsigned int ndtp)
 {
     int nedge;
     struct dotcode_point pt;
-    struct point center = { 383, 334 };
+    struct point center = { 320, 329 };
     struct image_raise_fall_edge edges[1000];
 
     if (img == NULL || pdtp == NULL || ndtp == 0)

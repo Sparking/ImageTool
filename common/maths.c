@@ -322,7 +322,7 @@ bool points_in_line(const struct point *a, const struct point *b,
     vec[1].j = c->y - b->y;
     res = vector_tan_pow2(vec, vec + 1, 8);
 
-    return ((int)fabs(res) <= 35);
+    return ((int)fabs(res) <= 55);
 }
 
 bool line4p_is_parell(const struct point *ap1, const struct point *ap2,
