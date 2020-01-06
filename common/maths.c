@@ -378,3 +378,30 @@ bool get_linepos_veroffset(const struct point *start, const struct point *final,
 
 	return true;
 }
+
+void get_pos_in_pt2pt(const struct point *start, const struct point *end,
+	struct point *pt, const unsigned int pos)
+{
+	int step;
+	struct point delta;
+	struct point delta_abs;
+
+	step = (int)pos;
+	delta.x = end->x - start->x;
+	delta.y = end->y - start->y;
+	delta_abs.x = (int)fabs(delta.x);
+	delta_abs.y = (int)fabs(delta.y);
+	if (delta_abs.x >= delta_abs.y) {
+		if (delta.x < 0)
+			step = -step;
+
+		pt->x = start->x + step;
+		pt->y = (((step * delta.y << 8) / delta.x + 128) >> 8) + start->y;
+	} else {
+		if (delta.y < 0)
+			step = -step;
+
+		pt->y = step + start->y;
+		pt->x = (((step * delta.x << 8) / delta.y + 128) >> 8) + start->x;
+	}
+}

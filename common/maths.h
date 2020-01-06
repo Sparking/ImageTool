@@ -216,6 +216,9 @@ extern bool get_line_dirpos(const struct point *start, const struct point *end,
 extern bool get_linepos_veroffset(const struct point *start, const struct point *end,
 	const struct point *base, const int len, struct point *pos);
 
+extern void get_pos_in_pt2pt(const struct point *start, const struct point *end,
+	struct point *pt, const unsigned int pos);
+
 #ifdef __cplusplus
 }
 #endif

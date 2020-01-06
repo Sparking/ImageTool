@@ -485,34 +485,6 @@ bool dotcode_checkdot(const struct image *img, const bool isblack,
     return true;
 }
 
-void dotcode_get_edge_pos_in_pt2pt(const struct point *start, const struct point *end,
-    struct point *pt, const unsigned int pos)
-{
-    int step;
-    struct point delta;
-    struct point delta_abs;
-
-    step = (int)pos;
-    delta.x = end->x - start->x;
-    delta.y = end->y - start->y;
-    delta_abs.x = (int)fabs(delta.x);
-    delta_abs.y = (int)fabs(delta.y);
-    if (delta_abs.x >= delta_abs.y) {
-        if (delta.x < 0)
-            step = -step;
-
-        pt->x = start->x + step;
-        pt->y = (int)((step * delta.y * 1.0 / delta.x + 0.5) + start->y);
-    }
-    else {
-        if (delta.y < 0)
-            step = -step;
-
-        pt->y = step + start->y;
-        pt->x = (int)((step * delta.x * 1.0 / delta.y + 0.5) + start->x);
-    }
-}
-
 static void dotcode_dot_init(struct dotcode_dot *dot, const struct dotcode_point *pt,
         struct list_head *head45, struct list_head *head135)
 {
@@ -704,7 +676,7 @@ static bool dotcode_gooddot_search_line45(const struct image *img, const struct 
         if (nedge < 3)
             continue;
 
-        dotcode_get_edge_pos_in_pt2pt(&scan_range[0], &scan_endpos, &pt,
+        get_pos_in_pt2pt(&scan_range[0], &scan_endpos, &pt,
             (edges[2].dpos_256x + edges[1].dpos_256x + 256) >> 9);
         if (!dotcode_checkdot_with_ref(img, edges[0].type, &curpt, &pt, pdtp))
             continue;
@@ -726,7 +698,7 @@ static bool dotcode_gooddot_search_line45(const struct image *img, const struct 
             if (nedge < 3)
                 break;
 
-            dotcode_get_edge_pos_in_pt2pt(&dpt[ndpt - 1].center, &pt, &pt,
+            get_pos_in_pt2pt(&dpt[ndpt - 1].center, &pt, &pt,
                 (edges[2].dpos_256x + edges[1].dpos_256x + 256) >> 9);
             if (!dotcode_checkdot_with_ref(img, edges[0].type, &curpt, &pt, pdtp))
                 break;
@@ -786,11 +758,11 @@ static bool dotcode_gooddot_search_vertline(const struct image *img,
         if (nedge < 3)
             break;
 
-        dotcode_get_edge_pos_in_pt2pt(&sr[0], &sr[1], &pt, edges[1].dpos);
+        get_pos_in_pt2pt(&sr[0], &sr[1], &pt, edges[1].dpos);
         ushow_ptWidth(1, pt.x, pt.y, GREENCOLOR, 1);
-        dotcode_get_edge_pos_in_pt2pt(&sr[0], &sr[1], &pt, edges[2].dpos);
+        get_pos_in_pt2pt(&sr[0], &sr[1], &pt, edges[2].dpos);
         ushow_ptWidth(1, pt.x, pt.y, YELLOWCOLOR, 1);
-        dotcode_get_edge_pos_in_pt2pt(&sr[0], &sr[1], &pt,
+        get_pos_in_pt2pt(&sr[0], &sr[1], &pt,
             (edges[2].dpos_256x + edges[1].dpos_256x + 256) >> 9);
         //ushow_ptWidth(1, pt.x, pt.y, YELLOWCOLOR, 1);
 
@@ -921,7 +893,7 @@ unsigned int dotcode_detect_point(const struct image *img,
 {
     int nedge;
     struct dotcode_point pt;
-    struct point center = { 437, 127 };
+    struct point center = { 383, 334 };
     struct image_raise_fall_edge edges[1000];
 
     if (img == NULL || pdtp == NULL || ndtp == 0)
@@ -938,13 +910,13 @@ unsigned int dotcode_detect_point(const struct image *img,
 
     struct point x, end = { 0, img->height - 1 };
     center = pt.center;
-    while (end.x < img->width) {
+    while (end.x < (int)img->width) {
         ++end.x;
 
         nedge = image_find_raise_fall_edges_pt2pt(img, &center, &end, edges, 1000);
         const int color[] = { REDCOLOR, GREENCOLOR };
         for (int i = 0; i < nedge; ++i) {
-            dotcode_get_edge_pos_in_pt2pt(&center, &end, &x, edges[i].dpos);
+            get_pos_in_pt2pt(&center, &end, &x, edges[i].dpos);
             ushow_pt(1, x.x, x.y, color[i & 2]);
         }
     }
@@ -956,7 +928,7 @@ unsigned int dotcode_detect_point(const struct image *img,
         nedge = image_find_raise_fall_edges_pt2pt(img, &center, &end, edges, 1000);
         const int color[] = { REDCOLOR, GREENCOLOR };
         for (int i = 0; i < nedge; ++i) {
-            dotcode_get_edge_pos_in_pt2pt(&center, &end, &x, edges[i].dpos);
+            get_pos_in_pt2pt(&center, &end, &x, edges[i].dpos);
             ushow_pt(1, x.x, x.y, color[i & 2]);
         }
     }
@@ -968,18 +940,18 @@ unsigned int dotcode_detect_point(const struct image *img,
         nedge = image_find_raise_fall_edges_pt2pt(img, &center, &end, edges, 1000);
         const int color[] = { REDCOLOR, GREENCOLOR };
         for (int i = 0; i < nedge; ++i) {
-            dotcode_get_edge_pos_in_pt2pt(&center, &end, &x, edges[i].dpos);
+            get_pos_in_pt2pt(&center, &end, &x, edges[i].dpos);
             ushow_pt(1, x.x, x.y, color[i & 2]);
         }
     }
 
     end.x = 0;
-    while (end.y++ < img->height - 1) {
+    while (end.y++ < (int)img->height - 1) {
 
         nedge = image_find_raise_fall_edges_pt2pt(img, &center, &end, edges, 1000);
         const int color[] = { REDCOLOR, GREENCOLOR };
         for (int i = 0; i < nedge; ++i) {
-            dotcode_get_edge_pos_in_pt2pt(&center, &end, &x, edges[i].dpos);
+            get_pos_in_pt2pt(&center, &end, &x, edges[i].dpos);
             ushow_pt(1, x.x, x.y, color[i & 2]);
         }
     }

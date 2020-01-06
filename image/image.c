@@ -2150,8 +2150,8 @@ unsigned int image_find_raise_fall_edges_pt2pt(
         if (delta.x < 0)
             step = -1;
 
-        for (pos = 1, i = 1; pos <= (unsigned int)delta_abs.x; i += step, ++pos) {
-            j = (int)((i * delta.y * 1.0 / delta.x + 0.5) + start->y);
+        for (pos = 1, i = step; pos <= (unsigned int)delta_abs.x; i += step, ++pos) {
+            j = (int)((((i * delta.y << 8) / delta.x + 128) >> 8) + start->y);
             imgdata = &img->data[img->width * j + start->x + i];
             ushow_pt(flag, start->x + i, j, YELLOWCOLOR);
             if (gray == *imgdata) {
@@ -2210,8 +2210,8 @@ unsigned int image_find_raise_fall_edges_pt2pt(
         if (delta.y < 0)
             step = -1;
 
-        for (pos = 1, j = 1; pos <= (unsigned int)delta_abs.y; j += step, ++pos) {
-            i = (int)((j * delta.x * 1.0 / delta.y + 0.5) + start->x);
+        for (pos = 1, j = step; pos <= (unsigned int)delta_abs.y; j += step, ++pos) {
+            i = (int)((((j * delta.x << 8) / delta.y + 128) >> 8) + start->x);
             imgdata = &img->data[img->width * (j + start->y) + i];
             ushow_pt(flag, i, j + start->y, YELLOWCOLOR);
 
