@@ -6,7 +6,7 @@ ARFLAGS  := crus
 CFLAGS   := -g -O0 -ffunction-sections -fdata-sections -fno-strict-aliasing
 CXXFLAGS := -std=c++11 $(CFLAGS)
 CFLAGS   := -std=c99 $(CFLAGS)
-CPPFLAGS := -Wall -Werror -ansi -MMD -I$(CURDIR) -DCHECK_ENTRY_PARAM
+CPPFLAGS := -Wall -Werror -ansi -MMD -I$(CURDIR)
 LDFLAGS  := -Wl,--as-needed -Wl,-gc-section -L$(CURDIR)
 LIBS     :=
 
@@ -82,7 +82,8 @@ LIBS        += -lkissfft131
 KISSFFT_CPPFLAGS := \
     -W -Wall -Wstrict-prototypes -Wmissing-prototypes -Waggregate-return \
     -Wcast-align -Wcast-qual -Wnested-externs -Wshadow -Wbad-function-cast \
-    -Wwrite-strings -Dkiss_fft_scalar=float
+    -Wwrite-strings -Dkiss_fft_scalar=float \
+    -pedantic -ffast-math -fomit-frame-pointer
 
 ifeq ($(OS),Windows_NT)
 LIBS += -ljpeg.dll -lpng.dll -lz.dll
