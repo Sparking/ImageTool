@@ -157,7 +157,7 @@ unsigned int circular_queue_enque(struct circular_queue *q, const void *data, co
             break;
 
         memcpy(q->data + q->rear * q->block_size, data, q->block_size);
-        data = (char *)data + q->block_size;
+        data = (const char *)data + q->block_size;
         q->rear = (q->rear + 1) % q->size;
         ++q->used_size;
     }

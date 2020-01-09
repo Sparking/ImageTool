@@ -2,7 +2,7 @@
 CC       := gcc
 CXX      := g++
 RANLIB   := ranlib
-ARFLAGS  := rc
+ARFLAGS  := crus
 CFLAGS   := -g -O0 -ffunction-sections -fdata-sections -fno-strict-aliasing
 CXXFLAGS := -std=c++11 $(CFLAGS)
 CFLAGS   := -std=c99 $(CFLAGS)
@@ -68,6 +68,22 @@ INIPARSER_LIB := libiniparser.a
 CPPFLAGS += -I$(CURDIR)/lib/iniparser
 LIBS     += -liniparser
 
+KISSFFT_LIB_SRC_PATH := lib/kissfft-131
+KISSFFT_LIB_SRC := \
+    $(KISSFFT_LIB_SRC_PATH)/kiss_fft.c \
+    $(KISSFFT_LIB_SRC_PATH)/tools/kiss_fftnd.c \
+    $(KISSFFT_LIB_SRC_PATH)/tools/kiss_fftr.c \
+    $(KISSFFT_LIB_SRC_PATH)/tools/kiss_fftndr.c
+KISSFFT_LIB_OBJ := $(patsubst %.c,%.o,$(KISSFFT_LIB_SRC))
+KISSFFT_LIB_DEP := $(patsubst %.c,%.d,$(KISSFFT_LIB_SRC))
+KISSFFT_LIB := libkissfft131.a
+CPPFLAGS    += -I$(KISSFFT_LIB_SRC_PATH) -I$(KISSFFT_LIB_SRC_PATH)/tools
+LIBS        += -lkissfft131
+KISSFFT_CPPFLAGS := \
+    -W -Wall -Wstrict-prototypes -Wmissing-prototypes -Waggregate-return \
+    -Wcast-align -Wcast-qual -Wnested-externs -Wshadow -Wbad-function-cast \
+    -Wwrite-strings -Dkiss_fft_scalar=float
+
 ifeq ($(OS),Windows_NT)
 LIBS += -ljpeg.dll -lpng.dll -lz.dll
 DLL_LIBS := libjpeg-9.dll libpng15-15.dll zlib1.dll
@@ -85,6 +101,11 @@ USER_DEP := $(patsubst %.cc,%.d,$(USER_SRC))
 define compile_c
 @echo CC	$1
 @$(CC) $(CPPFLAGS) $(CFLAGS) -c -o $1 $2
+endef
+
+define compile_kissfft
+@echo CC	$1
+@$(CC) $(CPPFLAGS) $(KISSFFT_CPPFLAGS) $(CFLAGS) -c -o $1 $2
 endef
 
 define compile_cc
@@ -105,7 +126,7 @@ endef
 
 .PHONY: all
 all: $(OUT)
-$(OUT): $(USER_OBJ) $(COMMON_LIB) $(IMAGE_LIB) $(QR_DECODE_LIB) $(INIPARSER_LIB) $(DLL_LIBS)
+$(OUT): $(USER_OBJ) $(COMMON_LIB) $(IMAGE_LIB) $(QR_DECODE_LIB) $(INIPARSER_LIB) $(KISSFFT_LIB) $(DLL_LIBS)
 	$(call link_objects,$@,$(USER_OBJ))
 ifeq ($(OS), Windows_NT)
 %.dll: $(CURDIR)/lib/gtk+-bundle_3.6.4-20130513_win64/bin/%.dll
@@ -114,9 +135,11 @@ ifeq ($(OS), Windows_NT)
 	@del .$@.copy.tmp
 endif
 # build objects
--include $(COMMON_LIB_DEP) $(IMAGE_LIB_DEP) $(QR_DECODE_LIB_DEP) $(INIPARSER_LIB_DEP) $(USER_DEP)
+-include $(COMMON_LIB_DEP) $(IMAGE_LIB_DEP) $(QR_DECODE_LIB_DEP) $(INIPARSER_LIB_DEP) $(KISSFFT_LIB_DEP) $(USER_DEP)
 $(COMMON_LIB_OBJ) $(IMAGE_LIB_OBJ) $(QR_DECODE_LIB_OBJ) $(INIPARSER_LIB_OBJ): %.o: %.c
 	$(call compile_c,$@,$<)
+$(KISSFFT_LIB_OBJ): %.o: %.c
+	$(call compile_kissfft,$@,$<)
 $(USER_OBJ): %.o: %.cc
 	$(call compile_cc,$@,$<)
 # build libraries
@@ -127,6 +150,8 @@ $(IMAGE_LIB): $(COMMON_LIB_OBJ) $(IMAGE_LIB_OBJ)
 $(QR_DECODE_LIB): $(COMMON_LIB_OBJ) $(IMAGE_LIB_OBJ) $(QR_DECODE_LIB_OBJ)
 	$(call ar_lib,$@,$^)
 $(INIPARSER_LIB): $(INIPARSER_LIB_OBJ)
+	$(call ar_lib,$@,$^)
+$(KISSFFT_LIB): $(KISSFFT_LIB_OBJ)
 	$(call ar_lib,$@,$^)
 
 .PHONY: clean

@@ -38,7 +38,7 @@ static unsigned int linkedlist_inner_add(struct linkedlist *list, const void *da
 
         INIT_LIST_HEAD(node->node);
         memcpy(node->data, data, list->block_size);
-        data = (char *)data + list->block_size;
+        data = (const char *)data + list->block_size;
         if (flag) {
             list_add_tail(&node->node, &list->head);
         } else {
