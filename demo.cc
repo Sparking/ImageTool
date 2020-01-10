@@ -281,21 +281,92 @@ int image_draw_rfedges(const struct image *simg)
     return 0;
 }
 
-void test()
-{
-    struct point a = {333, 253};
-    struct point b = {345, 263};
-    struct point c = {355, 274};
+unsigned char imgdata[320];
 
-    if (points_in_line(&a, &b, &c))
-        printf("Hello\n");
+static int compare(const void *a, const void *b)
+{
+    if (*(unsigned char *)b == *(unsigned char *)a)
+        return 0;
+
+    return *(unsigned char *)b > *(unsigned char *)a ? 1 : -1;
+}
+
+int image_correct_dot_pos(unsigned char *imgdata, const int len, const int pos, int *new_center)
+{
+    int i, nuppos;
+    unsigned char grads[100];
+    unsigned int uppos[100];
+
+    /**转为梯度**/
+    for (i = 1; i < len; ++i) {
+        imgdata[i - 1] = unsigned_diff(imgdata[i], imgdata[i - 1]);
+        printf("%3d ", imgdata[i]);
+    }
+    putchar('\n');
+    memcpy(grads, imgdata, len - 1);
+    qsort(grads, len - 1, sizeof(unsigned char), compare);
+    for (i = 0; i < len - 1; ++i)
+        printf("%3d ", imgdata[i]);
+    putchar('\n');
+    for (i = 0; i < len - 1; ++i)
+        printf("%3d ", grads[i]);
+    putchar('\n');
+
+    if (imgdata[0] >= 10) {
+    }
+    for (nuppos = 0, i = 1; i < len - 2; ++i) {
+        if (imgdata[i] >= 10) {
+            if ((imgdata[i] > imgdata[i - 1] && imgdata[i] >= imgdata[i + 1])
+                || (imgdata[i] >= imgdata[i - 1] && imgdata[i] > imgdata[i + 1])) {
+                uppos[nuppos++] = i;
+            }
+        }
+    }
+
+    for (i = 0; i < nuppos; ++i) {
+        printf("%3d ", (char)imgdata[uppos[i]]);
+    }
+    printf("\n");
+
+    return 0;
+}
+
+int image_find_dot_by_grad(const struct image *srcimg, const struct point *pt, const int len)
+{
+    int i, j, n;
+    struct image *gray, *img;
+
+    gray = image_convert_gray(srcimg);
+    if (gray == nullptr)
+        return -1;
+
+    img = image_convert_format(gray, IMAGE_FORMAT_BGRA);
+    if (img == nullptr) {
+        image_release(gray);
+        return -1;
+    }
+
+    n = 0;
+    i = (pt->y + 1) * gray->width + pt->x - len - 1;
+    j = (pt->y + 1) * gray->width + pt->x + len + 1;
+    while (i <= j)
+        imgdata[n++] = gray->data[i++];
+
+    if (image_correct_dot_pos(imgdata, n, len + 1, &i)) {
+        printf("%d, %d\n", pt->x + len + 1, pt->x + i);
+    } else {
+        printf("not found center\n");
+    }
+    image_release(gray);
+    image_release(img);
+
+    return 0;
 }
 
 int main(const int argc, char *argv[])
 {
+#if 0
     image *img, *gray;
-
-    test();
 
     if (config_get("config.ini") == -1)
         return -1;
@@ -335,6 +406,19 @@ int main(const int argc, char *argv[])
 #endif
     image_release(gray);
     config_release();
+#else
+    struct image *img;
+    struct point pt = {311, 170};
+
+    if (argc < 2)
+        return -1;
+
+    if ((img = image_open(argv[1])) == NULL)
+        return -1;
+
+    image_find_dot_by_grad(img, &pt, 11);
+    image_release(img);
+#endif
 
     return 0;
 }

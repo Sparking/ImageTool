@@ -2,7 +2,7 @@
 CC       := gcc
 CXX      := g++
 RANLIB   := ranlib
-ARFLAGS  := crus
+ARFLAGS  := crs
 CFLAGS   := -g -O0 -ffunction-sections -fdata-sections -fno-strict-aliasing
 CXXFLAGS := -std=c++11 $(CFLAGS)
 CFLAGS   := -std=c99 $(CFLAGS)
