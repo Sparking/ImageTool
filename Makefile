@@ -158,13 +158,17 @@ $(KISSFFT_LIB): $(KISSFFT_LIB_OBJ)
 .PHONY: clean
 clean:
 ifeq ($(OS), Windows_NT)
-	@for %%I in ($(subst /,\,$(COMMON_LIB_DEP) $(IMAGE_LIB_DEP) $(QR_DECODE_LIB_DEP) $(USER_DEP) $(COMMON_LIB_OBJ) $(IMAGE_LIB_OBJ) $(QR_DECODE_LIB_OBJ) $(USER_OBJ)) $(COMMON_LIB) $(IMAGE_LIB) $(QR_DECODE_LIB) $(DLL_LIBS) $(OUT)) do if exist %%I del /f /q %%I
+	@for %%I in ($(subst /,\,$(COMMON_LIB_DEP) $(IMAGE_LIB_DEP) $(QR_DECODE_LIB_DEP) $(USER_DEP))) do if exist %%I del /f /q %%I
+	@for %%I in ($(subst /,\,$(COMMON_LIB_OBJ) $(IMAGE_LIB_OBJ) $(QR_DECODE_LIB_OBJ) $(USER_OBJ))) do if exist %%I del /f /q %%I
+	@for %%I in ($(subst /,\,$(COMMON_LIB) $(IMAGE_LIB) $(QR_DECODE_LIB) $(DLL_LIBS) $(OUT))) do if exist %%I del /f /q %%I
 	@for %%I in ($(subst /,\,$(INIPARSER_LIB) $(INIPARSER_LIB_OBJ) $(INIPARSER_LIB_DEP))) do if exist %%I del /f /q %%I
+	@for %%I in ($(subst /,\,$(KISSFFT_LIB_OBJ) $(KISSFFT_LIB_DEP) $(KISSFFT_LIB))) do if exist %%I del /f /q %%I
 else
 	@$(RM) $(COMMON_LIB_DEP) $(IMAGE_LIB_DEP) $(QR_DECODE_LIB_DEP) $(USER_DEP)
 	@$(RM) $(COMMON_LIB_OBJ) $(IMAGE_LIB_OBJ) $(QR_DECODE_LIB_OBJ) $(USER_OBJ)
 	@$(RM) $(COMMON_LIB) $(IMAGE_LIB) $(QR_DECODE_LIB)
 	@$(RM) $(INIPARSER_LIB) $(INIPARSER_LIB_OBJ) $(INIPARSER_LIB_DEP)
+	@$(RM) $(KISSFFT_LIB_OBJ) $(KISSFFT_LIB_DEP) $(KISSFFT_LIB)
 	@$(RM) $(OUT)
 endif
 
