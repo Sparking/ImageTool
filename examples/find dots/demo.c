@@ -37,23 +37,48 @@ int get_edgepos_16x(const int *grads, const int len, const int srchpos)
             j += grads[i];
         }
     }
+    if (j == 0)
+        return 0;
+
     pos16x = (pos16x << 4) / j;
 
     return pos16x;
 }
 
+void debug_unsigned_char(unsigned char *data, const int len)
+{
+    int i;
+
+    for (i = 0; i < len; ++i)
+        printf("%3d ", data[i]);
+    putchar('\n');
+}
+
+void debug_int(int *data, const int len)
+{
+    int i;
+
+    for (i = 0; i < len; ++i)
+        printf("%3d ", data[i]);
+    putchar('\n');
+}
+
 bool get_dots_edge(unsigned char *data, const int len, const int center, int *center_offset, int *w16x, int *isblack)
 {
     int grads[100], head, tail;
-    unsigned int i, j, npos, tmp;
+    int i, j, npos, tmp;
     unsigned char gradabs[100], maxgrad;
     unsigned char maxgradpos[50];
 
-    for (maxgrad = 0, i = 1; i < len; ++i) {
-        grads[i] = (int)data[i] - (int)data[i - 1];
-        gradabs[i] = (unsigned char)fabs((int)data[i] - (int)data[i - 1]);
-        if (maxgrad < gradabs[i])
-            maxgrad = gradabs[i];
+    for (maxgrad = 0, i = 1, j = 0; i < len; ++i, ++j) {
+        grads[j] = (int)data[i] - (int)data[j];
+        if (grads[j] < 0) {
+            gradabs[j] = (unsigned char)-grads[j];
+        } else {
+            gradabs[j] = (unsigned char)grads[j];
+        }
+        if (maxgrad < gradabs[j])
+            maxgrad = gradabs[j];
     }
 
     for (npos = 0, i = 1, tmp = len - 2, j = -1; i < tmp && npos < 50; ++i) {
@@ -67,14 +92,30 @@ bool get_dots_edge(unsigned char *data, const int len, const int center, int *ce
                 j = npos - 1;
         }
     }
-    if (npos < 2 || j < 1 || center == maxgradpos[j])
+
+    debug_unsigned_char(data + 1, len - 1);
+    debug_int(grads, len - 1);
+    debug_unsigned_char(gradabs, len - 1);
+    debug_unsigned_char(maxgradpos, npos);
+    if (npos < 2 || j < 1)
         return false;
 
-    i = j - 1;
-    head = get_edgepos_16x(grads, len - 1, maxgradpos[i]);
-    tail = get_edgepos_16x(grads, len - 1, maxgradpos[j]);
+    i = maxgradpos[j - 1];
+    j = maxgradpos[j];
+    if (grads[i] * grads[j] >= 0)
+        return false;
+
+    head = get_edgepos_16x(grads, len - 1, i);
+    tail = get_edgepos_16x(grads, len - 1, j);
+    if (head == 0 || tail == 0)
+        return false;
+
     *w16x = tail - head;
     *center_offset = ((head + tail + 16) >> 5) - center;
+    *isblack = data[(head + tail + 16) >> 5] < (data[(head + 8) >> 4] + data[(tail + 8) >> 4]);
+
+    printf("%.2f\n", *w16x / 16.0f);
+    printf("%.2f, %.2f\n", head / 16.0f, tail / 16.0f);
 
     return true;
 }
