@@ -48,6 +48,11 @@ struct dotcode_line {
 extern unsigned int dotcode_detect_point(const struct image *img,
         struct dotcode_point *pdtp, const unsigned int ndtp);
 
+extern unsigned int image_find_raise_fall_edges_by_offset_dotcode(
+	const struct image *img, const struct point *pstart,
+	const struct point *setup_off, const unsigned int len,
+	struct image_raise_fall_edge *pedge, const unsigned int num);
+
 #ifdef __cplusplus
 }
 #endif

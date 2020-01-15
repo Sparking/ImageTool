@@ -4,6 +4,8 @@
 extern "C" {
 #endif
 
+#include <stddef.h>
+
 #ifndef INLINE
 #ifdef __GNUC__
 #define INLINE static __inline __attribute__((always_inline))

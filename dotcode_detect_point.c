@@ -802,7 +802,7 @@ static bool dotcode_extend_vertline(const struct image *img, struct dotcode_line
     return true;
 }
 
-unsigned int dotcode_detect_point(const struct image *img,
+unsigned int dotcode_detect_point1(const struct image *img,
         struct dotcode_point *pdtp, const unsigned int ndtp)
 {
     unsigned int i, j, off;

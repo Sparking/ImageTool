@@ -116,6 +116,9 @@
     <ClCompile Include="..\dotcode_detect_point.c">
       <Filter>Sources\Decode</Filter>
     </ClCompile>
+    <ClCompile Include="dotcodetest.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Image Tool.reg" />

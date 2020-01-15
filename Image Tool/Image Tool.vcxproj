@@ -222,6 +222,7 @@
     <ClCompile Include="..\image\image.c" />
     <ClCompile Include="ChildFrm.cpp" />
     <ClCompile Include="DialogTransToolRotation.cpp" />
+    <ClCompile Include="dotcodetest.c" />
     <ClCompile Include="Image Tool.cpp" />
     <ClCompile Include="Image ToolDoc.cpp" />
     <ClCompile Include="Image ToolView.cpp" />
