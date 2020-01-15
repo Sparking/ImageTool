@@ -12,9 +12,9 @@ int main(int argc, char *argv[])
     int i, j;
     int dims[2];
     struct image *img, *gray;
-    kiss_fft_cpx *fft_in;
+    kiss_fft_scalar *fft_in;
     kiss_fft_cpx *fft_out;
-    kiss_fftnd_cfg st;
+    kiss_fftndr_cfg st;
 
     if (argc < 1)
         return -1;
@@ -28,32 +28,33 @@ int main(int argc, char *argv[])
     if (gray == NULL)
         return -1;
 
-    dims[0] = gray->height;
-    dims[1] = gray->width;
-    fft_in = (kiss_fft_cpx *)malloc(sizeof(*fft_in) * gray->size * 2);
+    dims[1] = gray->height;
+    dims[0] = gray->width;
+    fft_in = (kiss_fft_scalar *)KISS_FFT_MALLOC((sizeof(*fft_in) + sizeof(*fft_out)) * gray->size);
     if (fft_in == NULL) {
         image_release(gray);
         return -1;
     }
 
-    fft_out = fft_in + gray->size;
-    st = kiss_fftnd_alloc(dims, 2, 0, 0, 0);
+    fft_out = (kiss_fft_cpx *)(fft_in + gray->size);
+    st = kiss_fftndr_alloc(dims, 2, 0, 0, 0);
     if (st == NULL) {
         free(fft_in);
         image_release(gray);
         return -1;
     }
 
-    for (i = 0; i < gray->size; ++i) {
-        fft_in[i].r = (kiss_fft_scalar)gray->data[i];
-        fft_in[i].i = 0;
-    }
-    kiss_fftnd(st, fft_in, fft_out);
+    for (i = 0; i < gray->size; ++i)
+        fft_in[i] = ((kiss_fft_scalar)gray->data[i]) / 255;
+    kiss_fftndr(st, fft_in, fft_out);
 
     img = image_create(gray->height, gray->width, IMAGE_FORMAT_GRAY);
     if (img != NULL) {
-        for (i = 0; i < gray->size; ++i) {
-            j = (int)(sqrtf(fft_out[i].r * fft_out[i].r /*+ fft_out[i].i * fft_out[i].i*/) / 255.0f + 0.5f);
+        kiss_fftndr_free(st);
+        st = kiss_fftndr_alloc(dims, 2, 1, 0, 0);
+        kiss_fftndri(st, fft_out, fft_in);
+        for (i = 0; i < img->size; ++i) {
+            j = (int)fabsf(fft_in[i]);
             if (j >= 255)
                 j = 255;
             img->data[i] = j;
@@ -74,7 +75,7 @@ int main(int argc, char *argv[])
         image_release(img);
     }
 
-    free(fft_in);
+    KISS_FFT_FREE(fft_in);
     image_release(gray);
 
     return 0;
