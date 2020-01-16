@@ -398,15 +398,16 @@ int image_find_dot_by_grad(const struct image *img)
 			if (j == 177 && dbgcoord.x >= 168 - 5 && dbgcoord.x <= 168 + 5) {
 				hori_edge_off.y = 0;
 			}
+			pt.isblack = rfe_hori[i - 1].type != IMAGE_RFEDGE_TYPE_FALL;
 			pt.nh = dotcode_edge_search_length(pt.nw);
-			ret = dotcode_gooddot_confirmy(img, &coordinate, &pt.nh, rfe_hori[i - 1].type != IMAGE_RFEDGE_TYPE_FALL);
+			ret = dotcode_gooddot_confirmy(img, &coordinate, &pt.nh, pt.isblack);
 			if (!ret || !dotcode_judge_width(pt.nw, pt.nh))
 				continue;
 
 			dbgcoord.x = (coordinate.x + 8) >> 4;
 			dbgcoord.y = (coordinate.y + 8) >> 4;
 			pt.nw = dotcode_edge_search_length(pt.nh);
-			ret = dotcode_gooddot_confirmx(img, &coordinate, &pt.nw, rfe_hori[i - 1].type != IMAGE_RFEDGE_TYPE_FALL);
+			ret = dotcode_gooddot_confirmx(img, &coordinate, &pt.nw, pt.isblack);
 			if (!ret || !dotcode_judge_width(pt.nh, pt.nw))
 				continue;
 
@@ -414,19 +415,23 @@ int image_find_dot_by_grad(const struct image *img)
 			dbgcoord.y = (coordinate.y + 8) >> 4;
 
 			pt.n45 = dotcode_edge_search_length(imax(pt.nw, pt.nh));
-			ret = dotcode_gooddot_confirm45(img, &coordinate, &pt.n45, rfe_hori[i - 1].type != IMAGE_RFEDGE_TYPE_FALL);
+			ret = dotcode_gooddot_confirm45(img, &coordinate, &pt.n45, pt.isblack);
 			if (!ret || (!dotcode_judge_width(imax(pt.nw, pt.nh), pt.n45)))
 				continue;
 
 			pt.n135 = dotcode_edge_search_length(imax(pt.nw, pt.nh));
-			ret = dotcode_gooddot_confirm135(img, &coordinate, &pt.n135, rfe_hori[i - 1].type != IMAGE_RFEDGE_TYPE_FALL);
+			ret = dotcode_gooddot_confirm135(img, &coordinate, &pt.n135, pt.isblack);
 			if (!ret || !dotcode_judge_width(pt.n45, pt.n135))
 				continue;
 
 			coordinate.x = (coordinate.x + 8) >> 4;
 			coordinate.y = (coordinate.y + 8) >> 4;
 			pt.center = coordinate;
-			ushow_pt(1, pt.center.x, pt.center.y, GREENCOLOR);
+			if (pt.isblack) {
+				ushow_pt(1, pt.center.x, pt.center.y, REDCOLOR);
+			} else {
+				ushow_pt(1, pt.center.x, pt.center.y, YELLOWCOLOR);
+			}
 		}
 	}
 

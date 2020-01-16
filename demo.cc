@@ -6,6 +6,8 @@
 #include "image.h"
 #include "iniparser.h"
 #include "qr_decode.h"
+#include "generic_gf.h"
+#include "rsdecode.h"
 #include "port_memory.h"
 #include "qr_position.h"
 #include "dotcode_detect_point.h"
@@ -406,7 +408,7 @@ int main(const int argc, char *argv[])
 #endif
     image_release(gray);
     config_release();
-#else
+//#else
     struct image *img;
     struct point pt = {311, 170};
 
@@ -419,6 +421,16 @@ int main(const int argc, char *argv[])
     image_find_dot_by_grad(img, &pt, 11);
     image_release(img);
 #endif
+    struct generic_gf *gf_dotcode;
+    unsigned int eccdata[59] = {1,12,37,62,87,113,98,113,91,93,109,4,113,5,113,112,15,18,6,6,27,15,20,41,23,45,52,53,35,57,64,65,47,69,74,79,59,81,52,22,71,103,10,82,93,73,17,102,4,19,84,95,90,8,73,33,84,69,59};
+
+    gf_dotcode = generic_gf_create(113, 113, 0);
+    if (rsdecode(gf_dotcode, eccdata, 59, 21) == 0) {
+        printf("success\n");
+    } else {
+        printf("failed\n");
+    }
+    generic_gf_release(gf_dotcode);
 
     return 0;
 }
