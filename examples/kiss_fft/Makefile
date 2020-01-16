@@ -5,10 +5,14 @@ RANLIB   := ranlib
 ARFLAGS  := rc
 CFLAGS   := -g -O0 -ffunction-sections -fdata-sections -fno-strict-aliasing
 CPPFLAGS := -Wall -Werror -ansi -MMD -DCHECK_ENTRY_PARAM \
+		-W -Wall -Wstrict-prototypes -Wmissing-prototypes -Waggregate-return \
+        -Wcast-align -Wcast-qual -Wnested-externs -Wshadow -Wbad-function-cast \
+        -Wwrite-strings -Dkiss_fft_scalar=float \
+        -ffast-math -fomit-frame-pointer \
 		-I../.. \
 		-I../../image \
 		-I../../common \
-		-I../../lib/kissfft-131 -I../../lib/kissfft-131/tools 
+		-I../../lib/kissfft-131 -I../../lib/kissfft-131/tools
 LDFLAGS  := -Wl,--as-needed -Wl,-gc-section -L../..
 LIBS     := -limage -lkissfft131
 

@@ -1,20 +1,26 @@
 ﻿#include <assert.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdbool.h>
+#include <image.h>
+#include <maths.h>
+#include <port_memory.h>
 #include "dotcode_detect_point.h"
-
-struct point debugpt = { 0, 0 };
-int flag = 0;
 
 int get_edgepos_16x(const int *grads, const int len, const int srchpos)
 {
 	int pos16x, i, j;
 
+	if (grads[srchpos] == 0)
+		return 0;
+
 	pos16x = 0;
 	if (grads[srchpos] > 0) {
-		for (i = srchpos; i >= 0; --i) {
+		for (i = srchpos - 1; i >= 0; --i) {
 			if (grads[i] <= 0)
 				break;
 		}
-		++i;
 
 		for (j = 0, pos16x = 0; ++i < len;) {
 			if (grads[i] <= 0)
@@ -24,7 +30,7 @@ int get_edgepos_16x(const int *grads, const int len, const int srchpos)
 			j += grads[i];
 		}
 	} else {
-		for (i = srchpos; i >= 0; --i) {
+		for (i = srchpos - 1; i >= 0; --i) {
 			if (grads[i] >= 0)
 				break;
 		}
@@ -37,9 +43,6 @@ int get_edgepos_16x(const int *grads, const int len, const int srchpos)
 			j += grads[i];
 		}
 	}
-	if (j == 0)
-		return 0;
-
 	pos16x = (pos16x << 4) / j;
 
 	return pos16x;
@@ -64,18 +67,18 @@ bool get_dots_edge(unsigned char *data, const int len, const int center, int *ce
 	}
 
 	for (npos = 0, i = 1, tmp = len - 2, j = -1; i < tmp && npos < 50; ++i) {
-		if ((((grads[i] > grads[i - 1] && grads[i] >= grads[i + 1]) ||
+		if ((grads[i] > 0
+			&& ((grads[i] > grads[i - 1] && grads[i] >= grads[i + 1]) ||
 			(grads[i] >= grads[i - 1] && grads[i] > grads[i + 1])))
 			|| (grads[i] < 0
 				&& ((grads[i] < grads[i - 1] && grads[i] <= grads[i + 1]) ||
 				(grads[i] <= grads[i - 1] && grads[i] < grads[i + 1])))) {
-			if (gradabs[i] * 5 < (maxgrad << 1))    /**剔除小干扰**/
+			if ((gradabs[i] << 2) < maxgrad)    /**剔除小干扰**/
 				continue;
 
+			if (i >= center && j == -1)
+				j = npos;
 			maxgradpos[npos++] = i;
-			if (i >= center && j == -1) {
-				j = npos - 1;
-			}
 		}
 	}
 
@@ -83,14 +86,20 @@ bool get_dots_edge(unsigned char *data, const int len, const int center, int *ce
 		return false;
 
 	if (j < 1) {
-		if (grads[maxgradpos[npos - 2]] * grads[maxgradpos[npos - 1]] >= 0)
+		i = maxgradpos[npos - 2];
+		j = maxgradpos[npos - 1];
+		if (grads[i] * grads[j] >= 0)
 			return false;
 
-		head = get_edgepos_16x(grads, len - 1, maxgradpos[npos - 1]);
+		if ((isblack && grads[i] < 0)
+			|| (!isblack && grads[i] > 0))
+			return false;
+
+		head = get_edgepos_16x(grads, len - 1, j);
 		if (((head + 8) >> 4) < center - 2)
 			return false;
 
-		tail = get_edgepos_16x(grads, len - 1, maxgradpos[npos - 2]);
+		tail = get_edgepos_16x(grads, len - 1, i);
 		if (tail == 0)
 			return false;
 
@@ -118,6 +127,9 @@ bool get_dots_edge(unsigned char *data, const int len, const int center, int *ce
 				return false;
 		}
 
+		if ((isblack && grads[i] < 0) || (!isblack && grads[i] > 0))
+			return false;
+
 		head = get_edgepos_16x(grads, len - 1, i);
 		tail = get_edgepos_16x(grads, len - 1, j);
 		if (head == 0 || tail == 0)
@@ -125,10 +137,11 @@ bool get_dots_edge(unsigned char *data, const int len, const int center, int *ce
 
 		*w16x = tail - head;
 	}
-	*center_offset = ((head + tail + 1) >> 1) - (center << 4);
+	*center_offset = (i + j - (center << 1)) << 3;
 
 	return true;
 }
+
 bool dotcode_gooddot_confirmx(const struct image *srcimg, struct point *pt16x, int *plen, const bool isblack)
 {
 	struct point pt;
@@ -256,12 +269,11 @@ bool dotcode_gooddot_confirm45(const struct image *srcimg, const struct point *p
 		++r;
 	}
 
-	debugpt = pt;
 	if (!get_dots_edge(imgdata, len, pos, &i, &len, isblack)) {
 		return false;
 	}
 
-	*plen = (len + 8) >> 4;
+	*plen = ((len * 3 >> 1) + 8) >> 4;
 
 	return true;
 }
@@ -313,7 +325,7 @@ bool dotcode_gooddot_confirm135(const struct image *srcimg, const struct point *
 		return false;
 	}
 
-	*plen = (len + 8) >> 4;
+	*plen = ((len * 3 >> 1) + 8) >> 4;
 
 	return true;
 }
@@ -332,30 +344,40 @@ static bool dotcode_judge_width(const unsigned int a, const unsigned int b)
 	if (a <= 4 && b <= 5)
 		return true;
 
-	return (a << 1) / unsigned_diff(a, b) >= 5;
+	return (a << 1) / unsigned_diff(a, b) >= 4;
 }
 
-unsigned int dotcode_detect_point(const struct image *img,
-	struct dotcode_point *pdtp, const unsigned int ndtp)
+int dotcode_edge_search_length(const int ref)
+{
+	int value;
+
+	if (ref >= 50) {
+		value = -1;
+	} else {
+		value = ref << 1;
+		if (value >= 50)
+			value = 49;
+	}
+
+	return value;
+}
+
+int image_find_dot_by_grad(const struct image *img)
 {
 	bool ret;
-	unsigned int i, j, off;
-	unsigned int rfe_cnt;
-	unsigned int dtp_size;
+	unsigned int i, j, rfe_cnt;
 	struct dotcode_point pt;
 	struct point coordinate, dbgcoord;
 	struct point hori_edge_off;
 	struct point hori_edge_start;
 	struct image_raise_fall_edge rfe_hori[500];
 
-	if (img == NULL || pdtp == NULL || ndtp == 0)
+	if (img == NULL)
 		return 0;
 
-	dtp_size = 0;
 	hori_edge_off.x = 1;
 	hori_edge_off.y = 0;
 	hori_edge_start.x = 0;
-	off = 2;
 	for (j = 0; j < img->height; ++j) {
 		hori_edge_start.y = j;
 		rfe_cnt = image_find_raise_fall_edges_by_offset_dotcode(img,
@@ -369,39 +391,51 @@ unsigned int dotcode_detect_point(const struct image *img,
 			coordinate.x = (rfe_hori[i - 1].dpos_256x + ((pt.nw + 1) >> 1) + 16) >> 4;
 			pt.nw = (pt.nw + 128) >> 8;
 			pt.center = coordinate;
-			pt.nh = pt.nw;
 
+			(void)dbgcoord;
 			dbgcoord.x = (coordinate.x + 8) >> 4;
 			dbgcoord.y = (coordinate.y + 8) >> 4;
-			if (j >= 183 && j <= 186)
-				i = i;
-
-			ret = dotcode_gooddot_confirmy(img, &coordinate, &pt.nh, rfe_hori[i - 1].type == IMAGE_RFEDGE_TYPE_FALL);
+			if (j == 177 && dbgcoord.x >= 168 - 5 && dbgcoord.x <= 168 + 5) {
+				hori_edge_off.y = 0;
+			}
+			pt.nh = dotcode_edge_search_length(pt.nw);
+			ret = dotcode_gooddot_confirmy(img, &coordinate, &pt.nh, rfe_hori[i - 1].type != IMAGE_RFEDGE_TYPE_FALL);
 			if (!ret || !dotcode_judge_width(pt.nw, pt.nh))
 				continue;
 
-			pt.n45 = pt.nw + ((pt.nw + 1) >> 1);
-			ret = dotcode_gooddot_confirm45(img, &coordinate, &pt.n45, rfe_hori[i - 1].type == IMAGE_RFEDGE_TYPE_FALL);
-			if (!ret || !dotcode_judge_width(imin(pt.nw, pt.nh), pt.n45))
+			dbgcoord.x = (coordinate.x + 8) >> 4;
+			dbgcoord.y = (coordinate.y + 8) >> 4;
+			pt.nw = dotcode_edge_search_length(pt.nh);
+			ret = dotcode_gooddot_confirmx(img, &coordinate, &pt.nw, rfe_hori[i - 1].type != IMAGE_RFEDGE_TYPE_FALL);
+			if (!ret || !dotcode_judge_width(pt.nh, pt.nw))
 				continue;
 
-			pt.n135 = pt.n45 + ((pt.n45 + 1) >> 1);
-			if (coordinate.x == 4335 && coordinate.y == 2945)
-				i = i;
-			ret = dotcode_gooddot_confirm135(img, &coordinate, &pt.n135, rfe_hori[i - 1].type == IMAGE_RFEDGE_TYPE_FALL);
-			if (!ret || !dotcode_judge_width(pt.nw, pt.n135))
+			dbgcoord.x = (coordinate.x + 8) >> 4;
+			dbgcoord.y = (coordinate.y + 8) >> 4;
+
+			pt.n45 = dotcode_edge_search_length(imax(pt.nw, pt.nh));
+			ret = dotcode_gooddot_confirm45(img, &coordinate, &pt.n45, rfe_hori[i - 1].type != IMAGE_RFEDGE_TYPE_FALL);
+			if (!ret || (!dotcode_judge_width(imax(pt.nw, pt.nh), pt.n45)))
+				continue;
+
+			pt.n135 = dotcode_edge_search_length(imax(pt.nw, pt.nh));
+			ret = dotcode_gooddot_confirm135(img, &coordinate, &pt.n135, rfe_hori[i - 1].type != IMAGE_RFEDGE_TYPE_FALL);
+			if (!ret || !dotcode_judge_width(pt.n45, pt.n135))
 				continue;
 
 			coordinate.x = (coordinate.x + 8) >> 4;
 			coordinate.y = (coordinate.y + 8) >> 4;
 			pt.center = coordinate;
-			if (pt.nw <= 3)
-				continue;
 			ushow_pt(1, pt.center.x, pt.center.y, GREENCOLOR);
 		}
 	}
 
-	dtp_size = 0;
+	return 0;
+}
 
-	return dtp_size;
+unsigned int dotcode_detect_point(const struct image *img,
+	struct dotcode_point *pdtp, const unsigned int ndtp)
+{
+	image_find_dot_by_grad(img);
+	return 0;
 }

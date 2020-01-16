@@ -9,8 +9,9 @@
 
 int main(int argc, char *argv[])
 {
-    int i, j;
+    float j, max;
     int dims[2];
+    unsigned int i;
     struct image *img, *gray;
     kiss_fft_scalar *fft_in;
     kiss_fft_cpx *fft_out;
@@ -28,8 +29,8 @@ int main(int argc, char *argv[])
     if (gray == NULL)
         return -1;
 
-    dims[1] = gray->height;
     dims[0] = gray->width;
+    dims[1] = gray->height;
     fft_in = (kiss_fft_scalar *)KISS_FFT_MALLOC((sizeof(*fft_in) + sizeof(*fft_out)) * gray->size);
     if (fft_in == NULL) {
         image_release(gray);
@@ -39,25 +40,30 @@ int main(int argc, char *argv[])
     fft_out = (kiss_fft_cpx *)(fft_in + gray->size);
     st = kiss_fftndr_alloc(dims, 2, 0, 0, 0);
     if (st == NULL) {
-        free(fft_in);
+        KISS_FFT_FREE(fft_in);
         image_release(gray);
         return -1;
     }
 
     for (i = 0; i < gray->size; ++i)
-        fft_in[i] = ((kiss_fft_scalar)gray->data[i]) / 255;
+        fft_in[i] = (kiss_fft_scalar)gray->data[i];
     kiss_fftndr(st, fft_in, fft_out);
+    kiss_fftndr_free(st);
 
     img = image_create(gray->height, gray->width, IMAGE_FORMAT_GRAY);
     if (img != NULL) {
-        kiss_fftndr_free(st);
-        st = kiss_fftndr_alloc(dims, 2, 1, 0, 0);
-        kiss_fftndri(st, fft_out, fft_in);
+        //st = kiss_fftndr_alloc(dims, 2, 1, 0, 0);
+        //kiss_fftndri(st, fft_out, fft_in);
+        max = 0;
         for (i = 0; i < img->size; ++i) {
-            j = (int)fabsf(fft_in[i]);
-            if (j >= 255)
-                j = 255;
-            img->data[i] = j;
+            j = logf(sqrtf(fft_out[i].r * fft_out[i].r + fft_out[i].i * fft_out[i].i) + 1.0f);
+            fft_out[i].r = j;
+            if (j > max)
+                max = j;
+        }
+        j = 255.0f / max;
+        for (i = 0; i < img->size; ++i) {
+            img->data[i] = fft_out[i].r * j;
         }
         /*
         int off = img->size >> 2;
