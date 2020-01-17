@@ -50,10 +50,11 @@ int get_edgepos_16x(const int *grads, const int len, const int srchpos)
 
 bool get_dots_edge(unsigned char *data, const int len, const int center, int *center_offset, int *w16x, bool isblack)
 {
-	int grads[100], head, tail;
+	int head, tail;
+	int grads[100], diff, last_diff;
 	int i, j, npos, tmp;
-	unsigned char gradabs[100], maxgrad;
 	unsigned char maxgradpos[50];
+	unsigned char gradabs[100], maxgrad;
 
 	for (maxgrad = 0, i = 1, j = 0; i < len; ++i, ++j) {
 		grads[j] = (int)data[i] - (int)data[j];
@@ -88,22 +89,6 @@ bool get_dots_edge(unsigned char *data, const int len, const int center, int *ce
 	if (j < 1) {
 		i = maxgradpos[npos - 2];
 		j = maxgradpos[npos - 1];
-		if (grads[i] * grads[j] >= 0)
-			return false;
-
-		if ((isblack && grads[i] < 0)
-			|| (!isblack && grads[i] > 0))
-			return false;
-
-		head = get_edgepos_16x(grads, len - 1, j);
-		if (((head + 8) >> 4) < center - 2)
-			return false;
-
-		tail = get_edgepos_16x(grads, len - 1, i);
-		if (tail == 0)
-			return false;
-
-		*w16x = head - tail;
 	} else {
 		tmp = j;
 		i = maxgradpos[j - 1];
@@ -122,22 +107,54 @@ bool get_dots_edge(unsigned char *data, const int len, const int center, int *ce
 
 				i = maxgradpos[i];
 			}
+		}
+	}
 
-			if (grads[i] * grads[j] >= 0)
-				return false;
+	if (grads[i] * grads[j] >= 0 || ((isblack && grads[i] < 0) || (!isblack && grads[i] > 0)))
+		return false;
+
+
+	head = get_edgepos_16x(grads, len - 1, i);
+	tail = get_edgepos_16x(grads, len - 1, j);
+	*w16x = tail - head;
+	*center_offset = ((head + tail + 1) >> 1) - (center << 4);
+#if 0
+	head = i;
+	tail = j;
+	last_diff = grads[head] - grads[head - 1];
+	for (i = head - 1; i >= 0; --i) {
+		if (grads[i] * grads[i + 1] <= 0) {
+			head = (i + 1) << 4;
+			break;
 		}
 
-		if ((isblack && grads[i] < 0) || (!isblack && grads[i] > 0))
-			return false;
-
-		head = get_edgepos_16x(grads, len - 1, i);
-		tail = get_edgepos_16x(grads, len - 1, j);
-		if (head == 0 || tail == 0)
-			return false;
-
-		*w16x = tail - head;
+		diff = grads[i + 1] - grads[i];
+		if (last_diff * diff < 0) {
+			head = (i << 4) - (last_diff << 4) / (diff - last_diff);
+			break;
+		}
 	}
-	*center_offset = (i + j - (center << 1)) << 3;
+	if (i < 0)
+		head = 0;
+
+	last_diff = grads[tail + 1] - grads[tail];
+	for (j = len - 1, i = tail + 1; i <= j; ++i) {
+		if (grads[i - 1] * grads[i] <= 0) {
+			tail = (i - 1) << 4;
+			break;
+		}
+
+		diff = grads[i] - grads[i - 1];
+		if (last_diff * diff < 0) {
+			tail = (i << 4) - (last_diff << 4) / (diff - last_diff);
+			break;
+		}
+	}
+	if (i > j)
+		tail = j << 4;
+	*w16x = tail - head;
+	*center_offset = ((head + tail + 1) >> 1) - (center << 4);
+#endif
 
 	return true;
 }
@@ -395,7 +412,7 @@ int image_find_dot_by_grad(const struct image *img)
 			(void)dbgcoord;
 			dbgcoord.x = (coordinate.x + 8) >> 4;
 			dbgcoord.y = (coordinate.y + 8) >> 4;
-			if (j == 177 && dbgcoord.x >= 168 - 5 && dbgcoord.x <= 168 + 5) {
+			if (dbgcoord.y == 102 && dbgcoord.x == 140) {
 				hori_edge_off.y = 0;
 			}
 			pt.isblack = rfe_hori[i - 1].type != IMAGE_RFEDGE_TYPE_FALL;
@@ -404,15 +421,10 @@ int image_find_dot_by_grad(const struct image *img)
 			if (!ret || !dotcode_judge_width(pt.nw, pt.nh))
 				continue;
 
-			dbgcoord.x = (coordinate.x + 8) >> 4;
-			dbgcoord.y = (coordinate.y + 8) >> 4;
 			pt.nw = dotcode_edge_search_length(pt.nh);
 			ret = dotcode_gooddot_confirmx(img, &coordinate, &pt.nw, pt.isblack);
 			if (!ret || !dotcode_judge_width(pt.nh, pt.nw))
 				continue;
-
-			dbgcoord.x = (coordinate.x + 8) >> 4;
-			dbgcoord.y = (coordinate.y + 8) >> 4;
 
 			pt.n45 = dotcode_edge_search_length(imax(pt.nw, pt.nh));
 			ret = dotcode_gooddot_confirm45(img, &coordinate, &pt.n45, pt.isblack);
@@ -424,9 +436,8 @@ int image_find_dot_by_grad(const struct image *img)
 			if (!ret || !dotcode_judge_width(pt.n45, pt.n135))
 				continue;
 
-			coordinate.x = (coordinate.x + 8) >> 4;
-			coordinate.y = (coordinate.y + 8) >> 4;
-			pt.center = coordinate;
+			pt.center.x = (coordinate.x + 8) >> 4;
+			pt.center.y = (coordinate.y + 8) >> 4;
 			if (pt.isblack) {
 				ushow_pt(1, pt.center.x, pt.center.y, REDCOLOR);
 			} else {
