@@ -1,5 +1,6 @@
 ﻿#include <limits.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include <string.h>
 #include "maths.h"
 
@@ -79,7 +80,7 @@ int vector_cross_product3(const struct vector *vec1, const struct vector *vec2,
 float vector_length(const struct vector *vec)
 {
     if (vec->i == 0 || vec->j == 0)
-        return (float)fabs(vec->i + vec->j);
+        return (float)abs(vec->i + vec->j);
 
     return SQRTF((float)vector_dot(vec, vec));
 }
@@ -322,7 +323,7 @@ bool points_in_line(const struct point *a, const struct point *b,
     vec[1].j = c->y - b->y;
     res = vector_tan_pow2(vec, vec + 1, 8);
 
-    return ((int)fabs(res) <= 55);
+    return (abs(res) <= 55);
 }
 
 bool line4p_is_parell(const struct point *ap1, const struct point *ap2,
@@ -335,7 +336,7 @@ bool line4p_is_parell(const struct point *ap1, const struct point *ap2,
     vec[1].i = bp2->x - bp1->x;
     vec[1].j = bp2->y - bp1->y;
 
-    return (fabs(vector_tan_pow2(vec, vec + 1, 2)) >= 1);
+    return (abs(vector_tan_pow2(vec, vec + 1, 2)) >= 1);
 }
 
 bool get_line_dirpos(const struct point *start, const struct point *end, const struct point *base,
@@ -389,8 +390,8 @@ void get_pos_in_pt2pt(const struct point *start, const struct point *end,
 	step = (int)pos;
 	delta.x = end->x - start->x;
 	delta.y = end->y - start->y;
-	delta_abs.x = (int)fabs(delta.x);
-	delta_abs.y = (int)fabs(delta.y);
+	delta_abs.x = abs(delta.x);
+	delta_abs.y = abs(delta.y);
 	if (delta_abs.x >= delta_abs.y) {
 		if (delta.x < 0)
 			step = -step;

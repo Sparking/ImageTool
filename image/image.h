@@ -55,8 +55,8 @@ extern "C" {
 #endif
 
 #define IMAGE_ENABLE_BITMAP
-#define IMAGE_ENABLE_JPEG
-#define IMAGE_ENABLE_PNG
+//#define IMAGE_ENABLE_JPEG
+//#define IMAGE_ENABLE_PNG
 
 /* 图像的格式 */
 enum {

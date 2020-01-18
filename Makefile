@@ -1,7 +1,8 @@
-﻿AR       := ar
-CC       := gcc
-CXX      := g++
-RANLIB   := ranlib
+﻿CROSS_COMPILE := 
+AR       := $(CROSS_COMPILE)ar
+CC       := $(CROSS_COMPILE)gcc
+CXX      := $(CROSS_COMPILE)g++
+RANLIB   := $(CROSS_COMPILE)ranlib
 ARFLAGS  := crs
 CFLAGS   := -g -O0 -ffunction-sections -fdata-sections -fno-strict-aliasing
 CXXFLAGS := -std=c++11 $(CFLAGS)
@@ -154,6 +155,9 @@ $(INIPARSER_LIB): $(INIPARSER_LIB_OBJ)
 	$(call ar_lib,$@,$^)
 $(KISSFFT_LIB): $(KISSFFT_LIB_OBJ)
 	$(call ar_lib,$@,$^)
+
+list:
+	@echo $(COMMON_LIB_SRC) $(IMAGE_LIB_SRC) $(QR_DECODE_LIB_SRC) $(INIPARSER_LIB_SRC) $(KISSFFT_LIB_SRC)
 
 .PHONY: clean
 clean:

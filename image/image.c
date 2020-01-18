@@ -1384,8 +1384,8 @@ int image_canny_enhancing(struct image *img, const int gauss_ksize, const float 
 
             gx = grad_vector[offset].i;
             gy = grad_vector[offset].j;
-            if (fabs(gy) > fabs(gx)) {
-                weight = (float)fabs(gx) / (float)fabs(gy);
+            if (abs(gy) > abs(gx)) {
+                weight = (float)abs(gx) / (float)abs(gy);
                 g[1] = grad_result[offset - img->row_size];
                 g[3] = grad_result[offset + img->row_size];
                 if (gx * gy > 0) {
@@ -1396,7 +1396,7 @@ int image_canny_enhancing(struct image *img, const int gauss_ksize, const float 
                     g[2] = grad_result[offset + img->row_size - 1];
                 }
             } else {
-                weight = (float)fabs(gy) / (float)fabs(gx);
+                weight = (float)abs(gy) / (float)abs(gx);
                 g[1] = grad_result[offset + 1];
                 g[3] = grad_result[offset - 1];
                 if (gx * gy > 0) {
@@ -2143,8 +2143,8 @@ unsigned int image_find_raise_fall_edges_pt2pt(
     gray = *imgdata;
     delta.x = end->x - start->x;
     delta.y = end->y - start->y;
-    delta_abs.x = (int)fabs(delta.x);
-    delta_abs.y = (int)fabs(delta.y);
+    delta_abs.x = abs(delta.x);
+    delta_abs.y = abs(delta.y);
     if (delta_abs.x >= delta_abs.y) {
         step = 1;
         if (delta.x < 0)

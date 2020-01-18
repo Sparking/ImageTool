@@ -663,7 +663,7 @@ static bool dotcode_gooddot_search_line45(const struct image *img, const struct 
     dotcode_line_init(lines);
     minln = NULL;
     do {
-        if (fabs(scan_range[0].x - scan_endpos.x) >= fabs(scan_range[0].y - scan_endpos.y)) {
+        if (abs(scan_range[0].x - scan_endpos.x) >= abs(scan_range[0].y - scan_endpos.y)) {
             scan_endpos.y += scan_off;
         } else {
             scan_endpos.x -= scan_off;
@@ -682,7 +682,7 @@ static bool dotcode_gooddot_search_line45(const struct image *img, const struct 
             continue;
 
         /**直线去重**/
-        if ((int)fabs(last_secpt.x - curpt.center.x) <= 5 && (int)fabs(last_secpt.y - curpt.center.y) <= 5)
+        if (abs(last_secpt.x - curpt.center.x) <= 5 && abs(last_secpt.y - curpt.center.y) <= 5)
             continue;
 
         ndpt = 2;
