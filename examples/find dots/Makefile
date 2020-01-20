@@ -59,7 +59,7 @@ define link_objects
 @$(CXX) $(CFLAGS) $(LDFLAGS) -o $1 $2 $(LIBS)
 endef
 
-$(OUT): ../../libimage.a $(OBJ) $(DLL_LIBS)
+$(OUT): clean ../../libimage.a $(OBJ) $(DLL_LIBS)
 	$(call link_objects,$@,$(OBJ))
 ifeq ($(OS), Windows_NT)
 %.dll: ../../lib/gtk+-bundle_3.6.4-20130513_win64/bin/%.dll
@@ -75,5 +75,6 @@ $(OBJ): $(SRC)
 
 .PHONY: clean
 clean:
+	$(MAKE) -C ../.. clean
 	$(RM) $(OUT)
 	$(RM) $(OBJ)

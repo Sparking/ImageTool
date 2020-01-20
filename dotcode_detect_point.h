@@ -53,6 +53,8 @@ extern unsigned int image_find_raise_fall_edges_by_offset_dotcode(
 	const struct point *setup_off, const unsigned int len,
 	struct image_raise_fall_edge *pedge, const unsigned int num);
 
+extern int image_find_dot_by_grad(const struct image *img);
+
 #ifdef __cplusplus
 }
 #endif
